@@ -3,13 +3,13 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import { BrowerRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 import "semantic-ui-css/semantic.min.css";
 import { Provider } from "mobx-react";
 import CommonStore from "./common/Store";
 
 ReactDOM.render(
-  <BrowerRouter>
+  <BrowserRouter>
     <Provider Store={new CommonStore()}>
       <Route
         path={[
@@ -25,8 +25,7 @@ ReactDOM.render(
         exact={true}
       />
     </Provider>
-  </BrowerRouter>,
-
+  </BrowserRouter>,
   document.getElementById("root")
 );
 

@@ -1,15 +1,14 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
 import HeaderContainer from "./header/container/HeaderContainer";
-import Footer from " ./footer/Footer";
+import Footer from "./footer/Footer";
 import MainContainer from "./main/container/MainContainer";
 import ListContainer from "./list/container/ListContainer";
 import DetailContainer from "./detail/container/DetailContainer";
 import AdminContainer from "./admin/container/AdminContainer";
-import TagContainer from " ./tag/container/TagContainer";
+import TagContainer from "./tag/container/TagContainer";
 import SignUpPage from "./user/view/SignUp";
-import { BrowerRouter as Router, Route, Switch } from "react-router-dom";
+import LoginPage from "./user/view/Login";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 function App() {
   return (
     <>
@@ -22,6 +21,7 @@ function App() {
           <Route path="/detail/:id" component={DetailContainer} exact={true} />
           <Route path="/admin" component={AdminContainer} exact={true} />
           <Route path="/signUp" component={SignUpPage} exact={true} />
+          <Route path="/login" component={LoginPage} exact={true} />
         </Switch>
       </Router>
       <Footer />
