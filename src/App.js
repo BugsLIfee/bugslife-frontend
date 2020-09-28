@@ -1,25 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import HeaderContainer from "./header/container/HeaderContainer";
+import Footer from " ./footer/Footer";
+import MainContainer from "./main/container/MainContainer";
+import ListContainer from "./list/container/ListContainer";
+import DetailContainer from "./detail/container/DetailContainer";
+import AdminContainer from "./admin/container/AdminContainer";
+import TagContainer from " ./tag/container/TagContainer";
+import SignUpPage from "./user/view/SignUp";
+import { BrowerRouter as Router, Route, Switch } from "react-router-dom";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <HeaderContainer />
+      <Router>
+        <Switch>
+          <Route path="/" component={MainContainer} exact={true} />
+          <Route path="/tag" component={TagContainer} exact={true} />
+          <Route path="/list" component={ListContainer} exact={true} />
+          <Route path="/detail/:id" component={DetailContainer} exact={true} />
+          <Route path="/admin" component={AdminContainer} exact={true} />
+          <Route path="/signUp" component={SignUpPage} exact={true} />
+        </Switch>
+      </Router>
+      <Footer />
+    </>
   );
 }
 

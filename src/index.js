@@ -1,19 +1,33 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
-import {BrowerRouter, Route} from "react-router-dom";
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import * as serviceWorker from "./serviceWorker";
+import { BrowerRouter, Route } from "react-router-dom";
 import "semantic-ui-css/semantic.min.css";
-import {Provider} from "mobx-react";
-
-
+import { Provider } from "mobx-react";
+import CommonStore from "./common/Store";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  <BrowerRouter>
+    <Provider Store={new CommonStore()}>
+      <Route
+        path={[
+          "/",
+          "/list",
+          "/detail",
+          "/admin",
+          "/user:menu",
+          "/login",
+          "/signUp",
+        ]}
+        component={App}
+        exact={true}
+      />
+    </Provider>
+  </BrowerRouter>,
+
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change
