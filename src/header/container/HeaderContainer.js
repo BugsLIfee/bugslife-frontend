@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-
+import Header from "../view/Header";
 
 class HeaderContainer extends Component {
     render() {
         return (
-         <div class="header">
-             header
-         </div>
+         
+         <Header/>
+         
 
         );
     }

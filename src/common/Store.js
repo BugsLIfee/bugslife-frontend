@@ -9,5 +9,6 @@ export default class Store {
     this.list = new ListStore(this);
     this.detail = new DetailStore(this);
     this.admin = new AdminStore(this);
+    
   }
 }
