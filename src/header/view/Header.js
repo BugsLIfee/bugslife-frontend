@@ -21,6 +21,7 @@ class Header extends Component {
       <div>
         <div style={{ width: "100%" }}>
           <div className="headerMain" style={headerMain}>
+              세팅테스트
             <Image src="../logo/logobug.png" style={headerLogo} href="/" />
           </div>
         </div>
