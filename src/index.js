@@ -16,8 +16,8 @@ ReactDOM.render(
           "/",
           "/list",
           "/detail",
-          "/admin",
-          "/user:menu",
+          "/admin/:menu",
+          "/user/:menu",
           "/login",
           "/signUp",
         ]}
