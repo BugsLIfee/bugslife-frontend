@@ -1,28 +1,25 @@
 import React, { Component } from "react";
 import { Image } from "semantic-ui-react";
 import { inject } from "mobx-react";
+import Nav from "./ Nav";
+import "./scss/header.scss";
 
-const headerLogo = {
-  width: "200px",
-  height: "70px",
-  marginLeft: "-8px",
-};
-
-const headerMain = {
-  display: "flex",
-  justifyContent: "start",
-  alignItems: "center",
-  height: "80px",
-  border: "1px solid black",
-};
 class Header extends Component {
   render() {
     return (
       <div>
-        <div style={{ width: "100%" }}>
-          <div className="headerMain" style={headerMain}>
-              세팅테스트
-            <Image src="../logo/logobug.png" style={headerLogo} href="/" />
+        <div className="container">
+          <div className="headerMain">
+            <img
+              className="logo"
+              src="../logo/logo_st.png"
+              href="/"
+              width="50px"
+            />
+            <h1>BUGS LIFE</h1>
+          </div>
+          <div className="nav">
+            <Nav />
           </div>
         </div>
       </div>

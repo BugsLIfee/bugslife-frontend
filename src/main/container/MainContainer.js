@@ -1,13 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import MaintopView from "../view/MainTopView";
 
 class MainContainer extends Component {
-    render() {
-        return (
-            <div>
-                mainpage
-            </div>
-        );
-    }
+  render() {
+    return <MaintopView />;
+  }
 }
 
 export default MainContainer;
