@@ -1,0 +1,10 @@
+nav {
+  display: inline-flex;
+  width: 600px;
+  flex-direction: row;
+  div {
+    padding: 1rem;
+    display: inline-flex;
+    flex-direction: row;
+  }
+}
