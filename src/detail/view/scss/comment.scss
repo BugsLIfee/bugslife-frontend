@@ -1,0 +1,25 @@
+.comment{
+    background-color: #2fcccc;
+
+    a:hover{text-decoration: none; color:black;}
+    a:link{text-decoration: none; color:black;}
+    a:visited{text-decoration: none; color:black;}
+
+}
+
+.comment_info {
+    font-size: 1.3rem;
+    font-weight: bold;;
+}
+
+.comment_date {
+    color: #a2a2a2;
+    padding-left: 10px;
+    font-weight: normal;
+    font-size: 1.2rem;
+}
+
+.comment_body {
+    margin: 20px 0px 10px 10px;
+    font-size: 1.3rem;
+}

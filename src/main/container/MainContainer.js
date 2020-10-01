@@ -3,7 +3,11 @@ import MaintopView from "../view/MainTopView";
 
 class MainContainer extends Component {
   render() {
-    return <MaintopView />;
+    return(
+      <div>
+        <MaintopView />
+      </div>
+    ) 
   }
 }
 
