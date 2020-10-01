@@ -1,0 +1,26 @@
+.addAnswerContainer {
+    margin: 30px auto 100px;
+    width: 980px;
+    // height: 300px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border: 1px dotted #616161;
+    border-radius: 15px;
+}
+
+.addAnswerText {
+    color: #616161;
+    text-align: center;
+    // padding-top: ;
+    font-size: 1.5rem;
+    p {
+        font-size: 3rem;
+    }
+}
+
+.plus_bt{
+    font-size: 4rem;
+    text-align: center;
+    margin-top: 20px;
+    color: #45c5db;
+}

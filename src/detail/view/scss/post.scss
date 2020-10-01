@@ -1,0 +1,155 @@
+.post {
+    width: 980px;
+    margin: 20px auto;
+    border: 1px solid #e2e2e2;
+    border-radius: 10px;
+}
+
+.question {
+    margin-top: 100px;
+}
+
+.post_header {
+    width: 100%;
+    height: fit-content;
+    // background-color: #9de8ff !important;
+    padding: 15px;
+    
+    .post_meta {
+        float: left;
+        width: 100%;
+        .question_title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            padding-left: 15px;
+            
+            .question_mark {
+                color : #45c5db;
+                font-size: 4rem;
+            }
+
+        }
+    }
+    .answer_mark {
+        color : #45c5db;
+        font-size: 4rem;
+        float: left;
+        padding-right: 10px;
+    }
+    
+    .question_info {
+        font-size: 1.3rem;
+        color: #9b9b9b;
+        padding-left: 80px;
+        
+        .report {
+            a:hover {text-decoration: none; color: #9b9b9b; }
+            a:visited {text-decoration: none; color: #9b9b9b;}
+            a:link {text-decoration: none; color: #9b9b9b; }
+        }
+        
+        .upload_date {
+            float: left;
+        }
+        
+        .views {
+            float: left;
+        }
+    }
+    
+    .question_status {
+        float: right;    
+        .question_status_img {
+            height: 150px;
+            width: auto;
+        }
+    }
+}
+
+.post_body {
+    width: 100%;
+    height: fit-content;
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    padding: 30px 15px 30px 15px;
+}
+
+.hash_tags {
+    font-size: 1.8rem;
+    padding: 15px;
+}
+
+
+
+.writer_info {
+    height: 70px;
+    margin: 10px;
+    width: 100%;
+    overflow: hidden;
+    .writer_icon {
+        height: 90%;
+        width: auto;
+        float: left;
+        margin: 0;
+    }
+    .writer_info_text {
+        margin:14px;
+        height: 100%;
+        color: #616161;
+        .writer_id {
+            font-size: 1.4rem;
+        }
+        .writer_level {
+            font-size: 1.3rem;
+        }
+    }
+}
+
+.post_info {
+    font-size: 1.3rem;
+    color: #9b9b9b;
+    padding-left: 80px;
+    overflow: hidden;
+    
+    .report {
+        a:hover {text-decoration: none; color: #9b9b9b; }
+        a:visited {text-decoration: none; color: #9b9b9b;}
+        a:link {text-decoration: none; color: #9b9b9b; }
+        float: left;
+    }
+    
+    .upload_date {
+        float: left;
+    }
+    
+    .views {
+        float: left;
+    }
+
+}
+.like_question {
+    text-align: right;
+    font-size: 3rem;
+}
+
+.post_footer {
+    width: 100%;
+    height: fit-content;
+    line-height: 40px;
+    font-size: 1.5rem;
+    background-color: #F0FEFE !important;
+    border-radius: 10px;
+}
+
+.selected {
+    width : 60px;
+    height: auto;
+    margin: 0;
+}
+
+.input_comment {
+    font-size: 3rem;
+}
+
+.comment_bt {
+}
