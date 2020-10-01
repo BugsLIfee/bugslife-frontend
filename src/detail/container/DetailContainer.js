@@ -15,14 +15,16 @@ class DetailContainer extends Component {
         const searchObj = qs.parse(this.props.location.search, {
             ignoreQueryPrefix: true,
         });
-            //const  id  = this.props.match.params.id;
+        
+        const login = searchObj.login;
+
         const { detail } = this.props.Store;
 
         return (
             <div>
-                <QuestionView question={detail._question} />
-                <AnswerListView answers={detail._answers} />
-                <AddAnswerView />
+                <QuestionView question={detail._question} login={login} />
+                <AnswerListView answers={detail._answers} login={login} />
+                <AddAnswerView login={login} />
             </div>
         );
     }

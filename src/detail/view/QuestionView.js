@@ -8,6 +8,7 @@ export default class QuestionView extends Component {
     render() {
 
         const { question } = this.props;
+        const { login } = this.props;
 
         const tags = question.tags.map(tag => {
             return (
@@ -56,13 +57,15 @@ export default class QuestionView extends Component {
                         <CommentListView comments = {question.comments} />
                     </Card.Body>
                     <Card.Footer className="text-muted text-center post_footer">
-                        {/* 댓글을 남기려면 <a href="#" >로그인</a> 해주세요. */}
-                        <InputGroup size="lg" className="input_comment">
-                            <FormControl as="textarea" aria-label="With textarea Large" placeholder="댓글을 입력해주세요." />
-                                <InputGroup.Append>
-                                    <Button variant="outline-secondary" class="comment_bt">등록</Button>
-                                </InputGroup.Append>
-                        </InputGroup>
+                        { login === "false" && <p>댓글을 남기려면 <a href="#" >로그인</a> 해주세요.</p> }
+                        { login === "true" &&
+                            <InputGroup size="lg" className="input_comment">
+                                <FormControl as="textarea" aria-label="With textarea Large" placeholder="댓글을 입력해주세요." />
+                                    <InputGroup.Append>
+                                        <Button variant="outline-secondary" class="comment_bt">등록</Button>
+                                    </InputGroup.Append>
+                            </InputGroup>
+                        }
                     </Card.Footer>
                 </Card>
             </div>
