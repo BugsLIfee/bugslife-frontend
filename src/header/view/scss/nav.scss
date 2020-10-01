@@ -9,10 +9,21 @@ nav {
   }
 
   h4 {
+    // font-family: "Courier New", Courier, monospace;
+    font-size: 15px;
     color: rgb(105, 105, 105);
   }
+  a {
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+
   h4:hover {
     color: black;
     transition: 0.3s;
+    text-decoration: none;
+    font-weight: bolder;
   }
 }
