@@ -1,26 +1,68 @@
 .headerMain {
   display: inline-flex;
   flex-direction: row;
+  // height: 100px;
+  align-items: center;
 
-  h1 {
+  .h_title_top {
     font-family: "Courier New", Courier, monospace;
     font-size: 2.5rem;
     font-weight: bolder;
+    margin: 0;
+    padding: 0;
+  }
+
+  .logo_top {
+    margin: 1rem;
+    width: 50px;
+    height: 50px;
   }
 }
 
-img {
-  margin: 1rem;
-}
-
-.container {
+.h_container_top {
+  position: fixed;
+  background-color: white;
+  top: 0;
+  height: 120px;
   display: inline-flex;
+  overflow: hidden;
   width: 100%;
+  z-index: 999999;
   flex-direction: row;
   justify-content: space-between;
+  // box-shadow: 9px 2px 9px 0px rgba(136, 136, 136, 1);
+}
+
+.h_container_down {
+  position: fixed;
+  background-color: white;
+  top: 0;
+  height: 80px;
+  display: inline-flex;
+  overflow: hidden;
+  width: 100%;
+  z-index: 999999;
+  flex-direction: row;
+  justify-content: space-between;
+  box-shadow: 9px 2px 9px 0px rgba(136, 136, 136, 1);
+}
+
+.h_title_down {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.8rem;
+  font-weight: bolder;
+  margin: 0;
+  padding: 0;
+}
+
+.logo_down {
+  margin: 1rem;
+  width: 40px;
+  height: 40px;
 }
 
 .nav {
   width: 500px;
+  z-index: 9999999;
   align-self: center;
 }

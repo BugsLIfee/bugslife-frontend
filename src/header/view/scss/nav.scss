@@ -7,4 +7,12 @@ nav {
     display: inline-flex;
     flex-direction: row;
   }
+
+  h4 {
+    color: rgb(105, 105, 105);
+  }
+  h4:hover {
+    color: black;
+    transition: 0.3s;
+  }
 }

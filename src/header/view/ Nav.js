@@ -1,15 +1,49 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./scss/nav.scss";
 
 export default class Nav extends Component {
   render() {
     return (
       <nav>
-        <div>HOME</div>
-        <div>로그인</div>
-        <div>Menu Sample</div>
-        <div>Menu Sample2</div>
-        <div>마이페이지</div>
+        <div>
+          <a href="/">
+            {" "}
+            <h4>HOME</h4>
+          </a>{" "}
+        </div>
+        <div>
+          <a href="/login">
+            {" "}
+            <h4>로그인</h4>
+          </a>
+        </div>
+        <div>
+          <a href="/signUp">
+            {" "}
+            <h4>회원가입</h4>
+          </a>
+        </div>
+        <div>
+          <a href="/list">
+            {" "}
+            <h4>질문글</h4>
+          </a>
+        </div>
+
+        <div>
+          {" "}
+          <a href="/myPage">
+            <h4>마이페이지</h4>
+          </a>
+        </div>
+
+        <div>
+          <a href="/admin/:menu">
+            {" "}
+            <h4>Admin</h4>
+          </a>
+        </div>
       </nav>
     );
   }
