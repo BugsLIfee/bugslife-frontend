@@ -21,6 +21,7 @@ ReactDOM.render(
           "/user/:menu",
           "/login",
           "/signUp",
+          "/myPage",
         ]}
         component={App}
         exact={true}
