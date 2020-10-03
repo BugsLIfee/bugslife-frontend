@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Card, Badge, InputGroup, FormControl, Button} from "react-bootstrap";
 import "./scss/post.scss"
 import CommentListView from "./CommentListView";
+import marked from "marked";
 
 export default class QuestionView extends Component {
 
@@ -9,6 +10,11 @@ export default class QuestionView extends Component {
 
         const { question } = this.props;
         const { login } = this.props;
+        const md_text = marked( question.body );
+
+        const createMarkup = function() {
+            return { __html: md_text};
+        }
 
         const tags = question.tags.map(tag => {
             return (
@@ -48,7 +54,8 @@ export default class QuestionView extends Component {
                     {/* <div class="like_question"> <a href="#"><i class="fas fa-bookmark"></i></a> </div> */}
                     <Card.Body>
                         <Card.Text class="post_body">
-                            {question.body}
+                            { question.md==="false" && question.body}
+                            { question.md==="true" && <div dangerouslySetInnerHTML = {createMarkup()} />}
                         </Card.Text>
                         <div className="hash_tags">
                             {tags}
