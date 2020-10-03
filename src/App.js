@@ -10,6 +10,7 @@ import SignUpPage from "./user/view/SignUp";
 import LoginPage from "./user/view/Login";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Mypage from "./user/view/MyPage";
+import ContactContainer from "./contact/container/ContactContainer";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/signUp" component={SignUpPage} exact={true} />
           <Route path="/login" component={LoginPage} exact={true} />
           <Route path="/myPage" component={Mypage} exact={true} />
+          <Route path="/contact/:menu" component={ContactContainer} exact={true} />
         </Switch>
       </Router>
       <Footer />

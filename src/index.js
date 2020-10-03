@@ -18,6 +18,7 @@ ReactDOM.render(
           "/list",
           "/detail",
           "/admin/:menu",
+          "/contact/:menu",
           "/user/:menu",
           "/login",
           "/signUp",
