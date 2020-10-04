@@ -4,7 +4,7 @@ import "./scss/back.scss";
 export default class BackgroundView extends Component {
   render() {
     return (
-      <div className="back_containter">
+      <div className="MainTopView_background_containter">
         <img className="back red_circle" src="../main/red_circle.png"></img>
         <img
           className="back rotate black_long"
