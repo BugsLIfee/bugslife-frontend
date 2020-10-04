@@ -1,3 +1,7 @@
+.header_place {
+  height: 9rem;
+}
+
 .headerMain {
   display: inline-flex;
   flex-direction: row;
@@ -20,14 +24,14 @@
 }
 
 .h_container_top {
- // position: fixed;
+  position: fixed;
   background-color: white;
   top: 0;
   height: 120px;
   display: inline-flex;
   overflow: hidden;
   width: 100%;
-  z-index: 999999;
+  z-index: 99999999;
   flex-direction: row;
   justify-content: space-between;
   // box-shadow: 9px 2px 9px 0px rgba(136, 136, 136, 1);
