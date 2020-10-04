@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Grid } from "semantic-ui-react";
 import MemberMngContainer from "./MemberMngContainer";
-import BoardMngContainer from "../../contact/container/BoardMngContainer";
+import BoardMngContainer from "./BoardMngContainer";
 import QnaMngContainer from "../../contact/container/QnaMngContainer";
 import InfoMngContainer from "../../contact/container/InfoMngContainer";
 
