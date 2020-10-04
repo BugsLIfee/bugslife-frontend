@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Card, Badge, InputGroup, FormControl, Button} from "react-bootstrap";
-import "./scss/post.scss"
-import CommentListView from "./CommentListView";
+import "../scss/post.scss"
+import CommentListView from "../comment/CommentListView";
 import marked from "marked";
 
 export default class QuestionView extends Component {
@@ -55,11 +55,11 @@ export default class QuestionView extends Component {
                                 </div>
                                 <div className="detail_points">
                                     <div className="point">
-                                        {question.point}
+                                        {question.point}P
                                     </div>
-                                    <div className="detail_points_img">
+                                    {/* <div className="detail_points_img">
                                         <img src="../detail/jelly.png" />
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>

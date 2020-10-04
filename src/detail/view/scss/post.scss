@@ -44,7 +44,9 @@
     // background-color: #9de8ff !important;
     background-color: white !important;
     padding: 15px;
-    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     .post_meta {
         float: left;
         width: 100%;
@@ -57,7 +59,6 @@
                 color : #45c5db;
                 font-size: 4rem;
             }
-
         }
     }
     .answer_mark {

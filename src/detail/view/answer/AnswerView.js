@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Card, InputGroup, Button, FormControl} from "react-bootstrap";
-import "./scss/post.scss"
-import CommentListView from "./CommentListView";
+import "../scss/post.scss"
+import CommentListView from "../comment/CommentListView";
+import LikesButtonView from "../LikesButtonView";
 
 
 export default class AnswerView extends Component {
@@ -28,8 +29,8 @@ export default class AnswerView extends Component {
                                     <div class="report"> <a href="#"> <i class="fas fa-ban"></i> 신고 </a> </div>
                             </div>
                         </div>
+                        <LikesButtonView likes={answer.likes} />
                     </Card.Header>
-                    <hr />
                     <Card.Body>
                         <Card.Text class="post_body">
                             { answer.body }

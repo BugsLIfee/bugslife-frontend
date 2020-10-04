@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Card } from "react-bootstrap";
-import "./scss/comment.scss"
-// import "./scss/post.scss"
+import "../scss/comment.scss"
 
 
 export default class CommentView extends Component {

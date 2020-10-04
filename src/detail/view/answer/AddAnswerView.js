@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import { Card} from "react-bootstrap";
-import "./scss/addAnswer.scss"
+import "../scss/addAnswer.scss"
 
 
-export default class AnswerView extends Component {
+export default class AddAnswerView extends Component {
 
     render() {
+
+        const {onInsertForm} = this.props;
 
         return(
             <div className="addAnswerContainer">
@@ -13,7 +14,7 @@ export default class AnswerView extends Component {
                     <p>답변을 작성해주세요!</p>
                     클릭하시면 답변 작성 칸이 생성됩니다.
                     <br />
-                    <a href="#"> <i class="fas fa-plus-square plus_bt"></i> </a>
+                    <div onClick={() => { onInsertForm() }}> <i class="fas fa-plus-square plus_bt"></i> </div>
                 </div>
             </div>
         )
