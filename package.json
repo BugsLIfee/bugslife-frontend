@@ -5,6 +5,8 @@
   "proxy": "http://localhost:8088",
   "dependencies": {
     "@babel/core": "7.9.0",
+    "@ckeditor/ckeditor5-build-classic": "^23.0.0",
+    "@ckeditor/ckeditor5-react": "^2.1.0",
     "@svgr/webpack": "4.3.3",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -40,6 +42,7 @@
     "jest-environment-jsdom-fourteen": "1.0.1",
     "jest-resolve": "24.9.0",
     "jest-watch-typeahead": "0.4.2",
+    "marked": "^1.2.0",
     "mini-css-extract-plugin": "0.9.0",
     "mobx": "^5.15.7",
     "mobx-react": "^6.3.0",
