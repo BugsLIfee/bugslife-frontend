@@ -3,7 +3,7 @@ import Header from "../view/Header";
 
 class HeaderContainer extends Component {
   render() {
-    return <Header />;
+    return <Header/>;
   }
 }
 

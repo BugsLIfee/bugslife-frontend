@@ -23,10 +23,10 @@ function App() {
           <Route path="/tag" component={TagContainer} exact={true} />
           <Route path="/list" component={ListContainer} exact={true} />
           <Route path="/detail" component={DetailContainer} exact={true} />
-          <Route path="/admin/:menu" component={AdminContainer} exact={true} />
+          <Route path="/admin/:menu" component={AdminContainer}  />
           <Route path="/signUp" component={SignUpPage} exact={true} />
           <Route path="/login" component={LoginPage} exact={true} />
-          <Route path="/contact/:menu" component={ContactContainer} exact={true} />
+          <Route path="/contact/:menu" component={ContactContainer}  />
           <Route path="/mypage" component={Mypagecontainer} exact={true} />
           <Route path="/mypage/posts" component={MypagePost} exact={true} />
         </Switch>
