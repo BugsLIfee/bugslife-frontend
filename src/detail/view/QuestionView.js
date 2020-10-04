@@ -11,6 +11,7 @@ export default class QuestionView extends Component {
         const { question } = this.props;
         const { login } = this.props;
         const md_text = marked( question.body );
+        let question_like_clicked = true;
 
         const createMarkup = function() {
             return { __html: md_text};
@@ -36,22 +37,43 @@ export default class QuestionView extends Component {
                                 <i class="fab fa-quora question_mark"></i> 
                                 {' ' + question.title}
                             </div>
-                            <div class="writer_info"> 
-                                <img src="../logo/logo_st.png" class="writer_icon" /> 
-                                <div class="writer_info_text">
-                                    <div class="writer_id">{question.writer_id}</div>
-                                    <div class="writer_level">{question.writer_lv} </div>
+                            
+                            <div className="detail_post_subtitle">
+                                <div>
+                                    <div class="writer_info"> 
+                                        <img src="../logo/logo_st.png" class="writer_icon" /> 
+                                        <div class="writer_info_text">
+                                            <div class="writer_id">{question.writer_id}</div>
+                                            <div class="writer_level">{question.writer_lv} </div>
+                                        </div>
+                                    </div>
+                                    <div className="post_info">
+                                            <div class="upload_date"> {question.date} &nbsp; | &nbsp; </div>
+                                            <div class="views"> 조회수 {question.views}  &nbsp; | &nbsp; </div>
+                                            <div class="report"> <a href="#"> <i class="fas fa-ban"></i> 신고 </a> </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="post_info">
-                                    <div class="upload_date"> {question.date} &nbsp; | &nbsp; </div>
-                                    <div class="views"> 조회수 {question.views}  &nbsp; | &nbsp; </div>
-                                    <div class="report"> <a href="#"> <i class="fas fa-ban"></i> 신고 </a> </div>
+                                <div className="detail_points">
+                                    <div className="point">
+                                        {question.point}
+                                    </div>
+                                    <div className="detail_points_img">
+                                        <img src="../detail/jelly.png" />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </Card.Header>
                     <hr />
                     {/* <div class="like_question"> <a href="#"><i class="fas fa-bookmark"></i></a> </div> */}
+                    <div className="detail_question_likes">
+                        <div>
+                            <p>{question.likes}</p>
+                            <div>나도 궁금해요!</div>
+                        </div>
+                        {question_like_clicked && <img src="../detail/bookmark.png" />}
+                        {!question_like_clicked && <img src="../detail/empty_bookmark.png" />}
+                    </div>
                     <Card.Body>
                         <Card.Text class="post_body">
                             { question.md==="false" && question.body}

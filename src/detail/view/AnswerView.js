@@ -13,8 +13,7 @@ export default class AnswerView extends Component {
         return(
             <div class="answer post">
                 <Card>
-                    {/* <img src="../detail/crown.png" class="selected" /> */}
-                    <Card.Header class="post_header">
+                    <Card.Header className="post_header">
                         <div class="post_meta">
                             <div class="writer_info"> 
                                 <i class="fas fa-font answer_mark"></i>
