@@ -14,6 +14,7 @@ class DetailContainer extends Component {
     constructor(props){
         super(props)
         this.state = {
+            question_like : false,
             insertForm : false
         }
     }
@@ -25,18 +26,21 @@ class DetailContainer extends Component {
         });
 
         const onInsertForm = () => {
-            console.log({insertForm});
             this.setState({insertForm : !insertForm});
+        }
+
+        const onQuestionLike = () => {
+            this.setState({question_like : !question_like});
         }
         
         const login = searchObj.login;
         const { detail } = this.props.Store;
-        const {insertForm} = this.state;
+        const {insertForm, question_like} = this.state;
 
         return (
             <div>
-                <QuestionView question={detail._question} login={login} />
-                <AnswerListView answers={detail._answers} login={login} insertForm={insertForm} onInsertForm = {onInsertForm}/>
+                <QuestionView question={detail._question} login={login} question_like={question_like} onQuestionLike = {onQuestionLike} />
+                <AnswerListView answers={detail._answers} login={login} insertForm={insertForm} onInsertForm = {onInsertForm} />
             </div>
         );
     }

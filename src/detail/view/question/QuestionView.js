@@ -8,10 +8,8 @@ export default class QuestionView extends Component {
 
     render() {
 
-        const { question } = this.props;
-        const { login } = this.props;
+        const { question, login, question_like, onQuestionLike } = this.props;
         const md_text = marked( question.body );
-        let question_like_clicked = true;
 
         const createMarkup = function() {
             return { __html: md_text};
@@ -65,14 +63,13 @@ export default class QuestionView extends Component {
                         </div>
                     </Card.Header>
                     <hr />
-                    {/* <div class="like_question"> <a href="#"><i class="fas fa-bookmark"></i></a> </div> */}
                     <div className="detail_question_likes">
                         <div>
                             <p>{question.likes}</p>
                             <div>나도 궁금해요!</div>
                         </div>
-                        {question_like_clicked && <img src="../detail/bookmark.png" />}
-                        {!question_like_clicked && <img src="../detail/empty_bookmark.png" />}
+                            {!question_like && <img src="../detail/empty_bookmark.png" onClick={() => { onQuestionLike() }} />}
+                            {question_like && <img src="../detail/bookmark.png" onClick={() => {onQuestionLike()}} />}
                     </div>
                     <Card.Body>
                         <Card.Text class="post_body">

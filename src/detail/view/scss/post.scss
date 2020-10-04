@@ -33,6 +33,7 @@
         .point {
             color: #3586f1;
             font-size: 4rem;
+            margin-right: 10px;
         }
     }
 
@@ -99,10 +100,11 @@
 
 .detail_question_likes {
     display: flex;
+    margin-right: 20px;
     justify-content: flex-end;
     color: #a2a2a2;
     font-size: 1.3rem;
-    height: 10px;
+    height: 60px;
     overflow: visible;
     img {
         height: 80px;
@@ -124,7 +126,7 @@
     height: fit-content;
     font-size: 1.5rem;
     line-height: 2.5rem;
-    padding: 30px 15px 30px 15px;
+    padding: 10px 15px 30px 15px;
 
 }
 

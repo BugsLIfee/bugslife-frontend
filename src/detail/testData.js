@@ -9,7 +9,16 @@ const testData = {
         writer_lv : "level 6. 알록달록 코뎅이",
         date : "2020.01.30",
         views : "31",   
-        body : "# HELLO \n ## 이것은 마크다운 \n **입니다.**", 
+        body : "# HELLO \n ## 이것은 마크다운 \n **입니다.** \
+                \n ```cpp\
+                \n #include <iostream>\
+                \n \
+                \n using namespace std;\
+                \n \
+                \n int main() {\
+                \n  cout << \"Hello world!\"; \
+                \n}\
+                \n```", 
         // body: "안녕하세요! \
         // //         저는 프로그래밍 + 디자인 융합된 전공을 공부하고 있는 대학교 2학년생입니다. (현재는 휴학중입니다) \
         // //         아직 할 수 있는 것은 프론트엔드밖에 없지만, 휴학하는 1년동안 지인들이 간단한 사이트를 만들어 달라고 하면 만들 수 있을 정도의 수준을 목표로 공부하고 있습니다. \
