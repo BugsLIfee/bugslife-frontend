@@ -9,7 +9,9 @@ import TagContainer from "./tag/container/TagContainer";
 import SignUpPage from "./user/view/SignUp";
 import LoginPage from "./user/view/Login";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Mypage from "./user/view/MyPage";
+import ContactContainer from "./contact/container/ContactContainer";
+import MypagePost from "./mypage/view/MyPage_Post";
+import Mypagecontainer from "./mypage/container/MyPageContainer";
 
 function App() {
   return (
@@ -21,10 +23,12 @@ function App() {
           <Route path="/tag" component={TagContainer} exact={true} />
           <Route path="/list" component={ListContainer} exact={true} />
           <Route path="/detail" component={DetailContainer} exact={true} />
-          <Route path="/admin/:menu" component={AdminContainer} exact={true} />
+          <Route path="/admin/:menu" component={AdminContainer}  />
           <Route path="/signUp" component={SignUpPage} exact={true} />
           <Route path="/login" component={LoginPage} exact={true} />
-          <Route path="/myPage" component={Mypage} exact={true} />
+          <Route path="/contact/:menu" component={ContactContainer}  />
+          <Route path="/mypage" component={Mypagecontainer} exact={true} />
+          <Route path="/mypage/posts" component={MypagePost} exact={true} />
         </Switch>
       </Router>
       <Footer />

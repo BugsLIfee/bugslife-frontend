@@ -39,9 +39,16 @@ export default class Nav extends Component {
         </div>
 
         <div>
-          <a href="/admin/:menu">
+          <a href="/admin/member">
             {" "}
-            <h4>Admin</h4>
+            <h4>ADMIN</h4>
+          </a>
+        </div>
+
+        <div>
+          <a href="/contact/my">
+            {" "}
+            <h4>CONTACT</h4>
           </a>
         </div>
       </nav>

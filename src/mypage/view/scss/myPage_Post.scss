@@ -1,0 +1,73 @@
+.MyPage_post_container {
+  position: relative;
+  margin: 0 auto;
+  //   padding-top: 10%;
+  //   padding-left: 10%;
+  height: 100vh;
+}
+
+.MyPage_post_ {
+  width: 90%;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.MyPage_post_column {
+  width: 43%;
+  border-radius: 10px;
+  border: 1px solid lightgray;
+  padding-bottom: 1rem;
+
+  .MyPage_post_title {
+    text-align: center;
+    padding: 1rem;
+    color: white;
+    background-color: black;
+    border-radius: 10px 10px 0 0;
+    font-size: 1.3rem;
+    font-weight: border;
+    margin-bottom: 2rem;
+  }
+}
+
+.MyPage_post_comment {
+  .ui.inverted.segment,
+  .ui.primary.inverted.segment {
+    // background-color: rgb(143, 143, 143);
+    margin: 5px;
+  }
+
+  .MyPage_comment_date {
+    position: absolute;
+    bottom: 5px;
+    font-size: 12px;
+  }
+}
+
+.MyPage_post_post {
+  position: relative;
+  .ui.inverted.segment,
+  .ui.primary.inverted.segment {
+    background-color: rgb(182, 58, 1);
+    height: 8rem;
+    margin: 5px;
+
+    .MyPage_post_action {
+      position: absolute;
+      bottom: 1.8rem;
+    }
+
+    .MyPage_detail_post_icon {
+      position: absolute;
+      right: 5px;
+      bottom: 10px;
+    }
+  }
+
+  .MyPage_post_date {
+    position: absolute;
+    font-size: 12px;
+    bottom: 5px;
+  }
+}

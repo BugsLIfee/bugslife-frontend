@@ -1,0 +1,224 @@
+.MyPage_container {
+  position: relative;
+  margin: 0 auto;
+  padding-top: 10%;
+  //   width: 1-;
+
+  h1 {
+    text-align: right;
+    padding-right: 3rem;
+  }
+
+  #coin {
+    font-size: 2rem;
+    width: 100%;
+    padding-bottom: 5px;
+  }
+}
+
+.MyPage_curr {
+  position: relative;
+  left: 10%;
+}
+
+.MyPage_content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 3rem;
+}
+.MyPage_profile {
+  display: flex;
+  margin: 2rem auto;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
+  padding: 2rem;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  align-items: center;
+  #MyPage_profile_icon {
+    font-size: 5rem;
+    color: orange;
+  }
+
+  span {
+    display: inline-flex;
+    flex-direction: row;
+    padding-top: 0.7rem;
+  }
+  .MyPage_coin {
+    #MyPage_coin_icon {
+      font-size: 1.2rem;
+      //   padding-top: 5px;
+      padding-right: 5px;
+    }
+    h3 {
+      font-size: 1.2rem;
+    }
+  }
+
+  .MyPage_level {
+    #MyPage_level_icon {
+      font-size: 1.2rem;
+      padding-top: 5px;
+      padding-right: 5px;
+      color: olivedrab;
+    }
+    h3 {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.MyPage_action {
+  width: 87%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 2rem;
+  margin-bottom: 7rem;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding-bottom: 2rem;
+
+  h1 {
+    text-align: center;
+    padding: 1rem;
+    display: inline;
+    color: white;
+    background-color: black;
+    border-radius: 10px 10px 0 0;
+    font-size: 1.3rem;
+    font-weight: border;
+    margin-bottom: 3rem;
+  }
+
+  .MyPage_action_detail {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    .action_detail_column {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      h3 {
+        font-size: 1.3rem;
+        padding-bottom: 6px;
+      }
+
+      .att_rate {
+        color: green;
+      }
+      .post_rate {
+        color: orange;
+      }
+
+      .like_rate {
+        color: crimson;
+      }
+
+      .point_rate {
+        color: black;
+      }
+    }
+  }
+}
+
+.MyPage_detail_title {
+  width: 87%;
+  padding-right: 3rem;
+  background: black;
+  margin-top: 2rem;
+  margin-left: 2rem;
+  margin-bottom: 3rem;
+  border-radius: 10px 10px 0 0;
+  h3 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: white;
+    padding: 0.7rem;
+  }
+}
+.MyPage_detail {
+  width: 95%;
+  padding-right: 3rem;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding-bottom: 5rem;
+
+  .MyPage_detail_column {
+    position: relative;
+    padding: 1rem;
+    width: 28%;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+
+    #MyPage_detail_icon {
+      position: absolute;
+      right: 15px;
+      text-align: right;
+    }
+
+    .column_title {
+      text-align: center;
+      padding: 0.5rem;
+      font-size: 1.5rem;
+      font-weight: bolder;
+    }
+  }
+}
+
+.MyPage_detail_post_icon {
+  text-align: right;
+  a {
+    margin-right: 3px;
+  }
+}
+.MyPage_detail_columm_point {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.MyPage_detail_columm_point_card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  height: 100%;
+  height: 5rem;
+  margin: 1rem;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 5px 5px;
+  }
+
+  #MyPage_detail_coin {
+    font-size: 1.4rem;
+    padding-right: 0.5rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+}
+
+.curr_point {
+  background-color: rgb(255, 212, 157);
+  transition: 0.3s;
+}
+.charge_point {
+  background-color: rgb(250, 182, 93);
+  transition: 0.3s;
+}
+.history_point {
+  background-color: rgb(253, 145, 5);
+  transition: 0.3s;
+}

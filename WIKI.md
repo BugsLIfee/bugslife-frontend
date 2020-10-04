@@ -18,6 +18,13 @@
 - 해결방법 : 네이밍 rule 추가 - 자기가 맡은 페이지에서 선택자를 맨 앞에 적고나서 시작한다.
 - 자세한 네용은 RULE.md 참고
 
+=======
+### Couner Library
+
+- `yarn add react-countup`
+- 마이페이지 나의 활동에 적용된 라이브러리
+- 설정한 숫자까지 카운트 업 되는 애니메이션
+- 레퍼런스 : https://www.npmjs.com/package/react-countup#simple-example
 
 ### markdown을 리액트 내에서 html로 변환하여 랜더링하기.
 
