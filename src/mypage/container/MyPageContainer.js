@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Icon, Menu, Segment, Sidebar } from "semantic-ui-react";
 import MypageHome from "../view/MyPage_Home";
 import MypagePost from "../view/MyPage_Post";
-import "../view/scss/myPage.scss";
+import "../scss/myPage.scss";
 
 export default class Mypagecontainer extends Component {
   constructor(props) {
@@ -22,7 +22,7 @@ export default class Mypagecontainer extends Component {
     const state = this.state.curr_component;
 
     return (
-      <div className="MyPage_container">
+      <div name="MyPage_container" className="MyPage_container">
         <h1 class="MyPage_container_title">마이 페이지</h1>
         <Sidebar.Pushable as={Segment}>
           <Sidebar
