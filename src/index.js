@@ -7,7 +7,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import { Provider } from "mobx-react";
 import CommonStore from "./common/Store";
 import "semantic-ui-css/semantic.min.css";
-import 'bootstrap/dist/css/bootstrap.css';
+import "bootstrap/dist/css/bootstrap.css";
 
 ReactDOM.render(
   <BrowserRouter>
@@ -22,7 +22,8 @@ ReactDOM.render(
           "/user/:menu",
           "/login",
           "/signUp",
-          "/myPage",
+          "/mypage",
+          "/mypage/posts",
         ]}
         component={App}
         exact={true}
