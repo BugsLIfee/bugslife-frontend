@@ -1,41 +1,39 @@
 import React, { Component } from "react";
-import "./scss/ListHeader.scss";
+import { Segment, Header, Menu } from "semantic-ui-react";
 
-export default class Listheaderview extends Component {
+export default class ListHeaderview extends Component {
+  state = {};
+
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name });
+
   render() {
+    const { activeItem } = this.state;
+    console.log("hihi");
     return (
-      <div class="list-item table-qna">
-        <div class="content">
-          <h2>Q/A</h2>
-          <div class="content-menu">
-            <ul class="list-tag">
-              <li>
-                <a href="#javascript;">태그1</a>
-              </li>
-              <li>
-                <a href="#javascript;">태그1</a>
-              </li>
-              <li>
-                <a href="#javascript;">태그1</a>
-              </li>
-            </ul>
+      <div>
+        <Segment>
+          <Header as="h3" textAlign="right">
+            <h2>Q/A</h2>
+          </Header>
 
-            <ul class="list-rank">
-              <li class="active">
-                <a href="javscript;">최신순</a>
-              </li>
-              <li>
-                <a href="javscript;">조회수</a>
-              </li>
-              <li>
-                <a href="javscript;">추천수</a>
-              </li>
-              <li>
-                <a href="javscript;">포인트수</a>
-              </li>
-            </ul>
-          </div>
-        </div>
+          <Menu position="right">
+            <Menu.Item
+              name="최신순"
+              active={activeItem === "최신순"}
+              onClick={this.handleItemClick}
+            />
+            <Menu.Item
+              name="조회수"
+              active={activeItem === "조회수"}
+              onClick={this.handleItemClick}
+            />
+            <Menu.Item
+              name="추천수"
+              active={activeItem === "추천수"}
+              onClick={this.handleItemClick}
+            />
+          </Menu>
+        </Segment>
       </div>
     );
   }
