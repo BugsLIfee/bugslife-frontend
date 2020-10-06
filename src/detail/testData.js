@@ -4,11 +4,12 @@ const testData = {
         title : "Node.js 와 PHP 둘 중 무엇을 공부하는 것이 나을까요?",
         md: "true",
         point: "500",
-        likes: "24",
+        likes: 24,
+        clicked_like: false,
         writer_id : "송파구 비트마스크",
         writer_lv : "level 6. 알록달록 코뎅이",
         date : "2020.01.30",
-        views : "31",   
+        views : 31,   
         body : "# HELLO \n ## 이것은 마크다운 \n **입니다.** \
                 \n ```cpp\
                 \n #include <iostream>\
@@ -44,11 +45,13 @@ const testData = {
     },
     answers: [
         {
+            id: 0,
             writer_id: "컴공 5학년",
             writer_lv: "level 102. 저승사자 코뎅이",
             date: "2020.09.30",
-            likes: "13",
-            selected: "true",
+            likes: 13,
+            clicked_like: true,
+            selected: true,
             body: "Node.js 하세용.",
             comments: [
                 {
@@ -60,11 +63,13 @@ const testData = {
             ]
         },
         {
+            id: 1,
             writer_id: "심재욱",
             writer_lv: "level 11. 바보 코뎅이",
             date: "2020.03.27",
-            likes: "37",
-            selected: "false",
+            likes: 37,
+            clicked_like: false,
+            selected: false,
             body: "둘다 하세용.",
             comments: []
         }

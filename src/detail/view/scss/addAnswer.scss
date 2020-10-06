@@ -22,6 +22,12 @@
     .ck-editor__editable{
         height: 300px;
     }   
+
+    .posting_answer {
+        display: flex;
+        justify-content: flex-end;
+        margin : 2rem 0 10rem; 
+    }
 }
 
 .addAnswerText {

@@ -4,17 +4,17 @@ import "./scss/likes_bt.scss";
 export default class LikesButtonView extends Component {
     render() {
 
-        const {likes} = this.props;
+        const detail = this.props.detail;
+        const answer = this.props.answer;
+        console.log("LIKEBUTTON");
         
         return (
             <div className="detail_likes_button">
-                {/* <div className="button"> */}
-                <div className="up"> <i class="fas fa-sort-up"></i> </div>
-                {/* </div> */}
+                <div className="up" onClick={() => {detail.setAnswerLikes(answer.id, "up")}} > <i class="fas fa-sort-up"></i> </div>
                 <div className="likes">
-                    {likes}
+                    {answer.likes}
                 </div>
-                <div className="down"> <i class="fas fa-sort-down"></i> </div>
+                <div className="down" onClick={() => {detail.setAnswerLikes(answer.id, "down")}}> <i class="fas fa-sort-down"></i> </div>
             </div>
         );
     }
