@@ -8,9 +8,9 @@ import LikesButtonView from "../LikesButtonView";
 export default class AnswerView extends Component {
 
     render() {
-        const { answer } = this.props;
+        const { answer, detail } = this.props;
         const { login } = this.props;
-
+        console.log("ANSWERView");
         return(
             <div class="answer post">
                 <Card>
@@ -29,7 +29,7 @@ export default class AnswerView extends Component {
                                     <div class="report"> <a href="#"> <i class="fas fa-ban"></i> 신고 </a> </div>
                             </div>
                         </div>
-                        <LikesButtonView likes={answer.likes} />
+                        <LikesButtonView answer={answer} detail={detail}/>
                     </Card.Header>
                     <Card.Body>
                         <Card.Text class="post_body">
