@@ -1,11 +1,27 @@
 .addAnswerContainer {
     margin: 30px auto 100px;
     width: 980px;
-    // height: 300px;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 70px;
+    padding-bottom: 70px;
     border: 1px dotted #616161;
     border-radius: 15px;
+}
+
+.detail_answer_editor {
+    margin: 30px auto 100px;
+    width: 980px;
+    height: 300px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    
+    p {
+        font-size: 2.5rem;
+        color: #616161;
+    }
+
+    .ck-editor__editable{
+        height: 300px;
+    }   
 }
 
 .addAnswerText {
@@ -13,9 +29,6 @@
     text-align: center;
     // padding-top: ;
     font-size: 1.5rem;
-    p {
-        font-size: 3rem;
-    }
 }
 
 .plus_bt{

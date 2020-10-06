@@ -34,7 +34,7 @@ export default class MaintopView extends Component {
     return (
       <div className="wrap">
         <BackgroundView />
-        <div className="main_container">
+        <div className="MainTopView_container">
           <h1 className="typing-txt">도저히 안 풀리는 버그, 여기서 다 해결</h1>
           {/* <h1>{this.show}</h1> */}
           {/* <h1 className="typing"></h1> */}

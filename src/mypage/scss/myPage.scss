@@ -1,0 +1,93 @@
+.MyPage_detail_title {
+  width: 87%;
+  padding-right: 3rem;
+  background: black;
+  margin-top: 2rem;
+  margin-left: 2rem;
+  margin-bottom: 3rem;
+  border-radius: 10px 10px 0 0;
+  h3 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: white;
+    padding: 0.7rem;
+  }
+}
+.MyPage_detail {
+  width: 95%;
+  padding-right: 3rem;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding-bottom: 5rem;
+
+  .MyPage_detail_column {
+    position: relative;
+    padding: 1rem;
+    width: 28%;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+
+    #MyPage_detail_icon {
+      position: absolute;
+      right: 15px;
+      text-align: right;
+    }
+
+    .column_title {
+      text-align: center;
+      padding: 0.5rem;
+      font-size: 1.5rem;
+      font-weight: bolder;
+    }
+  }
+}
+
+.MyPage_detail_post_icon {
+  text-align: right;
+  a {
+    margin-right: 3px;
+  }
+}
+.MyPage_detail_columm_point {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.MyPage_detail_columm_point_card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  height: 100%;
+  height: 5rem;
+  margin: 1rem;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 5px 5px;
+  }
+
+  #MyPage_detail_coin {
+    font-size: 1.4rem;
+    padding-right: 0.5rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+}
+
+.curr_point {
+  background-color: rgb(255, 212, 157);
+  transition: 0.3s;
+}
+.charge_point {
+  background-color: rgb(250, 182, 93);
+  transition: 0.3s;
+}
+.history_point {
+  background-color: rgb(253, 145, 5);
+  transition: 0.3s;
+}

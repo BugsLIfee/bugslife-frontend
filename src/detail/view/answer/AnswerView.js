@@ -1,60 +1,42 @@
 import React, { Component } from "react";
-import { Card, Badge, InputGroup, FormControl, Button} from "react-bootstrap";
-import "./scss/post.scss"
-import CommentListView from "./CommentListView";
+import { Card, InputGroup, Button, FormControl} from "react-bootstrap";
+import "../scss/post.scss"
+import CommentListView from "../comment/CommentListView";
+import LikesButtonView from "../LikesButtonView";
 
-export default class QuestionView extends Component {
+
+export default class AnswerView extends Component {
 
     render() {
-
-        const { question } = this.props;
+        const { answer } = this.props;
         const { login } = this.props;
 
-        const tags = question.tags.map(tag => {
-            return (
-                <span>
-                    <Badge variant="info">
-                        {tag}
-                    </Badge>
-                    {' '}
-                </span>
-            );
-        })
-
         return(
-            <div class="question post">
+            <div class="answer post">
                 <Card>
-                    <Card.Header class="post_header">
+                    <Card.Header className="post_header">
                         <div class="post_meta">
-                            <div class="question_title">
-                                <i class="fab fa-quora question_mark"></i> 
-                                {' ' + question.title}
-                            </div>
                             <div class="writer_info"> 
+                                <i class="fas fa-font answer_mark"></i>
                                 <img src="../logo/logo_st.png" class="writer_icon" /> 
                                 <div class="writer_info_text">
-                                    <div class="writer_id">{question.writer_id}</div>
-                                    <div class="writer_level">{question.writer_lv} </div>
+                                    <div class="writer_id"> {answer.writer_id} </div>
+                                    <div class="writer_level"> {answer.writer_lv} </div>
                                 </div>
                             </div>
                             <div className="post_info">
-                                    <div class="upload_date"> {question.date} &nbsp; | &nbsp; </div>
-                                    <div class="views"> 조회수 {question.views}  &nbsp; | &nbsp; </div>
+                                    <div class="upload_date"> {answer.date} &nbsp; | &nbsp; </div>
                                     <div class="report"> <a href="#"> <i class="fas fa-ban"></i> 신고 </a> </div>
                             </div>
                         </div>
+                        <LikesButtonView likes={answer.likes} />
                     </Card.Header>
-                    <hr />
-                    {/* <div class="like_question"> <a href="#"><i class="fas fa-bookmark"></i></a> </div> */}
                     <Card.Body>
                         <Card.Text class="post_body">
-                            {question.body}
+                            { answer.body }
                         </Card.Text>
-                        <div className="hash_tags">
-                            {tags}
-                        </div>
                         <hr />
-                        <CommentListView comments = {question.comments} />
+                        <CommentListView comments = {answer.comments} />
                     </Card.Body>
                     <Card.Footer className="text-muted text-center post_footer">
                         { login === "false" && <p>댓글을 남기려면 <a href="#" >로그인</a> 해주세요.</p> }
