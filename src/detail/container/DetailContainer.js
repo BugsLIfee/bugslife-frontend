@@ -1,15 +1,23 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import QuestionView from "../view/question/QuestionView";
 import AnswerListView from "../view/answer/AnswerListView";
 import LikeButtonView from "../view/LikesButtonView";
 import { observer, inject } from 'mobx-react';
+
 import qs from "qs";
-import {withRouter} from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 @withRouter
-@inject('Store')
+@inject("Store")
 @observer
 class DetailContainer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      question_like: false,
+      insertForm: false,
+    };
+  }
 
     constructor(props){
         super(props)
@@ -38,6 +46,7 @@ class DetailContainer extends Component {
             </div>
         );
     }
+
 }
 
 export default DetailContainer;
