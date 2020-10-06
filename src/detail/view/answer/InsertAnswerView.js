@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../scss/addAnswer.scss"
+import { Button } from "semantic-ui-react";
 import CKEditor from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
@@ -32,6 +33,11 @@ export default class AddAnswerView extends Component {
                         console.log("Focus.", editor);
                     }}
                 />
+                <div className="posting_answer">
+                    <Button basic color='black' className="bt" size='huge'> 
+                        완료
+                    </Button>
+                </div>
             </div>
         )
     }

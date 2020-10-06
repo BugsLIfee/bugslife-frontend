@@ -1,0 +1,52 @@
+.posting {
+    margin: 3rem auto;
+    width: 980px;
+
+    .posting_header {
+        width: 100%;
+    }
+
+    .title {
+        width: 100%;
+    }
+
+    .ck-editor__editable{
+        min-height: 50rem;
+        max-height: 60rem;
+    }   
+
+    .add_tag {
+        width: 100%;
+        display: flex;
+        align-items: flex-end;
+
+        .input {
+            height: 4rem;
+            width: 20rem;
+        }
+
+        .bt {
+            margin-left: 1rem;
+            height: 4rem;
+            width: 6rem;
+            padding: 10px;
+            // font-size: large;
+        }
+    }
+
+    .tags {
+        display: flex;      
+        font-size: 1rem;
+        margin: 20px 0 20px 0;   
+
+        span {
+            margin-right: 1rem;
+        }
+    }
+
+    .upload {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 10rem;
+    }
+}

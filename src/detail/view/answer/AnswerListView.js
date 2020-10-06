@@ -7,11 +7,14 @@ import AddAnswerView from './AddAnswerView';
 export default class AnswerListView extends Component {
     render() {
         // const { books, onSelect } 
-        const { answers, login, insertForm, onInsertForm } = this.props; 
-        console.log("IN ANSWERLISTVIEW: " , insertForm);
+        console.log("ANSWERLISTVIEW");
+        const detail = this.props.detail;
+        const answers = detail._answers;
+        const { login, insertForm, onInsertForm } = this.props; 
+        // console.log("ANswerListView",answers);
         const answerList = answers.map(answer => {
             return (
-                <AnswerView answer={answer} login={login} /> 
+                <AnswerView answer={answer} detail={detail} login={login} /> 
             )
         });
 

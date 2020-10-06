@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Card, Badge, InputGroup, FormControl, Button} from "react-bootstrap";
+import { Card, InputGroup, FormControl, Button} from "react-bootstrap";
+import { Label } from "semantic-ui-react"
 import "../scss/post.scss"
 import CommentListView from "../comment/CommentListView";
 import marked from "marked";
@@ -7,9 +8,11 @@ import marked from "marked";
 export default class QuestionView extends Component {
 
     render() {
-
-        const { question, login, question_like, onQuestionLike } = this.props;
+        const detail= this.props.detail;
+        const question = detail._question;
+        const { login } = this.props;
         const md_text = marked( question.body );
+        console.log("QuestionView");
 
         const createMarkup = function() {
             return { __html: md_text};
@@ -18,9 +21,9 @@ export default class QuestionView extends Component {
         const tags = question.tags.map(tag => {
             return (
                 <span>
-                    <Badge variant="info">
+                    <Label color='teal' size="big">
                         {tag}
-                    </Badge>
+                    </Label>
                     {' '}
                 </span>
             );
@@ -29,35 +32,32 @@ export default class QuestionView extends Component {
         return(
             <div class="question post">
                 <Card>
-                    <Card.Header class="post_header">
-                        <div class="post_meta">
-                            <div class="question_title">
-                                <i class="fab fa-quora question_mark"></i> 
+                    <Card.Header className="post_header">
+                        <div className="post_meta">
+                            <div className="question_title">
+                                <i className="fab fa-quora question_mark"></i> 
                                 {' ' + question.title}
                             </div>
                             
                             <div className="detail_post_subtitle">
                                 <div>
-                                    <div class="writer_info"> 
-                                        <img src="../logo/logo_st.png" class="writer_icon" /> 
-                                        <div class="writer_info_text">
-                                            <div class="writer_id">{question.writer_id}</div>
-                                            <div class="writer_level">{question.writer_lv} </div>
+                                    <div className="writer_info"> 
+                                        <img src="../logo/logo_st.png" className="writer_icon" /> 
+                                        <div className="writer_info_text">
+                                            <div className="writer_id">{question.writer_id}</div>
+                                            <div className="writer_level">{question.writer_lv} </div>
                                         </div>
                                     </div>
                                     <div className="post_info">
-                                            <div class="upload_date"> {question.date} &nbsp; | &nbsp; </div>
-                                            <div class="views"> 조회수 {question.views}  &nbsp; | &nbsp; </div>
-                                            <div class="report"> <a href="#"> <i class="fas fa-ban"></i> 신고 </a> </div>
+                                            <div className="upload_date"> {question.date} &nbsp; | &nbsp; </div>
+                                            <div className="views"> 조회수 {question.views}  &nbsp; | &nbsp; </div>
+                                            <div className="report"> <a href="#"> <i className="fas fa-ban"></i> 신고 </a> </div>
                                     </div>
                                 </div>
                                 <div className="detail_points">
                                     <div className="point">
                                         {question.point}P
                                     </div>
-                                    {/* <div className="detail_points_img">
-                                        <img src="../detail/jelly.png" />
-                                    </div> */}
                                 </div>
                             </div>
                         </div>
@@ -68,8 +68,8 @@ export default class QuestionView extends Component {
                             <p>{question.likes}</p>
                             <div>나도 궁금해요!</div>
                         </div>
-                            {!question_like && <img src="../detail/empty_bookmark.png" onClick={() => { onQuestionLike() }} />}
-                            {question_like && <img src="../detail/bookmark.png" onClick={() => {onQuestionLike()}} />}
+                            {!question.clicked_like && <img src="../detail/empty_bookmark.png" onClick={() => {detail.setQuestionLike(question.clicked_like)}} />}
+                            {question.clicked_like && <img src="../detail/bookmark.png" onClick={() => {detail.setQuestionLike(question.clicked_like)}} />}
                     </div>
                     <Card.Body>
                         <Card.Text class="post_body">
