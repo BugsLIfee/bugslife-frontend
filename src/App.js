@@ -13,6 +13,7 @@ import ContactContainer from "./contact/container/ContactContainer";
 import MypagePost from "./mypage/view/MyPage_Post";
 import Mypagecontainer from "./mypage/container/MyPageContainer";
 import "./header/view/scss/header.scss";
+import "./footer/footer.scss";
 
 function App() {
   return (
@@ -34,7 +35,10 @@ function App() {
           <Route path="/mypage/posts" component={MypagePost} exact={true} />
         </Switch>
       </Router>
-      <Footer />
+      <div className="footer_place">
+        {" "}
+        <Footer />
+      </div>
     </>
   );
 }
