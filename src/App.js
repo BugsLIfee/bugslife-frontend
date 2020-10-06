@@ -13,11 +13,8 @@ import ContactContainer from "./contact/container/ContactContainer";
 import MypagePost from "./mypage/view/MyPage_Post";
 import Mypagecontainer from "./mypage/container/MyPageContainer";
 import "./header/view/scss/header.scss";
-<<<<<<< HEAD
 import "./footer/footer.scss";
-=======
 import PostingContainer from "./posting/container/PostingContainer";
->>>>>>> 5805d541091284948273a67e5318e96054961844
 
 function App() {
   return (
