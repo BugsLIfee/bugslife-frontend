@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Segment, Container, Grid, Header, List } from "semantic-ui-react";
+import "./footer.scss";
+
 class Footer extends Component {
   render() {
     return (

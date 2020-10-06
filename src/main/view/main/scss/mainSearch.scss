@@ -1,0 +1,45 @@
+.MainSearch_container {
+  padding: 5rem;
+  display: inline-flex;
+  flex-direction: row;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 80vh;
+
+  .MainSearch_img {
+    position: absolute;
+    top: 30%;
+    width: 40rem;
+    height: 23rem;
+  }
+
+  .MainSearch_content {
+    position: absolute;
+    right: 10%;
+    top: 25%;
+
+    .MainSearch_title {
+      text-align: right;
+      font-weight: bolder;
+      color: white;
+      padding-bottom: 2rem;
+      padding-top: 1rem;
+      padding-right: 1rem;
+    }
+
+    .MainSearch_txt {
+      width: 550px;
+      text-align: center;
+      h3 {
+        font-weight: lighter;
+        line-height: 1.5;
+      }
+    }
+  }
+}
+
+.MainSearch_wrap {
+  position: relative;
+  margin-bottom: 5rem;
+}
