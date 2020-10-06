@@ -1,75 +1,19 @@
 import React, { Component } from "react";
-import "./scss/ListTag.scss";
+import { Label } from "semantic-ui-react";
 
 export default class Listtagview extends Component {
   render() {
     return (
-      <div class="list-item table-qna">
-        <div class="lnb">
-          <ul>
-            <li>
-              <a href="#n">태그1</a>
-            </li>
-            <li>
-              <a href="#n">태그1</a>
-            </li>
-            <li>
-              <a href="#n">태그1</a>
-            </li>
-            <li>
-              <a href="#n">태그1</a>
-            </li>
-            <li>
-              <a href="#n">태그1</a>
-            </li>
-            <li>
-              <a href="#n">태그1</a>
-            </li>
-            <li>
-              <a href="#n">태그1</a>
-            </li>
-            <li>
-              <a href="#n">태그1</a>
-            </li>
-            <li>
-              <a href="#n">태그1</a>
-            </li>
-            <li>
-              <a href="#n">태그1</a>
-            </li>
-            <li>
-              <a href="#n">태그1</a>
-            </li>
-            <li>
-              <a href="#n">태그1</a>
-            </li>
-            <li>
-              <a href="#n">태그1</a>
-            </li>
-            <li>
-              <a href="#n">태그1</a>
-            </li>
-            <li>
-              <a href="#n">태그1</a>
-            </li>
-            <li>
-              <a href="#n">태그1</a>
-            </li>
-            <li>
-              <a href="#n">태그1</a>
-            </li>
-            <li>
-              <a href="#n">태그1</a>
-            </li>
-            <li>
-              <a href="#n">태그1</a>
-            </li>
-            <li>
-              <a href="#n">태그1</a>
-            </li>
-          </ul>
-        </div>
-      </div>
+      <>
+        <Label color="red" horizontal>
+          Fruit
+        </Label>
+      </>
+      // <div class="list-item table-qna">
+      //   <div class="lnb">
+
+      //   </div>
+      // </div>
     );
   }
 }

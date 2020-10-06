@@ -1,17 +1,26 @@
 import React, { Component } from "react";
-import { inject, observer } from "mobx-react";
-import Listviews from "../view/ListViews";
-import testListData from "../testListData";
+import ListHeaderContainer from "./ListHeaderContainer";
+import ListTagContainer from "./ListTagContainer";
+import ListViewContainer from "./ListViewContainer";
+import { Grid } from "semantic-ui-react";
 
 class ListContainer extends Component {
   render() {
-    // const  list  = this.props.Store.list.getList;
-
-    console.log("container:", testListData);
     return (
-      <div>
-        <Listviews lists={testListData} />
-      </div>
+      <Grid>
+      
+          <Grid.Column width={3} style={{ border: "solid 1px black" }}>
+            <ListTagContainer />
+          </Grid.Column>
+     
+    
+          <Grid.Column width={13} style={{border: "solid 1px black" }}>
+            <ListHeaderContainer />
+            <ListViewContainer />
+          </Grid.Column>
+          
+        
+      </Grid>
     );
   }
 }
