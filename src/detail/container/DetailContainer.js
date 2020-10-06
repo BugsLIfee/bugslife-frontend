@@ -11,13 +11,6 @@ import { withRouter } from "react-router-dom";
 @inject("Store")
 @observer
 class DetailContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      question_like: false,
-      insertForm: false,
-    };
-  }
 
     constructor(props){
         super(props)
