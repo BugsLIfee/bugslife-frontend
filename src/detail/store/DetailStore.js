@@ -29,21 +29,11 @@ class DetailStore {
         if(this.answers[answer_id].clicked_like && dir==="down") {
             this.answers[answer_id].clicked_like = false;
             this.answers[answer_id].likes -= 1;
-            var tf = this.answers[answer_id].clicked_like;
-            var temp = this.answers[answer_id].likes;
-            console.log(tf);
-            console.log(temp);
         } else if (!this.answers[answer_id].clicked_like && dir==="up"){
             this.answers[answer_id].clicked_like=true;
             this.answers[answer_id].likes += 1;
-            var tf = this.answers[answer_id].clicked_like;
-            var temp = this.answers[answer_id].likes;
-            console.log(tf);
-            console.log(temp);
         }
     }
-
-    
 
     @action setQuestionLike(clicked) {
         if(clicked) {
