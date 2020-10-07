@@ -42,6 +42,7 @@ class DetailStore {
     }
 
     @action setQuestionLike(clicked) {
+        this.detail.question.clicked_like = false;
         if(clicked) {
             this.detail.question.clicked_like = false;
             this.detail.question.likes -= 1;

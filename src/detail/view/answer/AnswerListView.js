@@ -5,16 +5,26 @@ import "../scss/answerList.scss";
 import AddAnswerView from './AddAnswerView';
 
 export default class AnswerListView extends Component {
+  
+    constructor(props){
+        super(props)
+        this.state = {
+            insertForm : false,
+        }
+    }
+
     render() {
-        // const { books, onSelect } 
-        console.log("ANSWERLISTVIEW");
-        const detail = this.props.detail;
-        const answers = detail._answers;
-        const { login, insertForm, onInsertForm } = this.props; 
-        // console.log("ANswerListView",answers);
+        
+        const onInsertForm = () => {
+            this.setState({insertForm : !insertForm});
+        }
+
+        const { answers, login, onAnswerLike } = this.props; 
+        const { insertForm } = this.state;
+
         const answerList = answers.map(answer => {
             return (
-                <AnswerView answer={answer} detail={detail} login={login} /> 
+                <AnswerView answer={answer} login={login} onAnswerLike={onAnswerLike} /> 
             )
         });
 

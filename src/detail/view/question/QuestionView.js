@@ -8,11 +8,9 @@ import marked from "marked";
 export default class QuestionView extends Component {
 
     render() {
-        const detail= this.props.detail;
-        const question = detail._question;
-        const { login } = this.props;
+        const question = this.props.question;
+        const { login, clicked_like, onQuestionLike } = this.props;
         const md_text = marked( question.body );
-        console.log("QuestionView");
 
         const createMarkup = function() {
             return { __html: md_text};
@@ -68,8 +66,8 @@ export default class QuestionView extends Component {
                             <p>{question.likes}</p>
                             <div>나도 궁금해요!</div>
                         </div>
-                            {!question.clicked_like && <img src="../detail/empty_bookmark.png" onClick={() => {detail.setQuestionLike(question.clicked_like)}} />}
-                            {question.clicked_like && <img src="../detail/bookmark.png" onClick={() => {detail.setQuestionLike(question.clicked_like)}} />}
+                            {!clicked_like && <img src="../detail/empty_bookmark.png" onClick={() => {onQuestionLike()}} />}
+                            {clicked_like && <img src="../detail/bookmark.png" onClick={() => {onQuestionLike()}} />}
                     </div>
                     <Card.Body>
                         <Card.Text class="post_body">
