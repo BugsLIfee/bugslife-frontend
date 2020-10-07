@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import "./scss/likes_bt.scss";
+import "../scss/likes_bt.scss";
 
 export default class LikesButtonView extends Component {
+
     render() {
 
         const { answer, onAnswerLike } = this.props;
-        console.log("LIKEBUTTON");
         
         return (
             <div className="detail_likes_button">
