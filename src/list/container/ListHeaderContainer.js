@@ -4,7 +4,7 @@ import ListHeaderview from "../view/ListHeaderView";
 class ListHeaderContainer extends Component {
   render() {
     return (
-      <div>
+      <div className="list_header headerBar">
         <ListHeaderview />
       </div>
     );

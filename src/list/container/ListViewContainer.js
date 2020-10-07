@@ -5,13 +5,14 @@ import ListViewFooter from "../view/ListViewFooter";
 import ListViewLabel from "../view/ListViewLabel";
 import ListViewMain from "../view/ListViewMain";
 import { Grid, Container } from "semantic-ui-react";
+import "../view/scss/ListMain.scss";
 class ListViewContainer extends Component {
   render() {
     // const  list  = this.props.Store.list.getList;
 
     const list = testListData.map((listView) => {
       return (
-        
+        <div className="list_main itemBox">
           <Grid>
             <Grid.Column width={2}>
               <ListViewLabel listView={listView} />
@@ -23,7 +24,7 @@ class ListViewContainer extends Component {
               <ListViewFooter listView={listView} />
             </Grid.Column>
           </Grid>
-       
+        </div>
       );
     });
 
