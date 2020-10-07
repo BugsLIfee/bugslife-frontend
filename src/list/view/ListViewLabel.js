@@ -1,14 +1,15 @@
 import React, { Component } from "react";
+import "./scss/ListItem.scss";
 
 class ListViewLabel extends Component {
   render() {
     const img = {
-      width: "50px",
-      height: "50px",
+      width: "80px",
+      height: "80px",
     };
     const { listView } = this.props;
     return (
-      <div class="item-left">
+      <div class="list_item_label">
         <div class="inner">
           <span class="img">
             <img style={img} src={listView.answerIcon}></img>

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Badge } from "react-bootstrap";
+import "./scss/ListItem.scss";
 
 const img = {
   width: "50px",
@@ -18,7 +19,7 @@ class ListViewMain extends Component {
     return (
       <div class="item-center">
         <div class="inner">
-          <a href="/detail" class="tits">
+          <a href="/detail" class="title">
             {listView.title}
           </a>
           <span class="date">{listView.date}</span>
@@ -29,10 +30,10 @@ class ListViewMain extends Component {
           </div>
 
           <div class="box-like">
-            <span class="btn-like img">
-              <img style={img} src="https://via.placeholder.com/30x30"></img>
+            <span class="img">
+              <img src="../../detail/empty_bookmark.png"></img>
             </span>
-            <span class="thumb">12</span>
+            <span class="number">{listView.addPoints}</span>
           </div>
 
           <div class="box-grade">
