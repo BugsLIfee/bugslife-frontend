@@ -1,16 +1,36 @@
-import React, { Component } from "react";
-import { inject, observer } from "mobx-react";
-import testListData from "../testListData";
-import ListViewFooter from "../view/ListViewFooter";
-import ListViewLabel from "../view/ListViewLabel";
-import ListViewMain from "../view/ListViewMain";
-import { Grid, Container } from "semantic-ui-react";
-import "../view/scss/ListMain.scss";
+import React, { Component } from "react"
+//import testListData from "../testListData"
+import ListViewFooter from "../view/ListViewFooter"
+import ListViewLabel from "../view/ListViewLabel"
+import ListViewMain from "../view/ListViewMain"
+import { Grid, Pagination } from "semantic-ui-react"
+import "../view/scss/ListMain.scss"
 class ListViewContainer extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      page: 1,
+    }
+  }
+
+  setNextPage = (e) => {
+    this.setState({
+      page: e.target.getAttribute("value"),
+    })
+  }
+
   render() {
     // const  list  = this.props.Store.list.getList;
 
-    const list = testListData.map((listView) => {
+    // const list = testListData.map((listView) => {
+    const { lists } = this.props
+    let listItemOne = lists.slice((this.state.page - 1) * 5, this.state.page * 5)
+    let totalPage = Math.floor(lists.length / 5) //60건이라면 totalPage
+
+    if (lists.length % 5) {
+      totalPage += 1
+    }
+    const list = listItemOne.map((listView) => {
       return (
         <div className="list_main itemBox">
           <Grid>
@@ -25,12 +45,24 @@ class ListViewContainer extends Component {
             </Grid.Column>
           </Grid>
         </div>
-      );
-    });
-
-    console.log("container:", testListData);
-    return <div>{list}</div>;
+      )
+    })
+    return (
+      <div>
+        {list}
+        <Pagination
+          boundaryRange={0}
+          defaultActivePage={1}
+          ellipsisItem={null}
+          firstItem={null}
+          lastItem={null}
+          siblingRange={2}
+          onPageChange={this.setNextPage}
+          totalPages={totalPage}
+        />
+      </div>
+    )
   }
 }
 
-export default ListViewContainer;
+export default ListViewContainer

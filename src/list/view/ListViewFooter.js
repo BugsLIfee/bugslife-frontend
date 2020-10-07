@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import "./scss/ListItem.scss";
+import React, { Component } from "react"
+import "./scss/ListItem.scss"
 
 class ListViewFooter extends Component {
   render() {
-    const { listView } = this.props;
+    const { listView } = this.props
 
     return (
       <div class="item-right">
@@ -13,8 +13,8 @@ class ListViewFooter extends Component {
           <span class="plus">+{listView.addPoints * 30}P</span>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default ListViewFooter;
+export default ListViewFooter

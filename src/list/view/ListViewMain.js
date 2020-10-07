@@ -1,21 +1,21 @@
-import React, { Component } from "react";
-import { Badge } from "react-bootstrap";
-import "./scss/ListItem.scss";
+import React, { Component } from "react"
+import { Badge } from "react-bootstrap"
+import "./scss/ListItem.scss"
 
 const img = {
   width: "50px",
   height: "50px",
-};
+}
 class ListViewMain extends Component {
   render() {
-    const { listView } = this.props;
+    const { listView } = this.props
     const tags = listView.tags.map((tag) => {
       return (
         <span>
           <Badge variant="info">{tag}</Badge>{" "}
         </span>
-      );
-    });
+      )
+    })
     return (
       <div class="item-center">
         <div class="inner">
@@ -23,11 +23,7 @@ class ListViewMain extends Component {
             {listView.title}
           </a>
           <span class="date">{listView.date}</span>
-          <div class="tab-box">
-            <ul>
-              <li>{tags}</li>
-            </ul>
-          </div>
+          <div class="tab-box">{tags}</div>
 
           <div class="box-like">
             <span class="img">
@@ -47,8 +43,8 @@ class ListViewMain extends Component {
           </div>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default ListViewMain;
+export default ListViewMain
