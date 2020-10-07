@@ -14,7 +14,7 @@ export default class AnswerListView extends Component {
     }
 
     render() {
-        
+
         const onInsertForm = () => {
             this.setState({insertForm : !insertForm});
         }
@@ -22,11 +22,14 @@ export default class AnswerListView extends Component {
         const { answers, login, onAnswerLike } = this.props; 
         const { insertForm } = this.state;
 
-        const answerList = answers.map(answer => {
-            return (
-                <AnswerView answer={answer} login={login} onAnswerLike={onAnswerLike} /> 
-            )
-        });
+        console.log({answers});
+        const answerList=[];
+
+        // const answerList = answers.map(answer => {
+        //     return (
+        //         <AnswerView answer={answer} login={login} onAnswerLike={onAnswerLike} /> 
+        //     )
+        // });
 
         return (
             <div className="detail_answer_list">
