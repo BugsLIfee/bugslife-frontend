@@ -34,20 +34,26 @@ class Header extends Component {
             this.state.scrollTop < 180 ? "h_container_top" : "h_container_down"
           }
         >
-          <div className="headerMain">
-            <img
-              className={this.state.scrollTop < 180 ? "logo_top" : "logo_down"}
-              src="../logo/logo_st.png"
-              href="/"
-            />
-            <h1
-              className={
-                this.state.scrollTop < 180 ? "h_title_top" : "h_title_down"
-              }
-            >
-              BUGS LIFE
-            </h1>
-          </div>
+          <a href="/" className="header_logo_a">
+            <div className="headerMain">
+              {" "}
+              <img
+                className={
+                  this.state.scrollTop < 180 ? "logo_top" : "logo_down"
+                }
+                src="../logo/logo_st.png"
+                href="/"
+              />
+              <h1
+                className={
+                  this.state.scrollTop < 180 ? "h_title_top" : "h_title_down"
+                }
+              >
+                BUGS LIFE
+              </h1>
+            </div>
+          </a>
+
           <div className="nav">
             <Nav />
           </div>
