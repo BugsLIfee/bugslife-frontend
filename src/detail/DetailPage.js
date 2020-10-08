@@ -5,7 +5,7 @@ import QuestionHeaderContainer from "./container/question/QuestionHeaderContaine
 import QuestionLikesContainer from "./container/question/QuestionLikesContainer";
 import QuestionBodyContainer from "./container/question/QuestionBodyContainer";
 import QuestionCommentListContainer from "./container/comment/QuestionCommentListContainer";
-import InsertCommentContainer from "./container/comment/InsertCommentContainer";
+import QuestionInsertCommentContainer from "./container/comment/QuestionInsertCommentContainer";
 import AnswerListContainer from "./container/answer/AnswerListContainer";
 import AddAnswerContainer from "./container/answer/AddAnswerContainer";
 import qs from "qs";
@@ -30,10 +30,10 @@ export default class QuestionView extends Component {
                         <QuestionLikesContainer login = { login } />
                         <Card.Body>
                             <QuestionBodyContainer />
-                            <QuestionCommentListContainer />
+                            <QuestionCommentListContainer login = { login } />
                         </Card.Body>
                         <Card.Footer className="text-muted text-center post_footer">
-                            <InsertCommentContainer login = { login } />
+                            <QuestionInsertCommentContainer login = { login } />
                         </Card.Footer>
                     </Card>
                 </div>

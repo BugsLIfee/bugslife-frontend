@@ -1,15 +1,20 @@
 .MainTopView_container {
+  top: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
   height: 90vh;
   width: 100%;
   justify-content: center;
+  margin-top: 4rem;
 
   h1 {
-    padding-top: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 23%;
+    // padding-top: 2rem;
     padding-bottom: 1rem;
-    font-size: 3.5rem;
+    font-size: 4rem;
     text-align: center;
   }
 }
@@ -26,9 +31,6 @@
 
 .ui.search > .results {
   display: none;
-  // position: absolute;
-  // top: 100%;
-  // left: 50%;
   transform-origin: center top;
   white-space: normal;
   text-align: center;

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { observer, inject } from 'mobx-react';
 import { Card } from "react-bootstrap";
 import AnswerCommentListContainer from "../comment/AnswerCommentListContainer";
-import InsertCommentContainer from "../comment/InsertCommentContainer";
+import AnswerInsertCommentContainer from "../comment/AnswerInsertCommentContainer";
 import AnswerHeaderView from "../../view/answer/AnswerHeaderView";
 import AnswerBodyView from "../../view/answer/AnswerBodyView";
 import AnswerLikesContainer from "./AnswerLikesContainer";
@@ -14,6 +14,9 @@ class AnswerContainer extends Component {
     render() {
 
         const { answer, login } = this.props;
+
+        const onAddAndswerComment = () => {
+        }
 
         return (
             <div class="answer post">
@@ -30,7 +33,7 @@ class AnswerContainer extends Component {
                         <AnswerCommentListContainer comments = {answer.comments} />
                     </Card.Body>
                     <Card.Footer className="text-muted text-center post_footer">
-                        <InsertCommentContainer login = {login} />
+                        <AnswerInsertCommentContainer login = {login} />
                     </Card.Footer>
                 </Card>
             </div>
