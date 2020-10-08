@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { Container, Table, Pagination, List } from "semantic-ui-react";
 
 class InfoList extends Component {
@@ -32,13 +33,15 @@ class InfoList extends Component {
       this.state.page * 10
     );
 
-    let CreateTableRowList = listPageOne.map((qna) => (
+    let CreateTableRowList = listPageOne.map((obj) => (
       <Table.Row>
-        <Table.Cell width="1">{qna.id}</Table.Cell>
-        <Table.Cell width="2">{qna.userid}</Table.Cell>
-        <Table.Cell width="3"> {MakeTypeName(qna)}</Table.Cell>
-        <Table.Cell width="7">{qna.title}</Table.Cell>
-        <Table.Cell width="3">{qna.regist_date}</Table.Cell>
+        <Table.Cell width="1" as={Link} to="/info/detail?id={obj.id}">
+          {obj.id}
+        </Table.Cell>
+        <Table.Cell width="2">{obj.userid}</Table.Cell>
+        <Table.Cell width="3"> {MakeTypeName(obj)}</Table.Cell>
+        <Table.Cell width="7">{obj.title}</Table.Cell>
+        <Table.Cell width="3">{obj.regist_date}</Table.Cell>
       </Table.Row>
     ));
 
