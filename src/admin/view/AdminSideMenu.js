@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Input, Label, Menu } from "semantic-ui-react";
+import { Dropdown, Input, Label, Menu } from "semantic-ui-react";
 import {Link} from "react-router-dom";
 
 class AdminSideMenu extends Component {
@@ -47,10 +47,28 @@ class AdminSideMenu extends Component {
           name="info"
           active={activeItem === "info"}
           onClick={this.handleItemClick}
-          as={Link}
-          to="/admin/info"
         >
           공지사항 관리
+          <Menu.Menu>
+            <Menu.Item
+              name="info-list"
+              active={activeItem === "info-list"}
+              onClick={this.handleItemClick}
+              as={Link}
+              to="/admin/info-list"
+            >
+              Search
+            </Menu.Item>
+            <Menu.Item
+              name="add"
+              active={activeItem === "add"}
+              onClick={this.handleItemClick}
+              as={Link}
+              to="/admin/info-add"
+            >
+              공지사항 작성
+            </Menu.Item>
+          </Menu.Menu>
         </Menu.Item>
       </Menu>
     );
