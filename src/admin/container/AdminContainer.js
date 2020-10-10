@@ -3,7 +3,6 @@ import AdminSideMenu from "../view/AdminSideMenu";
 import AdminResultContainer from "./AdminResultContainer";
 import { Grid, Container } from "semantic-ui-react";
 import { inject, observer } from "mobx-react";
-import "../view/scss/adminContainer.scss";
 
 @inject("Store")
 @observer

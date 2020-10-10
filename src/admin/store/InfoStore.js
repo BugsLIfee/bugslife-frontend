@@ -22,12 +22,19 @@ export default class InfoStore {
   }
 
   @action
-  async addInfo(InfoApiModel) {
+  setInfoProp(name, value) {
+    this.info = {
+      ...this.info,
+      [name]: value,
+    };
+  }
+
+  @action
+  async onAddInfo(InfoApiModel) {
     let result = await this.infoApi.infoCreate(InfoApiModel);
     if (result === null) {
       console.log(`${this.todo.todoNum}:TODO CREATE ERROR!`);
     }
-    
   }
 
   @action

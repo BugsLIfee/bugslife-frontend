@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default class InfoApi {
-  url = "api/info/";
+  url = "/api/info/";
 
   infoCreate(infoApiModel) {
     return axios
