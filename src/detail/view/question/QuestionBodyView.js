@@ -17,16 +17,16 @@ export default class QuestionBodyView extends Component {
             return { __html: md_text};
         }
 
-        const tags = question.tags.map(tag => {
-            return (
-                <span>
-                    <Label color='teal' size="big">
-                        {tag}
-                    </Label>
-                    {' '}
-                </span>
-            );
-        })
+        // const tags = question.tags.map(tag => {
+        //     return (
+        //         <span>
+        //             <Label color='teal' size="big">
+        //                 {tag}
+        //             </Label>
+        //             {' '}
+        //         </span>
+        //     );
+        // })
 
         return(
             <div>
@@ -35,7 +35,7 @@ export default class QuestionBodyView extends Component {
                     { question.markDown===true && <div dangerouslySetInnerHTML = {createMarkup()} />}
                 </Card.Text>
                 <div className="hash_tags">
-                    {tags}
+                    {/* {tags} */}
                 </div>
             </div>
         )

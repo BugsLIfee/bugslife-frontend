@@ -6,17 +6,17 @@ import { observer, inject } from 'mobx-react';
 @observer
 class QuestionHeaderContainer extends Component {
 
-    
+    componentDidMount() {
+        this.props.Store.detail.selectQuestion(1);
+    }
+
     render() {
 
-        this.props.Store.detail.selectQuestion(1);
         const question = this.props.Store.detail._question;
-        console.log("퀘스찬!",question);
-
-        console.log("퀘스찬헤드컨테이너",question.body);
+        const questionHeaderView = Object.keys(question).length !== 0 ? <QuestionHeaderView question={ question } /> : "" 
         return (
             <div>
-                <QuestionHeaderView question={ question } />
+                {questionHeaderView}
             </div>
         );
     }

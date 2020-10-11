@@ -9,9 +9,10 @@ import QuestionInsertCommentContainer from "./container/comment/QuestionInsertCo
 import AnswerListContainer from "./container/answer/AnswerListContainer";
 import AddAnswerContainer from "./container/answer/AddAnswerContainer";
 import qs from "qs";
+import { observer, inject } from "mobx-react";
 
-export default class QuestionView extends Component {
-    
+class DetailPage extends Component {
+
     render() {
         const searchObj = qs.parse(this.props.location.search, {
             ignoreQueryPrefix: true,
@@ -43,3 +44,5 @@ export default class QuestionView extends Component {
         )
     }
 }
+
+export default DetailPage

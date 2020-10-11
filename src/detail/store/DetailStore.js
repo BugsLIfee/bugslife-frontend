@@ -25,6 +25,7 @@ class DetailStore {
     // }
 
     @computed get _question() {
+        console.log({...this.question});
         return this.question ? {...this.question} : {};
     }
 
