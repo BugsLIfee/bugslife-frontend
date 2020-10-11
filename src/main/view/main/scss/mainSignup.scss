@@ -9,18 +9,19 @@
   background-color: rgb(255, 237, 215);
   h1 {
     // font-weight: lighter;
-    font-size: 20px;
+    font-size: 1.6rem;
   }
 }
 .Main_signup {
   background-color: rgb(233, 147, 50);
-  width: 200px;
+  width: 13rem;
   text-align: center;
   border-radius: 10px;
   cursor: pointer;
 
   &:hover {
     box-shadow: black 5px 5px;
+    transition: 0.3s;
   }
 
   h3 {
