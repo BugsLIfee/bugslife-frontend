@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Card } from "react-bootstrap";
 import "../scss/comment.scss"
 
-
 export default class CommentView extends Component {
 
     render() {
@@ -25,5 +24,4 @@ export default class CommentView extends Component {
             </div>
         )
     }
-
 }

@@ -3,7 +3,8 @@ import HeaderContainer from "./header/container/HeaderContainer";
 import Footer from "./footer/Footer";
 import MainContainer from "./main/container/MainContainer";
 import ListContainer from "./list/container/ListContainer";
-import DetailContainer from "./detail/container/DetailContainer";
+// import DetailContainer from "./detail/container/DetailContainer";
+import DetailPage from "./detail/DetailPage";
 import AdminContainer from "./admin/container/AdminContainer";
 import TagContainer from "./tag/container/TagContainer";
 import SignUpPage from "./user/view/SignUp";
@@ -27,7 +28,7 @@ function App() {
           <Route exact path="/" component={MainContainer} exact={true} />
           <Route path="/tag" component={TagContainer} exact={true} />
           <Route path="/list" component={ListContainer} exact={true} />
-          <Route path="/detail" component={DetailContainer} exact={true} />
+          <Route path="/detail" component={DetailPage} exact={true} />
           <Route path="/admin/:menu" component={AdminContainer} />
           <Route path="/signUp" component={SignUpPage} exact={true} />
           <Route path="/login" component={LoginPage} exact={true} />
