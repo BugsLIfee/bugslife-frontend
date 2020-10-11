@@ -1,15 +1,26 @@
 import React, { Component } from 'react'
 import {inject, observer} from "mobx-react"
+import { observable } from 'mobx';
 
 
-@inject("UserStore")
-export default class Testcontainer extends Component {
+@inject("Store")
+@observer
+class Testcontainer extends Component {
 
     render() {
+        const {user} = this.props.Store;
+        user.selectAll();
+        user.selectUser(1);
+        // console.log(user.getUser);
         return (
-            <>
-                
-            </>
+            <div>
+            {/* {user.getUsers} */}
+
+            <h1>{user.getUser.email}</h1>
+            
+            </div>
         )
     }
 }
+
+export default Testcontainer

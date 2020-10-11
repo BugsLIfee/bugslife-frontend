@@ -7,9 +7,9 @@ class UserApiModel{
     enrollDate = "";
     
     
-    constructor( email,name) {
-        let date = new Date();
-        let simpleDate = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`
+    constructor( uid, email,name, enrollDate) {
+        // let date = new Date();
+        // let simpleDate = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`
         let default_value = 1;
         
         this.uid = uid;
@@ -17,7 +17,7 @@ class UserApiModel{
         this.name = name;
         this.point = default_value;
         this.level = default_value;
-        this.enrollDate = simpleDate;
+        this.enrollDate = enrollDate;
     }
 
     

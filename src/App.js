@@ -15,6 +15,8 @@ import Mypagecontainer from "./mypage/container/MyPageContainer";
 import "./header/view/scss/header.scss";
 import "./footer/footer.scss";
 import PostingContainer from "./posting/container/PostingContainer";
+import Testcontainer from "./mypage/container/TestContainer";
+import Singupcontainer from "./user/container/SingupContainer";
 
 function App() {
   return (
@@ -29,11 +31,11 @@ function App() {
           <Route path="/list" component={ListContainer} exact={true} />
           <Route path="/detail" component={DetailContainer} exact={true} />
           <Route path="/admin/:menu" component={AdminContainer} />
-          <Route path="/signUp" component={SignUpPage} exact={true} />
+          <Route path="/signUp" component={Singupcontainer} exact={true} />
           <Route path="/login" component={LoginPage} exact={true} />
           <Route path="/contact/:menu" component={ContactContainer} />
           <Route path="/mypage" component={Mypagecontainer} exact={true} />
-          <Route path="/mypage/posts" component={MypagePost} exact={true} />
+          <Route path="/api/mypage" component={Testcontainer} exact={true} />
           <Route path="/posting" component={PostingContainer} exact={true} />
         </Switch>
       </Router>

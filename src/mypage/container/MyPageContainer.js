@@ -3,6 +3,7 @@ import { Icon, Menu, Segment, Sidebar } from "semantic-ui-react";
 import MypageHome from "../view/MyPage_Home";
 import MypagePost from "../view/MyPage_Post";
 import "../scss/myPage.scss";
+import MypageUser from "../view/MyPage_user";
 
 export default class Mypagecontainer extends Component {
   constructor(props) {
@@ -41,7 +42,7 @@ export default class Mypagecontainer extends Component {
             >
               <br></br>
               <Icon name="home" />
-              Home
+              홈
             </Menu.Item>
             <Menu.Item
               as="a"
@@ -49,20 +50,29 @@ export default class Mypagecontainer extends Component {
               onClick={() => this.onClickEvent("post")}
             >
               <Icon name="book" />
-              Post
+              게시글
             </Menu.Item>
             <Menu.Item
+              as="a"
+              //   href="/"
+              onClick={() => this.onClickEvent("user")}
+            >
+               <Icon name="male" />
+              회원정보
+            </Menu.Item>
+            {/* <Menu.Item
               as="a"
               //   href="/"
               onClick={() => this.onClickEvent("point")}
             >
               <i id="coin" class="fas fa-coins"></i>
               Point
-            </Menu.Item>
+            </Menu.Item> */}
           </Sidebar>
           <div className="MyPage_curr">
             {state === "home" && <MypageHome />}
             {state === "post" && <MypagePost />}
+            {state === "user" && <MypageUser />}
           </div>
 
           <Sidebar.Pusher>

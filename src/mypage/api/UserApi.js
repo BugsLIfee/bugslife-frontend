@@ -1,11 +1,25 @@
 import axios from "axios";
-import { get } from "mobx";
 
 class UserApi{
     URL = "/api/mypage/";
+    URL_SIGNUP = "/api/signup/"
+
+
+    userCreate(user){
+        //let userJson = JSON.stringify(user);
+        return axios.post(this.URL_SIGNUP, user)
+        .then((response)=>(response && response.data )||null)
+    }
 
     userList(){
-        return axios.get(this.URL).then((response)=> (response && response.data) || null)
+        let temp = axios.
+        get(this.URL)
+        .then((response)=> {
+            console.log("JSON in UserAPI = "+ JSON.stringify(response.data))
+            return JSON.stringify(response.data)
+        })
+
+        return temp;
     }
 
     userUpdate(userApiModel){
@@ -15,7 +29,7 @@ class UserApi{
 
     userDetail(uid){
         return(
-            axios.get(this.URL + `${uid}/`)
+            axios.get(this.URL + uid)
             .then((response)=>(response && response.data) || null)
         )
     }
