@@ -39,9 +39,21 @@ class AdminSideMenu extends Component {
           active={activeItem === "qna"}
           onClick={this.handleItemClick}
           as={Link}
-          to="/admin/qna"
+          to="/admin/qna-all"
+          qna-a-write
         >
           1:1 문의 관리
+          <Menu.Menu>
+            <Menu.Item
+              name="write"
+              active={activeItem === "write"}
+              onClick={this.handleItemClick}
+              as={Link}
+              to="/admin/qna-all"
+            >
+              1:1 문의 내역 전체보기
+            </Menu.Item>
+          </Menu.Menu>
         </Menu.Item>
         <Menu.Item
           name="info"
@@ -60,11 +72,11 @@ class AdminSideMenu extends Component {
               Search
             </Menu.Item>
             <Menu.Item
-              name="add"
-              active={activeItem === "add"}
+              name="write"
+              active={activeItem === "write"}
               onClick={this.handleItemClick}
               as={Link}
-              to="/admin/info-add"
+              to="/admin/info-write"
             >
               공지사항 작성
             </Menu.Item>

@@ -1,22 +1,22 @@
 import React, { Component } from "react";
-//import "./scss/infoEdit.scss";
+//import "./scss/questionEdit.scss";
 import { Form, Button } from "semantic-ui-react";
 import CKEditor from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import moment from "moment";
 
-export default class InfoEdit extends Component {
+export default class QuestionEdit extends Component {
 
   constructor(props){
     super(props)
-    const {info} = this.props;
+    const {question} = this.props;
     this.state={
-      writerId:info.writerId ? info.writerId : "test",
-      categoryId:info.categoryId ? info.categoryId :"",
-      registDate:info.registDate ? info.registDate : "",
-      editDate:info.editDate ? info.editDate : "",
-      title: info.title ? info.title : "",
-      content:info.title ? info.title : "",
+      writerId:question.writerId ? question.writerId : "test",
+      categoryId:question.categoryId ? question.categoryId :"",
+      registDate:question.registDate ? question.registDate : "",
+      editDate:question.editDate ? question.editDate : "",
+      title: question.title ? question.title : "",
+      content:question.title ? question.title : "",
     }
   }
   
@@ -34,11 +34,11 @@ export default class InfoEdit extends Component {
   }
   
   onsubmit=()=>{
-    const {info} = this.props;
+    const {question} = this.props;
       this.setState({
         ...this.state,
-        registDate: info.registDate? info.registDate:this.nowDate(),
-        editDate:info.registDate? this.nowDate() : "",
+        registDate: question.registDate? question.registDate:this.nowDate(),
+        editDate:question.registDate? this.nowDate() : "",
         
       })
       console.log("onSubmitstate----", {...this.state});
@@ -47,11 +47,11 @@ export default class InfoEdit extends Component {
   // this.setState({});
   render() {
     const {
-      info,
-      //onSetInfoProp,
-      onAddInfo,
-      onRemoveInfo,
-      onModifyInfo,
+      question,
+      //onSetquestionProp,
+      onAddQuestion,
+      onRemoveQuestion,
+      onModifyQuestion,
     } = this.props;
     
     const {writerId, registDate,editDate,content, title,categoryId} =this.state;
@@ -59,22 +59,22 @@ export default class InfoEdit extends Component {
 
     return (
       <div>
-        <h2>📢공지사항 작성 페이지 </h2>
+        <h2>👀1:1 문의 작성 페이지 </h2>
         <Form>
             
             <Form.Input
             width={3}
             readOnly
                fluid
-            label="운영팀"
+            label="작성자"
               name="writerId"
               value={writerId}
             />
-            <Form.Input
+            <Form.Select
             width={3}
             readOnly
                fluid
-            label="카테고리"
+            label="문의종류"
               name="categoryId"
               value={categoryId}
             />
@@ -102,50 +102,34 @@ export default class InfoEdit extends Component {
           <Form.Input
             width={6}
             fluid
-            label="제목"
+            label="문의제목"
             placeholder="제목을 입력하세요"
             name="title"
            value= {title}
              onChange={(e) => this.handleChange(e)}
-           // onChange={(e) => onSetInfoProp("title", e.target.value)}
+           // onChange={(e) => onSetquestionProp("title", e.target.value)}
           />
           <Form.Input
             width={6}
             fluid
-            label="본문"
-            placeholder="본문을 입력하세요"
+            label="문의내용"
+            placeholder="내용을 입력하세요"
             name="content"
            value= {content}
        onChange={(e) => this.handleChange(e)}
           />
         </Form>
 
-        <CKEditor
-          className="ckEditor"
-          editor={ClassicEditor}
-          onInit={(editor) => {
-            console.log("Editor is ready to use!", editor);
-          }}
-          onChange={(event, editor) => {
-            const data = editor.getData();
-            console.log({ event, editor, data });
-          }}
-          onBlur={(event, editor) => {
-            console.log("Blur.", editor);
-          }}
-          onFocus={(event, editor) => {
-            console.log("Focus.", editor);
-          }}
-        />
-        <Button primary onClick={()=>onAddInfo(this.onsubmit())}>
+       
+        <Button primary onClick={()=>onAddQuestion(this.onsubmit())}>
           작성완료
         </Button>
-        {info ? (
+        {question ? (
           <>
-            <Button primary onClick={onRemoveInfo}>
+            <Button primary onClick={onRemoveQuestion}>
               삭제
             </Button>
-            <Button primary onClick={onModifyInfo}>
+            <Button primary onClick={onModifyQuestion}>
               수정
             </Button>
           </>

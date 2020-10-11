@@ -2,7 +2,10 @@ import ListStore from "../list/store/ListStore";
 import UserStore from "../user/store/UserStore";
 import DetailStore from "../detail/store/DetailStore";
 import AdminStore from "../admin/store/AdminStore";
+import AnswerStore from "../contact/store/AnswerStore";
+import QuestionStore from "../contact/store/QuestionStore";
 import ContactStore from "../contact/store/ContactStore";
+import CategoryStore from "../contact/store/CategoryStore";
 import InfoStore from "../admin/store/InfoStore";
 
 export default class Store {
@@ -13,5 +16,8 @@ export default class Store {
     this.admin = new AdminStore(this);
     this.contact = new ContactStore(this);
     this.info = new InfoStore(this);
+    this.question = new QuestionStore(this);
+    this.answer = new AnswerStore(this);
+    this.category = new CategoryStore(this);
   }
 }
