@@ -30,14 +30,14 @@ const testData = {
         tags : [ "PHP", "Node.js" ],
         comments: [
             {
+                id: 0,
                 writer_id: "디지털디톡스",
-                writer_lv: "level 10. 버그사냥꾼 코뎅이",
                 date: "2020.03.17",
                 body: "저랑 같은 고민을 하고 계시군요."
             },
             {
+                id: 1,
                 writer_id: "111알고리즘",
-                writer_lv: "level 53. 괴물 코뎅이",
                 date: "2020.06.30",
                 body: "ㄴ2222222"
             }
@@ -55,8 +55,8 @@ const testData = {
             body: "Node.js 하세용.",
             comments: [
                 {
+                    id: 0,
                     writer_id: "리자몽워터",
-                    writer_lv: "level 53. 괴물 코뎅이",
                     date: "2020.10.01",
                     body: "답변 너무 대충쓰네"
                 }

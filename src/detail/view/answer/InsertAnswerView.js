@@ -8,6 +8,8 @@ export default class AddAnswerView extends Component {
 
     render() {
 
+        const { onInsertForm } = this.props;
+
         return(
             <div className="detail_answer_editor">
                 <p> # 답변작성 </p>
@@ -34,7 +36,10 @@ export default class AddAnswerView extends Component {
                     }}
                 />
                 <div className="posting_answer">
-                    <Button basic color='black' className="bt" size='huge'> 
+                    <Button basic color='white' className="bt" size='huge' onClick={()=> {onInsertForm()}}> 
+                        뒤로가기
+                    </Button>
+                    <Button basic color='gray' className="bt" size='huge'> 
                         완료
                     </Button>
                 </div>

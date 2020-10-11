@@ -1,258 +1,258 @@
-.list-item {
-}
+// .list-item {
+// }
 
-// mixin
-$colorRed: red;
+// // mixin
+// $colorRed: red;
 
-$mobMin: 760;
+// $mobMin: 760;
 
-ul,
-ol,
-li {
-  list-style: none;
-}
-a {
-  text-decoration: none;
-}
+// ul,
+// ol,
+// li {
+//   list-style: none;
+// }
+// a {
+//   text-decoration: none;
+// }
 
-img {
-  width: 100%;
-  vertical-align: top;
-}
+// img {
+//   width: 100%;
+//   vertical-align: top;
+// }
 
-.table-qna {
-  margin-top: 126px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+// .table-qna {
+//   margin-top: 126px;
+//   display: flex;
+//   flex-direction: row;
+//   align-items: center;
 
-  .lnb {
-    width: 200px;
-    // background: #333;
-    padding: 20px;
-    border: 1px solid black;
-    margin-right: 20px;
-    ul {
-      //   background: #555;
+//   .lnb {
+//     width: 200px;
+//     // background: #333;
+//     padding: 20px;
+//     border: 1px solid black;
+//     margin-right: 20px;
+//     ul {
+//       //   background: #555;
 
-      &::after {
-        display: block;
-        content: "";
-        clear: both;
-      }
+//       &::after {
+//         display: block;
+//         content: "";
+//         clear: both;
+//       }
 
-      li {
-        float: left;
-        width: auto;
-        margin: 5px 0;
-        // background: #777;
-        text-align: center;
-      }
-      a {
-        background: #111;
-        display: block;
-        padding: 10px 0px;
-        border: 1px solid blue;
-        background-color: blue;
-        color: #fff;
-        border-radius: 40px;
-      }
-    }
-  }
-  .content {
-    width: calc(100% - 220px);
-    // background: #888;
-    .content-menu {
-      margin-top: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .list-tag {
-      display: flex;
-      li {
-        margin-right: 4px;
-        &::last-child {
-          margin-right: 0;
-        }
-      }
-      a {
-        display: inline-block;
-        background: #111;
-        color: #fff;
-        padding: 2px 4px;
-        border-radius: 10px;
-      }
-    }
-    .list-rank {
-      display: flex;
-
-      li {
-        margin-right: 8px;
-
-        &.active a {
-          color: red;
-        }
-
-        &::last-child {
-          margin-right: 0;
-        }
-      }
-      a {
-        display: inline-block;
-        color: #111;
-      }
-    }
-
-    // item-box
-    .item-box {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      align-items: center;
-      justify-content: space-between;
-      //   background: #333;
-      border: 1px solid #111;
-      border-radius: 12px;
-      margin-bottom: 20px;
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-
-    .inner {
-      padding: 20px 10px;
-    }
-
-    .item-left {
-      //flex-grow: 1;
-      //   min-width: 120px;
-      text-align: center;
-      span {
-        display: block;
-      }
-      .img {
-        margin: 0 auto;
-        width: 90px;
-      }
-      .count {
-        margin-top: 0px;
-        font-size: 1.2rem;
-        line-height: 1.3;
-        color: black;
-      }
-      .view {
-        margin-top: 10px;
-        font-size: 1.1rem;
-        line-height: 1;
-        color: gray;
-      }
-    }
-    .item-center {
-      flex-grow: 5;
-      //   background: #999;
-      .inner {
-        position: relative;
-      }
-      .tits {
-        font-size: 2rem;
-      }
-      .date {
-        font-size: 1.2rem;
-        color: #111;
-      }
-      .tab-box {
-        margin-top: 12px;
-        ul {
-          display: flex;
-          li {
-            margin-right: 10px;
-          }
-        }
-      }
-      .img {
-        width: 40px;
-      }
-      .box-like {
-        position: absolute;
-        right: 140px;
-        bottom: 15px;
-        display: flex;
-        align-items: center;
-        .thumb {
-          margin-left: 4px;
-        }
-      }
-      .box-grade {
-        position: absolute;
-        right: 20px;
-        bottom: 15px;
-        display: flex;
-        align-items: center;
-        .value {
-          margin-left: 4px;
-          span {
-            display: block;
-          }
-        }
-      }
-    }
-    .item-right {
-      //flex-grow: 1;
-      //   background: #999;
-      .inner {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
-      .img {
-        width: 40px;
-        margin: 0 auto;
-      }
-      span {
-        text-align: center;
-        display: inline-block;
-      }
-      .point {
-        margin-top: 4px;
-        .default {
-          color: blue;
-        }
-        .plus {
-          margin-left: 10px;
-          color: red;
-        }
-      }
-      .comment {
-        background: none;
-        .number {
-          margin-left: 8px;
-          background: green;
-          width: 22px;
-          height: 22px;
-          border-radius: 100%;
-        }
-      }
-    }
-  }
-}
-
-// 해상도가 mobMin이하일때
-// @media (max-width: 720px) {
-//   .table-qna {
-//     margin-top: 126px;
-//     display: flex;
-//     flex-direction: column;
-//     // align-items: flex-start;
-
-//     .lnb {
-//       width: auto;
-//       margin-right: 0;
-//       padding: 0 20px;
+//       li {
+//         float: left;
+//         width: auto;
+//         margin: 5px 0;
+//         // background: #777;
+//         text-align: center;
+//       }
+//       a {
+//         background: #111;
+//         display: block;
+//         padding: 10px 0px;
+//         border: 1px solid blue;
+//         background-color: blue;
+//         color: #fff;
+//         border-radius: 40px;
+//       }
 //     }
-//     .content {
-//       width: 100%;
-//       padding: 0 20px;
+//   }
+//   .content {
+//     width: calc(100% - 220px);
+//     // background: #888;
+//     .content-menu {
+//       margin-top: 20px;
+//       display: flex;
+//       align-items: center;
+//       justify-content: space-between;
+//     }
+//     .list-tag {
+//       display: flex;
+//       li {
+//         margin-right: 4px;
+//         &::last-child {
+//           margin-right: 0;
+//         }
+//       }
+//       a {
+//         display: inline-block;
+//         background: #111;
+//         color: #fff;
+//         padding: 2px 4px;
+//         border-radius: 10px;
+//       }
+//     }
+//     .list-rank {
+//       display: flex;
+
+//       li {
+//         margin-right: 8px;
+
+//         &.active a {
+//           color: red;
+//         }
+
+//         &::last-child {
+//           margin-right: 0;
+//         }
+//       }
+//       a {
+//         display: inline-block;
+//         color: #111;
+//       }
+//     }
+
+//     // item-box
+//     .item-box {
+//       display: flex;
+//       flex-direction: row;
+//       flex-wrap: nowrap;
+//       align-items: center;
+//       justify-content: space-between;
+//       //   background: #333;
+//       border: 1px solid #111;
+//       border-radius: 12px;
+//       margin-bottom: 20px;
+//       &:last-child {
+//         margin-bottom: 0;
+//       }
+//     }
+
+//     .inner {
+//       padding: 20px 10px;
+//     }
+
+//     .item-left {
+//       //flex-grow: 1;
+//       //   min-width: 120px;
+//       text-align: center;
+//       span {
+//         display: block;
+//       }
+//       .img {
+//         margin: 0 auto;
+//         width: 90px;
+//       }
+//       .count {
+//         margin-top: 0px;
+//         font-size: 1.2rem;
+//         line-height: 1.3;
+//         color: black;
+//       }
+//       .view {
+//         margin-top: 10px;
+//         font-size: 1.1rem;
+//         line-height: 1;
+//         color: gray;
+//       }
+//     }
+//     .item-center {
+//       flex-grow: 5;
+//       //   background: #999;
+//       .inner {
+//         position: relative;
+//       }
+//       .tits {
+//         font-size: 2rem;
+//       }
+//       .date {
+//         font-size: 1.2rem;
+//         color: #111;
+//       }
+//       .tab-box {
+//         margin-top: 12px;
+//         ul {
+//           display: flex;
+//           li {
+//             margin-right: 10px;
+//           }
+//         }
+//       }
+//       .img {
+//         width: 40px;
+//       }
+//       .box-like {
+//         position: absolute;
+//         right: 140px;
+//         bottom: 15px;
+//         display: flex;
+//         align-items: center;
+//         .thumb {
+//           margin-left: 4px;
+//         }
+//       }
+//       .box-grade {
+//         position: absolute;
+//         right: 20px;
+//         bottom: 15px;
+//         display: flex;
+//         align-items: center;
+//         .value {
+//           margin-left: 4px;
+//           span {
+//             display: block;
+//           }
+//         }
+//       }
+//     }
+//     .item-right {
+//       //flex-grow: 1;
+//       //   background: #999;
+//       .inner {
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: center;
+//       }
+//       .img {
+//         width: 40px;
+//         margin: 0 auto;
+//       }
+//       span {
+//         text-align: center;
+//         display: inline-block;
+//       }
+//       .point {
+//         margin-top: 4px;
+//         .default {
+//           color: blue;
+//         }
+//         .plus {
+//           margin-left: 10px;
+//           color: red;
+//         }
+//       }
+//       .comment {
+//         background: none;
+//         .number {
+//           margin-left: 8px;
+//           background: green;
+//           width: 22px;
+//           height: 22px;
+//           border-radius: 100%;
+//         }
+//       }
 //     }
 //   }
 // }
+
+// // 해상도가 mobMin이하일때
+// // @media (max-width: 720px) {
+// //   .table-qna {
+// //     margin-top: 126px;
+// //     display: flex;
+// //     flex-direction: column;
+// //     // align-items: flex-start;
+
+// //     .lnb {
+// //       width: auto;
+// //       margin-right: 0;
+// //       padding: 0 20px;
+// //     }
+// //     .content {
+// //       width: 100%;
+// //       padding: 0 20px;
+// //     }
+// //   }
+// // }

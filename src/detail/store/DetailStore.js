@@ -1,55 +1,82 @@
-import { observable, computed, action } from "mobx";
-import testData from '../testData';
+import { observable, computed, action } from "mobx"
+import testData from "../testData"
 
 class DetailStore {
+  detailApi = null
 
-    detailApi = null;
+  @observable post_id
+  @observable question
+  @observable answers
+  @observable answer
+  @observable question_comments = []
+  @observable question_comment = {}
+  @observable answer_comments = []
 
-    @observable detail = testData;
+  constructor(detailApi) {
+    // this.detailApi = detailApi;
+    this.post_id = testData.post_id
+    this.question = testData.question
+    this.answers = testData.answers
+    this.question_comments = testData.question.comments
+  }
 
-    constructor(detailApi) {
-        this.detailApi = detailApi;
+  @computed get _question() {
+    return this.question ? { ...this.question } : {}
+  }
+
+  @computed get _answers() {
+    return this.answers ? this.answers.slice() : []
+  }
+
+  @computed get _question_comments() {
+    return this.question_comments ? this.question_comments.slice() : []
+  }
+
+  // @computed get _answer_lieks(id) {
+  //     let result = this.answers.filter(answer => {
+  //         return answer.id=id;
+  //     })
+  //     return result.likes;
+  // }
+
+  @action setAnswerLike(answer_id, dir) {
+    if (this.answers[answer_id].clicked_like && dir === "down") {
+      this.answers[answer_id].clicked_like = false
+      this.answers[answer_id].likes -= 1
+    } else if (!this.answers[answer_id].clicked_like && dir === "up") {
+      this.answers[answer_id].clicked_like = true
+      this.answers[answer_id].likes += 1
     }
+  }
 
-    @computed get _detail() {
-        return this.detail ? {...this.detail} : {};
+  @action setQuestionLike(clicked) {
+    if (clicked) {
+      this.question.clicked_like = false
+      this.question.likes -= 1
+    } else {
+      this.question.clicked_like = true
+      this.question.likes += 1
     }
+  }
 
-    @computed get _question() {
-        return this.detail.question ? {...this.detail.question} : {};
+  @action setCommentProps(body) {
+    this.question_comment = {
+      ...this.question_comment,
+      body: body,
     }
+  }
 
-    @computed get _answers() {
-        return this.detail.answers ? this.detail.answers : []; 
-    }
+  @action addQuestionComment(comment) {
+    this.question_comments.push(comment)
+  }
 
-    @action setAnswerLikes(answer_id, dir) {
-        if(this.detail.answers[answer_id].clicked_like && dir==="down") {
-            this.detail.answers[answer_id].clicked_like = false;
-            this.detail.answers[answer_id].likes -= 1;
-            var tf = this.detail.answers[answer_id].clicked_like;
-            var temp = this.detail.answers[answer_id].likes;
-            console.log(tf);
-            console.log(temp);
-        } else if (!this.detail.answers[answer_id].clicked_like && dir==="up"){
-            this.detail.answers[answer_id].clicked_like=true;
-            this.detail.answers[answer_id].likes += 1;
-            var tf = this.detail.answers[answer_id].clicked_like;
-            var temp = this.detail.answers[answer_id].likes;
-            console.log(tf);
-            console.log(temp);
-        }
-    }
-
-    @action setQuestionLike(clicked) {
-        if(clicked) {
-            this.detail.question.clicked_like = false;
-            this.detail.question.likes -= 1;
-        } else {
-            this.detail.question.clicked_like = true;
-            this.detail.question.likes += 1;
-        }
-    }
+  @action addAnswerComment(id, comment) {
+    this.answers
+      .find((answer) => {
+        return answer.id == id
+      })
+      .comments.push(comment)
+  }
 }
 
-export default DetailStore;
+export default DetailStore
