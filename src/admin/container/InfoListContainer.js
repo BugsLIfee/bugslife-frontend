@@ -1,24 +1,23 @@
-
-
 import React, { Component } from "react";
-import QnAList from "../view/QnAList";
+import InfoList from "../view/InfoList";
+
 import { inject, observer } from "mobx-react";
 import info from "../../contact/data/info";
 import infotype from "../../contact/data/infoType";
 
 @inject("Store")
 @observer
-class InfoMngContainer extends Component {
+class InfoListContainer extends Component {
   render() {
-    console.log("---listcontainer---");
+    console.log("---Infolistcontainer---");
 
     //  const { ListData, TypeData } = this.props.Store.admin;
     return (
       <div>
-        <QnAList ListData={info} TypeData={infotype} />
+        <InfoList ListData={info} TypeData={infotype} />
       </div>
     );
   }
 }
 
-export default InfoMngContainer;
+export default InfoListContainer;
