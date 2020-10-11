@@ -23,8 +23,8 @@ ReactDOM.render(
           "/login",
           "/signUp",
           "/mypage",
-          "/mypage/posts",
-          "/posting"
+          "/posting",
+          "/api/mypage"
         ]}
         component={App}
         exact={true}
