@@ -1,3 +1,8 @@
+.listLayout {
+  display: flex;
+  justify-content: center;
+}
+
 .itemBox {
   width: 790px;
   margin: 20px auto;
@@ -8,4 +13,12 @@
 }
 
 .headerBar {
+  display: flex;
+  justify-content: center;
+}
+
+.paging {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }

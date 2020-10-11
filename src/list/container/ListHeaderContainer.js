@@ -5,7 +5,7 @@ class ListHeaderContainer extends Component {
   render() {
     const { onSetOrderBy } = this.props
     return (
-      <div className="list_header headerBar">
+      <div>
         <ListHeaderview onSetOrderBy={onSetOrderBy} />
       </div>
     )

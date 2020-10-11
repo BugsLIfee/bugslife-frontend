@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import ListTagView from '../view/ListTagView';
+import React, { Component } from "react"
+import ListTagView from "../view/ListTagView"
 
 class ListTagContainer extends Component {
-    render() {
-        return (
-            <div>
-                <ListTagView/>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div className="listTagContainer tagBox">
+        <ListTagView />
+      </div>
+    )
+  }
 }
 
-export default ListTagContainer;
+export default ListTagContainer

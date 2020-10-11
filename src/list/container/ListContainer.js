@@ -17,18 +17,16 @@ class ListContainer extends Component {
   render() {
     const list = this.props.Store.list.getList
     return (
-      <Container>
-        <Grid>
-          <Grid.Column width={2}>
-            <ListTagContainer />
-          </Grid.Column>
+      <Grid className="listContainer listLayout">
+        <Grid.Column width={2}>
+          <ListTagContainer />
+        </Grid.Column>
 
-          <Grid.Column width={14}>
-            <ListHeaderContainer onSetOrderBy={this.onSetListOrderBy} />
-            <ListViewContainer lists={list} />
-          </Grid.Column>
-        </Grid>
-      </Container>
+        <Grid.Column width={11}>
+          <ListHeaderContainer onSetOrderBy={this.onSetListOrderBy} />
+          <ListViewContainer lists={list} />
+        </Grid.Column>
+      </Grid>
     )
   }
 }

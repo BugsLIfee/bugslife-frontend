@@ -50,16 +50,18 @@ class ListViewContainer extends Component {
     return (
       <div>
         {list}
-        <Pagination
-          boundaryRange={0}
-          defaultActivePage={1}
-          ellipsisItem={null}
-          firstItem={null}
-          lastItem={null}
-          siblingRange={2}
-          onPageChange={this.setNextPage}
-          totalPages={totalPage}
-        />
+        <div className="listpage paging">
+          <Pagination
+            boundaryRange={0}
+            defaultActivePage={1}
+            ellipsisItem={null}
+            firstItem={null}
+            lastItem={null}
+            siblingRange={2}
+            onPageChange={this.setNextPage}
+            totalPages={totalPage}
+          />
+        </div>
       </div>
     )
   }

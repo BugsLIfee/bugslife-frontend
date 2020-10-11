@@ -1,5 +1,18 @@
-.listTagContainer {
+.tagBox {
+  height: 300px;
+  width: 120px;
   margin-right: 0px;
 
-  border: solid 1px black;
+  border: solid 1px #dadada;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+span {
+  display: block;
+}
+
+.tagItem {
+  display: flex;
+  justify-content: center;
 }

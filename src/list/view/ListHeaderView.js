@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Segment, Header, Menu } from "semantic-ui-react"
+import { Input, Header, Menu } from "semantic-ui-react"
 
 export default class ListHeaderview extends Component {
   state = {}
@@ -19,7 +19,7 @@ export default class ListHeaderview extends Component {
           <h2>Q/A</h2>
         </Header>
 
-        <Menu position="right">
+        <Menu position="left" className="listHeader headerBar">
           <Menu.Item
             name="최신순"
             active={activeItem === "최신순"}
@@ -48,6 +48,9 @@ export default class ListHeaderview extends Component {
               onSetOrderBy("p")
             }}
           />
+          <Menu.Item position="right">
+            <Input icon={{ name: "search", circular: true, link: true }} placeholder="Search" />
+          </Menu.Item>
         </Menu>
       </div>
     )
