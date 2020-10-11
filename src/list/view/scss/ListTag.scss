@@ -1,0 +1,15 @@
+.tagBox {
+  height: 300px;
+  width: 120px;
+  margin-right: 0px;
+
+  border: solid 1px #dadada;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.tagItem {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}

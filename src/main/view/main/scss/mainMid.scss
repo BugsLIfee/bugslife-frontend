@@ -22,10 +22,12 @@
 }
 
 .Mainmid_plan {
-  width: 75%;
+  width: 70%;
+  height: 80%;
   display: inline-flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 
   .Mainmid_plan_column {
     border: 1px solid lightgray;
@@ -34,15 +36,15 @@
     padding-bottom: 1.5rem;
     display: flex;
     flex-direction: column;
-    width: 400px;
-    height: 300px;
+    width: 45%;
+    height: 60%;
     justify-content: center;
     text-align: center;
     border-radius: 20px;
     &:hover {
       box-shadow: gray 5px 5px 5px;
-      width: 420px;
-      height: 320px;
+      width: 45%;
+      height: 65%;
       transition: 0.3s;
     }
 

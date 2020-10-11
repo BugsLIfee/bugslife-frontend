@@ -1,9 +1,12 @@
 import { observable, computed, action } from "mobx";
 import testData from '../testData';
 import DetailApi from "../api/DetailApi";
-// import { createTransformer } from "babel-jest";
+import { observable, computed, action } from "mobx"
+import testData from "../testData"
+
 
 class DetailStore {
+  detailApi = null
 
     detailApi = new DetailApi;
     @observable detail = {};
@@ -29,13 +32,13 @@ class DetailStore {
         return this.question ? {...this.question} : {};
     }
 
-    @computed get _answers() {
-        return this.answers ? this.answers.slice() : []; 
-    }
+  @computed get _answers() {
+    return this.answers ? this.answers.slice() : []
+  }
 
-    @computed get _question_comments() {
-        return this.question_comments ? this.question_comments.slice() : [];
-    }
+  @computed get _question_comments() {
+    return this.question_comments ? this.question_comments.slice() : []
+  }
 
     @computed get _answer_comments() {
         return this.answers.find(answer => {
@@ -65,48 +68,49 @@ class DetailStore {
         }
     }
 
-    @action setAnswerLike(answer_id, dir) {
-        if(this.answers[answer_id].clicked_like && dir==="down") {
-            this.answers[answer_id].clicked_like = false;
-            this.answers[answer_id].likes -= 1;
-        } else if (!this.answers[answer_id].clicked_like && dir==="up"){
-            this.answers[answer_id].clicked_like=true;
-            this.answers[answer_id].likes += 1;
-        }
-    }
 
-    @action setQuestionLike(clicked) {
-        if(clicked) {
-            this.question.clicked_like = false;
-            this.question.likes -= 1;
-        } else {
-            this.question.clicked_like = true;
-            this.question.likes += 1;
-        }
+  @action setAnswerLike(answer_id, dir) {
+    if (this.answers[answer_id].clicked_like && dir === "down") {
+      this.answers[answer_id].clicked_like = false
+      this.answers[answer_id].likes -= 1
+    } else if (!this.answers[answer_id].clicked_like && dir === "up") {
+      this.answers[answer_id].clicked_like = true
+      this.answers[answer_id].likes += 1
     }
+  }
 
-    @action setCommentProps(body) {
-        this.question_comment = {
-            ...this.question_comment,
-            body: body,
-        }
+  @action setQuestionLike(clicked) {
+    if (clicked) {
+      this.question.clicked_like = false
+      this.question.likes -= 1
+    } else {
+      this.question.clicked_like = true
+      this.question.likes += 1
     }
+  }
 
-    @action addQuestionComment(comment) {
-        this.question_comments.push(comment);
+  @action setCommentProps(body) {
+    this.question_comment = {
+      ...this.question_comment,
+      body: body,
     }
+  }
 
-    @action addAnswerComment(id, comment){
-        console.log(id, comment, comment.body);
-        
-        this.answers.find(answer => {
-            return answer.id==id;
-        }).comments.push(comment);
-    }
+  @action addQuestionComment(comment) {
+    this.question_comments.push(comment)
+  }
 
-    @action setAnswerId(id) {
-        this.answer_id = id;
-    }
+  @action addAnswerComment(id, comment){
+      console.log(id, comment, comment.body);
+
+      this.answers.find(answer => {
+          return answer.id==id;
+      }).comments.push(comment);
+  }
+
+  @action setAnswerId(id) {
+      this.answer_id = id;
+  }
 }
 
-export default DetailStore;
+export default DetailStore
