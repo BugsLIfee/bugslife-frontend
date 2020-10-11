@@ -1,21 +1,20 @@
-import React from "react";
-import HeaderContainer from "./header/container/HeaderContainer";
-import Footer from "./footer/Footer";
-import MainContainer from "./main/container/MainContainer";
-import ListContainer from "./list/container/ListContainer";
+import React from "react"
+import HeaderContainer from "./header/container/HeaderContainer"
+import Footer from "./footer/Footer"
+import MainContainer from "./main/container/MainContainer"
+import ListContainer from "./list/container/ListContainer"
 // import DetailContainer from "./detail/container/DetailContainer";
-import DetailPage from "./detail/DetailPage";
-import AdminContainer from "./admin/container/AdminContainer";
-import TagContainer from "./tag/container/TagContainer";
-import SignUpPage from "./user/view/SignUp";
-import LoginPage from "./user/view/Login";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import ContactContainer from "./contact/container/ContactContainer";
-import MypagePost from "./mypage/view/MyPage_Post";
-import Mypagecontainer from "./mypage/container/MyPageContainer";
-import "./header/view/scss/header.scss";
-import "./footer/footer.scss";
-import PostingContainer from "./posting/container/PostingContainer";
+import DetailPage from "./detail/DetailPage"
+import AdminContainer from "./admin/container/AdminContainer"
+import SignUpPage from "./user/view/SignUp"
+import LoginPage from "./user/view/Login"
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import ContactContainer from "./contact/container/ContactContainer"
+import MypagePost from "./mypage/view/MyPage_Post"
+import Mypagecontainer from "./mypage/container/MyPageContainer"
+import "./header/view/scss/header.scss"
+import "./footer/footer.scss"
+import PostingContainer from "./posting/container/PostingContainer"
 
 function App() {
   return (
@@ -26,7 +25,6 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={MainContainer} exact={true} />
-          <Route path="/tag" component={TagContainer} exact={true} />
           <Route path="/list" component={ListContainer} exact={true} />
           <Route path="/detail" component={DetailPage} exact={true} />
           <Route path="/admin/:menu" component={AdminContainer} />
@@ -43,7 +41,7 @@ function App() {
         <Footer />
       </div>
     </>
-  );
+  )
 }
 
-export default App;
+export default App

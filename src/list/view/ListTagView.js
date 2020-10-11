@@ -4,21 +4,19 @@ import "./scss/ListTag.scss"
 
 export default class Listtagview extends Component {
   render() {
+    const { tagAll } = this.props
+    console.log("view tagALl------------", tagAll.slice())
+
+    const tags = tagAll.map((tag) => {
+      return (
+        <span>
+          <Badge variant="info">{tag.tagName}</Badge>
+        </span>
+      )
+    })
+
     return (
-      <div className="listTag tagItem">
-        <span>
-          <Badge variant="info">VisualStudioCode</Badge>
-        </span>
-        <span>
-          <Badge variant="info">JavaScript</Badge>
-        </span>
-        <span>
-          <Badge variant="info">C#</Badge>
-        </span>
-        <span>
-          <Badge variant="info">react</Badge>
-        </span>
-      </div>
+    <div className="listTag tagItem">{tags}</div>
       // <div class="list-item table-qna">
       //   <div class="lnb">
 

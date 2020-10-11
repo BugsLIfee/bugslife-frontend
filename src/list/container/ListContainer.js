@@ -3,7 +3,7 @@ import { inject, observer } from "mobx-react"
 import ListHeaderContainer from "./ListHeaderContainer"
 import ListTagContainer from "./ListTagContainer"
 import ListViewContainer from "./ListViewContainer"
-import { Grid, Container } from "semantic-ui-react"
+import { Grid } from "semantic-ui-react"
 import "../view/scss/ListMain.scss"
 import "../view/scss/ListTag.scss"
 
@@ -16,6 +16,7 @@ class ListContainer extends Component {
 
   render() {
     const list = this.props.Store.list.getList
+
     return (
       <Grid className="listContainer listLayout">
         <Grid.Column width={2}>

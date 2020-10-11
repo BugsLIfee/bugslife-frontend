@@ -8,11 +8,8 @@
   padding: 10px;
 }
 
-span {
-  display: block;
-}
-
 .tagItem {
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
