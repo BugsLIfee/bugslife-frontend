@@ -10,7 +10,7 @@ class AnswerInsertCommentContainer extends Component {
 
     render() {
 
-        const { login } = this.props;
+        const { login, answer } = this.props;
 
         const onSetCommentProps = ( body ) => {
             this.props.Store.detail.setCommentProps(body);
@@ -21,11 +21,12 @@ class AnswerInsertCommentContainer extends Component {
             let comment = this.props.Store.detail.question_comment;
             comment = { 
                 ...comment,
+                // body: body,
                 id: generatedId(5),
                 date: getToday(),
                 writer_id: "임시사용자",
             }
-            this.props.Store.detail.addQuestionComment(comment);
+            this.props.Store.detail.addAnswerComment(answer.id, comment);
         }
 
         return (

@@ -30,10 +30,10 @@ class AnswerContainer extends Component {
                             <AnswerBodyView answer = {answer} />
                         </Card.Text>
                         <hr />
-                        <AnswerCommentListContainer comments = {answer.comments} />
+                        <AnswerCommentListContainer answer = {answer} />
                     </Card.Body>
                     <Card.Footer className="text-muted text-center post_footer">
-                        <AnswerInsertCommentContainer login = {login} />
+                        <AnswerInsertCommentContainer login = {login} answer = {answer} />
                     </Card.Footer>
                 </Card>
             </div>

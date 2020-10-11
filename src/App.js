@@ -29,6 +29,7 @@ function App() {
           <Route exact path="/" component={MainContainer} exact={true} />
           <Route path="/list" component={ListContainer} exact={true} />
           <Route path="/detail" component={DetailPage} exact={true} />
+          <Route path="/APITest" component={APITest} />
           <Route path="/admin/:menu" component={AdminContainer} />
           <Route path="/signUp" component={Singupcontainer} exact={true} />
           <Route path="/login" component={LoginPage} exact={true} />

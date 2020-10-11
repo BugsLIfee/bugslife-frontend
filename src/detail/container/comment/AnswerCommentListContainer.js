@@ -8,8 +8,11 @@ class AnswerCommentListContainer extends Component {
 
     render() {
 
-        const { comments } = this.props;
-
+        const { answer } = this.props;
+        this.props.Store.detail.setAnswerId(answer.id);
+        const comments = this.props.Store.detail._answer_comments;
+        console.log(comments);
+        
         return (
             <div>
                 <CommentListView comments={comments} />

@@ -9,9 +9,10 @@ import QuestionInsertCommentContainer from "./container/comment/QuestionInsertCo
 import AnswerListContainer from "./container/answer/AnswerListContainer";
 import AddAnswerContainer from "./container/answer/AddAnswerContainer";
 import qs from "qs";
+import { observer, inject } from "mobx-react";
 
-export default class QuestionView extends Component {
-    
+class DetailPage extends Component {
+
     render() {
         const searchObj = qs.parse(this.props.location.search, {
             ignoreQueryPrefix: true,
@@ -30,16 +31,18 @@ export default class QuestionView extends Component {
                         <QuestionLikesContainer login = { login } />
                         <Card.Body>
                             <QuestionBodyContainer />
-                            <QuestionCommentListContainer login = { login } />
+                            {/* <QuestionCommentListContainer login = { login } /> */}
                         </Card.Body>
                         <Card.Footer className="text-muted text-center post_footer">
-                            <QuestionInsertCommentContainer login = { login } />
+                            {/* <QuestionInsertCommentContainer login = { login } /> */}
                         </Card.Footer>
                     </Card>
                 </div>
-                <AnswerListContainer login={ login } />
-                <AddAnswerContainer login={ login } />
+                {/* <AnswerListContainer login={ login } />
+                <AddAnswerContainer login={ login } /> */}
             </div>
         )
     }
 }
+
+export default DetailPage

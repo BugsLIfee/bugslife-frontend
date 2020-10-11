@@ -19,8 +19,8 @@ export default class QuestionHeaderView extends Component {
                         <div className="writer_info"> 
                             <img src="../logo/logo_st.png" className="writer_icon" /> 
                             <div className="writer_info_text">
-                                <div className="writer_id">{question.writer_id}</div>
-                                <div className="writer_level">{question.writer_lv} </div>
+                                {/* <div className="writer_id">{question.writer_id}</div>
+                                <div className="writer_level">{question.writer_lv} </div> */}
                             </div>
                         </div>
                         <div className="post_info">
@@ -29,7 +29,7 @@ export default class QuestionHeaderView extends Component {
                                 <div className="report"> <a href="#"> <i className="fas fa-ban"></i> 신고 </a> </div>
                         </div>
                     </div>
-                    <div className="detail_points">
+                    <div className="detail_--points">
                         <div className="point">
                             {question.point}P
                         </div>
