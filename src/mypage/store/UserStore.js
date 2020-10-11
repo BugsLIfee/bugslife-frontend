@@ -14,13 +14,22 @@ class UserStore {
 
     @computed 
     get getUser(){
+      console.log("store this.user"+{...this.user} )
+      console.log(this.user)
+     // return this.user ? JSON.stringify(this.user) : {}
         return this.user ? {...this.user} : {}
     }
 
     @computed 
     get getUsers(){
-        return this.users ? this.users.splice() : [];
+        return this.users ? this.users.slice() : [];
     }
+
+    @action
+    async updatetUser(user){
+
+    }
+
 
     @action
     async createUser(userObj){
@@ -35,7 +44,7 @@ class UserStore {
     @action
     async selectUser(uid){
         this.user = await this.userApi.userDetail(uid);
-        console.log("this.user on Store: " +JSON.stringify(this.user))
+        // console.log("this.user on Store: " +JSON.stringify(this.user))
         if (this.user == null) {
             this.errorMessage = `Error : There is no user id =  ${uid}`;
         }
@@ -46,7 +55,7 @@ class UserStore {
       console.log("select all");
  
       this.users = await this.userApi.userList();
-        console.log(` this users = ${this.users}`);
+        // console.log(` this users = ${this.users}`);
       if (this.users == null) {
         console.log("empty list");
         return "empty list";

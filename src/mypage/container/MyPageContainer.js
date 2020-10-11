@@ -3,12 +3,15 @@ import { Icon, Menu, Segment, Sidebar } from "semantic-ui-react";
 import MypageHome from "../view/MyPage_Home";
 import MypagePost from "../view/MyPage_Post";
 import "../scss/myPage.scss";
+import {inject, observer} from "mobx-react"
 import MypageUser from "../view/MyPage_user";
 
-export default class Mypagecontainer extends Component {
+
+@inject("Store")
+@observer
+class Mypagecontainer extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       curr_component: "home",
     };
@@ -21,8 +24,15 @@ export default class Mypagecontainer extends Component {
 
   render() {
     const state = this.state.curr_component;
+    const {user} = this.props.Store;
+    user.selectUser(1);
 
+    const selected_user = user.getUser
+    // console.log("selected_user : "+ selected_user, JSON.stringify(selected_user))
+    
+    console.log(selected_user)
     return (
+      
       <div name="MyPage_container" className="MyPage_container">
         <h1 class="MyPage_container_title">마이 페이지</h1>
         <Sidebar.Pushable as={Segment}>
@@ -70,7 +80,8 @@ export default class Mypagecontainer extends Component {
             </Menu.Item> */}
           </Sidebar>
           <div className="MyPage_curr">
-            {state === "home" && <MypageHome />}
+            {this.user}
+            {state === "home" && <MypageHome user ={selected_user} />}
             {state === "post" && <MypagePost />}
             {state === "user" && <MypageUser />}
           </div>
@@ -83,3 +94,5 @@ export default class Mypagecontainer extends Component {
     );
   }
 }
+
+export default Mypagecontainer;
