@@ -16,6 +16,7 @@ import Mypagecontainer from "./mypage/container/MyPageContainer";
 import "./header/view/scss/header.scss";
 import "./footer/footer.scss";
 import PostingContainer from "./posting/container/PostingContainer";
+import APITest from "./detail/APITest";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/tag" component={TagContainer} exact={true} />
           <Route path="/list" component={ListContainer} exact={true} />
           <Route path="/detail" component={DetailPage} exact={true} />
+          <Route path="/APITest" component={APITest} />
           <Route path="/admin/:menu" component={AdminContainer} />
           <Route path="/signUp" component={SignUpPage} exact={true} />
           <Route path="/login" component={LoginPage} exact={true} />

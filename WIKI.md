@@ -52,3 +52,8 @@ https://ko.reactjs.org/docs/dom-elements.html
 ```import React, {Component} from 'react';```
 
 로  바꾼다.
+
+
+### Lombok의 @Getter를 사용하여 getter를 생성했을 때, boolean 값은 get이 아닌 is로 시작한다.
+
+> ex. user.isBlackList();

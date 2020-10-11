@@ -7,8 +7,9 @@ import QuestionBodyView from "../../view/question/QuestionBodyView"
 class QuestionBodyContainer extends Component {
 
     render() {
-
+        this.props.Store.detail.selectQuestion(1);
         const question = this.props.Store.detail._question;
+        console.log(question);
 
         return (
             <div>

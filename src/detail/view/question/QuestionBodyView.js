@@ -8,8 +8,9 @@ export default class QuestionBodyView extends Component {
 
     render() {
         
-        const { question } = this.props;
+        const { question }= this.props;
 
+        console.log(question.body);
         const md_text = marked( question.body );
 
         const createMarkup = function() {
@@ -30,8 +31,8 @@ export default class QuestionBodyView extends Component {
         return(
             <div>
                 <Card.Text class="post_body">
-                    { question.md==="false" && question.body}
-                    { question.md==="true" && <div dangerouslySetInnerHTML = {createMarkup()} />}
+                    { question.markDown===false && question.body}
+                    { question.markDown===true && <div dangerouslySetInnerHTML = {createMarkup()} />}
                 </Card.Text>
                 <div className="hash_tags">
                     {tags}

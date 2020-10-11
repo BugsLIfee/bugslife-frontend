@@ -24,7 +24,8 @@ ReactDOM.render(
           "/signUp",
           "/mypage",
           "/mypage/posts",
-          "/posting"
+          "/posting",
+          "/APITest"
         ]}
         component={App}
         exact={true}
