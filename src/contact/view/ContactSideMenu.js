@@ -35,7 +35,7 @@ class ContactSideMenu extends Component {
                 active={activeItem === "qna-write"}
                 onClick={this.handleItemClick}
                 as={Link}
-                to="/contact/qna-write"
+                to="/contact/qna-q-write"
               >
                 1:1 문의하기
               </Menu.Item>

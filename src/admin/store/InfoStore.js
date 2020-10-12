@@ -13,7 +13,7 @@ export default class InfoStore {
 
   @computed
   get getInfos() {
-    return this.info ? this.infos.slice() : [];
+    return this.infos ? this.infos.slice() : [];
   }
 
   @computed
@@ -22,19 +22,28 @@ export default class InfoStore {
   }
 
   @action
-  async addInfo(InfoApiModel) {
+  setInfoProp(name, value) {
+    this.info = {
+      ...this.info,
+      [name]: value,
+    };
+  }
+
+  @action
+  async onAddInfo(InfoApiModel) {
     let result = await this.infoApi.infoCreate(InfoApiModel);
     if (result === null) {
       console.log(`${this.todo.todoNum}:TODO CREATE ERROR!`);
     }
-    
   }
 
   @action
-  async selectAllInfo() {
+  async selectAllinfo() {
+    console.log("selectall 스토어 도착!")
     let result = await this.infoApi.infoList();
+    console.log("selectall 스토어리스트", result);
     if (result !== null) {
-      this.info = result;
+      this.infos = result;
     } else {
       console.log(`${this.todo.todoNum}:TODO CREATE ERROR!`);
     }

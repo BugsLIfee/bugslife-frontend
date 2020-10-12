@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import QnAMy from '../view/QnAMy';
-import QnAWrite from '../view/QnAWrite';
-import InfoMngContainer from './InfoMngContainer';
 import { inject, observer } from "mobx-react";
+import QuestionEditContainer from './QuestionEditContainer';
+import InfoListContainer from '../../admin/container/InfoListContainer';
+import QuestionMyListContainer from './QuestionMyListContainer';
 
 @inject("Store")
 @observer
@@ -13,9 +13,9 @@ class ContactResultContainer extends Component {
     console.log("contact-result:", menu);
     return (
       <div>
-        {menu === "qna-write" ? <QnAWrite /> : ""}
-        {menu === "qna-my" ? <QnAMy /> : ""}
-        {menu === "info" ? <InfoMngContainer /> : ""}
+        {menu === "qna-write" ? <QuestionEditContainer /> : ""}
+        {menu === "qna-myList" ? <QuestionMyListContainer /> : ""}
+        {menu === "info-list" ? <InfoListContainer /> : ""}
       </div>
     );
   }

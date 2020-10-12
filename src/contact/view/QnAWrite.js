@@ -4,7 +4,6 @@ import {Form } from "semantic-ui-react";
 class QnAWrite extends Component {
   render() {
     const { types } = this.props;
-    //const { value } = this.state
     return (
       <Form>
         <Form.Group widths="equal">

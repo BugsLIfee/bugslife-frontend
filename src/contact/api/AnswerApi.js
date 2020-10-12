@@ -1,35 +1,35 @@
 import axios from "axios";
 
-export default class InfoApi {
-  url = "/api/info/";
+export default class AnswerApi {
+  url = "/api/qna-a/";
 
-  infoCreate(infoApiModel) {
+  answerCreate(AnswerApiModel) {
     return axios
-      .post(this.url, infoApiModel)
+      .post(this.url, AnswerApiModel)
       .then((response) => (response && response.data) || null);
   }
 
-  infoDetail(id) {
+  answerDetail(id) {
     return axios
       .get(this.url + `${id}`)
       .then((response) => (response && response.data) || null);
   }
   //todoList(todoApiModel):url get  return todo
-  infoList() {
+  answerList() {
     return axios
       .get(this.url)
       .then((response) => (response && response.data) || null);
   }
   //todoModify(todoApiModel):url put  return void
-  infoModify(infoApiModel) {
+  answerModify(AnswerApiModel) {
     //let todoJson = JSON.stringify(todoApiModel);
     return axios
-      .put(this.url, infoApiModel)
+      .put(this.url, AnswerApiModel)
       .then((response) => (response && response.data) || null);
   }
   //todoDelete(todoApiModel):url delete return void
-  infoDelete(id) {
-    console.log("info-api delete:", id);
+  answerDelete(id) {
+    console.log("answer-api delete:", id);
     return axios
       .delete(this.url + `${id}`)
       .then((response) => (response && response.data) || null);

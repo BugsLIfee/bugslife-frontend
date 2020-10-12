@@ -1,35 +1,35 @@
 import axios from "axios";
 
-export default class InfoApi {
-  url = "/api/info/";
-
-  infoCreate(infoApiModel) {
+export default class categoryApi {
+  url = "/api/category/";
+  
+  categoryCreate(categoryApiModel) {
     return axios
-      .post(this.url, infoApiModel)
+      .post(this.url, categoryApiModel)
       .then((response) => (response && response.data) || null);
   }
 
-  infoDetail(id) {
+   categoryDetail(id) {
     return axios
       .get(this.url + `${id}`)
       .then((response) => (response && response.data) || null);
   }
   //todoList(todoApiModel):url get  return todo
-  infoList() {
+   categoryList() {
     return axios
       .get(this.url)
       .then((response) => (response && response.data) || null);
   }
   //todoModify(todoApiModel):url put  return void
-  infoModify(infoApiModel) {
+    categoryModify(categoryApiModel) {
     //let todoJson = JSON.stringify(todoApiModel);
     return axios
-      .put(this.url, infoApiModel)
+      .put(this.url, categoryApiModel)
       .then((response) => (response && response.data) || null);
   }
   //todoDelete(todoApiModel):url delete return void
-  infoDelete(id) {
-    console.log("info-api delete:", id);
+    categoryDelete(id) {
+    console.log("category-api delete:", id);
     return axios
       .delete(this.url + `${id}`)
       .then((response) => (response && response.data) || null);

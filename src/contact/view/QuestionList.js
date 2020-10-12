@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { Container, Table, Pagination } from "semantic-ui-react";
+import { Container, Table, Pagination, List } from "semantic-ui-react";
 
-class InfoList extends Component {
+class QuestionList extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -33,18 +32,14 @@ class InfoList extends Component {
       this.state.page * 10
     );
 
-    let CreateTableRowList = listPageOne.map((obj,key) => (
-      <Table.Row key={key} as={Link} to={`/admin/info-detail?id=${obj.id}`}>
-        <Table.Cell >{obj.id}</Table.Cell>
-        <Table.Cell >{obj.writerId}</Table.Cell>
-        <Table.Cell > {MakeTypeName(obj)}</Table.Cell>
-        <Table.Cell >{obj.title}</Table.Cell>
-        <Table.Cell >
-          {obj.editDate==="" 
-           ? `작성일:${obj.registDate}`
-           : `작성일:${obj.registDate}-수정일:${obj.editDate}`}
-          </Table.Cell>
-          <Table.Cell>{obj.viewCnt}</Table.Cell>
+    let CreateTableRowList = listPageOne.map((qna) => (
+      <Table.Row>
+        <Table.Cell width="1">{qna.completed}</Table.Cell>
+        <Table.Cell width="1">{qna.id}</Table.Cell>
+        <Table.Cell width="2">{qna.userid}</Table.Cell>
+        <Table.Cell width="2"> {MakeTypeName(qna)}</Table.Cell>
+        <Table.Cell width="7">{qna.title}</Table.Cell>
+        <Table.Cell width="3">{qna.regist_date}</Table.Cell>
       </Table.Row>
     ));
 
@@ -62,8 +57,7 @@ class InfoList extends Component {
               <Table.HeaderCell>작성자</Table.HeaderCell>
               <Table.HeaderCell>문의종류</Table.HeaderCell>
               <Table.HeaderCell>제목</Table.HeaderCell>
-              <Table.HeaderCell>날짜</Table.HeaderCell>
-              <Table.HeaderCell>조회수</Table.HeaderCell>
+              <Table.HeaderCell>등록일</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
 
@@ -84,4 +78,4 @@ class InfoList extends Component {
   }
 }
 
-export default InfoList;
+export default QuestionList;
