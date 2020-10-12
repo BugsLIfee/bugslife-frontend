@@ -21,21 +21,22 @@
 }
 
 .back_mid_yellow_cloud {
-  width: 200px;
+  width: 10rem;
   top: 40%;
-  left: -0%;
+  left: 2%;
   transform: rotate(-17deg);
 }
 
 .back_mid_red_semi {
   right: -4%;
-  width: 200px;
+  width: 14rem;
 }
 .back_mid_black_long {
   z-index: 1;
   right: 0;
-  width: 10px;
-  height: 500px;
+  top: 15%;
+  width: 0.5rem;
+  height: 25rem;
   transform: rotate(-47deg);
 }
 
@@ -44,8 +45,8 @@
   left: -5%;
   top: 20%;
   z-index: -1;
-  width: 200px;
-  height: 200px;
+  width: 15rem;
+  height: 15rem;
   border-radius: 100%;
   // opacity: 0.6;
   border: 5px solid rgb(27, 131, 62);
@@ -55,6 +56,6 @@
   position: absolute;
   left: -1%;
   top: 70%;
-  font-size: 60px;
+  font-size: 5rem;
   opacity: 0.4;
 }

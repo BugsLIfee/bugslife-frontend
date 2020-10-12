@@ -1,28 +1,35 @@
-import React, { Component } from "react";
-import ListHeaderContainer from "./ListHeaderContainer";
-import ListTagContainer from "./ListTagContainer";
-import ListViewContainer from "./ListViewContainer";
-import { Grid } from "semantic-ui-react";
+import React, { Component } from "react"
+import { inject, observer } from "mobx-react"
+import ListHeaderContainer from "./ListHeaderContainer"
+import ListTagContainer from "./ListTagContainer"
+import ListViewContainer from "./ListViewContainer"
+import { Grid } from "semantic-ui-react"
+import "../view/scss/ListMain.scss"
+import "../view/scss/ListTag.scss"
 
+@inject("Store")
+@observer
 class ListContainer extends Component {
+  onSetListOrderBy = (e) => {
+    this.props.Store.list.setListOrderBy(e)
+  }
+
   render() {
+    const list = this.props.Store.list.getList
+
     return (
-      <Grid>
-      
-          <Grid.Column width={3} style={{ border: "solid 1px black" }}>
-            <ListTagContainer />
-          </Grid.Column>
-     
-    
-          <Grid.Column width={13} style={{border: "solid 1px black" }}>
-            <ListHeaderContainer />
-            <ListViewContainer />
-          </Grid.Column>
-          
-        
+      <Grid className="listContainer listLayout">
+        <Grid.Column width={2}>
+          <ListTagContainer />
+        </Grid.Column>
+
+        <Grid.Column width={11}>
+          <ListHeaderContainer onSetOrderBy={this.onSetListOrderBy} />
+          <ListViewContainer lists={list} />
+        </Grid.Column>
       </Grid>
-    );
+    )
   }
 }
 
-export default ListContainer;
+export default ListContainer
