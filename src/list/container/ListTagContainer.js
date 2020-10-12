@@ -13,7 +13,6 @@ componentDidMount(){
 
   render() {
     const { tag } = this.props.Store
- 
     let taglist = tag.getTagAll
     console.log("container taglist: ", taglist)
 

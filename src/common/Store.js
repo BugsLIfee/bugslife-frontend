@@ -9,6 +9,7 @@ import ContactStore from "../contact/store/ContactStore";
 import CategoryStore from "../contact/store/CategoryStore";
 import InfoStore from "../admin/store/InfoStore";
 import SignupUserStore from "../user/store/SignupUserStore"
+import TagStore from "../tag/store/TagStore"
 
 
 export default class Store {
@@ -23,6 +24,6 @@ export default class Store {
     this.answer = new AnswerStore(this);
     this.category = new CategoryStore(this);
     this.signupUser = new SignupUserStore(this);
-
+    this.tag = new TagStore(this);
   }
 }
