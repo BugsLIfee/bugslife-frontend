@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Input, Label, Menu } from "semantic-ui-react";
+import { Dropdown, Input, Label, Menu } from "semantic-ui-react";
 import {Link} from "react-router-dom";
 
 class AdminSideMenu extends Component {
@@ -39,18 +39,48 @@ class AdminSideMenu extends Component {
           active={activeItem === "qna"}
           onClick={this.handleItemClick}
           as={Link}
-          to="/admin/qna"
+          to="/admin/qna-all"
+          qna-a-write
         >
           1:1 문의 관리
+          <Menu.Menu>
+            <Menu.Item
+              name="write"
+              active={activeItem === "write"}
+              onClick={this.handleItemClick}
+              as={Link}
+              to="/admin/qna-all"
+            >
+              1:1 문의 내역 전체보기
+            </Menu.Item>
+          </Menu.Menu>
         </Menu.Item>
         <Menu.Item
           name="info"
           active={activeItem === "info"}
           onClick={this.handleItemClick}
-          as={Link}
-          to="/admin/info"
         >
           공지사항 관리
+          <Menu.Menu>
+            <Menu.Item
+              name="info-list"
+              active={activeItem === "info-list"}
+              onClick={this.handleItemClick}
+              as={Link}
+              to="/admin/info-list"
+            >
+              Search
+            </Menu.Item>
+            <Menu.Item
+              name="write"
+              active={activeItem === "write"}
+              onClick={this.handleItemClick}
+              as={Link}
+              to="/admin/info-write"
+            >
+              공지사항 작성
+            </Menu.Item>
+          </Menu.Menu>
         </Menu.Item>
       </Menu>
     );

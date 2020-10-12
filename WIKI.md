@@ -41,3 +41,19 @@
 
 > 자세한 방법 : https://gist.github.com/Back-Tracking/1cac3f8a577c70a6f6645cbcc5dc82d5 <br>
 https://ko.reactjs.org/docs/dom-elements.html
+
+
+### 컴파일시 `Module not found: Can't resolve './node_modules/mobx-react' in` 오류가 날 때,
+
+```import React, {Component} from './node/modules/react';```
+
+위의 import문을
+
+```import React, {Component} from 'react';```
+
+로  바꾼다.
+
+
+### Lombok의 @Getter를 사용하여 getter를 생성했을 때, boolean 값은 get이 아닌 is로 시작한다.
+
+> ex. user.isBlackList();

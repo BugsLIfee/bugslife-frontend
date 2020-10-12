@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import AdminSideMenu from "../view/AdminSideMenu";
 import AdminResultContainer from "./AdminResultContainer";
-import { Grid } from "semantic-ui-react";
+import { Grid, Container } from "semantic-ui-react";
 import { inject, observer } from "mobx-react";
 
 @inject("Store")
@@ -11,14 +11,14 @@ class AdminContainer extends Component {
     const menu = this.props.match.params.menu;
     this.props.Store.admin.setMenu(menu);
 
-    console.log("admincontainer-menu:",menu);
+    console.log("admincontainer-menu:", menu);
     return (
-      <div>
+      <div class="admincontainer">
         <Grid>
-          <Grid.Column width={5}>
+          <Grid.Column width={4} class="side">
             <AdminSideMenu menu={menu} />
           </Grid.Column>
-          <Grid.Column width={11}>
+          <Grid.Column width={12}>
             <AdminResultContainer menu={menu} />
           </Grid.Column>
         </Grid>

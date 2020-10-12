@@ -4,12 +4,21 @@ import "./scss/myPage.scss";
 import CountUp from "react-countup";
 
 export default class MypageHome extends Component {
+constructor(props){
+  super(props)
+
+}
+
   render() {
     const image = "../main/pink_sqaure.png";
     const date = "3 days ago";
     const summary = "Laura Faucet created a post";
     const extraText =
       "Have you seen what's going on in Israel? Can you believe it.";
+
+    const user = this.props.user
+
+   console.log(user)
 
     return (
       <>
@@ -18,17 +27,17 @@ export default class MypageHome extends Component {
             <i id="MyPage_profile_icon" class="far fa-grin"></i>
             <br></br>
 
-            <h2>User ID</h2>
+            <h2>{user.name}</h2>
             <span className="MyPage_level">
               <i id="MyPage_level_icon" class="fas fa-check-circle"></i>
               <h3>
-                <strong>Level </strong>: 1
+                <strong>Level </strong>: {user.level}
               </h3>
             </span>
             <span className="MyPage_coin">
               <i id="MyPage_coin_icon" class="fas fa-coins"></i>
               <h3>
-                <strong>Point </strong>: 10p
+    <strong>Point </strong>: {user.point}p
               </h3>
             </span>
           </div>
