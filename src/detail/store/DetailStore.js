@@ -1,12 +1,8 @@
 import { observable, computed, action } from "mobx";
-import testData from '../testData';
 import DetailApi from "../api/DetailApi";
-import { observable, computed, action } from "mobx"
-import testData from "../testData"
 
 
 class DetailStore {
-  detailApi = null
 
     detailApi = new DetailApi;
     @observable detail = {};
