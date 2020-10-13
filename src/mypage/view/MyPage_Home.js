@@ -88,7 +88,7 @@ constructor(props){
               <h3>누적 포인트</h3>
               <h2 className="action_detail_rate">
                 <b className="point_rate">
-                  <CountUp end={user.point} duration={0} />
+                  <CountUp end={10} duration={5} />
                 </b>{" "}
                 P
               </h2>
@@ -168,7 +168,7 @@ constructor(props){
               <div className="MyPage_detail_columm_point_card curr_point">
                 <h3>
                   <i id="MyPage_detail_coin" class="fas fa-coins"></i>
-                  <b>Point</b> : {user.point} p
+                  <b>Point</b> : 10p
                 </h3>
               </div>
               <div className="MyPage_detail_columm_point_card charge_point">
