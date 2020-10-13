@@ -22,15 +22,31 @@ class Mypagecontainer extends Component {
     this.setState({ curr_component: `${params}` });
   };
 
+  componentDidMount() {
+    const {user} = this.props.Store;
+    user.selectUser(1);
+  }
+
+  onSubmitForm =(userObj, validationCheck)=>{
+    const {user} =this.props.Store;
+    console.log("Mypage container on submit form : "+userObj)
+    user.updateUser(userObj)
+
+    if(validationCheck==true){
+        this.onValidationCheck(validationCheck)
+
+    }
+}
+
   render() {
     const state = this.state.curr_component;
     const {user} = this.props.Store;
-    user.selectUser(1);
+    // user.selectUser(1);
 
     const selected_user = user.getUser
     // console.log("selected_user : "+ selected_user, JSON.stringify(selected_user))
     
-    console.log(selected_user)
+    console.log("selectedUser:"+ selected_user)
     return (
       
       <div name="MyPage_container" className="MyPage_container">
@@ -83,7 +99,7 @@ class Mypagecontainer extends Component {
             {this.user}
             {state === "home" && <MypageHome user ={selected_user} />}
             {state === "post" && <MypagePost />}
-            {state === "user" && <MypageUser />}
+            {state === "user" && <MypageUser user ={selected_user} onSubmitForm={this.onSubmitForm} />}
           </div>
 
           <Sidebar.Pusher>

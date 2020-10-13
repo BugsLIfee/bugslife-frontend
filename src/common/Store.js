@@ -24,6 +24,5 @@ export default class Store {
     this.category = new CategoryStore(this);
     this.signupUser = new SignupUserStore(this);
     this.tag = new TagStore(this); 
-
   }
 }

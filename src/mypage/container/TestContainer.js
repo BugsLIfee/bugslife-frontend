@@ -15,8 +15,8 @@ class Testcontainer extends Component {
         return (
             <div>
         
-                {user.getUsers}            
-            <h1>{user.getUser}</h1>
+                {user.users}            
+            {/* <h1>{user.getUser}</h1> */}
 </div>
         )
     }

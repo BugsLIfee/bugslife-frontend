@@ -26,8 +26,15 @@ class UserStore {
     }
 
     @action
-    async updatetUser(user){
+    async updatetUser(select_user){
+      this.users = this.users.map((user)=>
+      user.uid === select_user.uid  ? JSON.stringify(select_user) : user);
+      this.user = {};
 
+      let result = this.userApi.userUpdate(select_user);
+      if(result ==null){
+        return "no user"
+      }
     }
 
 
