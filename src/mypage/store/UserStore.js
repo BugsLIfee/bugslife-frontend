@@ -26,7 +26,15 @@ class UserStore {
     }
 
     @action
-    async updatetUser(user){
+    async updatetUser(selectedUser){  
+        this.users = this.users.map((user)=> user.uid === selectedUser.uid ? JSON.stringify(selectedUser) : user);
+
+        this.user = {}
+
+        let result = this.userApi.updatetUser(selectedUser);
+        if(result ==null){
+          console.log("유저가 없습니다.")
+        }
 
     }
 
