@@ -32,6 +32,13 @@ export default class Nav extends Component {
         </div>
 
         <div>
+          <a href="/freeboard">
+            {" "}
+            <h4>자유게시판</h4>
+          </a>
+        </div>
+
+        <div>
           {" "}
           <a href="/myPage">
             <h4>마이페이지</h4>
