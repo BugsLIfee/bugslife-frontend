@@ -3,7 +3,7 @@ import QuestionApiModel from "../api/Model/QuestionApiModel";
 import QuestionApi from "../api/QuestionApi.js";
 
 export default class QuestionStore {
-  qusetionApi = new QuestionApi();
+  questionApi = new QuestionApi();
 
   @observable
   questions = [];
@@ -13,7 +13,8 @@ export default class QuestionStore {
 
   @computed
   get getQuestions() {
-    return this.questions ? this.questions.slice() : [];
+    console.log("questionList::",this.questions)
+    return this.questions ;
   }
 
   @computed
@@ -41,9 +42,13 @@ export default class QuestionStore {
   async selectAllQuestion() {
     console.log("selectall 스토어 도착!")
     let result = await this.questionApi.questionList();
+   
     console.log("selectall 스토어리스트", result);
     if (result !== null) {
-      this.questions = result;
+      this.questions= result;
+      console.log("apimodel로 감싸주기 전?",this.questions )
+       this.questions=result.map(question=>new QuestionApiModel(question)).slice();
+       console.log("apimodel로 감싸줬거든?", this.questions)
     } else {
       console.log(`${this.question.id}:TODO CREATE ERROR!`);
     }

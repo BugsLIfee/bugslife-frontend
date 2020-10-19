@@ -18,7 +18,10 @@ export default class QuestionApi {
    questionList() {
     return axios
       .get(this.url)
-      .then((response) => (response && response.data) || null);
+      .then((response) => {
+        console.log("response.data => 오나요?? ",response.data)
+        return (response && response.data) || null
+      });
   }
   //todoModify(todoApiModel):url put  return void
     questionModify(questionApiModel) {
