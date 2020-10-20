@@ -25,7 +25,8 @@ ReactDOM.render(
           "/mypage",
           "/posting",
           "/api/mypage",
-          "/freeboard"
+          "/freeboard",
+          "/point"
         ]}
         component={App}
         exact={true}
