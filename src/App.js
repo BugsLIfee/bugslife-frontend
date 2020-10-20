@@ -15,7 +15,7 @@ import "./footer/footer.scss";
 import PostingContainer from "./posting/container/PostingContainer";
 import Testcontainer from "./mypage/container/TestContainer";
 import Singupcontainer from "./user/container/SingupContainer";
-import Freeboardlistcontainer from "./freeBoard/container/FreeBoardListContainer";
+import FreeBoardContainer from "./freeBoard/container/FreeBoardContainer";
 
 function App() {
   return (
@@ -35,7 +35,7 @@ function App() {
           <Route path="/mypage" component={Mypagecontainer} exact={true} />
           <Route path="/api/mypage" component={Testcontainer} exact={true} />
           <Route path="/posting" component={PostingContainer} exact={true} />
-          <Route path="/freeboard" component={Freeboardlistcontainer} exact={true} />
+          <Route path="/freeboard" component={FreeBoardContainer} exact={true} />
         </Switch>
       </Router>
       <div className="footer_place">
