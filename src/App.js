@@ -17,6 +17,7 @@ import Singupcontainer from "./user/container/SingupContainer";
 import Freeboardlistcontainer from "./freeBoard/container/FreeBoardListContainer";
 import PointPage from "./point/PointPage";
 
+
 function App() {
   return (
     <>
@@ -37,6 +38,7 @@ function App() {
           <Route path="/posting" component={PostingContainer} exact={true} />
           <Route path="/freeboard" component={Freeboardlistcontainer} exact={true} />
           <Route path="/point" component={PointPage} />
+
         </Switch>
       </Router>
       <div className="footer_place">
