@@ -240,7 +240,7 @@ export default function EnhancedTable(props) {
                             <TableCell className="content_body" align="center">{point.regist_date}</TableCell>
                             <TableCell className="content_body" className={point.isGain ? "plus" : "minus"} align="center">
                                 {point.isGain && "+"}
-                                {point.gain_point}원
+                                {point.gain_point}P
                             </TableCell>
                             <TableCell className="content_body" align="center">{point.log_detail}</TableCell>
                             <TableCell className="content_body" align="center"> <a href={point.gain_point}> 상세보기</a></TableCell>
