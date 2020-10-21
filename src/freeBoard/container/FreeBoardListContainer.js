@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Freeboardlistview from '../view/FreeBoardListView'
-import "../view/scss/FreeBoardListCon.scss"
+import Freeboardlistview from '../view/List/FreeBoardListView'
+import "../view/List/scss/FreeBoardListCon.scss"
 import { Pagination } from 'semantic-ui-react'
 import { Input, Menu, Button } from "semantic-ui-react"
 
@@ -14,31 +14,32 @@ export default class Freeboardlistcontainer extends Component {
             <div className="freeboard_list_wrap">
                 <div className="freeboard_header_menu">
         <Menu position="left" className="listHeader headerBar">
-          <Menu.Item
-            name="최신순"
-            // active={activeItem === "최신순"}
-            // onClick={() => {
-            //   onSetOrderBy("d")
-            // }}
-          />
-          <Menu.Item
-            name="조회수"
-            // active={activeItem === "조회수"}
-            // onClick={() => {
-            //   onSetOrderBy("v")
-            // }}
-          />
-          <Menu.Item
-            name="추천수"
-            // active={activeItem === "추천수"}
-            // onClick={() => {
-            //   onSetOrderBy("l")
-            // }}
-          />
-          <Menu.Item position="right">
-            <Input icon={{ name: "search", circular: true, link: true }} placeholder="Search" />
-          </Menu.Item>
-        </Menu></div>
+              <Menu.Item
+                name="최신순"
+                // active={activeItem === "최신순"}
+                // onClick={() => {
+                //   onSetOrderBy("d")
+                // }}
+              />
+              <Menu.Item
+                name="조회수"
+                // active={activeItem === "조회수"}
+                // onClick={() => {
+                //   onSetOrderBy("v")
+                // }}
+              />
+              <Menu.Item
+                name="추천수"
+                // active={activeItem === "추천수"}
+                // onClick={() => {
+                //   onSetOrderBy("l")
+                // }}
+              />
+              <Menu.Item position="right">
+                  <Input icon={{ name: "search", circular: true, link: true }} placeholder="Search" />
+              </Menu.Item>
+          </Menu>
+          </div>
                 <div className="freeboard_list">
                     
                 <div className="freeboard_list_head">

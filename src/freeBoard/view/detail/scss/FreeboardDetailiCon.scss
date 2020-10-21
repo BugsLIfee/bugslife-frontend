@@ -1,0 +1,51 @@
+.freeboard_detail_wrap {
+  margin: auto;
+  width: 80%;
+
+  .freeboard_detail_cate {
+    padding: 1rem;
+  }
+}
+
+.freeboard_detail_col {
+  display: inline-flex;
+}
+
+.freeboard_detail_postcontainer {
+  border: 1px solid lightgray;
+  border-radius: 10px;
+}
+
+.freeboard_detail_head {
+  background-color: beige;
+  border-radius: 10px 10px 0 0;
+  height: 3rem;
+  position: relative;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  display: inline-flex;
+  flex-direction: row;
+  text-emphasis: center;
+  text-align: center;
+
+  .freeboard_detail_head_title {
+    width: 70%;
+    position: absolute;
+    left: 3%;
+    .freeboard_detail_post_num {
+      width: 15%;
+    }
+    .freeboard_detail_post_title {
+      width: 85%;
+      place-content: center;
+    }
+  }
+  .freeboard_detial_head_info {
+    position: absolute;
+    right: 5%;
+    width: 15%;
+    display: inline-flex;
+    justify-content: space-between;
+  }
+}

@@ -13,14 +13,18 @@
   display: flex;
   justify-content: left;
   align-items: left;
-  padding-left: 2rem;
+  padding-left: 10%;
   h5 {
-    padding: 0.3rem;
+    padding: 0.5rem;
     display: inline;
     font-size: 1rem;
   }
 }
 
+.ui.checkbox {
+  padding-left: 1rem;
+  padding-bottom: 0.4rem;
+}
 .freeboard_cate_title {
   width: 100%;
   text-align: center;

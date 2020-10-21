@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Checkbox } from 'semantic-ui-react'
-import "../view/scss/FreeBoardCate.scss"
+import "../view/List/scss/FreeBoardCate.scss"
 
 export default class FreeboardcateContainer extends Component {
     render() {
