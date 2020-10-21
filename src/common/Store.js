@@ -12,6 +12,7 @@ import SignupUserStore from "../user/store/SignupUserStore"
 import TagStore from "../tag/store/TagStore"
 import FreeboardStore from "../freeBoard/store/FreeboardStore";
 import PointStore from "../point/store/PointStore";
+import ReportStore from "../report/store/ReportStore";
 
 export default class Store {
   constructor() {
@@ -28,5 +29,6 @@ export default class Store {
     this.tag = new TagStore(this); 
     this.freeboard = new FreeboardStore(this);
     this.point = new PointStore(this);
+    this.report = new ReportStore(this);
   }
 }
