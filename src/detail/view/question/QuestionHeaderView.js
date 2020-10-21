@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ReportModalContainer from "../../../report/container/ReportContainer"
 import "../scss/post.scss"
 
 export default class QuestionHeaderView extends Component {
@@ -26,7 +27,8 @@ export default class QuestionHeaderView extends Component {
                         <div className="post_info">
                                 <div className="upload_date"> {question.date} &nbsp; | &nbsp; </div>
                                 <div className="views"> 조회수 {question.views}  &nbsp; | &nbsp; </div>
-                                <div className="report"> <a href="#"> <i className="fas fa-ban"></i> 신고 </a> </div>
+                                <div className="report"> <ReportModalContainer /> </div>
+                                {/* <div className="report"> <a href="#"> <i className="fas fa-ban"></i> 신고 </a> </div> */}
                         </div>
                     </div>
                     <div className="detail_--points">

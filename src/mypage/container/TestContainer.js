@@ -14,10 +14,9 @@ class Testcontainer extends Component {
         // console.log(user.getUser);
         return (
             <div>
-        
-                {user.getUsers}            
-            <h1>{user.getUser}</h1>
-</div>
+                {user.users}            
+            {/* <h1>{user.getUser}</h1> */}
+            </div>
         )
     }
 }
