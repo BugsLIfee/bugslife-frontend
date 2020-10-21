@@ -1,9 +1,11 @@
 .freeboard_container_wrap {
   width: 100%;
+  // height: 100vh;
   display: flex;
   flex-direction: column;
   padding: 3rem 3rem 5rem 5rem;
 
+  margin-bottom: 10rem;
   .free_board_content {
     width: 100%;
     position: relative;
@@ -12,7 +14,8 @@
 }
 
 .free_borad_title {
-  padding: 0 0 3rem 1rem;
+  text-align: left;
+  padding: 0 3rem 3rem 2rem;
 }
 .freeboard_list_wrap {
   width: 100%;

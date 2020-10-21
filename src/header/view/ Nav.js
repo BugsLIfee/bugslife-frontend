@@ -9,7 +9,7 @@ export default class Nav extends Component {
         <div>
           <a href="/">
             {" "}
-            <h4>HOME</h4>
+            <h4>홈</h4>
           </a>{" "}
         </div>
         <div>
@@ -48,14 +48,14 @@ export default class Nav extends Component {
         <div>
           <a href="/admin/member">
             {" "}
-            <h4>ADMIN</h4>
+            <h4>관리자</h4>
           </a>
         </div>
 
         <div>
           <a href="/contact/my">
             {" "}
-            <h4>CONTACT</h4>
+            <h4>문의하기</h4>
           </a>
         </div>
       </nav>
