@@ -40,10 +40,6 @@ export default class Freeboardpost extends Component {
     render() {
         const post = this.props.post
         const cate = this.props.post.cate;
-
-        console.log(this.state.cate_icon)
-    
-        console.log(cate=="자유")
         return (
            <div className="post_container">
             <div className="post_title">
