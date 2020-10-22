@@ -4,20 +4,27 @@ import Freeboarddetailcommentform from './ FreeboardDetailCommentForm'
 import "./scss/FreeboarDetailComm.scss"
 
 export default class Freeboarddetailcomment extends Component {
-    state = { visible: false }
+    state = { visible: false, com_id: 0 }
 
-    onCommentClick=()=>{
+  
+        
+    onCommentClick=(ind)=>{
         console.log(this.state.visible)
-        this.setState({visible: !this.state.visible});
+        this.setState({visible: !this.state.visible, com_id: ind});
     }
+    
+    
 
     render() {
-        console.log(this.state.visible)
+        console.log(this.state.visible, this.state)
+        
         const comment =this.props.comment
+        const com_id = this.state.com_id
         return (
             <div className="freeboard_detail_comment_container">
-                 {comment.map((com)=>{
-                    return <div className="freeboard_detail_comment"> 
+                 {comment.map((com, ind)=>{
+                  
+                    return <div key={ind} className="freeboard_detail_comment"> 
 
                     <div className="freeboard_comment_sec">
                         <div className="freeboard_detail_comment_content">
@@ -26,14 +33,19 @@ export default class Freeboarddetailcomment extends Component {
                         </div>
                                 
                          <div className="freeboard_detail_comment_btn">
-                            <h6 onClick={this.onCommentClick} >답글</h6>
+                         
+                            <h6 onClick={()=>{
+                             
+                                 this.setState({visible: !this.state.visible, com_id: ind});
+                                 console.log(this.state)
+                            }} >답글</h6>
                             <h6>삭제</h6>
                             <ReportModalContainer bt_text= {<h6>신고</h6>} />
                         </div>
                     </div>
 
-                    <div className={this.state.visible === true ?"show":"hide"}> 
-                        <Freeboarddetailcommentform />
+                    <div> 
+                        <Freeboarddetailcommentform visible={com_id==ind? "show" : "hide"}/>
                       </div>
                     </div>
                         })}
