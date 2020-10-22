@@ -5,7 +5,7 @@ export default class Freeboarddetailcomment extends Component {
     render() {
         const comment =this.props.comment
         return (
-            <div className="">
+            <div className="freeboard_detail_comment_container">
                  {comment.map((com)=>{
                     return <div className="freeboard_detail_comment"> 
                         <div className="freeboard_detail_comment_content">
@@ -18,6 +18,11 @@ export default class Freeboarddetailcomment extends Component {
                         </div>
                     </div>
                         })}
+
+            <div className="freeboard_detail_commenet_input">
+                <input className="comment_input_form" type="text"></input>
+                <button className="comment_btn" type="submit">댓글 작성</button>
+            </div>
                 
             </div>
         )

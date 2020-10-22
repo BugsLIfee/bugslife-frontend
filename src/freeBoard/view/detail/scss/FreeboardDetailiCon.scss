@@ -1,10 +1,19 @@
 .freeboard_detail_wrap {
-  margin: auto;
-  width: 80%;
-
+  width: 100%;
+  margin-bottom: 5rem;
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   .freeboard_detail_cate {
     padding: 1rem;
   }
+}
+
+.free_borad_title {
+  width: 90%;
+  text-align: left;
 }
 
 .freeboard_detail_col {
@@ -12,6 +21,7 @@
 }
 
 .freeboard_detail_postcontainer {
+  width: 75%;
   border: 1px solid lightgray;
   border-radius: 10px;
 }
