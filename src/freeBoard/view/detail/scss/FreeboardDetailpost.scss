@@ -1,0 +1,26 @@
+.freeboard_detail_container {
+  padding-top: 3rem;
+  overflow: hidden;
+}
+
+.content_meta {
+  //   width: 30%;
+  justify-content: space-between;
+  display: inline-flex;
+  flex-direction: row;
+  padding-top: 1rem;
+  h5 {
+    padding: 0 1rem 0 1rem;
+    font-size: 1rem;
+  }
+}
+.freeboard_detail_content_header {
+  padding: 1rem 3rem 1rem 3rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid lightgray;
+}
+
+.freeboard_detail_content_body {
+  padding: 2rem;
+  margin-bottom: 3rem;
+}

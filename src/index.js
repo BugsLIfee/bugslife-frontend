@@ -26,6 +26,7 @@ ReactDOM.render(
           "/posting",
           "/api/mypage",
           "/freeboard",
+          "/freeboard_detail",
           "/point"
         ]}
         component={App}

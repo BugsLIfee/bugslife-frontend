@@ -1,6 +1,7 @@
 import { observable, computed, action } from "mobx"
 import FreeboardListData from "./FreeboardListData";
-import FreeboardTestData from "./FreeboardTestData";
+import selected_post from "./FreeboardTestData";
+
 
 
 class FreeboardStore{
@@ -9,7 +10,7 @@ class FreeboardStore{
     freeboard_list = FreeboardListData;
 
     @observable
-    freeboard_detail = FreeboardTestData;
+    freeboard_detail = selected_post;
 
     @observable
     freeboard_cate = ["자유", "취업", "연애", "학업", "유머", "스포츠", "회사"];

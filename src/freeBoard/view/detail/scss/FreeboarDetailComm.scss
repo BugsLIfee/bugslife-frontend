@@ -1,0 +1,51 @@
+.freeboard_detail_comment_container {
+  background-color: rgb(231, 231, 231);
+  border-radius: 0 0 10px 10px;
+  padding: 2rem;
+
+  .freeboard_detail_comment {
+    display: inline-flex;
+    width: 100%;
+    justify-content: space-around;
+    flex-direction: row;
+    text-align: left;
+
+    .freeboard_detail_comment_content {
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      p#freeboard_comment_info_txt {
+        width: 100%;
+        padding-top: 0.5rem;
+        text-align: left;
+      }
+    }
+
+    .freeboard_comment_info {
+      display: flex;
+      width: 100%;
+      flex-direction: row;
+      align-items: center;
+      justify-content: left;
+
+      p {
+        padding-left: 1rem;
+        font-size: 1rem;
+      }
+      h6 {
+        font-weight: bolder;
+        padding: 0;
+        margin: 0;
+      }
+    }
+  }
+}
+
+.freeboard_detail_comment_btn {
+  display: inline-flex;
+  text-align: right;
+  width: 8%;
+  justify-content: space-between;
+}

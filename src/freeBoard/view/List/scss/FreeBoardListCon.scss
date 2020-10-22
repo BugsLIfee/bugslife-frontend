@@ -11,6 +11,10 @@
   }
 }
 
+.freeboard_header_menu {
+  padding: 0 2rem 2rem 2rem;
+}
+
 .freeboard_list_head {
   position: relative;
   width: 92%;
@@ -48,10 +52,18 @@
 
   .freeboard_list_head_info {
     position: absolute;
-    right: 5%;
+    // right: 5%;
     width: 11%;
     display: inline-flex;
     right: 1.5rem;
     justify-content: space-between;
   }
+}
+
+.free_list_pagination {
+  width: 95%;
+  display: inline-flex;
+  justify-content: space-between;
+  text-align: right;
+  padding: 3rem 2rem 2rem 2rem;
 }

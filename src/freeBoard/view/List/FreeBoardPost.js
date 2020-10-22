@@ -55,7 +55,7 @@ export default class Freeboardpost extends Component {
                    
                    {post.cate}
                    <Icon className ="cate_icon" name= {this.state.cate_icon} /> </h4>
-                <a href="/"><h4 className="post_title_txt">{post.title} </h4>
+                <a href="/freeboard_detail"><h4 className="post_title_txt">{post.title} </h4>
                 <span className="post_comment">[{post.comments}]</span> </a>
                </div>
                <div className="post_info">
