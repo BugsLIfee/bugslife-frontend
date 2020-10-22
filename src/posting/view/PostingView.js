@@ -65,9 +65,9 @@ export default class PostingView extends Component {
                     {tags_deco}
                 </div>
                 <div className="add_tag">
-                    <Input placeholder='# 태그 입력' size='huge' className="input" 
+                    <Input placeholder='# 태그 입력' size='large' className="input" 
                         onChange={(e) => {input_tag = e.target.value}} />
-                    <Button basic color='gray' className="bt" size='huge' 
+                    <Button basic color='gray' className="bt" size='large' 
                         onClick={()=> {onInsertTag(input_tag)}}> 
                         추가 
                     </Button>

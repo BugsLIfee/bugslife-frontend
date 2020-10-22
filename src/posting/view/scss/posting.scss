@@ -10,27 +10,21 @@
         width: 100%;
     }
 
-    .ck-editor__editable{
-        min-height: 50rem;
-        max-height: 60rem;
-    }   
-
     .add_tag {
         width: 100%;
         display: flex;
         align-items: flex-end;
 
         .input {
-            height: 4rem;
-            width: 20rem;
+            height: 3rem;
+            width: 15rem;
         }
 
         .bt {
             margin-left: 1rem;
-            height: 4rem;
+            height: 3rem;
             width: 6rem;
             padding: 10px;
-            // font-size: large;
         }
     }
 
@@ -47,6 +41,6 @@
     .upload {
         display: flex;
         justify-content: flex-end;
-        margin-top: 10rem;
+        margin-top: 3rem;
     }
 }
