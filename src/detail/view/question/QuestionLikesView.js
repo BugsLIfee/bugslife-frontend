@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ReportModalContainer from "../../../report/container/ReportContainer"
 import "../scss/post.scss"
 
 export default class QuestionLikesView extends Component {
@@ -14,6 +15,7 @@ export default class QuestionLikesView extends Component {
                 <div>
                     <p>{question.likes}</p>
                     <div>나도 궁금해요!</div>
+                    <div className="report"> <ReportModalContainer /> </div>
                 </div>
                     {!clicked_like && <img src="../detail/empty_bookmark.png" onClick={() => {onQuestionLike()}} />}
                     {clicked_like && <img src="../detail/bookmark.png" onClick={() => {onQuestionLike()}} />}

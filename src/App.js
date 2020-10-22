@@ -5,18 +5,18 @@ import MainContainer from "./main/container/MainContainer";
 import ListContainer from "./list/container/ListContainer";
 import DetailPage from "./detail/DetailPage";
 import AdminContainer from "./admin/container/AdminContainer";
-// import TagContainer from "./tag/container/TagContainer";
-import SignUpPage from "./user/view/SignUp";
 import LoginPage from "./user/view/Login";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ContactContainer from "./contact/container/ContactContainer";
-import MypagePost from "./mypage/view/MyPage_Post";
 import Mypagecontainer from "./mypage/container/MyPageContainer";
 import "./header/view/scss/header.scss";
 import "./footer/footer.scss";
 import PostingContainer from "./posting/container/PostingContainer";
 import Testcontainer from "./mypage/container/TestContainer";
 import Singupcontainer from "./user/container/SingupContainer";
+import Freeboardlistcontainer from "./freeBoard/container/FreeBoardListContainer";
+import PointPage from "./point/PointPage";
+
 
 function App() {
   return (
@@ -36,6 +36,9 @@ function App() {
           <Route path="/mypage" component={Mypagecontainer} exact={true} />
           <Route path="/api/mypage" component={Testcontainer} exact={true} />
           <Route path="/posting" component={PostingContainer} exact={true} />
+          <Route path="/freeboard" component={Freeboardlistcontainer} exact={true} />
+          <Route path="/point" component={PointPage} />
+
         </Switch>
       </Router>
       <div className="footer_place">
