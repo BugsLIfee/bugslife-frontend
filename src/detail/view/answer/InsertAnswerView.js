@@ -1,11 +1,8 @@
 import React, { Component } from "react";
 import "../scss/addAnswer.scss"
 import { Button } from "semantic-ui-react";
-import CKEditor from "@ckeditor/ckeditor5-react";
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import 'codemirror/lib/codemirror.css';
 import '@toast-ui/editor/dist/toastui-editor.css';
-
 import { Editor } from '@toast-ui/react-editor';
 
 export default class AddAnswerView extends Component {
