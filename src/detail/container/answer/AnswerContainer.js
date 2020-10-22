@@ -14,8 +14,6 @@ class AnswerContainer extends Component {
     render() {
 
         const { answer, login } = this.props;
-        
-        console.log("진짜는 여기다!");
 
         const onAddAndswerComment = () => {
         }
