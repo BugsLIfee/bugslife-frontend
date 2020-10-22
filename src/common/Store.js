@@ -11,6 +11,7 @@ import InfoStore from "../admin/store/InfoStore";
 import SignupUserStore from "../user/store/SignupUserStore"
 import TagStore from "../tag/store/TagStore"
 import FreeboardStore from "../freeBoard/store/FreeboardStore";
+import OauthStore from "../oauth/OauthStore";
 
 export default class Store {
   constructor() {
@@ -26,5 +27,6 @@ export default class Store {
     this.signupUser = new SignupUserStore(this);
     this.tag = new TagStore(this); 
     this.freeboard = new FreeboardStore(this)
+    this.oauth = new OauthStore(this);
   }
 }

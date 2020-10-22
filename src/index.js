@@ -21,11 +21,13 @@ ReactDOM.render(
           "/contact/:menu",
           "/user/:menu",
           "/login",
-          "/signUp",
+          "/signup",
           "/mypage",
           "/posting",
           "/api/mypage",
-          "/freeboard"
+          "/freeboard",
+          "/oauth2/redirect",
+          "/profile"
         ]}
         component={App}
         exact={true}
