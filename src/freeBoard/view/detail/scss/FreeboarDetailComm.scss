@@ -46,10 +46,17 @@
 }
 
 .freeboard_detail_comment_btn {
+  color: rgb(63, 153, 212);
   display: inline-flex;
   text-align: right;
-  width: 8%;
+  width: 9%;
   justify-content: space-between;
+
+  h6:hover {
+    cursor: pointer;
+    color: rgb(51, 122, 168);
+    transition: 0.1s;
+  }
 }
 
 .freeboard_comment_sec {

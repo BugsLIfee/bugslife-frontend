@@ -17,6 +17,7 @@ import Singupcontainer from "./user/container/SingupContainer";
 import FreeBoardContainer from "./freeBoard/container/FreeBoardContainer";
 import Freeboarddetailcontainer from "./freeBoard/container/FreeBoardDetailContainer";
 import PointPage from "./point/PointPage";
+import FreeboardEditorContainer from "./freeBoard/view/Editor/container/FreeboradEditorContainer";
 
 
 function App() {
@@ -40,6 +41,8 @@ function App() {
           <Route path="/freeboard" component={FreeBoardContainer} exact={true} />
           <Route path="/freeboard_detail" component={Freeboarddetailcontainer} exact={true} />
           <Route path="/point" component={PointPage} />
+          <Route path="/posting_fr" component={FreeboardEditorContainer} />
+
 
         </Switch>
       </Router>

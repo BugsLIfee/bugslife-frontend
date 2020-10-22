@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ReportModalContainer from '../../../report/container/ReportContainer'
 import "./scss/FreeboarDetailComm.scss"
 
 export default class Freeboarddetailcomment extends Component {
@@ -13,9 +14,10 @@ export default class Freeboarddetailcomment extends Component {
                             <p id="freeboard_comment_info_txt">{com.content}</p>
                         </div>
                         <div className="freeboard_detail_comment_btn">
-                            <a href="#"><h6>답글</h6></a>
-                            <a href="#"><h6>삭제</h6></a>
-                            <a href=""> <h6>신고</h6></a>
+                            <h6>답글</h6>
+                            <h6>삭제</h6>
+                            <ReportModalContainer bt_text= {<h6>신고</h6>} />
+                    
                         </div>
                     </div>
                         })}
