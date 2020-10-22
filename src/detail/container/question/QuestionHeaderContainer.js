@@ -7,7 +7,7 @@ import { observer, inject } from 'mobx-react';
 class QuestionHeaderContainer extends Component {
 
     componentDidMount() {
-        this.props.Store.detail.selectQuestion(1);
+        // this.props.Store.detail.selectQuestion(1);
     }
 
     render() {
