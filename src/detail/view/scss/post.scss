@@ -43,7 +43,6 @@
 .post_header {
     width: 100%;
     height: fit-content;
-    // background-color: #9de8ff !important;
     background-color: white !important;
     padding: 15px;
     display: flex;
@@ -74,19 +73,12 @@
         font-size: 1.3rem;
         color: #9b9b9b;
         padding-left: 80px;
+        display: flex;
         
         .report {
             a:hover {text-decoration: none; color: #9b9b9b; }
             a:visited {text-decoration: none; color: #9b9b9b;}
             a:link {text-decoration: none; color: #9b9b9b; }
-        }
-        
-        .upload_date {
-            float: left;
-        }
-        
-        .views {
-            float: left;
         }
     }
     
