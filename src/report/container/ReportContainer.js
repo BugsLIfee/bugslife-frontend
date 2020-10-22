@@ -9,10 +9,11 @@ class ReportModalContainer extends Component {
     render() {
 
         const category = this.props.Store.report._category;
-        console.log("INCONTAINER: ", category);
+        const bt_text = this.props.bt_text;
         return (
                 <ReportModalView 
                     category={category}
+                    bt_text = {bt_text}
                 />
         );
     }

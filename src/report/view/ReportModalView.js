@@ -5,14 +5,14 @@ import "./scss/report_modal.scss"
 export default function ReportModalView(props) {
     const [open, setOpen] = React.useState(false);
     const [report_type, setReportType] = useState();
-    const { category } = props;
+    const { category, bt_text } = props;
     const handleChange = (e, { value }) => setReportType(value);
 
     return (
         <Modal
             closeIcon
             open={open}
-            trigger={<div><i className="fas fa-ban"></i> 신고</div>}
+            trigger={bt_text}
             onClose={() => setOpen(false)}
             onOpen={() => setOpen(true)}
             className="report_modal"

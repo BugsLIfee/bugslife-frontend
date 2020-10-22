@@ -1,7 +1,8 @@
 import ListStore from "../list/store/ListStore";
 // import UserStore from "../user/store/UserStore";
 import UserStore from "../mypage/store/UserStore"
-import DetailStore from "../detail/store/DetailStore";
+// import DetailStore from "../detail/store/DetailStore";
+import DetailStore from "../detail/store/TestStore";
 import AdminStore from "../admin/store/AdminStore";
 import AnswerStore from "../contact/store/AnswerStore";
 import QuestionStore from "../contact/store/QuestionStore";
