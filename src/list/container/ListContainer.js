@@ -7,6 +7,7 @@ import { Grid } from "semantic-ui-react"
 import "../view/scss/ListMain.scss"
 import "../view/scss/ListTag.scss"
 
+
 @inject("Store")
 @observer
 class ListContainer extends Component {
@@ -18,15 +19,25 @@ class ListContainer extends Component {
     const list = this.props.Store.list.getList
 
     return (
-      <Grid className="listContainer listLayout">
-        <Grid.Column width={2}>
-          <ListTagContainer />
-        </Grid.Column>
-
-        <Grid.Column width={11}>
+        
+      <Grid className="listLayout"> 
+        <Grid.Column width={9} className="listItemBox" >
+        <Grid.Row >
           <ListHeaderContainer onSetOrderBy={this.onSetListOrderBy} />
-          <ListViewContainer lists={list} />
+        </Grid.Row>
+        <Grid.Row >
+        {/* <Grid.Column width={2} className="listTagBox">
+            <ListTagContainer />
+          </Grid.Column> */}
+            
+            <ListViewContainer lists={list} />
+        
+          </Grid.Row>
+          </Grid.Column>
+          <Grid.Column width={3}>
+        <ListTagContainer/>
         </Grid.Column>
+          
       </Grid>
     )
   }
