@@ -32,7 +32,7 @@ export default class QuestionHeaderView extends Component {
                         <div className="question_info">
                                 <div className="upload_date"> {question.date} &nbsp; | &nbsp; </div>
                                 <div className="views"> 조회수 {question.views}  &nbsp; | &nbsp; </div>
-                                <div className="report"> <ReportModalContainer bt_text = {report_bt} /> </div>
+                                <div className="report"> <ReportModalContainer bt_text = {<div><i class="fas fa-ban"></i> 신고</div>} /> </div>
                         </div>
                     </div>
                     <div className="detail_points">

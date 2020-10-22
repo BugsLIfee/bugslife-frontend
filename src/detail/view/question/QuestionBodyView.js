@@ -8,6 +8,7 @@ export default class QuestionBodyView extends Component {
 
     render() {
         
+        console.log("바디찍히니?")
         const { question }= this.props;
 
         const md_text = marked( question.body );

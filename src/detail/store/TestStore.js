@@ -6,7 +6,7 @@ class DetailStore {
   @observable question = DetailApi;
   @observable question_likes = DetailApi.question.likes;
   @observable question_clicked_like = DetailApi.question.clicked_like;
-  @observable question_comments = [];
+  @observable question_comments = DetailApi.question.comments;
   @observable question_comment = {};
 
   @computed get _question() {
@@ -17,7 +17,7 @@ class DetailStore {
   @computed get _answers() {
     return this.answers ? this.question.answers.slice() : []
   }
-
+  
   @computed get _question_comments() {
     return this.question_comments ? this.question_comments.slice() : []
   }
@@ -38,8 +38,9 @@ class DetailStore {
     }
   }
 
-  @action setQuestionLike(clicked) {
-    if (clicked) {
+  @action setQuestionLike() {
+    console.log(this.question_clicked_like, this.question_likes)
+    if (this.question_clicked_like) {
       this.question_clicked_like = false
       this.question_likes -= 1
     } else {
