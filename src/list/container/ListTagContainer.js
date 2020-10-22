@@ -21,7 +21,9 @@ componentDidMount(){
     return (
       <div className="tagLayout">
         <div className="addQButton">
+          <a href="/posting">
           <Button content='질문글 작성하기' primary className="addQButton"/>
+          </a>
         </div>
         <div className="tagBoxLayout">
 

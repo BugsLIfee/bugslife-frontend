@@ -10,13 +10,9 @@ import CategoryStore from "../contact/store/CategoryStore";
 import InfoStore from "../admin/store/InfoStore";
 import SignupUserStore from "../user/store/SignupUserStore"
 import TagStore from "../tag/store/TagStore"
-<<<<<<< HEAD
-
-=======
 import FreeboardStore from "../freeBoard/store/FreeboardStore";
 import PointStore from "../point/store/PointStore";
 import ReportStore from "../report/store/ReportStore";
->>>>>>> e139e58812a1ceb17ad6d437422dcb76687e5490
 
 export default class Store {
   constructor() {
@@ -30,13 +26,9 @@ export default class Store {
     this.answer = new AnswerStore(this);
     this.category = new CategoryStore(this);
     this.signupUser = new SignupUserStore(this);
-<<<<<<< HEAD
-    this.tag = new TagStore(this);
-=======
     this.tag = new TagStore(this); 
     this.freeboard = new FreeboardStore(this);
     this.point = new PointStore(this);
     this.report = new ReportStore(this);
->>>>>>> e139e58812a1ceb17ad6d437422dcb76687e5490
   }
 }
