@@ -3,17 +3,9 @@ import Freeboarddetailcomment from './FreeboardDetailComment';
 import "./scss/FreeboardDetailpost.scss"
 
 export default class Freeboarddetailview extends Component {
-    componentDidMount(){
-    const handler = {
-        get: function(obj, prop) {
-          return prop in obj ?
-            obj[prop] :
-            37;
-        }
-      };
-    }
-      
+
     render() {
+        
         const freeboard_detail =this.props
         const post =freeboard_detail.detail.fb_post;
         const comment =freeboard_detail.detail.comment;
@@ -22,7 +14,7 @@ export default class Freeboarddetailview extends Component {
             <div>
                 <div className="freeboard_detail_container">  
                     <div className="freeboard_detail_nav">
-                        <a href="#"><h4>목록</h4></a>
+                        <a href="/freeboard"><h4>목록</h4></a>
                         <a href="#"><h4>이전글</h4></a>
                         <a href="#"><h4>다음글</h4></a>
                     </div>

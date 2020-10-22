@@ -14,16 +14,25 @@ export default class Freeboarddetailcomment extends Component {
                         </div>
                         <div className="freeboard_detail_comment_btn">
                             <a href="#"><h6>답글</h6></a>
-                            <a href="#"> <h6>신고</h6></a>
+                            <a href="#"><h6>삭제</h6></a>
+                            <a href=""> <h6>신고</h6></a>
                         </div>
                     </div>
                         })}
 
-            <div className="freeboard_detail_commenet_input">
-                <input className="comment_input_form" type="text"></input>
-                <button className="comment_btn" type="submit">댓글 작성</button>
-            </div>
+             <div className="freeboard_comment_sec">
+                 <div className="freeboard_comment_userInfo">
+                     <input className= "comment_userinfo_input comment_userInfo_id" value="" type="text" placeholder="닉네임"/>
+                     <input className= "comment_userinfo_input comment_userInfo_pwd" value="" type="password" placeholder="비밀번호"/>
+                     </div>   
+
+                <div className="freeboard_detail_comment_input">
+                    <input className="comment_input_form" type="text" placeholder="댓글을 작성해보세요."></input>
+                    <button className="comment_btn" type="submit">댓글 작성</button>
+                </div>
                 
+            </div>
+         
             </div>
         )
     }

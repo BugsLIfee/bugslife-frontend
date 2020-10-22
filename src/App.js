@@ -16,7 +16,6 @@ import Testcontainer from "./mypage/container/TestContainer";
 import Singupcontainer from "./user/container/SingupContainer";
 import FreeBoardContainer from "./freeBoard/container/FreeBoardContainer";
 import Freeboarddetailcontainer from "./freeBoard/container/FreeBoardDetailContainer";
-import Freeboardlistcontainer from "./freeBoard/container/FreeBoardListContainer";
 import PointPage from "./point/PointPage";
 
 
