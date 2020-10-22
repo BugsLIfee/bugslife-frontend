@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { inject, observer } from "mobx-react"
-import { configure } from "mobx"
 import Freeboarddetailview from '../view/detail/FreeboardDetailView'
 import "../view/detail/scss/FreeboardDetailiCon.scss"
 
@@ -12,13 +11,12 @@ class Freeboarddetailcontainer extends Component {
 
 
 
-
     render() {
         const {freeboard_detail} = this.props.Store.freeboard;
-        console.log(JSON.stringify(freeboard_detail))
         return (
             <div className="freeboard_detail_wrap">
-                <div className="freeboard_detail_cate"> <h4>연애</h4> </div>
+                    <div className="free_borad_title"><h1>자유게시판</h1></div>
+                {/* <div className="freeboard_detail_cate"> <h4>연애</h4> </div> */}
                 <div className="freeboard_detail_postcontainer">
                     {/* <div className="freeboard_detail_head">
                         <div className="freeboard_detail_head_title">
@@ -31,7 +29,7 @@ class Freeboarddetailcontainer extends Component {
                         <div className="freeboard_detail_post_view freeboard_detail_col">조회수</div>
                     </div>
                         
-                </div>           */}
+                   </div>           */}
                     <Freeboarddetailview detail = {freeboard_detail}/>
                 </div>
 

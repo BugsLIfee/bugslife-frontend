@@ -68,7 +68,7 @@ export default class Freeboardlistcontainer extends Component {
                     totalPages={10}
                 />
 
-<Button secondary>글쓰기</Button>
+              <Button secondary as="a" href="/posting_fr">글쓰기</Button>
             
                 </div>
 

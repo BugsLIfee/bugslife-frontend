@@ -1,0 +1,68 @@
+.posting {
+  margin: 3rem auto;
+  width: 980px;
+
+  .posting_header_title_container {
+    display: inline-flex;
+    flex-direction: row;
+    width: 100%;
+
+    .search {
+      width: 10%;
+    }
+  }
+
+  .posting_header_title {
+    width: 90%;
+    border: 1px solid rgb(223, 223, 223);
+    border-radius: 4px;
+    padding-left: 1rem;
+
+    &:focus {
+      border-radius: 4px;
+      outline: none;
+      border: 1px solid rgb(120, 176, 211);
+    }
+  }
+
+  .posting_header_userInfo {
+    display: inline-flex;
+    width: 33%;
+    justify-content: space-between;
+    .posting_userinfo_input {
+      border: 1px solid rgb(223, 223, 223);
+      padding: 0.3rem;
+      border-radius: 4px;
+    }
+  }
+
+  .ck-editor__editable {
+    min-height: 50rem;
+    max-height: 60rem;
+  }
+
+  .add_tag {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+
+    .input {
+      height: 4rem;
+      width: 20rem;
+    }
+
+    .bt {
+      margin-left: 1rem;
+      height: 4rem;
+      width: 6rem;
+      padding: 10px;
+      // font-size: large;
+    }
+  }
+
+  .upload {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10rem;
+  }
+}
