@@ -12,16 +12,11 @@ class AnswerInsertCommentContainer extends Component {
 
         const { login, answer } = this.props;
 
-        const onSetCommentProps = ( body ) => {
-            this.props.Store.detail.setCommentProps(body);
-            // comment_body = body;
-        }
-
-        const onAddComment = () => {
-            let comment = this.props.Store.detail.question_comment;
-            comment = { 
-                ...comment,
-                // body: body,
+        const onAddComment = (comment_body) => {
+            // let comment = this.props.Store.detail.question_comment;
+            let comment = { 
+                // ...comment,
+                body: comment_body,
                 id: generatedId(5),
                 date: getToday(),
                 writer_id: "임시사용자",
@@ -33,7 +28,6 @@ class AnswerInsertCommentContainer extends Component {
             <div>
                 <InsertCommentView 
                     login = { login } 
-                    onSetCommentProps = { onSetCommentProps }
                     onAddComment = { onAddComment }
                     />
             </div>

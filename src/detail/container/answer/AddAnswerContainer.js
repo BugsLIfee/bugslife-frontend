@@ -24,8 +24,7 @@ class AddAnswerContainer extends Component {
         
         return (
             <div className="detail_answer_list">
-                {login==="true" && (!insertForm && <InsertAnswerView onInsertForm={onInsertForm} />)}
-                {login==="true" && (insertForm && <AddAnswerView onInsertForm={onInsertForm} />)}
+                {login==="true" && (!insertForm ? <InsertAnswerView onInsertForm={onInsertForm} /> : <AddAnswerView onInsertForm={onInsertForm} />)}
             </div>
         );
     }

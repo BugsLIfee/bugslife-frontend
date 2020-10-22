@@ -40,7 +40,7 @@ const testData = {
             }
         ],
         answers: [
-        {
+            {
                 id: 0,
                 writer_id: "컴공 5학년",
                 writer_lv: "level 102. 저승사자 코뎅이",
@@ -49,7 +49,12 @@ const testData = {
                 clicked_like: true,
                 selected: true,
                 body: "cout << (int) pow(10.0, 4.0); 이렇게 바꿔주시면 잘 될겁니다.",
-                comments: []
+                comments: [{
+                    writer_id: "리자몽워터1",
+                    writer_lv: "level 53. 괴물 코뎅이",
+                    date: "2020.10.01",
+                    body: "답변 너무 대충쓰네222"
+                }]
             },
             {
                 id: 1,

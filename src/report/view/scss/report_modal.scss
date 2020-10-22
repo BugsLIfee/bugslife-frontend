@@ -2,7 +2,7 @@
     left: auto !important;
     top: auto !important;
     height: fit-content !important;
-    width: 45rem !important;
+    width: 30% !important;
 }
 
 .report_modal {
@@ -22,12 +22,12 @@
     }
 
     .category {
-        margin: 2rem 1.2rem;
+        margin: 2rem 1rem;
         display: flex;
         flex-flow: row wrap;
         // justify-content: ;
         .item {
-            margin-right: 3rem !important;
+            margin-right: 1rem !important;
             width: 15rem;
         }
     }
@@ -36,10 +36,4 @@
         display: flex;
         flex-direction: column;
     }
-}
-
-.report_modal_bt {
-    width: 2rem;
-    height: 2rem;
-    background-color: red;
 }
