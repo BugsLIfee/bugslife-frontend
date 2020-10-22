@@ -9,7 +9,6 @@ import QuestionInsertCommentContainer from "./container/comment/QuestionInsertCo
 import AnswerListContainer from "./container/answer/AnswerListContainer";
 import AddAnswerContainer from "./container/answer/AddAnswerContainer";
 import qs from "qs";
-import { observer, inject } from "mobx-react";
 
 class DetailPage extends Component {
 
@@ -38,8 +37,8 @@ class DetailPage extends Component {
                         </Card.Footer>
                     </Card>
                 </div>
-                {/* <AnswerListContainer login={ login } />
-                <AddAnswerContainer login={ login } /> */}
+                <AnswerListContainer login={ login } />
+                <AddAnswerContainer login={ login } />
             </div>
         )
     }

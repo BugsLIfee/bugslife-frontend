@@ -7,7 +7,9 @@ class DetailStore {
   @observable question_likes = DetailApi.question.likes;
   @observable question_clicked_like = DetailApi.question.clicked_like;
   @observable question_comments = DetailApi.question.comments;
-  @observable question_comment = {};
+  @observable answers = DetailApi.question.answers;
+  @observable answers_comments = [];
+  answer_id;
 
   @computed get _question() {
       console.log({...this.question});
@@ -15,16 +17,16 @@ class DetailStore {
   }
 
   @computed get _answers() {
-    return this.answers ? this.question.answers.slice() : []
+    return this.answers ? this.answers.slice() : []
   }
   
   @computed get _question_comments() {
     return this.question_comments ? this.question_comments.slice() : []
   }
 
-  @computed get _answer_comments() {
+  get _answer_comments() {
       return this.answers.find(answer => {
-          return answer.id==this.answer_id;
+        return answer.id === this.answer_id;
       }).comments.slice();
   }
 
@@ -61,15 +63,13 @@ class DetailStore {
   }
 
   @action addAnswerComment(id, comment){
-      console.log(id, comment, comment.body);
-
       this.answers.find(answer => {
           return answer.id==id;
       }).comments.push(comment);
   }
 
   @action setAnswerId(id) {
-      this.answer_id = id;
+    this.answer_id = id;
   }
 }
 

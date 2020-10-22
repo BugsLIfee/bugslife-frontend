@@ -12,9 +12,7 @@ class QuestionLikesContainer extends Component {
             this.props.Store.detail.setQuestionLike();
         }
         
-        // const question = this.props.Store.detail._question;
         const login = this.props;
-
         const {question_likes, question_clicked_like} = this.props.Store.detail;
 
         return (

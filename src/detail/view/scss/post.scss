@@ -69,7 +69,7 @@
         padding-right: 10px;
     }
     
-    .question_info {
+    ._info {
         font-size: 1.3rem;
         color: #9b9b9b;
         padding-left: 80px;
@@ -158,28 +158,6 @@
     }
 }
 
-.post_info {
-    font-size: 1.3rem;
-    color: #9b9b9b;
-    padding-left: 80px;
-    overflow: hidden;
-    
-    .report {
-        a:hover {text-decoration: none; color: #9b9b9b; }
-        a:visited {text-decoration: none; color: #9b9b9b;}
-        a:link {text-decoration: none; color: #9b9b9b; }
-        float: left;
-    }
-    
-    .upload_date {
-        float: left;
-    }
-    
-    .views {
-        float: left;
-    }
-
-}
 .like_question {
     text-align: right;
     font-size: 3rem;

@@ -12,10 +12,6 @@ class QuestionInsertCommentContainer extends Component {
 
         const { login } = this.props;
 
-        const onSetCommentProps = ( body ) => {
-            this.props.Store.detail.setCommentProps(body);
-        }
-
         const onAddComment = (comment_body) => {
             // let comment = this.props.Store.detail.question_comment;
             console.log(comment_body)
@@ -33,7 +29,6 @@ class QuestionInsertCommentContainer extends Component {
             <div>
                 <InsertCommentView 
                     login = { login } 
-                    onSetCommentProps = { onSetCommentProps }
                     onAddComment = { onAddComment }
                     />
             </div>
