@@ -2,21 +2,29 @@
   background-color: rgb(231, 231, 231);
   border-radius: 0 0 10px 10px;
   padding: 2rem;
+  position: relative;
 
   .freeboard_detail_comment {
-    display: inline-flex;
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    justify-content: space-around;
-    flex-direction: row;
-    text-align: left;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid lightgray;
+
+    .freeboard_comment_sec {
+      display: inline-flex;
+      width: 100%;
+      justify-content: space-around;
+      //   flex-direction: row;
+      text-align: left;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid lightgray;
+    }
 
     .freeboard_detail_comment_content {
       width: 80%;
       display: flex;
       flex-direction: column;
       align-items: center;
+      padding: 1rem;
 
       p#freeboard_comment_info_txt {
         width: 100%;
@@ -49,9 +57,12 @@
   color: rgb(63, 153, 212);
   display: inline-flex;
   text-align: right;
-  width: 9%;
-  justify-content: space-between;
+  //   width: 9%;
+  //   justify-content: flex-end;
 
+  h6 {
+    padding: 0.5rem;
+  }
   h6:hover {
     cursor: pointer;
     color: rgb(51, 122, 168);
@@ -62,8 +73,8 @@
 .freeboard_comment_sec {
   width: 100%;
   display: flex;
-  flex-direction: column;
-  padding-top: 2rem;
+  flex-direction: row;
+  //   padding-top: 1rem;
 
   .freeboard_comment_userInfo {
     width: 32%;
@@ -71,13 +82,11 @@
     display: inline-flex;
     flex-direction: row;
   }
+}
 
-  .comment_userinfo_input {
-    border: 1px solid lightgray;
-    padding: 0.3rem;
-    border-radius: 4px;
-    background-color: white;
-  }
+.freeboard_comment_form {
+  width: 100%;
+  padding: 1rem 0 1.5rem 0;
 }
 
 .freeboard_detail_comment_input {
@@ -100,4 +109,21 @@
     background-color: rgb(63, 153, 212);
     width: 10%;
   }
+}
+
+.comment_userinfo_input {
+  border: 1px solid lightgray;
+  padding: 0.3rem;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: flex;
+  margin-bottom: 2rem;
+  padding-left: 10%;
 }
