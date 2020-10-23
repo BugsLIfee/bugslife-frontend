@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import faker from 'faker'
 import _ from 'lodash'
-import { Dropdown, Input, Button, CardGroup } from 'semantic-ui-react'
+import { Dropdown } from 'semantic-ui-react'
 import CKEditor from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import "./scss/posting.scss"
@@ -11,13 +10,15 @@ export default class FreeboardEditorView extends Component {
 
     render() {
         const category = this.props.category;
-        const categoryOptions = category.map((category, ind) => 
-            ({
-                key: category[ind],
+        const categoryOptions = category.map((category, ind) => {
+            return ({
+                key: category,
                 text: category,
-                value: category[ind],
-            }))
-
+                value: category,
+            }
+            )
+        })
+        console.log(categoryOptions)
         return(
             <div className="posting">
                 <div className="posting_header">

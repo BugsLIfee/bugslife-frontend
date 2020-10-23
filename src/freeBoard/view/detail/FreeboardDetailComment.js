@@ -45,7 +45,7 @@ export default class Freeboarddetailcomment extends Component {
                         </div>
                        
                         <div className="visible_delete_form">
-                            <Freeboarddeleteform delete_com={this.state.delete_com} cur_id={com.id} select_id={this.state.comment_id}/>
+                            <Freeboarddeleteform user_pwd ={com.pwd} delete_com={this.state.delete_com} cur_id={com.id} select_id={this.state.comment_id}/>
                         </div>
                     </div>
                         })}
