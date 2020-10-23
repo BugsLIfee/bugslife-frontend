@@ -8,7 +8,7 @@ import {
 import { getMethods, getQuotas } from './utils';
 
 
-export default function Payment(props) {
+export default function PaymentModal(props) {
   const [open, setOpen] = React.useState(false);
   const { bt_text } = props
   const [methods, setMethods] = useState(METHODS_FOR_INICIS);
@@ -60,7 +60,7 @@ export default function Payment(props) {
     <Modal
             closeIcon
             open={open}
-            trigger={<div>HELLO</div>}
+            trigger={bt_text}
             onClose={() => setOpen(false)}
             onOpen={() => setOpen(true)}
             className="report_modal"

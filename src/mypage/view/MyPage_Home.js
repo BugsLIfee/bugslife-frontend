@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { List, Feed, Icon, Segment } from "semantic-ui-react";
+import PaymentModal from "../../payment/PaymentModal";
 import "./scss/myPage.scss";
 import CountUp from "react-countup";
 
@@ -171,11 +172,13 @@ constructor(props){
                   <b>Point</b> : 10p
                 </h3>
               </div>
-              <div className="MyPage_detail_columm_point_card charge_point">
-                <h3>
-                  <b> 충전하기</b>
-                </h3>
-              </div>
+              <PaymentModal bt_text={
+                <div className="MyPage_detail_columm_point_card charge_point">
+                  <h3>
+                    <b> 충전하기</b>
+                  </h3>
+                </div>
+              }/>
               <div className="MyPage_detail_columm_point_card history_point">
                 <h3>
                   <b> 사용내역</b>
