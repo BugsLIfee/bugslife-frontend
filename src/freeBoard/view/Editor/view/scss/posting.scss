@@ -75,6 +75,15 @@
     button:hover {
       background-color: black;
       color: white;
+      outline: none;
+    }
+
+    button:active {
+      outline: none;
+    }
+
+    button:focus {
+      outline: none;
     }
   }
 }

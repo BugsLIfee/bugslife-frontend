@@ -5,11 +5,16 @@ import Freeboarddeleteform from './FreeboardDeleteForm'
 import "./scss/FreeboarDetailComm.scss"
 
 export default class Freeboarddetailcomment extends Component {
+<<<<<<< HEAD
     state = { visible: false, comment_id: -1, delete_com: false }
+=======
+    state = { visible: false, comment_id: -1 }
+>>>>>>> bdbf1ac89a30980fd244f3eee08f0cd820168a33
 
     onCommentClick=(id)=>{
         this.setState({visible: !this.state.visible});
         this.setState({comment_id: id});
+<<<<<<< HEAD
     }
     
     onCommentDelete=(id)=>{
@@ -17,6 +22,8 @@ export default class Freeboarddetailcomment extends Component {
         this.setState({comment_id: id});
 
         // alert("댓글을 삭제하시겠습니까?")
+=======
+>>>>>>> bdbf1ac89a30980fd244f3eee08f0cd820168a33
     }
 
     render() {
@@ -36,6 +43,7 @@ export default class Freeboarddetailcomment extends Component {
                                 
                          <div className="freeboard_detail_comment_btn">
                             <h6 onClick={() => this.onCommentClick(com.id)} >답글</h6>
+<<<<<<< HEAD
                             <h6 onClick={()=>this.onCommentDelete(com.id)}> 삭제</h6>
                             <ReportModalContainer bt_text= {<h6>신고</h6>} />
                         </div>
@@ -54,6 +62,16 @@ export default class Freeboarddetailcomment extends Component {
                         <Freeboarddetailcommentform visible={true} cur_id={0} select_id={0}/>
                         </div>
                        
+=======
+                            <h6>삭제</h6>
+                            <ReportModalContainer bt_text= {<h6>신고</h6>} />
+                        </div>
+                    </div>
+                        <Freeboarddetailcommentform visible={this.state.visible} cur_id={com.id} select_id={this.state.comment_id} />
+                    </div>
+                        })}
+                        <Freeboarddetailcommentform visible={true} cur_id={0} select_id={0}/>
+>>>>>>> bdbf1ac89a30980fd244f3eee08f0cd820168a33
                  </div>
         )
     }

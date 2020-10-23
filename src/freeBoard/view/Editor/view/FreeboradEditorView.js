@@ -18,7 +18,7 @@ export default class FreeboardEditorView extends Component {
             }
             )
         })
-        console.log(categoryOptions)
+        //console.log(categoryOptions)
         return(
             <div className="posting">
                 <div className="posting_header">
