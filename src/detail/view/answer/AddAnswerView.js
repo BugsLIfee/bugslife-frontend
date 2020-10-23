@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "../scss/addAnswer.scss"
 
-
 export default class AddAnswerView extends Component {
 
     render() {

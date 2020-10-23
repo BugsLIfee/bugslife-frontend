@@ -86,14 +86,14 @@ class Mypagecontainer extends Component {
                <Icon name="male" />
               회원정보
             </Menu.Item>
-            {/* <Menu.Item
+            <Menu.Item
               as="a"
               //   href="/"
               onClick={() => this.onClickEvent("point")}
             >
               <i id="coin" class="fas fa-coins"></i>
               Point
-            </Menu.Item> */}
+            </Menu.Item>
           </Sidebar>
           <div className="MyPage_curr">
             {this.user}

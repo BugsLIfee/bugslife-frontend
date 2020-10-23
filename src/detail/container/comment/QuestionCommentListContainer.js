@@ -9,7 +9,6 @@ class QuestionCommentListContainer extends Component {
     render() {
 
         const comments = this.props.Store.detail._question_comments;
-        // console.log("QContaerin", comments);
 
         return (
             <div>

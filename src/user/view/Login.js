@@ -33,14 +33,13 @@ class Login extends Component {
             <label for="email"> <h5>이메일 :</h5></label>
 
             <input 
-                  type="text" 
+                  type="email" 
                   name="email" 
                   value=""
                   onChange={this.onIdChange}
                   class="form-control" 
                   placeholder="이메일을 입력하세요." 
-                  id="email" />
-
+                  id="login_email" />
                   {/* <div className="text-danger">{this.state.errors.email}</div> */}
 
               </div>
@@ -56,7 +55,7 @@ class Login extends Component {
                   onChange={this.onPasswordChange}
                   class="form-control" 
                   placeholder="비밀번호를 입력하세요" 
-                  id="password" />
+                  id="login_password" />
     
        {/* <div className="text-danger">{this.state.errors.name}</div> */}
                 </div>

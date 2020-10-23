@@ -8,10 +8,16 @@ class ListViewFooter extends Component {
     return (
       <div class="item-right">
         {/* <div class="item-right"> */}
-        <div class="inner">
-          <span class="point">{listView.point}P</span>
-          <span class="plus">+{listView.addPoints * 30}P</span>
-        </div>
+          <span class="point">
+            {listView.point}
+            <span class="p">P</span>
+            </span>
+          <div class="box-like">
+            <span class="img">
+              <img src="../../detail/empty_bookmark.png"></img>
+            </span>
+            <span class="number">{listView.addPoints}</span>
+          </div>
       </div>
     )
   }

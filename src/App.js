@@ -30,6 +30,11 @@ import { getCurrentUser } from './oauth/api/APIUtils';
 import { ACCESS_TOKEN } from './oauth/constants/index';
 import LoginContainer from "./oauth/login/LoginContainer";
 import ProfileContainer from "./oauth/profile/ProfileContainer";
+import Singupcontainer from "./user/container/SingupContainer";
+import FreeBoardContainer from "./freeBoard/container/FreeBoardContainer";
+import Freeboarddetailcontainer from "./freeBoard/container/FreeBoardDetailContainer";
+import PointPage from "./point/PointPage";
+import FreeboardEditorContainer from "./freeBoard/view/Editor/container/FreeboradEditorContainer";
 
 
 // import {observer,inject} from "mobx-react";
@@ -89,6 +94,7 @@ class App extends Component {
       return <LoadingIndicator />
     }
 
+
   return (
     <>
       <div className="header_place">
@@ -116,6 +122,12 @@ class App extends Component {
           <Route path="/oauth2/redirect" component={OAuth2RedirectHandler}/>  
           <Route path="/login" component={LoginContainer} exact={true}/> 
           <Route component={NotFound}></Route>
+          <Route path="/freeboard" component={FreeBoardContainer} exact={true} />
+          <Route path="/freeboard_detail" component={Freeboarddetailcontainer} exact={true} />
+          <Route path="/point" component={PointPage} />
+          <Route path="/posting_fr" component={FreeboardEditorContainer} />
+
+
         </Switch>
       </Router>
       <div className="footer_place">

@@ -57,3 +57,26 @@ https://ko.reactjs.org/docs/dom-elements.html
 ### Lombok의 @Getter를 사용하여 getter를 생성했을 때, boolean 값은 get이 아닌 is로 시작한다.
 
 > ex. user.isBlackList();
+
+
+### Toast ediotr ui 사용법.
+
+1. npm install --save @toast-ui/react-editor
+
+2. 
+  ```
+  import 'codemirror/lib/codemirror.css';
+  import '@toast-ui/editor/dist/toastui-editor.css';
+
+  import { Editor } from '@toast-ui/react-editor';
+
+  const MyComponent = () => (
+    <Editor
+      initialValue="hello react editor world!"
+      previewStyle="vertical"
+      height="600px"
+      initialEditType="markdown"
+      useCommandShortcut={true}
+    />
+  );
+  ```

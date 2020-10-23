@@ -3,22 +3,37 @@
   justify-content: center;
 }
 
-.itemBox {
-  width: 790px;
-  margin: 20px auto;
-  border: 1px solid #e2e2e2;
-  border-radius: 10px;
-  padding: 1rem;
-  padding-right: 2rem;
+.listItemBox {
+  display: flex;
+  justify-content: flex-start;
+  margin-right: -25px;
+  //width: 500px;
 }
 
-.headerBar {
-  display: flex;
-  justify-content: center;
+.itemBox {
+  margin-bottom: 15px;
+  border: 1px solid #cccccc;
+  background-color: #fdfdfd;
+  border-radius: 10px;
+  padding: 0.8rem;
+  padding-right: 2rem;
+  // justify-content: flex-start;
+}
+
+.listHeader {
 }
 
 .paging {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  .qna {
+    margin-top: 5px;
+  }
 }

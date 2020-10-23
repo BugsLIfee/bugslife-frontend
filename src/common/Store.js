@@ -1,7 +1,8 @@
 import ListStore from "../list/store/ListStore";
 // import UserStore from "../user/store/UserStore";
 import UserStore from "../mypage/store/UserStore"
-import DetailStore from "../detail/store/DetailStore";
+// import DetailStore from "../detail/store/DetailStore";
+import DetailStore from "../detail/store/TestStore";
 import AdminStore from "../admin/store/AdminStore";
 import AnswerStore from "../contact/store/AnswerStore";
 import QuestionStore from "../contact/store/QuestionStore";
@@ -12,6 +13,8 @@ import SignupUserStore from "../user/store/SignupUserStore"
 import TagStore from "../tag/store/TagStore"
 import FreeboardStore from "../freeBoard/store/FreeboardStore";
 import OauthStore from "../oauth/OauthStore";
+import PointStore from "../point/store/PointStore";
+import ReportStore from "../report/store/ReportStore";
 
 export default class Store {
   constructor() {
@@ -26,7 +29,9 @@ export default class Store {
     this.category = new CategoryStore(this);
     this.signupUser = new SignupUserStore(this);
     this.tag = new TagStore(this); 
-    this.freeboard = new FreeboardStore(this)
     this.oauth = new OauthStore(this);
+    this.freeboard = new FreeboardStore(this);
+    this.point = new PointStore(this);
+    this.report = new ReportStore(this);
   }
 }

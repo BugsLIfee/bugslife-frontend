@@ -1,0 +1,35 @@
+.freeboard_cate_container {
+  width: 15rem;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding: 1rem;
+  //   margin: 1rem;
+}
+
+.cate_sec {
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  padding-left: 10%;
+  h5 {
+    padding: 0.5rem;
+    display: inline;
+    font-size: 1rem;
+  }
+}
+
+.ui.checkbox {
+  padding-left: 1rem;
+  padding-bottom: 0.4rem;
+}
+.freeboard_cate_title {
+  width: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid gray;
+}

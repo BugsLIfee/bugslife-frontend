@@ -27,7 +27,10 @@ ReactDOM.render(
           "/api/mypage",
           "/freeboard",
           "/oauth2/redirect",
-          "/profile"
+          "/profile",
+          "/freeboard_detail",
+          "/posting_fr",
+          "/point"
         ]}
         component={App}
         exact={true}
