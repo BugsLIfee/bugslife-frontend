@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import "./scss/FreeboarDetailComm.scss"
 
 export default class Freeboarddetailcommentform extends Component {
 
