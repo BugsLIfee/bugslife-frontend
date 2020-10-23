@@ -32,7 +32,7 @@ class SignUp extends Component {
     event.preventDefault();
 
     if(this.validate()){
-        console.log("this.state  : " + this.state);
+        //console.log("this.state  : " + this.state);
         let input = {};
         input["name"] = "";
         input["email"] = "";

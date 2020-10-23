@@ -1,31 +1,33 @@
 import React, { Component } from 'react'
 import ReportModalContainer from '../../../report/container/ReportContainer'
 import Freeboarddetailcommentform from './ FreeboardDetailCommentForm'
+import Freeboarddeleteform from './FreeboardDeleteForm'
 import "./scss/FreeboarDetailComm.scss"
 
 export default class Freeboarddetailcomment extends Component {
-    state = { visible: false, com_id: 0 }
+    state = { visible: false, comment_id: -1, delete_com: false }
 
-  
-        
-    onCommentClick=(ind)=>{
-        console.log(this.state.visible)
-        this.setState({visible: !this.state.visible, com_id: ind});
+    onCommentClick=(id)=>{
+        this.setState({visible: !this.state.visible});
+        this.setState({comment_id: id});
     }
     
-    
+    onCommentDelete=(id)=>{
+        this.setState({delete_com: !this.state.delete_com});
+        this.setState({comment_id: id});
+
+        // alert("댓글을 삭제하시겠습니까?")
+    }
 
     render() {
         console.log(this.state.visible, this.state)
         
         const comment =this.props.comment
-        const com_id = this.state.com_id
+
         return (
             <div className="freeboard_detail_comment_container">
-                 {comment.map((com, ind)=>{
-                  
-                    return <div key={ind} className="freeboard_detail_comment"> 
-
+                 {comment.map((com)=>{
+                    return <div className="freeboard_detail_comment" key={com.id}> 
                     <div className="freeboard_comment_sec">
                         <div className="freeboard_detail_comment_content">
                             <span className="freeboard_comment_info"> <h6>익명의 고수</h6> <p>{com.date}</p></span>
@@ -33,23 +35,25 @@ export default class Freeboarddetailcomment extends Component {
                         </div>
                                 
                          <div className="freeboard_detail_comment_btn">
-                         
-                            <h6 onClick={()=>{
-                             
-                                 this.setState({visible: !this.state.visible, com_id: ind});
-                                 console.log(this.state)
-                            }} >답글</h6>
-                            <h6>삭제</h6>
+                            <h6 onClick={() => this.onCommentClick(com.id)} >답글</h6>
+                            <h6 onClick={()=>this.onCommentDelete(com.id)}> 삭제</h6>
                             <ReportModalContainer bt_text= {<h6>신고</h6>} />
                         </div>
                     </div>
-
-                    <div> 
-                        <Freeboarddetailcommentform visible={com_id==ind? "show" : "hide"}/>
-                      </div>
+                        <div className="visible_comment_form">
+                        <Freeboarddetailcommentform visible={this.state.visible} cur_id={com.id} select_id={this.state.comment_id} />
+                        </div>
+                       
+                        <div className="visible_delete_form">
+                            <Freeboarddeleteform delete_com={this.state.delete_com} cur_id={com.id} select_id={this.state.comment_id}/>
+                        </div>
                     </div>
                         })}
-                        <Freeboarddetailcommentform />
+                    
+                        <div className="default_comment_form">
+                        <Freeboarddetailcommentform visible={true} cur_id={0} select_id={0}/>
+                        </div>
+                       
                  </div>
         )
     }

@@ -11,11 +11,13 @@ const selected_post =
      },
      comment: [
          {
+            id: 0,
             date: "2020.03.17",
             content: "저도 저것때문에 많이 애먹었어요ㅜㅜ.",
             report_cnt:0
          },
          {
+            id: 1,
             date: "2020.03.17",
             content: "괜찮을것 같은데",
             report_cnt: 0
