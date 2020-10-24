@@ -3,7 +3,16 @@ import _ from 'lodash'
 import { Dropdown } from 'semantic-ui-react'
 import CKEditor from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+// import EasyImage from '@ckeditor/ckeditor5-easy-image/src/easyimage';
+// import Image from '@ckeditor/ckeditor5-image/src/image';
+// import ImageCaption from '@ckeditor/ckeditor5-image/src/imagecaption';
+// import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle';
+// import ImageToolbar from '@ckeditor/ckeditor5-image/src/imagetoolbar';
+// import ImageUpload from '@ckeditor/ckeditor5-image/src/imageupload';
+
+
 import "./scss/posting.scss"
+
 
 
 export default class FreeboardEditorView extends Component {
@@ -54,6 +63,20 @@ export default class FreeboardEditorView extends Component {
                     onFocus={(event, editor) => {
                         console.log("Focus.", editor);
                     }}
+
+                    // config = {{
+                    //     plugins: [EasyImage, Image, ImageCaption, ImageStyle, ImageToolbar, ImageUpload ],
+                        
+                    //     image: {
+                    //         toolbar: [
+                    //             'imageStyle:full',
+                    //             'imageStyle:side',
+                    //             '|',
+                    //             'imageTextAlternative'
+                    //         ]
+                    //       }
+                    //     }}
+          
                 />
 
 
