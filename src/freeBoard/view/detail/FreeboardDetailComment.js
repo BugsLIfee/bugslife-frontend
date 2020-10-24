@@ -9,11 +9,13 @@ export default class Freeboarddetailcomment extends Component {
 
     onCommentClick=(id)=>{
         this.setState({visible: !this.state.visible});
+        this.setState({delete_com:false});
         this.setState({comment_id: id});
     }
     
     onCommentDelete=(id)=>{
         this.setState({delete_com: !this.state.delete_com});
+        this.setState({visible: false});
         this.setState({comment_id: id});
 
         // alert("댓글을 삭제하시겠습니까?")
