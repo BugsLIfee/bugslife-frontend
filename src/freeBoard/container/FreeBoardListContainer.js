@@ -9,11 +9,13 @@ export default class Freeboardlistcontainer extends Component {
 
     render() {
         const freeboard_list =this.props.freeboard_list;
+        const {freeboard_select_posts} = this.props;
+    
         return (
             
             <div className="freeboard_list_wrap">
                 <div className="freeboard_header_menu">
-        <Menu position="left" className="listHeader headerBar">
+             <Menu position="left" className="listHeader headerBar">
               <Menu.Item
                 name="최신순"
                 // active={activeItem === "최신순"}
@@ -55,7 +57,7 @@ export default class Freeboardlistcontainer extends Component {
                 </div>
                     
                 </div>
-                <Freeboardlistview id="free_list" freeboard_list={freeboard_list} />
+                <Freeboardlistview id="free_list" freeboard_list={freeboard_select_posts.length ==0 ?freeboard_list : freeboard_select_posts} />
                 <div className="free_list_pagination">
 
                 <Pagination
