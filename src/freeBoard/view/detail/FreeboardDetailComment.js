@@ -37,7 +37,7 @@ export default class Freeboarddetailcomment extends Component {
                         </div>
                                 
                          <div className="freeboard_detail_comment_btn">
-                            <h6 onClick={() => this.onCommentClick(com.id)} >답글</h6>
+                            <h6 onClick={()=>this.onCommentClick(com.id)} >답글</h6>
                             <h6 onClick={()=>this.onCommentDelete(com.id)}> 삭제</h6>
                             <ReportModalContainer bt_text= {<h6>신고</h6>} />
                         </div>
