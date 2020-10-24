@@ -25,11 +25,7 @@ export const PGS = [
   },
   {
     value: 'kakaopay',
-    label: '신 - 카카오페이',
-  },
-  {
-    value: 'kakao',
-    label: '구 - LG CNS 카카오페이',
+    label: '카카오페이',
   },
   {
     value: 'danal',

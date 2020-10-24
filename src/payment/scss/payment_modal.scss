@@ -1,0 +1,48 @@
+.payment_modal {
+
+    .info_agree {
+        display: flex;
+        flex-direction: column;
+    
+        .item {
+            margin: 0.5rem;
+        }
+    }
+    
+    .payment_type {
+        display: flex;
+        flex-direction: column;                                                                     
+        p {
+            font-weight: bold;
+        }
+        .item {
+            height: 3rem;
+            margin: 1rem;
+            padding: 1rem;
+            border-radius: 5px;
+            background-color: #e8e8e8;
+            font-size: 1rem !important;
+        }
+    }
+    
+    .point_amount {
+
+        p {
+            font-weight: bold;
+        }
+
+        .items {
+            display: flex;
+            flex-flow: row wrap;
+            .item {
+                margin-right: 1rem;
+                width: fit-content;
+            }
+        }
+    }
+    
+    .what_is_point {
+        font-weight: bold;
+        color: #5555FF;
+    }
+}
