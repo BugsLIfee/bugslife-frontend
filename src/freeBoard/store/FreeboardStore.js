@@ -15,15 +15,47 @@ class FreeboardStore{
     @observable
     freeboard_cate = ["자유", "취업", "연애", "학업", "유머", "스포츠", "회사"];
 
+
+    @observable
+    select_cate = [];
+
     @observable 
     freeboard_select_posts = [];
 
+    // @action
+    // onSelectCate=(category_list)=>{
+        
+    //     //select
+        
+    // this.onFilterPosts(category_list);
+      
+    // }  
+
     @action
-    onSelectCate=(category)=>{
-        let select_post = 
-        this.freeboard_list.filter((post)=> (post.cate == category)&&(!this.freeboard_select_posts.includes(post)));
-        this.freeboard_select_posts = [...this.freeboard_select_posts, ...select_post]
-    }  
+    onFilterPosts =(cate_list)=>{
+
+    console.log(cate_list)
+      let select_post = []
+
+      if(cate_list.length==0){
+          this.freeboard_select_posts = this.freeboard_list
+          
+      }else{
+        cate_list.map((cate)=> {
+            return (select_post.push(this.freeboard_list.filter((val)=> val.cate == cate)[0])
+        )});
+ 
+       this.freeboard_select_posts = select_post
+      }
+
+    }
+
+    @action
+    setCategorySelect=(cate_list)=>{
+        // this.select_cate = cate_list;
+        // console.log(this.select_cate)
+        this.onFilterPosts(cate_list);
+    }
 
 }
 
