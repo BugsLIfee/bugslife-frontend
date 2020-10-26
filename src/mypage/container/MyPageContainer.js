@@ -48,6 +48,10 @@ class Mypagecontainer extends Component {
     // console.log("selected_user : "+ selected_user, JSON.stringify(selected_user))
     
     console.log(selected_user)
+
+    const goToPoint = () => {
+      this.setState({curr_component: "point"});
+    };
     return (
       
       <div name="MyPage_container" className="MyPage_container">
@@ -98,7 +102,7 @@ class Mypagecontainer extends Component {
           </Sidebar>
           <div className="MyPage_curr">
             {this.user}
-            {state === "home" && <MypageHome user ={selected_user} />}
+            {state === "home" && <MypageHome user ={selected_user} onClickPoint={goToPoint}/>}
             {state === "post" && <MypagePost />}
             {state === "user" && <MypageUser user={selected_user} onSubmitForm={this.onSubmitForm}/>}
             {state === "point" && <PointPage user={selected_user} />}
