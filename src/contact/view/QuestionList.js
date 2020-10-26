@@ -21,8 +21,10 @@ class QuestionList extends Component {
     console.log("typedata", TypeData);
 
     const MakeTypeName = (data) => {
-      let typeObj = TypeData.find((obj) => obj.categoryId === data.category);
-      let typeName = typeObj.categoryname;
+     
+      let typeObj = TypeData.find((obj) => (obj.id === data.categoryId));
+      console.log("typeObj=> ",typeObj)
+      let typeName = typeObj.name;
       console.log("typeName==", typeName);
       return typeName;
     };
@@ -33,10 +35,10 @@ class QuestionList extends Component {
     );
 
     let CreateTableRowList = listPageOne.map((qna) => (
-      <Table.Row>
+      <Table.Row href={`/${qna.id}`}>
         <Table.Cell width="1">{qna.completed}</Table.Cell>
         <Table.Cell width="1">{qna.id}</Table.Cell>
-        <Table.Cell width="2">{qna.userid}</Table.Cell>
+        <Table.Cell width="2">{qna.writerId}</Table.Cell>
         <Table.Cell width="2"> {MakeTypeName(qna)}</Table.Cell>
         <Table.Cell width="7">{qna.title}</Table.Cell>
         <Table.Cell width="3">{qna.regist_date}</Table.Cell>

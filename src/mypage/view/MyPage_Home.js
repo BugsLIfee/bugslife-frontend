@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { List, Feed, Icon, Segment } from "semantic-ui-react";
+import PaymentModal from "../../payment/PaymentModal";
 import "./scss/myPage.scss";
 import CountUp from "react-countup";
 
@@ -16,9 +17,8 @@ constructor(props){
     const extraText =
       "Have you seen what's going on in Israel? Can you believe it.";
 
-    const user = this.props.user
-
-   console.log(user)
+    const user = this.props.user;
+    const {onClickPoint} = this.props;
 
     return (
       <>
@@ -171,12 +171,15 @@ constructor(props){
                   <b>Point</b> : 10p
                 </h3>
               </div>
-              <div className="MyPage_detail_columm_point_card charge_point">
-                <h3>
-                  <b> 충전하기</b>
-                </h3>
-              </div>
-              <div className="MyPage_detail_columm_point_card history_point">
+              <PaymentModal bt_text={
+                <div className="MyPage_detail_columm_point_card charge_point">
+                  <h3>
+                    <b> 충전하기</b>
+                  </h3>
+                </div>
+              }/>
+              <div className="MyPage_detail_columm_point_card history_point"
+                onClick={() => {onClickPoint("point")}}>
                 <h3>
                   <b> 사용내역</b>
                 </h3>

@@ -5,6 +5,7 @@ import MypagePost from "../view/MyPage_Post";
 import "../scss/myPage.scss";
 import {inject, observer} from "mobx-react"
 import MypageUser from "../view/MyPage_user";
+import PointPage from "../../point/PointPage";
 
 
 @inject("Store")
@@ -47,6 +48,10 @@ class Mypagecontainer extends Component {
     // console.log("selected_user : "+ selected_user, JSON.stringify(selected_user))
     
     console.log(selected_user)
+
+    const goToPoint = () => {
+      this.setState({curr_component: "point"});
+    };
     return (
       
       <div name="MyPage_container" className="MyPage_container">
@@ -97,9 +102,10 @@ class Mypagecontainer extends Component {
           </Sidebar>
           <div className="MyPage_curr">
             {this.user}
-            {state === "home" && <MypageHome user ={selected_user} />}
+            {state === "home" && <MypageHome user ={selected_user} onClickPoint={goToPoint}/>}
             {state === "post" && <MypagePost />}
             {state === "user" && <MypageUser user={selected_user} onSubmitForm={this.onSubmitForm}/>}
+            {state === "point" && <PointPage user={selected_user} />}
           </div>
 
           <Sidebar.Pusher>

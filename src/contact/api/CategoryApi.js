@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default class categoryApi {
+class CategoryApi {
   url = "/api/category/";
   
   categoryCreate(categoryApiModel) {
@@ -11,13 +11,14 @@ export default class categoryApi {
 
    categoryDetail(id) {
     return axios
-      .get(this.url + `${id}`)
+      .get(this.url + `?id=${id}`)
       .then((response) => (response && response.data) || null);
   }
   //todoList(todoApiModel):url get  return todo
-   categoryList() {
+   categoryListByType(type) {
+     console.log("-------카테고리 api 도착")
     return axios
-      .get(this.url)
+      .get(this.url+`${type}`)
       .then((response) => (response && response.data) || null);
   }
   //todoModify(todoApiModel):url put  return void
@@ -35,3 +36,5 @@ export default class categoryApi {
       .then((response) => (response && response.data) || null);
   }
 }
+
+export default new CategoryApi();
