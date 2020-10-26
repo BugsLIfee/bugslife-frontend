@@ -7,6 +7,7 @@ import fbLogo from '../img/fb-logo.png';
 import googleLogo from '../img/google-logo.png';
 import githubLogo from '../img/github-logo.png';
 import Alert from 'react-s-alert';
+import { Icon } from 'semantic-ui-react';
 
 class Login extends Component {
     componentDidMount() {
@@ -38,12 +39,13 @@ class Login extends Component {
         return (
             <div className="login-container">
                 <div className="login-content">
-                    <h1 className="login-title">🤗 로그인하기 </h1>
+                    <h1 className="login-title"><Icon name="sign in"/>로그인하기</h1>
                     <SocialLogin />
                     <div className="or-separator">
                         <span className="or-text">OR</span>
                     </div>
                     <LoginForm {...this.props} />
+                    <br/>
                     <span className="signup-link">벅스라이프의 회원이 되고싶으신가요?? <Link to="/signup">가입하기 클릭!</Link></span>
                 </div>
             </div>

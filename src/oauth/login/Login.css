@@ -1,5 +1,6 @@
 .login-container {
     text-align: center;
+    margin: 80px;
 }
 
 
@@ -44,6 +45,7 @@
 .signup-link {
     color: rgba(0, 0, 0, 0.65);
     font-size: 14px;
+    margin: 20px;
 }
 
 .login-title {
@@ -53,3 +55,4 @@
     margin-bottom: 30px;
     color: rgba(0, 0, 0, 0.65);
 }
+
