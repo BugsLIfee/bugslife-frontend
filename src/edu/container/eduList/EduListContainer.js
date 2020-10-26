@@ -24,7 +24,7 @@ class EduListContainer extends Component {
                             <EduListMainView eduList={eduList}/>
                         </Grid.Column>
                         <Grid.Column width={3}>
-                            {/* <EduListRatingView eduList={eduList}/> */}
+                            <EduListRatingView eduList={eduList}/>
                         </Grid.Column>
                     </Grid>
                 </div>
