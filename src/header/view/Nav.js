@@ -1,9 +1,16 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import "./scss/nav.scss";
+import {observer,inject} from "mobx-react";
+import { NavLink } from "react-router-dom";
 
-export default class Nav extends Component {
+@inject("Store")
+@observer
+class Nav extends Component {
+  componentDidMount() {
+    this.props.Store.oauth.loadCurrentlyLoggedInUser();
+  }
   render() {
+    const oauth = this.props.Store.oauth;
     return (
       <nav>
         <div>
@@ -12,18 +19,27 @@ export default class Nav extends Component {
             <h4>홈</h4>
           </a>{" "}
         </div>
-        <div>
-          <a href="/login">
-            {" "}
-            <h4>로그인</h4>
-          </a>
-        </div>
-        <div>
-          <a href="/signUp">
-            {" "}
-            <h4>회원가입</h4>
-          </a>
-        </div>
+        
+        { oauth.isLogin ? (
+          <>
+            <div>
+                <a href="/profile">내정보보기</a>
+            </div>
+            <div>
+                <span onClick={()=>oauth.onLogout()}>로그아웃</span>
+            </div>
+          </>
+        ): (
+            <>
+              <div>
+                  <a href="/login">로그인</a>        
+              </div>
+              <div>
+                  <a href="/signup">가입하기</a>        
+              </div>
+            </>
+        )}
+
         <div>
           <a href="/list">
             {" "}
@@ -62,3 +78,4 @@ export default class Nav extends Component {
     );
   }
 }
+export default  Nav;
