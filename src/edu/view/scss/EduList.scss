@@ -1,0 +1,53 @@
+.eduList {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.eduListHeader {
+  width: 1000px;
+  display: flex;
+  margin-bottom: 30px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #2f9cd5;
+  h5 {
+    display: flex;
+    margin-bottom: 0px !important;
+    .fontColor {
+      color: #2f9cd5;
+    }
+  }
+}
+
+.searchLayout {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.eduSearchFilter {
+  width: 70px !important;
+}
+
+.eduSearchBar {
+  width: 200px !important;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.eduListItem {
+  width: 1000px;
+  display: flex;
+  justify-content: center;
+  .eduItemGrid {
+    //text-align: center !important;
+    width: 100% !important;
+  }
+}
+
+.eduItemGrid {
+  padding: 0px !important;
+}

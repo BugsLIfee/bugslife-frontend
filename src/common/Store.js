@@ -14,6 +14,7 @@ import TagStore from "../tag/store/TagStore"
 import FreeboardStore from "../freeBoard/store/FreeboardStore";
 import PointStore from "../point/store/PointStore";
 import ReportStore from "../report/store/ReportStore";
+import EduStore from "../edu/store/EduStore";
 
 export default class Store {
   constructor() {
@@ -31,5 +32,6 @@ export default class Store {
     this.freeboard = new FreeboardStore(this);
     this.point = new PointStore(this);
     this.report = new ReportStore(this);
+    this.edu = new EduStore(this);
   }
 }

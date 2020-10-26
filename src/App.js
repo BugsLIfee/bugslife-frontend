@@ -18,6 +18,7 @@ import FreeBoardContainer from "./freeBoard/container/FreeBoardContainer";
 import Freeboarddetailcontainer from "./freeBoard/container/FreeBoardDetailContainer";
 import PointPage from "./point/PointPage";
 import FreeboardEditorContainer from "./freeBoard/view/Editor/container/FreeboradEditorContainer";
+import EduListContainer from "./edu/container/eduList/EduListContainer"
 
 
 function App() {
@@ -42,8 +43,9 @@ function App() {
           <Route path="/freeboard_detail" component={Freeboarddetailcontainer} exact={true} />
           <Route path="/point" component={PointPage} />
           <Route path="/posting_fr" component={FreeboardEditorContainer} />
+          <Route path="/edu" component={EduListContainer} exact={true} />
 
-
+ 
         </Switch>
       </Router>
       <div className="footer_place">
