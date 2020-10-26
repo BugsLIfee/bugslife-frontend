@@ -1,17 +1,25 @@
 .payment_modal {
-
+    
     .info_agree {
         display: flex;
         flex-direction: column;
-    
+        
         .item {
             margin: 0.5rem;
         }
     }
     
+    .pg_list{
+        margin-top: 2rem;
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+
     .payment_type {
+
         display: flex;
-        flex-direction: column;                                                                     
+        flex-direction: column;
+
         p {
             font-weight: bold;
         }
@@ -22,6 +30,7 @@
             border-radius: 5px;
             background-color: #e8e8e8;
             font-size: 1rem !important;
+
         }
     }
     
@@ -32,11 +41,26 @@
         }
 
         .items {
-            display: flex;
-            flex-flow: row wrap;
-            .item {
-                margin-right: 1rem;
-                width: fit-content;
+            // display: flex;
+            // flex-flow: row wrap;
+            // display: flex;
+            // flex-flow: wrap;
+            display: grid;
+            grid-template-columns: auto auto;
+            
+            // align-items: flex-start;
+            .point_amount_item {
+                
+                // margin-right: 1.5rem;
+                // margin : 0 !important; 
+                // width: fit-content;
+                // height: 3rem;
+                font-size: 1em;
+                display: flex;
+                align-items: center;
+                justify-content: left;
+                margin: 0;
+                padding: 0.5rem;
             }
         }
     }
@@ -44,5 +68,27 @@
     .what_is_point {
         font-weight: bold;
         color: #5555FF;
+        font-size: 1.3rem;
     }
+}
+
+.total_amount {
+    display: flex;
+    font-size: 1.5rem;
+    margin-left: 0.5rem;
+    p {
+        color: #5555ff;
+        margin-left: 1rem;
+    }
+}
+
+.payment_type_confirm {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    color: #888888;
+    margin-left: 0.5rem;
+}
+
+.info_agree {
+    margin-top: 1.3rem;
 }

@@ -32,17 +32,18 @@ export default function PaymentModal(props) {
   const { bt_text } = props
   const [pg_type, setPgType] = useState();
   const [point_type, setPointType] = useState();
-  const [payment_type, setPaymentType] = useState('');
+  const [payment_type, setPaymentType] = useState('normal');
   const [visible, setVisible] = useState();
   const [allAgree, setAllAgree] = useState();
   const [agree1, setAgree1] = useState();
   const [agree2, setAgree2] = useState();
+  const [pg_name, setPgName] = useState();
   const [methods, setMethods] = useState(METHODS_FOR_INICIS);
   const [quotas, setQuotas] = useState(QUOTAS_FOR_INICIS_AND_KCP);
   const [data, setData] = useState(
     {
-      pg: '',
-      pay_method: '',
+      pg: 'html5_inicis',
+      pay_method: 'card',
       merchant_uid: '1',   // 주문번호
       amount: 0,                                 // 결제금액
       name: '벅스라이프 포인트 결제',                  // 주문명
@@ -139,9 +140,9 @@ export default function PaymentModal(props) {
                 <p>충전 포인트 </p>
                 <Form className="items">
                   {point_list.map((point) => (
-                      <Form.Field className="item">
+                      <Form.Field className="point_amount_item">
                           <Radio
-                          label={`${point}P . ${point}원`}
+                          label={`${point}P (${point}원)`}
                           name='radioGroup'
                           value={point}
                           checked={point_type === point}
@@ -167,7 +168,7 @@ export default function PaymentModal(props) {
                 checked = {payment_type === 'other'}
                 onChange={onClickPaymentType}/>
                 { visible ?
-                <Form>
+                <Form className="pg_list">
                   {PGS.map((pg) => (
                       <Form.Field >
                           <Radio
@@ -182,8 +183,12 @@ export default function PaymentModal(props) {
                 </Form>: <div />} 
               </div>
             <hr />
-            <div className="total_amount">총 결제 금액 : {data.amount}</div>
-                  <div className="payment_type_confirm"> {payment_type === 'normal' ? <p>일반결제(신용카드/계좌이체/휴대폰)</p> : <p>기타결제()</p>}</div>
+            <div className="total_amount">총 결제 금액 : <p> {data.amount}원</p></div>
+            <div className="payment_type_confirm"> 
+              {payment_type === 'normal' ? 
+              <p>일반결제(신용카드/계좌이체/휴대폰)</p> : 
+              <p>기타결제({PGS.find(pg => {return pg.value === data.pg}).label})</p>}
+            </div>
             <div className="info_agree">
               <Checkbox label='전체 동의' onChange={onClickAllAgree} className="item"/>
               <Checkbox label='위 구매 조건 확인 및 결제진행 동의 (필수)' checked={agree1 === true} onChange={()=>setAgree1(!agree1)} className="item"/>
