@@ -11,18 +11,21 @@ class FreeboardcateContainer extends Component {
     constructor(props){
         super(props);
         this.state=({ cate_list : [] })
-        this.changed_list = []
     }
 
 
     onSelectCategory=(category)=>{
-        let changed_list = this.changed_list;
-        
+
+        let changed_list = this.state.cate_list.slice(0);
         if(changed_list.includes(category)){
             changed_list = changed_list.filter((val)=> val!=category);
         }else{
             changed_list.push(category)
         }
+
+
+        this.setState({cate_list : changed_list})
+        console.log(this.state.cate_list)
         this.props.Store.freeboard.setCategorySelect(changed_list)
     
        

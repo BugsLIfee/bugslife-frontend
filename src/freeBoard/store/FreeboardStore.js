@@ -34,7 +34,7 @@ class FreeboardStore{
     @action
     onFilterPosts =(cate_list)=>{
 
-    console.log(cate_list)
+    //console.log(cate_list)
       let select_post = []
 
       if(cate_list.length==0){
@@ -42,18 +42,24 @@ class FreeboardStore{
           
       }else{
         cate_list.map((cate)=> {
-            return (select_post.push(this.freeboard_list.filter((val)=> val.cate == cate)[0])
-        )});
+        let filtered= this.freeboard_list.filter((val)=> {
+                 return val = (val.cate == cate)  
+            })
+        
+        if(filtered.length > 0){
+             select_post.push(filtered[0]) 
+            }
+            }) ;
+
  
        this.freeboard_select_posts = select_post
+       //console.log(this.freeboard_select_posts)
       }
 
     }
 
     @action
     setCategorySelect=(cate_list)=>{
-        // this.select_cate = cate_list;
-        // console.log(this.select_cate)
         this.onFilterPosts(cate_list);
     }
 
