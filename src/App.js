@@ -5,8 +5,6 @@ import MainContainer from "./main/container/MainContainer";
 import ListContainer from "./list/container/ListContainer";
 import DetailPage from "./detail/DetailPage";
 import AdminContainer from "./admin/container/AdminContainer";
-// import TagContainer from "./tag/container/TagContainer";
-//import LoginPage from "./user/view/Login";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ContactContainer from "./contact/container/ContactContainer";
 import Mypagecontainer from "./mypage/container/MyPageContainer";
@@ -30,7 +28,6 @@ import { getCurrentUser } from './oauth/api/APIUtils';
 import { ACCESS_TOKEN } from './oauth/constants/index';
 import LoginContainer from "./oauth/login/LoginContainer";
 import ProfileContainer from "./oauth/profile/ProfileContainer";
-import Singupcontainer from "./user/container/SingupContainer";
 import FreeBoardContainer from "./freeBoard/container/FreeBoardContainer";
 import Freeboarddetailcontainer from "./freeBoard/container/FreeBoardDetailContainer";
 import PointPage from "./point/PointPage";
@@ -110,7 +107,6 @@ class App extends Component {
           <Route path="/mypage" component={Mypagecontainer} exact={true} />
           <Route path="/api/mypage" component={Testcontainer} exact={true} />
           <Route path="/posting" component={PostingContainer} exact={true} />
-          <Route path="/freeboard" component={Freeboardlistcontainer} exact={true} />
           <PrivateRoute path="/profile"  component={ProfileContainer} exact={true} />
             {/* <Route path="/login"
               render={(props) => <Login authenticated={this
@@ -119,7 +115,7 @@ class App extends Component {
               render={(props) => <Signup authenticated={this.state.authenticated} {...props} />}/>
           <Route path="/oauth2/redirect" component={OAuth2RedirectHandler}/>  
           <Route path="/login" component={LoginContainer} exact={true}/> 
-          <Route component={NotFound}></Route>
+          {/* <Route component={NotFound}></Route> */}
           <Route path="/freeboard" component={FreeBoardContainer} exact={true} />
           <Route path="/freeboard_detail" component={Freeboarddetailcontainer} exact={true} />
           <Route path="/point" component={PointPage} />

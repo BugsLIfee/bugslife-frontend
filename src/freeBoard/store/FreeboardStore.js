@@ -22,14 +22,7 @@ class FreeboardStore{
     @observable 
     freeboard_select_posts = [];
 
-    // @action
-    // onSelectCate=(category_list)=>{
-        
-    //     //select
-        
-    // this.onFilterPosts(category_list);
-      
-    // }  
+    
 
     @action
     onFilterPosts =(cate_list)=>{
@@ -38,7 +31,7 @@ class FreeboardStore{
       let select_post = []
 
       if(cate_list.length==0){
-          this.freeboard_select_posts = this.freeboard_list
+          select_post= this.freeboard_list
           
       }else{
         cate_list.map((cate)=> {

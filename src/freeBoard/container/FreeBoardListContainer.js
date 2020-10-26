@@ -5,11 +5,12 @@ import { Pagination } from 'semantic-ui-react'
 import { Input, Menu, Button } from "semantic-ui-react"
 
 
+
 export default class Freeboardlistcontainer extends Component {
 
     render() {
         const freeboard_list =this.props.freeboard_list;
-        const {freeboard_select_posts} = this.props;
+        const freeboard_select_posts = this.props.freeboard_select_posts;
 
         console.log(freeboard_select_posts)
     
@@ -59,7 +60,7 @@ export default class Freeboardlistcontainer extends Component {
                 </div>
                     
                 </div>
-                <Freeboardlistview id="free_list" freeboard_list={freeboard_select_posts.length ==0 ?freeboard_list : freeboard_select_posts} />
+                <Freeboardlistview id="free_list" freeboard_list={freeboard_select_posts.length ==0 ? freeboard_list : freeboard_select_posts} />
                 <div className="free_list_pagination">
 
                 <Pagination

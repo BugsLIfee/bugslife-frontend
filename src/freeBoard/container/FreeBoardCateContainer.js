@@ -27,7 +27,7 @@ class FreeboardcateContainer extends Component {
         console.log(this.state.cate_list)
         this.props.Store.freeboard.setCategorySelect(changed_list)
     
-       
+     
     }
 
     
