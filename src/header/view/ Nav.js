@@ -6,12 +6,12 @@ export default class Nav extends Component {
   render() {
     return (
       <nav>
-        <div>
+        {/* <div>
           <a href="/">
             {" "}
             <h4>홈</h4>
           </a>{" "}
-        </div>
+        </div> */}
         <div>
           <a href="/login">
             {" "}
@@ -21,7 +21,7 @@ export default class Nav extends Component {
         <div>
           <a href="/signUp">
             {" "}
-            <h4>회원가입</h4>
+            <h4>교육과정리뷰</h4>
           </a>
         </div>
         <div>

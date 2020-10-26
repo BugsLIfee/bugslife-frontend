@@ -53,7 +53,7 @@ class FreeboardStore{
 
  
        this.freeboard_select_posts = select_post
-       //console.log(this.freeboard_select_posts)
+       
       }
 
     }

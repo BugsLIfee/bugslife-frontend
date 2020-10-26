@@ -2,7 +2,6 @@ import { inject, observer } from 'mobx-react'
 import React, { Component } from 'react'
 import { Checkbox } from 'semantic-ui-react'
 import "../view/List/scss/FreeBoardCate.scss"
-import selected_post from '../store/FreeboardTestData'
 
 @inject("Store")
 @observer
