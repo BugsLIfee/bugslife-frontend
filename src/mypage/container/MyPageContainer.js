@@ -5,6 +5,7 @@ import MypagePost from "../view/MyPage_Post";
 import "../scss/myPage.scss";
 import {inject, observer} from "mobx-react"
 import MypageUser from "../view/MyPage_user";
+import PointPage from "../../point/PointPage";
 
 
 @inject("Store")
@@ -100,6 +101,7 @@ class Mypagecontainer extends Component {
             {state === "home" && <MypageHome user ={selected_user} />}
             {state === "post" && <MypagePost />}
             {state === "user" && <MypageUser user={selected_user} onSubmitForm={this.onSubmitForm}/>}
+            {state === "point" && <PointPage user={selected_user} />}
           </div>
 
           <Sidebar.Pusher>
