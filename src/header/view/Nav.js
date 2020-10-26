@@ -13,33 +13,24 @@ class Nav extends Component {
     const oauth = this.props.Store.oauth;
     return (
       <nav>
-        <div>
+        {/* <div>
           <a href="/">
             {" "}
             <h4>홈</h4>
           </a>{" "}
+        </div> */}
+        <div>
+          <a href="/login">
+            {" "}
+            <h4>로그인</h4>
+          </a>
         </div>
-        
-        { oauth.isLogin ? (
-          <>
-            <div>
-                <a href="/profile">내정보보기</a>
-            </div>
-            <div>
-                <span onClick={()=>oauth.onLogout()}>로그아웃</span>
-            </div>
-          </>
-        ): (
-            <>
-              <div>
-                  <a href="/login">로그인</a>        
-              </div>
-              <div>
-                  <a href="/signup">가입하기</a>        
-              </div>
-            </>
-        )}
-
+        <div>
+          <a href="/signUp">
+            {" "}
+            <h4>교육과정리뷰</h4>
+          </a>
+        </div>
         <div>
           <a href="/list">
             {" "}
