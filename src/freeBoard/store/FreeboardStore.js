@@ -50,7 +50,6 @@ class FreeboardStore{
              select_post.push(filtered[0]) 
             }
             }) ;
-
  
        this.freeboard_select_posts = select_post
        

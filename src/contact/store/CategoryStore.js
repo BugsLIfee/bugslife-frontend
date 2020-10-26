@@ -1,22 +1,24 @@
 import { observable, computed, action } from "mobx";
-import  categoryApi  from "../api/CategoryApi"
+import CategoryApi  from "../api/CategoryApi"
 import CategoryApiModel from "../api/Model/CategoryApiModel"
 export default class CategoryStore {
+
   @observable
   category = "";
   @observable
-  categoryList = "";
+  categoryList = [];
 
   @computed
   get getCategoryList() {
-    return this.category ? this.category : "";
+    return this.categoryList;
   }
 
   @action
-  setCategoryListByType(type) {
-    let categoryObj = categoryApi.categoryListByType(type);
-    this.categoryList =new CategoryApiModel(categoryObj);
+  async setCategoryListByType(type) {
+    let categoryObjList = await CategoryApi.categoryListByType(type);
+    this.categoryList = categoryObjList.map(categoryObj=>
+      new CategoryApiModel(categoryObj));
     
-    console.log("CategoryStore:", this.categoryList);
+    console.log("CategoryStore::", this.categoryList);
   }
 }

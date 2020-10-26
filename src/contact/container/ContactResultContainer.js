@@ -13,7 +13,7 @@ class ContactResultContainer extends Component {
     console.log("contact-result:", menu);
     return (
       <div>
-        {menu === "qna-write" ? <QuestionEditContainer /> : ""}
+        {menu === "qna-q-write" ? <QuestionEditContainer /> : ""}
         {menu === "qna-myList" ? <QuestionMyListContainer /> : ""}
         {menu === "info-list" ? <InfoListContainer /> : ""}
       </div>

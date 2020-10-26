@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import { Image } from "semantic-ui-react";
-import { inject } from "mobx-react";
-import Nav from "./ Nav";
+import Nav from "./Nav";
 import "./scss/header.scss";
 
 class Header extends Component {
@@ -55,7 +53,7 @@ class Header extends Component {
           </a>
 
           <div className="nav">
-            <Nav />
+            <Nav/>
           </div>
         </div>
       </div>

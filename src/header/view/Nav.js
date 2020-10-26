@@ -1,9 +1,16 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import "./scss/nav.scss";
+import {observer,inject} from "mobx-react";
+import { NavLink } from "react-router-dom";
 
-export default class Nav extends Component {
+@inject("Store")
+@observer
+class Nav extends Component {
+  componentDidMount() {
+    this.props.Store.oauth.loadCurrentlyLoggedInUser();
+  }
   render() {
+    const oauth = this.props.Store.oauth;
     return (
       <nav>
         {/* <div>
@@ -62,3 +69,4 @@ export default class Nav extends Component {
     );
   }
 }
+export default  Nav;

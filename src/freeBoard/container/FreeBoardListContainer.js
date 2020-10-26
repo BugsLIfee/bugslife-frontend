@@ -10,6 +10,8 @@ export default class Freeboardlistcontainer extends Component {
     render() {
         const freeboard_list =this.props.freeboard_list;
         const {freeboard_select_posts} = this.props;
+
+        console.log(freeboard_select_posts)
     
         return (
             
