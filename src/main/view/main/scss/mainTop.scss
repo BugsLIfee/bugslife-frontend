@@ -68,3 +68,9 @@ h1.typing-txt {
     border-right: 1px solid #fff;
   }
 }
+
+@media (max-width: 500px) {
+  .MainTop_searchbar {
+    display: none;
+  }
+}

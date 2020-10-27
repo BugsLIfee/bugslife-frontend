@@ -14,8 +14,11 @@ import TagStore from "../tag/store/TagStore"
 import FreeboardStore from "../freeBoard/store/FreeboardStore";
 import OauthStore from "../oauth/OauthStore";
 import PointStore from "../point/store/PointStore";
+import ReportStore from "../report/store/ReportStore";
+import AttendanceStore from "../attendance/store/AttendanceStore";
 import ReportCategoryStore from "../report/store/ReportStore";
-import ReportStore from "../admin/store/ReportStore";
+import EduStore from "../edu/store/EduStore";
+
 
 export default class Store {
   constructor() {
@@ -35,5 +38,7 @@ export default class Store {
     this.point = new PointStore(this);
     this.reportCagetgory = new ReportCategoryStore(this);
     this.report = new ReportStore(this);
+    this.edu = new EduStore(this);
+    this.attendance = new AttendanceStore(this);
   }
 }
