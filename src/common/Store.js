@@ -15,6 +15,7 @@ import FreeboardStore from "../freeBoard/store/FreeboardStore";
 import OauthStore from "../oauth/OauthStore";
 import PointStore from "../point/store/PointStore";
 import ReportStore from "../report/store/ReportStore";
+import AttendanceStore from "../attendance/store/AttendanceStore";
 
 export default class Store {
   constructor() {
@@ -33,5 +34,6 @@ export default class Store {
     this.freeboard = new FreeboardStore(this);
     this.point = new PointStore(this);
     this.report = new ReportStore(this);
+    this.attendance = new AttendanceStore(this);
   }
 }
