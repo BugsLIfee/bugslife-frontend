@@ -13,6 +13,7 @@ import {
   HeaderContainer, 
   Footer, 
   AdminContainer,
+  AdminRoutes,
   ContactContainer, 
   LoginContainer, 
   Signup, 
@@ -25,20 +26,15 @@ import {
   MainContainer, 
   ListContainer, 
   DetailPage, 
-  PostingContainer, 
+  PostingContainer,
+  Attendancecontainer, 
  } from "./Routes";
-
-import { getCurrentUser } from './oauth/api/APIUtils';
-import { ACCESS_TOKEN } from './oauth/constants/index';
-import LoginContainer from "./oauth/login/LoginContainer";
-import ProfileContainer from "./oauth/profile/ProfileContainer";
-import FreeBoardContainer from "./freeBoard/container/FreeBoardContainer";
-import Freeboarddetailcontainer from "./freeBoard/container/FreeBoardDetailContainer";
-import PointPage from "./point/PointPage";
-import FreeboardEditorContainer from "./freeBoard/view/Editor/container/FreeboradEditorContainer";
-import Attendancecontainer from "./attendance/container/AttendanceContainer";
-import EduListContainer from "./edu/container/eduList/EduListContainer"
+import EduListContainer from "./edu/container/eduList/EduListContainer";
 import EduDetailContainer from "./edu/container/eduDetail/EduDetailContainer";
+
+// import { getCurrentUser } from './oauth/api/APIUtils';
+// import { ACCESS_TOKEN } from './oauth/constants/index';
+
 
 
 
@@ -71,12 +67,12 @@ class App extends Component {
           <Route exact path="/" component={MainContainer} exact={true} />
           <Route path="/list" component={ListContainer} exact={true} />
           <Route path="/detail" component={DetailPage} exact={true} />
-          <Route path="/admin/:menu" component={AdminContainer} />
+          <Route path="/admin" component={AdminRoutes} />
           <Route path="/contact/:menu" component={ContactContainer} />
           <Route path="/mypage" component={Mypagecontainer} exact={true} />
           <Route path="/posting" component={PostingContainer} exact={true} />
           <Route path="/attendance" component={Attendancecontainer} exact={true} />
-          <PrivateRoute path="/profile"  component={ProfileContainer} exact={true} />
+          <Route path="/profile"  component={ProfileContainer} exact={true} />
             <Route path="/signup"
               render={(props) => <Signup authenticated={this.state.authenticated} {...props} />}/>
           <Route path="/oauth2/redirect" component={OAuth2RedirectHandler}/>  
