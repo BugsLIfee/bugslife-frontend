@@ -39,7 +39,7 @@
   top: 0;
   height: 120px;
   display: inline-flex;
-  overflow: hidden;
+  //overflow: hidden;
   width: 100%;
   z-index: 99;
   flex-direction: row;
@@ -53,7 +53,7 @@
   top: 0;
   height: 80px;
   display: inline-flex;
-  overflow: hidden;
+  //overflow: hidden;
   width: 100%;
   z-index: 99;
   flex-direction: row;
@@ -76,9 +76,18 @@
 }
 
 .nav {
-  width: 55%;
+  width: 60%;
   z-index: 9999999;
   align-self: center;
   text-align: right;
   padding-right: 5%;
+}
+
+@media screen and (max-width: 1150px) {
+  .nav {
+    padding: 0;
+  }
+  .h_title_top {
+    padding-left: 0;
+  }
 }

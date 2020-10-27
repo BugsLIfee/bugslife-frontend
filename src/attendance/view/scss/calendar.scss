@@ -1,0 +1,44 @@
+.attn_wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.attn_img {
+  width: 100%;
+  padding: 5rem 0;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 70%;
+  }
+  h5 {
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+}
+.attn_cal {
+  margin: auto;
+  width: 70rem;
+  height: 70rem;
+}
+
+.attn_cal {
+  padding: 3rem 0;
+}
+
+.attn_btn {
+  text-align: center;
+  button {
+    border: none;
+    padding: 1rem 5rem;
+    border-radius: 10px;
+    background-color: rgb(58, 191, 231);
+  }
+  h2 {
+    font-size: 1.8rem;
+  }
+}

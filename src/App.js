@@ -32,6 +32,9 @@ import FreeBoardContainer from "./freeBoard/container/FreeBoardContainer";
 import Freeboarddetailcontainer from "./freeBoard/container/FreeBoardDetailContainer";
 import PointPage from "./point/PointPage";
 import FreeboardEditorContainer from "./freeBoard/view/Editor/container/FreeboradEditorContainer";
+import Attendancecontainer from "./attendance/container/AttendanceContainer";
+import EduListContainer from "./edu/container/eduList/EduListContainer"
+import EduDetailContainer from "./edu/container/eduDetail/EduDetailContainer";
 
 
 // import {observer,inject} from "mobx-react";
@@ -107,6 +110,7 @@ class App extends Component {
           <Route path="/mypage" component={Mypagecontainer} exact={true} />
           <Route path="/api/mypage" component={Testcontainer} exact={true} />
           <Route path="/posting" component={PostingContainer} exact={true} />
+          <Route path="/attendance" component={Attendancecontainer} exact={true} />
           <PrivateRoute path="/profile"  component={ProfileContainer} exact={true} />
             {/* <Route path="/login"
               render={(props) => <Login authenticated={this
@@ -120,8 +124,9 @@ class App extends Component {
           <Route path="/freeboard_detail" component={Freeboarddetailcontainer} exact={true} />
           <Route path="/point" component={PointPage} />
           <Route path="/posting_fr" component={FreeboardEditorContainer} />
-
-
+          <Route path="/edu" component={EduListContainer} exact={true} />
+          <Route path="/edu/detail" component={EduDetailContainer} exact={true} />
+ 
         </Switch>
       </Router>
       <div className="footer_place">
