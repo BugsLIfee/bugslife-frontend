@@ -7,12 +7,12 @@ import ReportModalView from "../view/ReportModalView";
 class ReportModalContainer extends Component {
 
     render() {
-
-        const category = this.props.Store.report._category;
+        
+        const category = this.props.Store.reportCagetgory._category;
         const bt_text = this.props.bt_text;
         return (
                 <ReportModalView 
-                    category={category}
+                    category = {category}
                     bt_text = {bt_text}
                 />
         );

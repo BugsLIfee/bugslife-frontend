@@ -17,9 +17,8 @@ constructor(props){
     const extraText =
       "Have you seen what's going on in Israel? Can you believe it.";
 
-    const user = this.props.user
-
-   console.log(user)
+    const user = this.props.user;
+    const {onClickPoint} = this.props;
 
     return (
       <>
@@ -179,7 +178,8 @@ constructor(props){
                   </h3>
                 </div>
               }/>
-              <div className="MyPage_detail_columm_point_card history_point">
+              <div className="MyPage_detail_columm_point_card history_point"
+                onClick={() => {onClickPoint("point")}}>
                 <h3>
                   <b> 사용내역</b>
                 </h3>
