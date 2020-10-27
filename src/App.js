@@ -33,6 +33,8 @@ import Freeboarddetailcontainer from "./freeBoard/container/FreeBoardDetailConta
 import PointPage from "./point/PointPage";
 import FreeboardEditorContainer from "./freeBoard/view/Editor/container/FreeboradEditorContainer";
 import Attendancecontainer from "./attendance/container/AttendanceContainer";
+import EduListContainer from "./edu/container/eduList/EduListContainer"
+import EduDetailContainer from "./edu/container/eduDetail/EduDetailContainer";
 
 
 // import {observer,inject} from "mobx-react";
@@ -122,8 +124,9 @@ class App extends Component {
           <Route path="/freeboard_detail" component={Freeboarddetailcontainer} exact={true} />
           <Route path="/point" component={PointPage} />
           <Route path="/posting_fr" component={FreeboardEditorContainer} />
-
-
+          <Route path="/edu" component={EduListContainer} exact={true} />
+          <Route path="/edu/detail" component={EduDetailContainer} exact={true} />
+ 
         </Switch>
       </Router>
       <div className="footer_place">

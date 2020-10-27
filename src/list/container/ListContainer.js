@@ -19,7 +19,6 @@ class ListContainer extends Component {
     const list = this.props.Store.list.getList
 
     return (
-        
       <Grid className="listLayout"> 
         <Grid.Column width={9} className="listItemBox" >
         <Grid.Row >
