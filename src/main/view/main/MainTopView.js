@@ -11,7 +11,8 @@ export default class MaintopView extends Component {
         <div className="MainTopView_container">
           <h1 className="typing-txt">도저히 안 풀리는 버그, 여기서 다 해결</h1>
 
-          <Search />
+        <div className="MainTop_searchbar">        <Search /></div>
+  
         </div>
       </div>
     );

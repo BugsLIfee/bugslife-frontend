@@ -26,6 +26,15 @@ class AdminSideMenu extends Component {
           회원관리
         </Menu.Item>
         <Menu.Item
+          name="member"
+          active={activeItem === "report"}
+          onClick={this.handleItemClick}
+          as={Link}
+          to="/admin/report"
+        >
+          신고게시판 
+        </Menu.Item>
+        <Menu.Item
           name="board"
           active={activeItem === "board"}
           onClick={this.handleItemClick}
