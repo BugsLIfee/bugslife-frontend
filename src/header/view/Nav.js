@@ -13,7 +13,6 @@ class Nav extends Component {
 
 
   onShowNav=()=>{
-    console.log(this.state.show)
     this.setState({show: !this.state.show})
   }
 
