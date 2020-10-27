@@ -31,6 +31,7 @@ ReactDOM.render(
           "/freeboard_detail",
           "/posting_fr",
           "/point",
+          "/attendance"
           "/edu",
           "/edu/detail"
         ]}
