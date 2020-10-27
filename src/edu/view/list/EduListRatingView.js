@@ -10,6 +10,7 @@ export class EduListRatingView extends Component {
 
             <div className="ratingBar">
                 <Rating name="half-rating-read" defaultValue={eduList.rating} precision={0.5} readOnly size="large"/>
+                리뷰 3개
             </div>
         
         )

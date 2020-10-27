@@ -16,7 +16,7 @@ export default class EduListHeaderView extends Component {
             <div>
                 <img src="../edu/eduHome.png" width="1000px"/>
                 <div className="eduListHeader">
-                    <h5>전체{''}<div className="fontColor">{eduLists}</div>건</h5>
+                    <h5>전체<div className="fontColor">&nbsp;{eduLists}</div>건</h5>
                     <div className="searchLayout">
                         <Dropdown placeholder='Select' scrolling options={options} className="eduSearchFilter"/>  
                         <Input icon={{ name: "search", circular: true, link: true }} placeholder="Search" className="eduSearchBar"/>

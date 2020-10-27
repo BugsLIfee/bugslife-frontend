@@ -23,7 +23,9 @@ const EduDetailTestData = [
             lecRate : 5.0,
             facRate : 2.5,
             empRate : 3.5,
-            allRate : (4.0+5.0+2.5+3.5)/4
+            allRate : (4.0+5.0+2.5+3.5)/4,
+            like : 5,
+            hate : 1
         },
         {
             rid : 2,
@@ -37,7 +39,9 @@ const EduDetailTestData = [
             lecRate : 2.5,
             facRate : 2.5,
             empRate : 4.5,
-            allRate : (3.5+2.5+2.5+4.5)/4
+            allRate : (3.5+2.5+2.5+4.5)/4,
+            like : 6,
+            hate : 5
         },
         {
             rid : 3,
@@ -51,7 +55,9 @@ const EduDetailTestData = [
             lecRate : 1.0,
             facRate : 1.5,
             empRate : 4.5,
-            allRate : (2.0+1.0+1.5+4.5)/4
+            allRate : (2.0+1.0+1.5+4.5)/4,
+            like : 2,
+            hate : 9
         }]
     },
     {    
