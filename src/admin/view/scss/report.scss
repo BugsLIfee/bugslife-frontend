@@ -1,0 +1,56 @@
+.report_board {
+    display: flex;
+
+    .filter {
+
+        p {
+            
+        }
+    }
+}
+
+.report_board_title {
+    font-size: 2.5rem;
+}
+
+.report_list {
+    margin-top: 3%;
+    margin-bottom: 5%;
+}
+
+.report_list_header {
+    display: grid;
+    width: fit-content;
+    grid-template-columns: 8rem 15rem 25rem 10rem 15rem 8rem;
+    color: white;
+    background-color: rgb(63, 153, 212);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-size: 1.5rem;
+    padding : 0.3rem;
+           
+    p {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 0rem;
+    }
+}
+
+.report_list_item {
+    display: grid;
+    grid-template-columns: 8rem 15rem 25rem 10rem 15rem 8rem;
+
+    p{
+        height: 3rem;
+        font-size: 1.3rem;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        padding: 0.5rem;
+        text-align: center;
+        border-bottom: 0.5px #c8c8c8 solid;
+        margin-bottom: 0;
+    }
+
+}            
