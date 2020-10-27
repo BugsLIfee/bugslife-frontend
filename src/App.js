@@ -32,6 +32,7 @@ import FreeBoardContainer from "./freeBoard/container/FreeBoardContainer";
 import Freeboarddetailcontainer from "./freeBoard/container/FreeBoardDetailContainer";
 import PointPage from "./point/PointPage";
 import FreeboardEditorContainer from "./freeBoard/view/Editor/container/FreeboradEditorContainer";
+import Attendancecontainer from "./attendance/container/AttendanceContainer";
 
 
 // import {observer,inject} from "mobx-react";
@@ -107,6 +108,7 @@ class App extends Component {
           <Route path="/mypage" component={Mypagecontainer} exact={true} />
           <Route path="/api/mypage" component={Testcontainer} exact={true} />
           <Route path="/posting" component={PostingContainer} exact={true} />
+          <Route path="/attendance" component={Attendancecontainer} exact={true} />
           <PrivateRoute path="/profile"  component={ProfileContainer} exact={true} />
             {/* <Route path="/login"
               render={(props) => <Login authenticated={this
