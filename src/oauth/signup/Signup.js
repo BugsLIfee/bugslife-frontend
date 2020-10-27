@@ -6,7 +6,7 @@ import { signup } from '../api/APIUtils';
 import fbLogo from '../img/fb-logo.png';
 import googleLogo from '../img/google-logo.png';
 import githubLogo from '../img/github-logo.png';
-import Alert from 'react-s-alert';
+//import Alert from 'react-s-alert';
 import { Icon } from 'semantic-ui-react';
 
 class Signup extends Component {
@@ -81,10 +81,12 @@ class SignupForm extends Component {
 
         signup(signUpRequest)
         .then(response => {
-            Alert.success("성공적으로 가입이 되셨습니다!! 로그인 해주세요^^");
+            //Alert.success("성공적으로 가입이 되셨습니다!! 로그인 해주세요^^");
+            alert("성공적으로 가입이 되셨습니다!! 로그인 해주세요^^");
             this.props.history.push("/login");
         }).catch(error => {
-            Alert.error((error && error.message) || '가입 중 에러가 발생하였습니다. 다시 시도해주세요!!');            
+            //Alert.error((error && error.message) || '가입 중 에러가 발생하였습니다. 다시 시도해주세요!!');            
+            alert((error && error.message) || '가입 중 에러가 발생하였습니다. 다시 시도해주세요!!');            
         });
     }
 

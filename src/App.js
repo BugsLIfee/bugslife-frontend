@@ -5,9 +5,9 @@ import "./footer/footer.scss";
 import OAuth2RedirectHandler from './oauth/oauth2/OAuth2RedirectHandler';
 import LoadingIndicator from './oauth/common/LoadingIndicator';
 import PrivateRoute from './oauth/common/PrivateRoute';
-import Alert from 'react-s-alert';
-import 'react-s-alert/dist/s-alert-default.css';
-import 'react-s-alert/dist/s-alert-css-effects/slide.css';
+//import Alert from 'react-s-alert';
+// import 'react-s-alert/dist/s-alert-default.css';
+// import 'react-s-alert/dist/s-alert-css-effects/slide.css';
 
 import { 
   HeaderContainer, 
@@ -29,8 +29,17 @@ import {
   PostingContainer,
   Attendancecontainer, 
  } from "./Routes";
-import EduListContainer from "./edu/container/eduList/EduListContainer";
-import EduDetailContainer from "./edu/container/eduDetail/EduDetailContainer";
+
+
+import { getCurrentUser } from './oauth/api/APIUtils';
+import { ACCESS_TOKEN } from './oauth/constants/index';
+// import ProfileContainer from "./oauth/profile/ProfileContainer";
+// import FreeBoardContainer from "./freeBoard/container/FreeBoardContainer";
+// import Freeboarddetailcontainer from "./freeBoard/container/FreeBoardDetailContainer";
+// import PointPage from "./point/PointPage";
+// import FreeboardEditorContainer from "./freeBoard/view/Editor/container/FreeboradEditorContainer";
+ import EduListContainer from "./edu/container/eduList/EduListContainer"
+ import EduDetailContainer from "./edu/container/eduDetail/EduDetailContainer";
 
 // import { getCurrentUser } from './oauth/api/APIUtils';
 // import { ACCESS_TOKEN } from './oauth/constants/index';
@@ -91,9 +100,9 @@ class App extends Component {
         {" "}
         <Footer />
       </div>
-      <Alert stack={{limit: 3}} 
+      {/* <Alert stack={{limit: 3}} 
           timeout = {3000}
-          position='center' effect='slide' offset={65} />
+          position='center' effect='slide' offset={65} /> */}
     </>
   )
   }

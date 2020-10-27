@@ -1,7 +1,7 @@
 import { observable , computed, action} from "mobx";
 import { getCurrentUser } from './api/APIUtils';
 import { ACCESS_TOKEN } from './constants/index';
-import Alert from 'react-s-alert';
+//import Alert from 'react-s-alert';
 class OauthStore {
 
 
@@ -52,7 +52,8 @@ loadCurrentlyLoggedInUser() {
     this.authenticated= false;
     this.currentUser= null;
     
-    Alert.success("로그아웃 되었습니다! ");
+   // Alert.success("로그아웃 되었습니다! ");
+   alert("로그아웃 되었습니다! ");
     }
 
 

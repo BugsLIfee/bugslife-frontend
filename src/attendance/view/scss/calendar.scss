@@ -6,7 +6,8 @@
 
 .attn_img {
   width: 100%;
-  padding: 5rem 0;
+  height: 70vh;
+  padding: 5rem 0 3rem 0;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -16,29 +17,135 @@
     width: 70%;
   }
   h5 {
-    font-size: 1.5rem;
-    padding: 1rem;
+    font-size: 1.7rem;
+  }
+
+  .attn_img_txt {
+    padding: 3rem 1rem;
   }
 }
 .attn_cal {
   margin: auto;
   width: 70rem;
   height: 70rem;
-}
-
-.attn_cal {
   padding: 3rem 0;
 }
 
 .attn_btn {
   text-align: center;
+  margin: 3rem 0;
   button {
     border: none;
-    padding: 1rem 5rem;
+    padding: 1rem 6rem;
     border-radius: 10px;
-    background-color: rgb(58, 191, 231);
+    background-color: rgb(63, 153, 212);
+
+    &:hover {
+      transition: 0.3s;
+      //   margin-top: 3px;
+      background-color: rgb(49, 115, 160);
+      box-shadow: black 3px 3px;
+    }
+
+    &:focus {
+      outline: none;
+    }
   }
   h2 {
+    color: white;
     font-size: 1.8rem;
   }
+}
+
+.attn_info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: rgb(224, 136, 136);
+  padding: 3rem;
+  padding-bottom: 5rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  h2 {
+    color: white;
+    font-weight: bolder;
+    font-size: 2.5rem;
+    padding: 0 0 2rem 0;
+  }
+
+  .attn_info_content {
+    display: inline-flex;
+    flex-direction: row;
+    background-color: white;
+    border-radius: 14px;
+  }
+  .attn_goal {
+    padding: 3rem 5rem;
+    border-right: 1px dotted lightgray;
+    h1 {
+      font-size: 2rem;
+      padding: 0.5rem;
+      font-weight: lighter;
+    }
+
+    h3 {
+      font-size: 2rem;
+      padding: 0;
+      //   padding-bottom: 1rem;
+      &:hover {
+        transform: scale(1.2);
+        transition: 0.2s;
+      }
+    }
+
+    span {
+      font-weight: bolder;
+      color: rgb(121, 65, 65);
+      font-size: 2.2rem;
+    }
+  }
+}
+
+.fc .fc-daygrid-day-frame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fc-h-event .fc-event-title-container {
+  background-color: rgb(224, 136, 136);
+  //   background-color: green;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: bolder;
+  align-items: center;
+  border-radius: 3px;
+  display: flex;
+  border: none;
+  height: 3rem;
+}
+
+.fc-direction-ltr .fc-daygrid-event.fc-event-end,
+.fc-direction-rtl .fc-daygrid-event.fc-event-start {
+  border-radius: 3px;
+  border: none;
+
+  background-color: transparent;
+  text-align: center;
+  width: 5rem;
+}
+
+.fc .fc-daygrid-event-harness {
+  text-align: -webkit-center;
+}
+
+.fc .fc-daygrid-day-number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  padding: 4px;
 }
