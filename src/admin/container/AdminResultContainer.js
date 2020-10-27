@@ -6,6 +6,7 @@ import QuestionAllListContainer from "../../contact/container/QuestionAllListCon
 import InfoListContainer from "./InfoListContainer";
 import InfoDetailContainer from "./InfoDetailContainer";
 import InfoEditContainer from "./InfoEditContainer";
+import ReportBoardContainer from "./report/RportBoardContainer"
 import qs from "qs";
 import { withRouter } from "react-router-dom";
 
@@ -27,6 +28,7 @@ class AdminResultContainer extends Component {
         {menu === "info-list" ? <InfoListContainer /> : ""}
         {menu === "info-write" ? <InfoEditContainer/> : ""}
         {menu === "info-detail" ? <InfoDetailContainer searchObj={searchObj}/> : ""}
+        {menu === "report" ? <ReportBoardContainer searchObj={searchObj}/> : ""}
       </div>
     );
   }

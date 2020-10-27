@@ -2,8 +2,6 @@ import { observable, computed, action } from "mobx"
 import FreeboardListData from "./FreeboardListData";
 import selected_post from "./FreeboardTestData";
 
-
-
 class FreeboardStore{
 
     @observable

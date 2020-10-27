@@ -102,7 +102,7 @@ class App extends Component {
           <Route exact path="/" component={MainContainer} exact={true} />
           <Route path="/list" component={ListContainer} exact={true} />
           <Route path="/detail" component={DetailPage} exact={true} />
-          <PrivateRoute path="/admin/:menu" component={AdminContainer} />
+          <Route path="/admin/:menu" component={AdminContainer} />
           <Route path="/contact/:menu" component={ContactContainer} />
           <Route path="/mypage" component={Mypagecontainer} exact={true} />
           <Route path="/api/mypage" component={Testcontainer} exact={true} />
