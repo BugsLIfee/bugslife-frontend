@@ -39,5 +39,6 @@ export default class Store {
     this.reportCagetgory = new ReportCategoryStore(this);
     this.report = new ReportStore(this);
     this.edu = new EduStore(this);
+    this.attendance = new AttendanceStore(this);
   }
 }
