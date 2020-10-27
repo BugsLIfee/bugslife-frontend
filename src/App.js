@@ -30,15 +30,14 @@ import {
 
 import { getCurrentUser } from './oauth/api/APIUtils';
 import { ACCESS_TOKEN } from './oauth/constants/index';
-import LoginContainer from "./oauth/login/LoginContainer";
-import ProfileContainer from "./oauth/profile/ProfileContainer";
-import FreeBoardContainer from "./freeBoard/container/FreeBoardContainer";
-import Freeboarddetailcontainer from "./freeBoard/container/FreeBoardDetailContainer";
-import PointPage from "./point/PointPage";
-import FreeboardEditorContainer from "./freeBoard/view/Editor/container/FreeboradEditorContainer";
-import Attendancecontainer from "./attendance/container/AttendanceContainer";
-import EduListContainer from "./edu/container/eduList/EduListContainer"
-import EduDetailContainer from "./edu/container/eduDetail/EduDetailContainer";
+// import ProfileContainer from "./oauth/profile/ProfileContainer";
+// import FreeBoardContainer from "./freeBoard/container/FreeBoardContainer";
+// import Freeboarddetailcontainer from "./freeBoard/container/FreeBoardDetailContainer";
+// import PointPage from "./point/PointPage";
+// import FreeboardEditorContainer from "./freeBoard/view/Editor/container/FreeboradEditorContainer";
+ import Attendancecontainer from "./attendance/container/AttendanceContainer";
+ import EduListContainer from "./edu/container/eduList/EduListContainer"
+ import EduDetailContainer from "./edu/container/eduDetail/EduDetailContainer";
 
 
 
