@@ -9,7 +9,7 @@ const EduDetailTestData = [
         telephone : "000-000-0000",
         title : "멀티캠퍼스",
         homepage : "www.google.com",
-        imgUrl : "https://via.placeholder.com/190x80.png",
+        imgUrl : "https://via.placeholder.com/190x90.png",
         rating : 4.5,
         review : [{
             rid : 1,
@@ -64,7 +64,7 @@ const EduDetailTestData = [
         telephone : "000-000-0000",
         title : "멀티캠퍼스",
         homepage : "www.google.com",
-        imgUrl : "https://via.placeholder.com/190x80.png",
+        imgUrl : "https://via.placeholder.com/190x90.png",
         rating : 4.5,
         review : []
     },
@@ -78,7 +78,7 @@ const EduDetailTestData = [
         telephone : "000-000-0000",
         title : "그린컴퓨터아카데미",
         homepage : "www.google.com",
-        imgUrl : "https://via.placeholder.com/190x80.png",
+        imgUrl : "https://via.placeholder.com/190x90.png",
         rating : 4.0,
         review : []
     },
@@ -92,7 +92,7 @@ const EduDetailTestData = [
         telephone : "000-000-0000",
         title : "더조은컴퓨터학원",
         homepage : "www.google.com",
-        imgUrl : "https://via.placeholder.com/190x80.png",
+        imgUrl : "https://via.placeholder.com/190x90.png",
         rating : 2.0,
         review : []
     },
@@ -106,7 +106,7 @@ const EduDetailTestData = [
         telephone : "000-000-0000",
         title : "더조은컴퓨터학원",
         homepage : "www.google.com",
-        imgUrl : "https://via.placeholder.com/190x80.png",
+        imgUrl : "https://via.placeholder.com/190x90.png",
         rating : 2.0,
         review : []
     },
@@ -120,7 +120,7 @@ const EduDetailTestData = [
         telephone : "000-000-0000",
         title : "한국기술교육직업전문학교",
         homepage : "www.google.com",
-        imgUrl : "https://via.placeholder.com/190x80.png",
+        imgUrl : "https://via.placeholder.com/190x90.png",
         rating : 3.0,
         review : []
     },
@@ -134,7 +134,7 @@ const EduDetailTestData = [
         telephone : "000-000-0000",
         title : "비트캠프",
         homepage : "www.google.com",
-        imgUrl : "https://via.placeholder.com/190x80.png",
+        imgUrl : "https://via.placeholder.com/190x90.png",
         rating : 4.5,
         review : []
     },
@@ -148,7 +148,7 @@ const EduDetailTestData = [
         telephone : "000-000-0000",
         title : "이젠아이티아카데미",
         homepage : "www.google.com",
-        imgUrl : "https://via.placeholder.com/190x80.png",
+        imgUrl : "https://via.placeholder.com/190x90.png",
         rating : 3.5,
         review : []
     },
@@ -162,7 +162,7 @@ const EduDetailTestData = [
         telephone : "000-000-0000",
         title : "이젠아이티아카데미",
         homepage : "www.google.com",
-        imgUrl : "https://via.placeholder.com/190x80.png",
+        imgUrl : "https://via.placeholder.com/190x90.png",
         rating : 3.5,
         review : []
     },
@@ -176,7 +176,7 @@ const EduDetailTestData = [
         telephone : "000-000-0000",
         title : "이젠아이티아카데미",
         homepage : "www.google.com",
-        imgUrl : "https://via.placeholder.com/190x80.png",
+        imgUrl : "https://via.placeholder.com/190x90.png",
         rating : 3.5,
         review : []
     },

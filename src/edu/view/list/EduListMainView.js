@@ -5,7 +5,7 @@ export class EduListMainView extends Component {
         const {eduList} = this.props
         return (
             <div>
-                {eduList.eTitle}
+                <a href="#" className="eduItemTitle">{eduList.eTitle}</a>
             </div>
         )
     }

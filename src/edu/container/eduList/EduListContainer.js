@@ -17,16 +17,17 @@ class EduListContainer extends Component {
             return (
                 <div className="eduListItem">
                     <Grid className="eduItemGrid">
-                        <Grid.Column width={3}>
+                        <Grid.Column width={3} className="eduItemImg">
                             <EduListImageView eduImg={eduList.imgUrl}/>
                         </Grid.Column>
-                        <Grid.Column width={10}>
+                        <Grid.Column width={10} className="eduItemMain">
                             <EduListMainView eduList={eduList}/>
                         </Grid.Column>
-                        <Grid.Column width={3}>
+                        <Grid.Column width={3} className="eduItemRating">
                             <EduListRatingView eduList={eduList}/>
                         </Grid.Column>
                     </Grid>
+                    <div className="eduItemLine"></div>
                 </div>
             )
         })

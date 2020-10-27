@@ -9,7 +9,7 @@ const EduListTestData = [
         telephone : "000-000-0000",
         aTitle : "멀티캠퍼스",
         homepage : "www.google.com",
-        imgUrl : "https://via.placeholder.com/190x80.png",
+        imgUrl : "https://via.placeholder.com/190x90.png",
         rating : ((4.0+5.0+2.5+3.5)/4+(3.5+2.5+2.5+4.5)/4+(2.0+1.0+1.5+4.5)/4)/3
     },
     {    
@@ -22,7 +22,7 @@ const EduListTestData = [
         telephone : "000-000-0000",
         aTitle : "멀티캠퍼스",
         homepage : "www.google.com",
-        imgUrl : "https://via.placeholder.com/190x80.png",
+        imgUrl : "https://via.placeholder.com/190x90.png",
         rating : 0
     },
     {    
@@ -35,7 +35,7 @@ const EduListTestData = [
         telephone : "000-000-0000",
         aTitle : "그린컴퓨터아카데미",
         homepage : "www.google.com",
-        imgUrl : "https://via.placeholder.com/190x80.png",
+        imgUrl : "https://via.placeholder.com/190x90.png",
         rating : 0
     },
     {    
@@ -48,7 +48,7 @@ const EduListTestData = [
         telephone : "000-000-0000",
         aTitle : "더조은컴퓨터학원",
         homepage : "www.google.com",
-        imgUrl : "https://via.placeholder.com/190x80.png",
+        imgUrl : "https://via.placeholder.com/190x90.png",
         rating : 0
     },
     {    
@@ -61,7 +61,7 @@ const EduListTestData = [
         telephone : "000-000-0000",
         aTitle : "더조은컴퓨터학원",
         homepage : "www.google.com",
-        imgUrl : "https://via.placeholder.com/190x80.png",
+        imgUrl : "https://via.placeholder.com/190x90.png",
         rating : 0
     },
     {    
@@ -74,7 +74,7 @@ const EduListTestData = [
         telephone : "000-000-0000",
         aTitle : "한국기술교육직업전문학교",
         homepage : "www.google.com",
-        imgUrl : "https://via.placeholder.com/190x80.png",
+        imgUrl : "https://via.placeholder.com/190x90.png",
         rating : 0
     },
     {    
@@ -87,7 +87,7 @@ const EduListTestData = [
         telephone : "000-000-0000",
         aTitle : "비트캠프",
         homepage : "www.google.com",
-        imgUrl : "https://via.placeholder.com/190x80.png",
+        imgUrl : "https://via.placeholder.com/190x90.png",
         rating : 0
     },
     {    
@@ -100,7 +100,7 @@ const EduListTestData = [
         telephone : "000-000-0000",
         aTitle : "이젠아이티아카데미",
         homepage : "www.google.com",
-        imgUrl : "https://via.placeholder.com/190x80.png",
+        imgUrl : "https://via.placeholder.com/190x90.png",
         rating : 0
     },
     {    
@@ -113,7 +113,7 @@ const EduListTestData = [
         telephone : "000-000-0000",
         aTitle : "이젠아이티아카데미",
         homepage : "www.google.com",
-        imgUrl : "https://via.placeholder.com/190x80.png",
+        imgUrl : "https://via.placeholder.com/190x90.png",
         rating : 0
     },
     {    
@@ -126,7 +126,7 @@ const EduListTestData = [
         telephone : "000-000-0000",
         aTitle : "이젠아이티아카데미",
         homepage : "www.google.com",
-        imgUrl : "https://via.placeholder.com/190x80.png",
+        imgUrl : "https://via.placeholder.com/190x90.png",
         rating : 0
     },
 ]

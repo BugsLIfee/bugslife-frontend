@@ -9,7 +9,7 @@ export class EduListRatingView extends Component {
         return (
 
             <div className="ratingBar">
-                <Rating name="half-rating-read" defaultValue={eduList.rating} precision={0.5} readOnly />
+                <Rating name="half-rating-read" defaultValue={eduList.rating} precision={0.5} readOnly size="large"/>
             </div>
         
         )
