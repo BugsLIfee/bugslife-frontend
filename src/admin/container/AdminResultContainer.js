@@ -6,7 +6,7 @@ import QuestionAllListContainer from "../../contact/container/QuestionAllListCon
 import InfoListContainer from "./InfoListContainer";
 import InfoDetailContainer from "./InfoDetailContainer";
 import InfoEditContainer from "./InfoEditContainer";
-import ReportBoardContainer from "./report/RportBoardContainer"
+import ReportBoardContainer from "./report/ReportBoardContainer"
 import qs from "qs";
 import { withRouter } from "react-router-dom";
 
