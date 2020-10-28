@@ -1,26 +1,23 @@
 import React, { Component } from "react";
-import AdminSideMenu from "../view/AdminSideMenu";
-//import AdminRoutes from "../../routes/AdminRoutes";
-import AdminResultContainer from "./AdminResultContainer";
-import { Grid, Container } from "semantic-ui-react";
+import { Grid } from "semantic-ui-react";
 import { inject, observer } from "mobx-react";
+import AdminSideMenu from "../view/AdminSideMenu";
+import AdminRoutes from "../../routes/AdminRoutes";
+
 
 @inject("Store")
 @observer
 class AdminContainer extends Component {
   render() {
-    const menu = this.props.match.params.menu;
-    this.props.Store.admin.setMenu(menu);
-
-    console.log("admincontainer-menu:", menu);
+    const match = this.props.match;
     return (
       <div class="admincontainer">
         <Grid>
           <Grid.Column width={4} class="side">
-            <AdminSideMenu menu={menu} />
+            <AdminSideMenu  />
           </Grid.Column>
           <Grid.Column width={12}>
-            <AdminResultContainer menu={menu} />
+            <AdminRoutes match={match}/>
           </Grid.Column>
         </Grid>
       </div>

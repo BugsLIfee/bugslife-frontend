@@ -31,12 +31,23 @@ class Nav extends Component {
             <h2 onClick={this.onShowNav}> <i class="fas fa-bars"></i></h2>
        
             <div className={this.state.show == true? "responsive_nav_content" : "noShow"}>
+        {this.props.Store.oauth.isLogin?
+      (
+                  <div>
+            {" "}
+            <a href="/profile">
+              <h4>마이페이지샘플</h4>
+            </a>
+          </div>
+      )  
+      :(
           <div>
             <a href="/login">
               {" "}
               <h4>로그인</h4>
             </a>
           </div>
+      )}
           <div>
             <a href="/edu">
               {" "}
@@ -81,14 +92,31 @@ class Nav extends Component {
         </div> 
       
       <div className="default_nav">
+        {this.props.Store.oauth.isLogin?
+      (
+        <>
+                  <div>
+            {" "}
+            <a href="/profile">
+              <h4>마이페이지샘플</h4>
+            </a>
+          </div>
+            <div>
+            {" "}
+          <a onClick={()=>this.props.Store.oauth.onLogout()}>로그아웃</a>
+          </div>
+          </>
+      )  
+      :(
           <div>
             <a href="/login">
               {" "}
               <h4>로그인</h4>
             </a>
           </div>
+      )}
           <div>
-            <a href="/signUp">
+            <a href="/edu">
               {" "}
               <h4>교육과정리뷰</h4>
             </a>
