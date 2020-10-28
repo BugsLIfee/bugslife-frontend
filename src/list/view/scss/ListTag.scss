@@ -1,7 +1,10 @@
 .tagLayout {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
+  width: 200px !important;
+  //margin-top: 7px;
+  padding-top: 0.5rem;
 }
 
 .tagBoxLayout {

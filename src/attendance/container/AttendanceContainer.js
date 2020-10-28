@@ -5,6 +5,7 @@ import { inject, observer } from "mobx-react"
 
 @inject("Store")
 @observer
+
  class Attendancecontainer extends Component {
     
 

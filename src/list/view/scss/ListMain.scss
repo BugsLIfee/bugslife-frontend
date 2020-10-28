@@ -1,13 +1,14 @@
 .listLayout {
   display: flex;
   justify-content: center;
+  width: 1380px !important;
 }
 
 .listItemBox {
   display: flex;
   justify-content: flex-start;
   margin-right: -25px;
-  //width: 500px;
+  width: 750px !important;
 }
 
 .itemBox {
@@ -17,6 +18,7 @@
   border-radius: 10px;
   padding: 0.8rem;
   padding-right: 2rem;
+  width: 750px;
   // justify-content: flex-start;
 }
 
@@ -32,7 +34,7 @@
 .header {
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: 750px !important;
   .qna {
     margin-top: 5px;
   }

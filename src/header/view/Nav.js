@@ -38,7 +38,7 @@ class Nav extends Component {
             </a>
           </div>
           <div>
-            <a href="/signUp">
+            <a href="/edu">
               {" "}
               <h4>교육과정리뷰</h4>
             </a>
