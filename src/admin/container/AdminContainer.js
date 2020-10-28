@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import AdminSideMenu from "../view/AdminSideMenu";
+//import AdminRoutes from "../../routes/AdminRoutes";
 import AdminResultContainer from "./AdminResultContainer";
 import { Grid, Container } from "semantic-ui-react";
 import { inject, observer } from "mobx-react";

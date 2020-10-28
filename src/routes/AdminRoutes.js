@@ -8,10 +8,11 @@ import QuestionAllListContainer from "../contact/container/QuestionAllListContai
 import InfoListContainer from "../admin/container/InfoListContainer";
 import InfoDetailContainer from "../admin/container/InfoDetailContainer";
 import InfoEditContainer from "../admin/container/InfoEditContainer";
-import ReportBoardContainer from "../admin/container/report/RportBoardContainer";
+import ReportBoardContainer from "../admin/container/report/ReportBoardContainer";
 
 const AccountRoutes = ({ match }) => {
 
+  console.log("-----------",match)
   return (
     <>
       <Route exact path={`${match.url}`} component={MemberMngContainer} />

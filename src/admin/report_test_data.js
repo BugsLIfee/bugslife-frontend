@@ -17,7 +17,7 @@ const report_test_data = [
         post_type: "freeboard",
         post_id: 1,
         is_blind: false,
-        is_done: false,
+        is_done: true,
     },
     {
         id : 2,
