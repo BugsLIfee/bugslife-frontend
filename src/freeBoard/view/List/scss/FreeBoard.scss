@@ -1,11 +1,10 @@
 .freeboard_container_wrap {
   width: 100%;
-  // height: 100vh;
   display: flex;
   flex-direction: column;
   padding: 3rem 3rem 5rem 5rem;
-
   margin-bottom: 10rem;
+
   .free_board_content {
     width: 100%;
     position: relative;
@@ -13,12 +12,23 @@
   }
 }
 
+.freeboard_list {
+  width: 100%;
+  padding-left: 2%;
+  display: flex;
+  justify-content: center;
+}
+
 .free_borad_title {
   text-align: left;
   padding: 0 3rem 3rem 2rem;
 }
+
 .freeboard_list_wrap {
   width: 100%;
+  .freeboard_header_menu {
+    width: 100%;
+  }
 }
 
 #free_cate {
@@ -31,4 +41,33 @@
   width: 80%;
   //   position: absolute;
   right: 3%;
+}
+
+@media (max-width: 1000px) {
+  .free_board_content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .freeboard_container_wrap {
+    height: 100vh;
+  }
+
+  .freeboard_list_wrap .freeboard_list {
+    width: 90% !important;
+  }
+
+  .freeboard_cate {
+    margin: 0 auto 3rem auto;
+    width: 70%;
+  }
+}
+
+@media (max-width: 600px) {
+  .ui.menu:not(.vertical) .item > .input {
+    position: relative;
+    top: 0;
+    margin: -0.5em 0;
+    display: none;
+  }
 }

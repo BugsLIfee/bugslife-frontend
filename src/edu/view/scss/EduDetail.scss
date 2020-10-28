@@ -1,0 +1,25 @@
+.eduDetailLayout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.eduInfoTable {
+  display: flex;
+  margin-top: 10px !important;
+  align-items: center !important;
+  width: 1000px !important;
+  border-top: 4px solid #2f9cd5 !important;
+  .eduInfoColumn {
+    padding: 0px !important;
+    width: 50%;
+  }
+  .eduInfoRow {
+    display: flex !important;
+    justify-content: flex-start !important;
+    border-bottom: 1px solid gray !important;
+    margin: 0px !important;
+    padding: 15px !important;
+  }
+}

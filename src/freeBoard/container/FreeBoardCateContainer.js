@@ -40,9 +40,13 @@ class FreeboardcateContainer extends Component {
             <div className="freeboard_cate_container">
                 
                 <div className="freeboard_cate_title"><h5>카테고리</h5></div>
+                <div className="freeboard_cate_list"> 
                 {cate.map((category)=>{
                 return <Checkbox onClick={()=>this.onSelectCategory(category)} label={{ children: category }} />
                 })}
+                </div>
+                
+          
             </div>
         )
     }

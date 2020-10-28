@@ -30,6 +30,8 @@ class ListViewContainer extends Component {
     if (lists.length % 5) {
       totalPage += 1
     }
+
+    
     const list = listItemOne.map((listView) => {
       return (
         <div className="list_main itemBox">
@@ -48,7 +50,7 @@ class ListViewContainer extends Component {
       )
     })
     return (
-      <div>
+      <div className="list_wrap">
         {list}
         <div className="listpage paging">
           <Pagination

@@ -5,6 +5,7 @@ import { inject, observer } from "mobx-react"
 
 @inject("Store")
 @observer
+
  class Attendancecontainer extends Component {
     
 
@@ -84,8 +85,8 @@ import { inject, observer } from "mobx-react"
                     </div>
                 </div>
 
-                <div className="attn_btn" onClick={this.onClickBtn}>
-                    <button> <h2> 출석체크! </h2></button>
+                <div className="attn_btn">
+                    <button onClick={this.onClickBtn}> <h2> 출석체크! </h2></button>
                 </div>
                 <hr />
 
