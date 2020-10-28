@@ -1,3 +1,5 @@
+@import "../../../common/customScss";
+
 .listLayout {
   display: flex;
   justify-content: center;
@@ -16,14 +18,12 @@
   border: 1px solid #cccccc;
   background-color: #fdfdfd;
   border-radius: 10px;
-  padding: 0.8rem;
-  padding-right: 2rem;
-  width: 750px;
+  padding: 0.8rem 2rem;
   // justify-content: flex-start;
 }
 
-.listHeader {
-}
+// .listHeader {
+// }
 
 .paging {
   display: flex;
@@ -34,8 +34,22 @@
 .header {
   display: flex;
   justify-content: space-between;
-  width: 750px !important;
+  width: 95%;
+  padding-bottom: 2rem;
+  font-family: "NatoSansKR";
   .qna {
     margin-top: 5px;
+    padding-left: 1rem;
   }
+}
+
+.ui.grid > .row {
+  place-content: center;
+  div {
+    width: 100%;
+  }
+}
+
+.list_wrap {
+  width: 95%;
 }

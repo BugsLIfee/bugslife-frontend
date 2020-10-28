@@ -22,8 +22,9 @@
   border-radius: 10px 10px 0 0;
   //   border: 1px solid lightgray;
   background-color: rgb(63, 153, 212);
-  display: inline-flex;
-  flex-direction: row;
+
+  // display: inline-flex;
+  // flex-direction: row;
   align-items: center;
 
   .freeboard_list_col {
@@ -32,27 +33,19 @@
     align-items: center;
     text-align: center;
     color: white;
+    width: 100%;
   }
 
   .freeboard_list_head_title {
     position: absolute;
-    left: 1%;
-    width: 80%;
-
-    .freeboard_list_post_num {
-      width: 7%;
-    }
-    .freeboard_list_post_cate {
-      width: 10%;
-    }
-    .freeboard_list_post_title {
-      width: 70%;
-    }
+    left: 2%;
+    width: 100%;
+    display: grid;
+    grid-template: 3rem / 5% 9% 68% 7% 7%;
   }
 
   .freeboard_list_head_info {
     position: absolute;
-    // right: 5%;
     width: 11%;
     display: inline-flex;
     right: 1.5rem;

@@ -12,7 +12,10 @@ export default class Freeboardlistcontainer extends Component {
         const freeboard_list =this.props.freeboard_list;
         const freeboard_select_posts = this.props.freeboard_select_posts;
 
-        console.log(freeboard_select_posts)
+
+        let totalPage = Math.floor(freeboard_select_posts.length / 5) == 0? 1:  Math.floor(freeboard_select_posts.length / 5) //60건이라면 totalPage
+        console.log(totalPage)
+        //console.log(freeboard_select_posts)
     
         return (
             
@@ -49,13 +52,10 @@ export default class Freeboardlistcontainer extends Component {
                     
                 <div className="freeboard_list_head">
                     <div className="freeboard_list_head_title">
-                    <div className="freeboard_list_post_num freeboard_list_col">글 번호</div>
+                    <div className="freeboard_list_post_num freeboard_list_col">NO</div>
                     <div className="freeboard_list_post_cate freeboard_list_col">카테고리</div>
                     <div className="freeboard_list_post_title freeboard_list_col">제목</div>
-                    </div>
-                
-                <div className="freeboard_list_head_info">
-                <div className="freeboard_list_post_date freeboard_list_col">등록일</div>
+                    <div className="freeboard_list_post_date freeboard_list_col">등록일</div>
                     <div className="freeboard_list_post_view freeboard_list_col">조회수</div>
                 </div>
                     
@@ -70,7 +70,8 @@ export default class Freeboardlistcontainer extends Component {
                     firstItem={null}
                     lastItem={null}
                     siblingRange={1}
-                    totalPages={10}
+                    onPageChange={this.setNextPage}
+                    totalPages={totalPage}
                 />
 
               <Button secondary as="a" href="/posting_fr">글쓰기</Button>
