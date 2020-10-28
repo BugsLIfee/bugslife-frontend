@@ -8,8 +8,7 @@ class ListHeaderContainer extends Component {
     return (
       <div className="header">
         <span className="qna">
-
-          <h1>Q/A</h1>
+          <h1>버그 Q&A</h1>
         </span>
         <ListHeaderview onSetOrderBy={onSetOrderBy} />
       </div>
