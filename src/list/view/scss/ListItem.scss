@@ -100,6 +100,7 @@
 }
 
 .item-right {
+  position: relative;
   padding-right: 10px;
   margin-top: -7px;
   display: flex;
@@ -111,22 +112,26 @@
     // border: 1px solid #e2e2e2;
     // border-radius: 10px;
     height: 75px;
-    font-size: 3.2rem;
-    display: inline;
+    font-size: 2rem;
+    display: flex;
     text-align: center;
-
     color: #519bfc;
+    align-items: center;
+    position: absolute;
+    top: 3rem;
     //-webkit-text-stroke: 1px #1d7fff;
 
     .p {
       color: #6aa8ff;
-      font-size: 2.4rem;
+      font-size: 2rem;
     }
   }
 
   .box-like {
     margin-top: 0px;
-    margin-left: px;
+    position: absolute;
+    top: -5px;
+    // margin-left: px;
     display: flex;
     align-items: center;
     flex-direction: row;

@@ -15,13 +15,12 @@
   border: 1px solid #cccccc;
   background-color: #fdfdfd;
   border-radius: 10px;
-  padding: 0.8rem;
-  padding-right: 2rem;
+  padding: 0.8rem 2rem;
   // justify-content: flex-start;
 }
 
-.listHeader {
-}
+// .listHeader {
+// }
 
 .paging {
   display: flex;
@@ -32,8 +31,20 @@
 .header {
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: 95%;
+  padding-bottom: 2rem;
   .qna {
     margin-top: 5px;
   }
+}
+
+.ui.grid > .row {
+  place-content: center;
+  div {
+    width: 100%;
+  }
+}
+
+.list_wrap {
+  width: 95%;
 }

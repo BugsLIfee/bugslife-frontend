@@ -48,7 +48,7 @@ class ListViewContainer extends Component {
       )
     })
     return (
-      <div>
+      <div className="list_wrap">
         {list}
         <div className="listpage paging">
           <Pagination
