@@ -1,5 +1,5 @@
 .freeboard_cate_container {
-  width: 15rem;
+  // width: 10rem;
   display: flex;
   flex-direction: column;
   border: 1px solid lightgray;
@@ -24,6 +24,10 @@
 .ui.checkbox {
   padding-left: 1rem;
   padding-bottom: 0.4rem;
+
+  label {
+    width: 10rem;
+  }
 }
 .freeboard_cate_title {
   width: 100%;

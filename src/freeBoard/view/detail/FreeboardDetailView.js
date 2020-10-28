@@ -19,6 +19,8 @@ export default class Freeboarddetailview extends Component {
                         <a href="#"><h4>다음글</h4></a>
                     </div>
                     <hr />
+
+                    
                     <div className="freeboard_detail_content">
                         <div className="freeboard_detail_content_header">
                         <h2>{post.title}</h2>
