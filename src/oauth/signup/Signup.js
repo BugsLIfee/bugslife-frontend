@@ -8,10 +8,13 @@ import googleLogo from '../img/google-logo.png';
 import githubLogo from '../img/github-logo.png';
 //import Alert from 'react-s-alert';
 import { Icon } from 'semantic-ui-react';
-
+import { inject, observer } from "mobx-react";
+@inject("Store")
+@observer
 class Signup extends Component {
     render() {
-        if(this.props.authenticated) {
+
+        if(this.props.Store.oauth.isLogin) {
             return <Redirect
                 to={{
                 pathname: "/",

@@ -24,13 +24,13 @@ class Nav extends Component {
  
     const oauth = this.props.Store.oauth;
     return (
-      <nav>
+    <nav>  
+
          <div className="responsive_nav">
-   
             {" "}
             <h2 onClick={this.onShowNav}> <i class="fas fa-bars"></i></h2>
-       
-            <div className={this.state.show == true? "responsive_nav_content" : "noShow"}>
+          
+        <div className={this.state.show == true? "responsive_nav_content" : "noShow"}>
           <div>
             <a href="/login">
               {" "}
@@ -78,15 +78,28 @@ class Nav extends Component {
             </a>
           </div>
         </div>
-        </div> 
+        </div>
+      
+      
+       
       
       <div className="default_nav">
-          <div>
-            <a href="/login">
-              {" "}
-              <h4>로그인</h4>
-            </a>
-          </div>
+        
+        {this.oauth.isLogin?(
+            <div>
+              <a href="/mypage">
+                {" "}
+                <h4>마이페이지</h4>
+              </a>
+            </div>
+          ):(
+            <div>
+              <a href="/login">
+                {" "}
+                <h4>로그인</h4>
+              </a>
+            </div>           
+        )}
           <div>
             <a href="/signUp">
               {" "}
@@ -128,11 +141,10 @@ class Nav extends Component {
             </a>
           </div>
         </div>
-        
-
       
-      </nav>
-    );
+
+</nav>    
+);
   }
 }
 export default  Nav;
