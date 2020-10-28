@@ -1,11 +1,14 @@
 .freeboard_cate_container {
-  // width: 10rem;
   display: flex;
   flex-direction: column;
   border: 1px solid lightgray;
   border-radius: 10px;
   padding: 1rem;
-  //   margin: 1rem;
+}
+
+.freeboard_cate_list {
+  display: flex;
+  flex-direction: column;
 }
 
 .cate_sec {
@@ -36,4 +39,16 @@
   padding-bottom: 0.5rem;
   margin-bottom: 1rem;
   border-bottom: 1px solid gray;
+}
+
+@media (max-width: 1000px) {
+  .freeboard_cate_container {
+    // width: 15rem;
+
+    .freeboard_cate_list {
+      padding-top: 0.5rem;
+      display: grid;
+      grid-template: 2rem / auto auto auto;
+    }
+  }
 }

@@ -17,10 +17,17 @@ class FreeBoardContainer extends Component {
     
     return(
             <div className="freeboard_container_wrap"> 
-                <div className="free_borad_title"><h1>자유게시판</h1></div>
+                <div className="free_borad_title">
+                    <h1>자유게시판</h1>
+                </div>
                 <div className="free_board_content">
-                <FreeboardcateContainer freeboard_cate ={freeboard_cate} />
-                <Freeboardlistcontainer freeboard_list={freeboard_list} freeboard_select_posts={freeboard_select_posts}/> 
+                    <div className='freeboard_cate'>
+                        <FreeboardcateContainer freeboard_cate ={freeboard_cate} />
+                    </div>
+                    <div className='freeboard_list'>
+                    <Freeboardlistcontainer freeboard_list={freeboard_list} freeboard_select_posts={freeboard_select_posts}/> 
+                    </div>
+                  
                 
                 </div>
 

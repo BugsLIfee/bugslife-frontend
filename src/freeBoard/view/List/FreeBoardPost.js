@@ -58,8 +58,6 @@ export default class Freeboardpost extends Component {
                     <p className="post_view">
                         {post.views}
                     </p>
-           
-               {/* {JSON.stringify(post)} */}
            </div>
         )
     }
