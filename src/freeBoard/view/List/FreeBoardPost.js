@@ -42,27 +42,22 @@ export default class Freeboardpost extends Component {
         const cate = this.props.post.cate;
         return (
            <div className="post_container">
-            <div className="post_title">
+
 
                <h4 className="post_id">{post.post_id}</h4>
                <h4 className="post_cate">
-                   {/* <Icon name={
-                       cate=="연애" ? "heart": ("회사" ? "building outline" : ("취업"?  "student" : ("유머"? "smile outline" : ("학업" ? "book": ("자유"? "bomb" : "" )))))} /> */}
-                   
+ 
                    {post.cate}
                    <Icon className ="cate_icon" name= {this.state.cate_icon} /> </h4>
                 <a href="/freeboard_detail"><h4 className="post_title_txt">{post.title} </h4>
                 <span className="post_comment">[{post.comments}]</span> </a>
-               </div>
-               <div className="post_info">
+  
                     <p className="post_date">
                         {post.date}
                     </p>
                     <p className="post_view">
                         {post.views}
                     </p>
-               </div>
-               {/* {JSON.stringify(post)} */}
            </div>
         )
     }

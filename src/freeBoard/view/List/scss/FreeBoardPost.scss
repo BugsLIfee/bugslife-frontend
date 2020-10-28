@@ -1,21 +1,40 @@
 .post_container {
   position: relative;
   width: 92%;
-  height: 3.5rem;
   border-bottom: 1px solid lightgray;
   display: inline-flex;
   align-items: center;
-  // padding: 3rem;
-  display: inline-flex;
-  flex-direction: row;
+  display: grid;
+  padding: 0.2rem 0;
+  grid-template: 3rem / 5% 9% 66% 11% 5%;
   justify-content: center;
+
+  h4 {
+    text-align: center;
+    margin: 0;
+  }
+
+  p {
+    padding: 0;
+    font-size: 1rem;
+    display: inline;
+    align-items: center;
+    text-align: center;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
 }
 
 .post_id {
+  width: 3rem;
   font-size: 1rem;
   color: gray;
   padding-right: 0.5rem;
 }
+
 .post_title {
   width: 70%;
   align-items: center;
@@ -23,33 +42,27 @@
   position: absolute;
   left: 0;
   font-size: 1rem;
+}
 
-  .post_title_txt {
-    font-size: 1.1rem;
-    padding-left: 2rem;
-    display: inline;
-  }
-  a {
-    text-decoration: none;
-    color: black;
-  }
-  .post_id {
-    text-align: center;
-    width: 10%;
-  }
-  .post_cate {
-    text-align: center;
-    width: 10%;
-    font-size: 1rem;
-    // padding-right: 1rem;
-  }
+.post_cate {
+  text-align: center;
+  font-size: 1rem;
+  padding: 0;
+
   i {
     padding-left: 0.3rem;
   }
+}
 
-  .post_comment {
-    color: gray;
-  }
+.post_comment {
+  padding-left: 0.2rem;
+  color: gray;
+}
+
+.post_title_txt {
+  font-size: 1.1rem;
+  padding-left: 2rem;
+  display: inline;
 }
 
 .post_info {
@@ -59,15 +72,9 @@
   right: 2%;
   width: 13%;
   justify-content: space-between;
+}
 
-  .post_date {
-    margin: 0;
-    padding: 0;
-  }
-  p {
-    padding: 0;
-    font-size: 1rem;
-    display: inline;
-    align-items: center;
-  }
+.post_date {
+  margin: 0;
+  padding: 0;
 }

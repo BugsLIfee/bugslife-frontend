@@ -28,12 +28,13 @@ import {
   DetailPage, 
   PostingContainer,
   Attendancecontainer, 
+  EduListContainer,
+  EduDetailContainer,
  } from "./Routes";
 
 import { getCurrentUser } from './oauth/api/APIUtils';
 import { ACCESS_TOKEN } from './oauth/constants/index';
- import EduListContainer from "./edu/container/eduList/EduListContainer"
- import EduDetailContainer from "./edu/container/eduDetail/EduDetailContainer";
+
 import Signup from "./oauth/signup/Signup";
 
 

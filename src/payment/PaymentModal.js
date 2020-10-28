@@ -1,12 +1,10 @@
 import React, {useState} from 'react';
-import { Form, Button, Header, Icon, Modal, Radio, TextArea, Dropdown, Checkbox} from 'semantic-ui-react'
+import { Form, Button, Header, Modal, Radio, Checkbox} from 'semantic-ui-react'
 import {
     PGS,
     METHODS_FOR_INICIS,
     QUOTAS_FOR_INICIS_AND_KCP,
 } from './constants';
-import { getMethods, getQuotas } from './utils';
-import { date } from 'faker';
 import "./scss/payment_modal.scss";
 
 
@@ -38,8 +36,6 @@ export default function PaymentModal(props) {
   const [agree1, setAgree1] = useState();
   const [agree2, setAgree2] = useState();
   const [pg_name, setPgName] = useState();
-  const [methods, setMethods] = useState(METHODS_FOR_INICIS);
-  const [quotas, setQuotas] = useState(QUOTAS_FOR_INICIS_AND_KCP);
   const [data, setData] = useState(
     {
       pg: 'html5_inicis',
