@@ -28,6 +28,8 @@ import {
   DetailPage, 
   PostingContainer,
   Attendancecontainer, 
+  EduListContainer,
+  EduDetailContainer,
  } from "./Routes";
 
 
@@ -38,8 +40,8 @@ import { ACCESS_TOKEN } from './oauth/constants/index';
 // import Freeboarddetailcontainer from "./freeBoard/container/FreeBoardDetailContainer";
 // import PointPage from "./point/PointPage";
 // import FreeboardEditorContainer from "./freeBoard/view/Editor/container/FreeboradEditorContainer";
- import EduListContainer from "./edu/container/eduList/EduListContainer"
- import EduDetailContainer from "./edu/container/eduDetail/EduDetailContainer";
+//  import EduListContainer from "./edu/container/eduList/EduListContainer";
+//  import EduDetailContainer from "./edu/container/eduDetail/EduDetailContainer";
 
 // import { getCurrentUser } from './oauth/api/APIUtils';
 // import { ACCESS_TOKEN } from './oauth/constants/index';

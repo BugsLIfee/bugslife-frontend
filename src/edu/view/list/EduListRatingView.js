@@ -6,12 +6,8 @@ import Rating from '@material-ui/lab/Rating';
 export class EduListRatingView extends Component {
     render() {
 
-        const {eduList} = this.props
-        const {reviewLists} = this.props
-        console.log(reviewLists.length)
-        console.log(reviewLists[0])
-        
-        //let reviewRating = 
+        const {eduList,reviewLists} = this.props
+        console.log(eduList.rating)
         return (
 
             <div className="eduItemRatingContent">
