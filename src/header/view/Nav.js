@@ -24,21 +24,32 @@ class Nav extends Component {
  
     const oauth = this.props.Store.oauth;
     return (
-    <nav>  
-
+      <nav>
          <div className="responsive_nav">
+   
             {" "}
             <h2 onClick={this.onShowNav}> <i class="fas fa-bars"></i></h2>
-          
-        <div className={this.state.show == true? "responsive_nav_content" : "noShow"}>
+       
+            <div className={this.state.show == true? "responsive_nav_content" : "noShow"}>
+        {this.props.Store.oauth.isLogin?
+      (
+                  <div>
+            {" "}
+            <a href="/profile">
+              <h4>마이페이지샘플</h4>
+            </a>
+          </div>
+      )  
+      :(
           <div>
             <a href="/login">
               {" "}
               <h4>로그인</h4>
             </a>
           </div>
+      )}
           <div>
-            <a href="/signUp">
+            <a href="/edu">
               {" "}
               <h4>교육과정리뷰</h4>
             </a>
@@ -46,7 +57,7 @@ class Nav extends Component {
           <div>
             <a href="/list">
               {" "}
-              <h4>질문글</h4>
+              <h4>버그질문</h4>
             </a>
           </div>
 
@@ -78,30 +89,34 @@ class Nav extends Component {
             </a>
           </div>
         </div>
-        </div>
-      
-      
-       
+        </div> 
       
       <div className="default_nav">
-        
-        {this.oauth.isLogin?(
+        {this.props.Store.oauth.isLogin?
+      (
+        <>
+                  <div>
+            {" "}
+            <a href="/profile">
+              <h4>마이페이지샘플</h4>
+            </a>
+          </div>
             <div>
-              <a href="/mypage">
-                {" "}
-                <h4>마이페이지</h4>
-              </a>
-            </div>
-          ):(
-            <div>
-              <a href="/login">
-                {" "}
-                <h4>로그인</h4>
-              </a>
-            </div>           
-        )}
+            {" "}
+          <a onClick={()=>this.props.Store.oauth.onLogout()}>로그아웃</a>
+          </div>
+          </>
+      )  
+      :(
           <div>
-            <a href="/signUp">
+            <a href="/login">
+              {" "}
+              <h4>로그인</h4>
+            </a>
+          </div>
+      )}
+          <div>
+            <a href="/edu">
               {" "}
               <h4>교육과정리뷰</h4>
             </a>
@@ -109,7 +124,7 @@ class Nav extends Component {
           <div>
             <a href="/list">
               {" "}
-              <h4>질문글</h4>
+              <h4>버그질문</h4>
             </a>
           </div>
 
@@ -141,10 +156,11 @@ class Nav extends Component {
             </a>
           </div>
         </div>
-      
+        
 
-</nav>    
-);
+      
+      </nav>
+    );
   }
 }
 export default  Nav;
