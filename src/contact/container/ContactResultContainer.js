@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { inject, observer } from "mobx-react";
 import QuestionEditContainer from './QuestionEditContainer';
-import InfoListContainer from '../../admin/container/InfoListContainer';
+import InfoListContainer from '../../admin/container/info/InfoListContainer';
 import QuestionMyListContainer from './QuestionMyListContainer';
 
 @inject("Store")

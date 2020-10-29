@@ -25,6 +25,7 @@ class Profile extends Component {
                         <div className="profile-name">
                            <h2>{this.props.currentUser.name}</h2>
                            <p className="profile-email">{this.props.currentUser.email}</p>
+                           <p className="profile-email">{this.props.currentUser.role}</p>
                         </div>
                         {/* <div className="profile-name">
                            <h2>{this.props.currentUser.name}</h2>

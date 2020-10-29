@@ -1,13 +1,12 @@
 import React from "react";
-import {Router, Route, Switch } from "react-router-dom";
+import { Route } from "react-router-dom";
 
-import qs from "qs";
 import MemberMngContainer from "../admin/container/MemberMngContainer";
 import BoardMngContainer from "../admin/container/BoardMngContainer";
 import QuestionAllListContainer from "../contact/container/QuestionAllListContainer";
-import InfoListContainer from "../admin/container/InfoListContainer";
-import InfoDetailContainer from "../admin/container/InfoDetailContainer";
-import InfoEditContainer from "../admin/container/InfoEditContainer";
+import InfoListContainer from "../admin/container/info/InfoListContainer";
+import InfoDetailContainer from "../admin/container/info/InfoDetailContainer";
+import InfoEditContainer from "../admin/container/info/InfoEditContainer";
 import ReportBoardContainer from "../admin/container/report/ReportBoardContainer";
 
 

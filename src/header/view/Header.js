@@ -55,7 +55,7 @@ class Header extends Component {
           </a>
 
           <div className="nav">
-            <Nav/>
+            <Nav />
           </div>
         </div>
       </div>

@@ -34,6 +34,7 @@ ReactDOM.render(
           "/attendance",
           "/edu",
           "/edu/detail",
+          "/test"
           "/otherUser"
         ]}
         component={App}

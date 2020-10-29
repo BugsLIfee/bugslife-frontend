@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
-// import MainContainer from "../../main/container/MainContainer";
+
 import "./scss/signup.scss"
 
 class SignUp extends Component {

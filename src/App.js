@@ -13,7 +13,6 @@ import {
   HeaderContainer, 
   Footer, 
   AdminContainer,
-  AdminRoutes,
   ContactContainer, 
   LoginContainer, 
 
@@ -33,10 +32,8 @@ import {
   OtherUserContainer,
  } from "./Routes";
 
-import { getCurrentUser } from './oauth/api/APIUtils';
-import { ACCESS_TOKEN } from './oauth/constants/index';
-
 import Signup from "./oauth/signup/Signup";
+import AdminPage from "./admin/view/AdminPage";
 
 
 
@@ -76,7 +73,7 @@ class App extends Component {
           <Route path="/posting" component={PostingContainer} exact={true} />
           <Route path="/attendance" component={Attendancecontainer} exact={true} />
           <Route path="/profile"  component={ProfileContainer} exact={true} />
-            <Route path="/signup" component={Signup} exact={true}/>
+          <Route path="/signup" component={Signup} exact={true}/>
           
             {/* <Route path="/signup"
               render={(props) => <Signup authenticated={this.state.authenticated}
@@ -90,7 +87,9 @@ class App extends Component {
           <Route path="/posting_fr" component={FreeboardEditorContainer} />
           <Route path="/edu" component={EduListContainer} exact={true} />
           <Route path="/edu/detail" component={EduDetailContainer} exact={true} />
+          <Route path="/test" component={AdminPage} exact={true} />
           <Route path="/otherUser" component={OtherUserContainer}/>
+
         </Switch>
       </Router>
       <div className="footer_place">

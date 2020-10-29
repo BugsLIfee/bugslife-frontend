@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./scss/nav.scss";
 import {observer,inject} from "mobx-react";
-import { NavLink } from "react-router-dom";
 
 @inject("Store")
 @observer
@@ -19,10 +18,16 @@ class Nav extends Component {
   componentDidMount() {
     this.props.Store.oauth.loadCurrentlyLoggedInUser();
   }
-  render() {
 
- 
+onLogout=()=>{
+  this.props.Store.oauth.onLogout();
+  
+  //this.props.history.push("/");
+}
+
+  render() {
     const oauth = this.props.Store.oauth;
+    console.log("props",this.props);
     return (
       <nav>
          <div className="responsive_nav">
@@ -31,23 +36,29 @@ class Nav extends Component {
             <h2 onClick={this.onShowNav}> <i class="fas fa-bars"></i></h2>
        
             <div className={this.state.show == true? "responsive_nav_content" : "noShow"}>
-        {this.props.Store.oauth.isLogin?
-      (
-                  <div>
+        {oauth.isLogin?
+        (
+          <>
+          <div>
             {" "}
             <a href="/profile">
               <h4>마이페이지샘플</h4>
             </a>
           </div>
-      )  
-      :(
-          <div>
+            <div>
+            {" "}
+          <h4 onClick={()=>this.onLogout()}>로그아웃</h4>
+          </div>
+          </>
+        )  
+        :(
+                    <div>
             <a href="/login">
               {" "}
               <h4>로그인</h4>
             </a>
           </div>
-      )}
+         )}
           <div>
             <a href="/edu">
               {" "}
@@ -69,18 +80,20 @@ class Nav extends Component {
           </div>
 
           <div>
-            {" "}
+        
             <a href="/myPage">
               <h4>마이페이지</h4>
             </a>
           </div>
 
+          {oauth.isAdmin?(
           <div>
             <a href="/admin/member">
               {" "}
               <h4>관리자</h4>
             </a>
           </div>
+        ):(<></>)}
 
           <div>
             <a href="/contact/my">
@@ -92,7 +105,7 @@ class Nav extends Component {
         </div> 
       
       <div className="default_nav">
-        {this.props.Store.oauth.isLogin?
+        {oauth.isLogin?
       (
         <>
                   <div>
@@ -103,7 +116,7 @@ class Nav extends Component {
           </div>
             <div>
             {" "}
-          <a onClick={()=>this.props.Store.oauth.onLogout()}>로그아웃</a>
+          <h4 onClick={()=>this.onLogout()}>로그아웃</h4>
           </div>
           </>
       )  
@@ -141,7 +154,7 @@ class Nav extends Component {
               <h4>마이페이지</h4>
             </a>
           </div>
-
+      {oauth.getIsAdmin?(
           <div>
             <a href="/admin/member">
               {" "}
@@ -149,6 +162,9 @@ class Nav extends Component {
             </a>
           </div>
 
+        ):(
+          <></>
+          )}
           <div>
             <a href="/contact/my">
               {" "}
