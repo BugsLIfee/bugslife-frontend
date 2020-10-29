@@ -8,18 +8,55 @@
 .eduInfoTable {
   display: flex;
   margin-top: 10px !important;
-  align-items: center !important;
+
   width: 1000px !important;
   border-top: 4px solid #2f9cd5 !important;
+  height: 300px !important;
+
+  .eduInfoImg {
+    display: flex !important;
+    height: 100% !important;
+    align-items: center !important;
+    // border-left: 1px solid #cccccc !important;
+    border-bottom: 1px solid #cccccc !important;
+  }
   .eduInfoColumn {
     padding: 0px !important;
-    width: 50%;
+
+    // border-right: 1px solid #cccccc !important;
   }
   .eduInfoRow {
     display: flex !important;
     justify-content: flex-start !important;
-    border-bottom: 1px solid gray !important;
+    border-bottom: 1px solid #cccccc !important;
     margin: 0px !important;
-    padding: 15px !important;
+    padding: 0px !important;
+    height: 20% !important;
+    .eduCellTitle {
+      display: flex;
+      width: 15% !important;
+      border-right: 1px solid #cccccc !important;
+      border-left: 1px solid #cccccc !important;
+      padding: 10px !important;
+      font-size: 1.1rem;
+      font-weight: 600;
+      align-items: center;
+      color: #444444;
+      background-color: #eaeaea;
+    }
+    .eduCellBody {
+      display: flex;
+      align-items: center;
+      width: 85% !important;
+      padding: 10px !important;
+      font-size: 1.1rem;
+    }
+    .eduCellSBody {
+      display: flex;
+      align-items: center;
+      width: 35% !important;
+      padding: 10px !important;
+      font-size: 1.1rem;
+    }
   }
 }

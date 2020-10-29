@@ -1,0 +1,29 @@
+.report_detail_modal {
+
+    .report_meta {
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
+
+    span {
+        font-size: 1rem;
+        margin-right: 1.5rem;
+        color: #888888;
+    }
+
+    .detail {
+        margin-top: 5%;
+    }
+
+    .blind {
+        display: flex;
+        justify-content: flex-end;
+        label {
+            width: fit-content;
+        }
+    }
+
+    a:visited{
+        color: #888888;
+    }
+}

@@ -4,14 +4,14 @@ import { Checkbox, Radio } from 'semantic-ui-react'
 import "../scss/report.scss";
 
 export default function ReportListView(props) {
-    const {report_list, onSelectCategory, category, onSelectReportStatus} = props;
+    const {report_list, onReceiptReport, onSelectCategory, category, onSelectReportStatus} = props;
     const [report_status, setReportStatus] = useState(2);
 
     useEffect(() => {
     }, [report_status])
 
     const reports =  report_list.map( report => {
-        return <ReportItemView report={report} />
+        return <ReportItemView report={report} onReceiptReport={onReceiptReport}/>
     });
 
     const onClickReportStatus = (e, {value}) => {
@@ -25,23 +25,26 @@ export default function ReportListView(props) {
             <div className="report_board">
                 <div className="filter">
                     <p className="title">카테고리</p>
-                    {category.map((category, index)=>{
-                        return <Checkbox onClick={()=>onSelectCategory(index)} label={{ children: category }} />
-                    })}
-
-                    <p>처리여부</p>
-                    <Radio label='모두보기' 
-                        value= {2}
-                        checked = { report_status === 2}
-                        onChange={onClickReportStatus}/>
-                    <Radio label='처리완료' 
-                        value= {0}
-                        checked = {report_status === 0}
-                        onChange={onClickReportStatus}/>
-                    <Radio label='미완료' 
-                        value= {1}
-                        checked = { report_status === 1}
-                        onChange={onClickReportStatus}/>
+                    <div className="item">
+                        {category.map((category, index)=>{
+                            return <Checkbox onClick={()=>onSelectCategory(index)} label={{ children: category }} className="check_box" />
+                        })}
+                    </div>
+                    <p className="title">처리여부</p>
+                    <div className="item">
+                        <Radio label='모두보기' 
+                            value= {2}
+                            checked = { report_status === 2}
+                            onChange={onClickReportStatus}/>
+                        <Radio label='처리완료' 
+                            value= {0}
+                            checked = {report_status === 0}
+                            onChange={onClickReportStatus}/>
+                        <Radio label='미완료' 
+                            value= {1}
+                            checked = { report_status === 1}
+                            onChange={onClickReportStatus}/>
+                    </div>
                 </div>
                 <div className = "report_list">
                     <div className="report_list_header">

@@ -22,12 +22,9 @@ class FreeboardcateContainer extends Component {
             changed_list.push(category)
         }
 
-
         this.setState({cate_list : changed_list})
         console.log(this.state.cate_list)
         this.props.Store.freeboard.setCategorySelect(changed_list)
-    
-     
     }
 
     
@@ -38,7 +35,6 @@ class FreeboardcateContainer extends Component {
 
         return (
             <div className="freeboard_cate_container">
-                
                 <div className="freeboard_cate_title"><h5>카테고리</h5></div>
                 <div className="freeboard_cate_list"> 
                 {cate.map((category)=>{

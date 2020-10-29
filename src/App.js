@@ -29,6 +29,7 @@ import {
   Attendancecontainer, 
   EduListContainer,
   EduDetailContainer,
+  OtherUserContainer,
  } from "./Routes";
 
 import Signup from "./oauth/signup/Signup";
@@ -87,7 +88,8 @@ class App extends Component {
           <Route path="/edu" component={EduListContainer} exact={true} />
           <Route path="/edu/detail" component={EduDetailContainer} exact={true} />
           <Route path="/test" component={AdminPage} exact={true} />
- 
+          <Route path="/otherUser" component={OtherUserContainer}/>
+
         </Switch>
       </Router>
       <div className="footer_place">
