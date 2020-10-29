@@ -60,3 +60,19 @@
   text-align: right;
   padding: 3rem 2rem 2rem 2rem;
 }
+
+@media (max-width: 780px) {
+  .freeboard_list_head {
+    width: 100%;
+  }
+}
+
+@media (max-width: 660px) {
+  .freeboard_list_head_title {
+    position: absolute;
+    left: 2%;
+    width: 100%;
+    display: grid;
+    grid-template: 3rem / 5% 9% 75% 7%;
+  }
+}

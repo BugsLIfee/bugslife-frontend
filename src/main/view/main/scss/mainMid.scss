@@ -91,3 +91,19 @@
   border-radius: 10px 10px 0 0;
   background-color: rgb(110, 177, 104);
 }
+
+@media (max-width: 800px) {
+  .MainmidView_container {
+    padding: 3rem;
+  }
+  .Mainmid_plan {
+    flex-direction: column;
+  }
+  .Mainmid_plan_column {
+    width: 80% !important;
+  }
+
+  .plan_premium_contents {
+    padding-top: 1.5rem;
+  }
+}
