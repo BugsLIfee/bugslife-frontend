@@ -13,9 +13,9 @@ class AdminSideMenu extends Component {
   render() {
    // const { activeItem } = this.props.menu;
     return (
-
+<>
+        <div className="admin-header">관리자페이지</div>
       <div className="admin-side">
-        <div className="header">관리자페이지</div>
         <div className="list">회원관리</div>
         <div className="list">신고게시판</div>
         <div className="list">공지사항관리</div>
@@ -97,6 +97,7 @@ class AdminSideMenu extends Component {
       </Menu>
       </Segment.Group> */}
    </div>
+   </>
     );
   }
 }
