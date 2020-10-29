@@ -4,14 +4,14 @@ import { Checkbox, Radio } from 'semantic-ui-react'
 import "../scss/report.scss";
 
 export default function ReportListView(props) {
-    const {report_list, onSelectCategory, category, onSelectReportStatus} = props;
+    const {report_list, onReceiptReport, onSelectCategory, category, onSelectReportStatus} = props;
     const [report_status, setReportStatus] = useState(2);
 
     useEffect(() => {
     }, [report_status])
 
     const reports =  report_list.map( report => {
-        return <ReportItemView report={report} />
+        return <ReportItemView report={report} onReceiptReport={onReceiptReport}/>
     });
 
     const onClickReportStatus = (e, {value}) => {

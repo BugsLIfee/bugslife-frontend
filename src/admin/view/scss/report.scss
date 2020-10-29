@@ -63,12 +63,12 @@
 .report_list_item {
     display: grid;
     grid-template-columns: 8rem 15rem 25rem 10rem 15rem 8rem;
+    font-size: 1.1rem;
+    font-weight: 500;
 
     p{
         height: 3rem;
-        font-size: 1.1rem;
         line-height: 1.2;
-        font-weight: 500;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
@@ -76,6 +76,19 @@
         text-align: center;
         border-bottom: 0.5px #c8c8c8 solid;
         margin-bottom: 0;
+
+        p {
+            cursor: pointer;
+            padding: 0;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            width: 100%;
+            text-align: center;
+        }
     }
+
+    .done { color: green}
+    .yet { color: red}
 
 }            

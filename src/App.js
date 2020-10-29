@@ -30,6 +30,7 @@ import {
   Attendancecontainer, 
   EduListContainer,
   EduDetailContainer,
+  OtherUserContainer,
  } from "./Routes";
 
 import { getCurrentUser } from './oauth/api/APIUtils';
@@ -89,7 +90,7 @@ class App extends Component {
           <Route path="/posting_fr" component={FreeboardEditorContainer} />
           <Route path="/edu" component={EduListContainer} exact={true} />
           <Route path="/edu/detail" component={EduDetailContainer} exact={true} />
- 
+          <Route path="/otherUser" component={OtherUserContainer}/>
         </Switch>
       </Router>
       <div className="footer_place">

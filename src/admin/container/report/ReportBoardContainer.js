@@ -54,10 +54,15 @@ function ReportBoardContainer(props) {
         setReportStatus(type)
     }
 
+    const onReceiptReport = (id, is_blind) => {
+        props.Store.report.receipt_report(id, is_blind);
+    }
+
     return (
         <ReportListView 
             report_list = {filter_list} 
             category={category} 
+            onReceiptReport = {onReceiptReport}
             onSelectReportStatus={onSelectReportStatus}
             onSelectCategory={onSelectCategory}/>
         )
