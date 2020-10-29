@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import CKEditor from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-import InfoEdit from "../view/InfoEdit";
+import InfoEdit from "../../view/InfoEdit";
 import { observer, inject } from "mobx-react";
 
 @inject("Store")

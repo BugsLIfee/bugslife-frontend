@@ -11,6 +11,8 @@ authenticated=false ;
 currentUser={};
 @observable
 loading=false ;
+@observable
+isAdmin=false ;
 
 
 @computed
@@ -26,6 +28,10 @@ get isLoading(){
 get getCurrentUserInfo(){
     return this.currentUser? this.currentUser: {};
 }
+@computed
+get getIsAdmin(){
+    return this.isAdmin? this.isAdmin: false;
+}
 
 @action
 loadCurrentlyLoggedInUser() {
@@ -37,6 +43,9 @@ loadCurrentlyLoggedInUser() {
         this.currentUser= response;
         this.authenticated=true;
         this.loading=false;
+        if(response.role==="ADMIN"){
+            this.isAdmin=true;
+        }
     }).catch(error => {
         this.loading=false;
     });    
@@ -51,10 +60,13 @@ loadCurrentlyLoggedInUser() {
     
     this.authenticated= false;
     this.currentUser= null;
+    this.isAdmin = false;
     
-   // Alert.success("로그아웃 되었습니다! ");
-   alert("로그아웃 되었습니다! ");
-    }
+    // Alert.success("로그아웃 되었습니다! ");
+    alert("로그아웃 되었습니다! ");
+    
+
+ }
 
 
 }

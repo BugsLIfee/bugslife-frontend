@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import { inject, observer } from "mobx-react";
-import InfoDetail from "../view/InfoDetail";
+import InfoDetail from "../../view/InfoDetail";
 
 @inject("Store")
 @observer

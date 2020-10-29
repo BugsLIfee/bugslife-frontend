@@ -13,7 +13,7 @@ class AdminContainer extends Component {
     return (
       <div class="admincontainer">
         <Grid>
-          <Grid.Column width={4} class="side">
+          <Grid.Column width={4} class="side" style={{border: 'solid 1px gray'}}>
             <AdminSideMenu  />
           </Grid.Column>
           <Grid.Column width={12}>

@@ -1,6 +1,8 @@
 import { observable, computed, action } from "mobx";
 import InfoApiModel from "../api/model/InfoApiModel";
 import InfoApi from "../api/InfoApi.js";
+import info from "../../contact/data/info";
+import infotype from "../../contact/data/category";
 
 export default class InfoStore {
   infoApi = new InfoApi();
@@ -9,7 +11,11 @@ export default class InfoStore {
   infos = [];
 
   @observable
-  info = {};
+  info = info;
+
+  @observable
+  infoType = infotype;
+
 
   @computed
   get getInfos() {
@@ -19,6 +25,10 @@ export default class InfoStore {
   @computed
   get getInfo() {
     return this.info ? { ...this.info } : {};
+  }
+  @computed
+  get getInfoType() {
+    return this.infoType ? { ...this.infoType } : {};
   }
 
   @action

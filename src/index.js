@@ -33,7 +33,8 @@ ReactDOM.render(
           "/point",
           "/attendance",
           "/edu",
-          "/edu/detail"
+          "/edu/detail",
+          "/test"
         ]}
         component={App}
         exact={true}

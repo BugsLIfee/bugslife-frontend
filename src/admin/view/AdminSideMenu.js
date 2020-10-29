@@ -1,6 +1,9 @@
 import React, { Component } from "react";
-import { Dropdown, Input, Label, Menu } from "semantic-ui-react";
+import { Container,Menu ,Segment} from "semantic-ui-react";
 import {Link} from "react-router-dom";
+import "./scss/adminSide.scss";
+
+
 
 class AdminSideMenu extends Component {
   // state = { activeItem: "member" };
@@ -10,12 +13,21 @@ class AdminSideMenu extends Component {
   render() {
    // const { activeItem } = this.props.menu;
     return (
-      <Menu vertical size="huge">
-        <Menu.Header
-          style={{ color: "white", backgroundColor: "green", padding: "20px" }}
-        >
-          ADMIN PAGE
-        </Menu.Header>
+
+      <div className="admin-side">
+        <div className="header">관리자페이지</div>
+        <div className="list">회원관리</div>
+        <div className="list">신고게시판</div>
+        <div className="list">공지사항관리</div>
+        <div className="list">1:1문의관리</div>
+
+     
+      
+
+        {/* <Segment.Group raised>
+      
+       <Menu vertical size="large">
+
         <Menu.Item
           name="member"
           //active={activeItem === "member"}
@@ -37,7 +49,6 @@ class AdminSideMenu extends Component {
         <Menu.Item
           name="board"
          // active={activeItem === "board"}
-          onClick={this.handleItemClick}
           as={Link}
           to="/admin/board"
         >
@@ -46,7 +57,6 @@ class AdminSideMenu extends Component {
         <Menu.Item
           name="qna"
          // active={activeItem === "qna"}
-          onClick={this.handleItemClick}
           as={Link}
           to="/admin/qna-all"
           qna-a-write
@@ -56,7 +66,6 @@ class AdminSideMenu extends Component {
             <Menu.Item
               name="write"
             //  active={activeItem === "write"}
-              onClick={this.handleItemClick}
               as={Link}
               to="/admin/qna-all"
             >
@@ -66,15 +75,11 @@ class AdminSideMenu extends Component {
         </Menu.Item>
         <Menu.Item
           name="info"
-        //  active={activeItem === "info"}
-          onClick={this.handleItemClick}
         >
           공지사항 관리
           <Menu.Menu>
             <Menu.Item
               name="info-list"
-           //   active={activeItem === "info-list"}
-              onClick={this.handleItemClick}
               as={Link}
               to="/admin/info-list"
             >
@@ -82,8 +87,6 @@ class AdminSideMenu extends Component {
             </Menu.Item>
             <Menu.Item
               name="write"
-           //   active={activeItem === "write"}
-              onClick={this.handleItemClick}
               as={Link}
               to="/admin/info-write"
             >
@@ -92,8 +95,12 @@ class AdminSideMenu extends Component {
           </Menu.Menu>
         </Menu.Item>
       </Menu>
+      </Segment.Group> */}
+   </div>
     );
   }
 }
 
 export default AdminSideMenu;
+
+
