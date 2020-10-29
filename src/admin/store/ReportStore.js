@@ -8,6 +8,17 @@ class ReportStore {
     @computed get _report_list() {
         return this.report_list ? this.report_list.slice() : []
     }
+
+    @action receipt_report(id, is_blind) {
+        this.report_list = this.report_list.map(report => {
+            if(report.id === id ){
+                report.is_blind = is_blind;
+                report.is_done = true;
+                return report;
+            }
+            return report;
+        })
+    }
 }
 
 export default ReportStore

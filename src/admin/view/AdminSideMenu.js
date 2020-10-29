@@ -3,12 +3,12 @@ import { Dropdown, Input, Label, Menu } from "semantic-ui-react";
 import {Link} from "react-router-dom";
 
 class AdminSideMenu extends Component {
-  state = { activeItem: "member" };
+  // state = { activeItem: "member" };
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name });
+  // handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 
   render() {
-    const { activeItem } = this.props.menu;
+   // const { activeItem } = this.props.menu;
     return (
       <Menu vertical size="huge">
         <Menu.Header
@@ -18,7 +18,7 @@ class AdminSideMenu extends Component {
         </Menu.Header>
         <Menu.Item
           name="member"
-          active={activeItem === "member"}
+          //active={activeItem === "member"}
           onClick={this.handleItemClick}
           as={Link}
           to="/admin/member"
@@ -27,7 +27,7 @@ class AdminSideMenu extends Component {
         </Menu.Item>
         <Menu.Item
           name="member"
-          active={activeItem === "report"}
+         // active={activeItem === "report"}
           onClick={this.handleItemClick}
           as={Link}
           to="/admin/report"
@@ -36,7 +36,7 @@ class AdminSideMenu extends Component {
         </Menu.Item>
         <Menu.Item
           name="board"
-          active={activeItem === "board"}
+         // active={activeItem === "board"}
           onClick={this.handleItemClick}
           as={Link}
           to="/admin/board"
@@ -45,7 +45,7 @@ class AdminSideMenu extends Component {
         </Menu.Item>
         <Menu.Item
           name="qna"
-          active={activeItem === "qna"}
+         // active={activeItem === "qna"}
           onClick={this.handleItemClick}
           as={Link}
           to="/admin/qna-all"
@@ -55,7 +55,7 @@ class AdminSideMenu extends Component {
           <Menu.Menu>
             <Menu.Item
               name="write"
-              active={activeItem === "write"}
+            //  active={activeItem === "write"}
               onClick={this.handleItemClick}
               as={Link}
               to="/admin/qna-all"
@@ -66,14 +66,14 @@ class AdminSideMenu extends Component {
         </Menu.Item>
         <Menu.Item
           name="info"
-          active={activeItem === "info"}
+        //  active={activeItem === "info"}
           onClick={this.handleItemClick}
         >
           공지사항 관리
           <Menu.Menu>
             <Menu.Item
               name="info-list"
-              active={activeItem === "info-list"}
+           //   active={activeItem === "info-list"}
               onClick={this.handleItemClick}
               as={Link}
               to="/admin/info-list"
@@ -82,7 +82,7 @@ class AdminSideMenu extends Component {
             </Menu.Item>
             <Menu.Item
               name="write"
-              active={activeItem === "write"}
+           //   active={activeItem === "write"}
               onClick={this.handleItemClick}
               as={Link}
               to="/admin/info-write"
