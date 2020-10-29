@@ -13,17 +13,20 @@ export default class Mainmidview extends Component {
           </h1>
           <div className="Mainmid_plan">
             <div className="Mainmid_plan_column plan_basic">
-              <div className="plan_title plan_basic_title">
-                <img
+              <div className="plan_title_ plan_basic_title">
+                <h1>
+                  <img
                   src="../logo/logo_green_blank.png"
                   style={{ width: "43px" }}
-                />
-                <h1> 일반 질문</h1>
+                /> 일반 질문</h1>
               </div>
 
               <div className="plan_basic_contents">
                 <h3>
                   간단한 문제는 부담없이 <b>바로 질문!</b>
+                </h3>
+                <h3>
+                  나는 안보이는 오류 같이보기{" "}
                 </h3>
                 <h3>
                   문제 해결 시, 질문에 걸린 <b>포인트 획득</b>{" "}
@@ -32,10 +35,9 @@ export default class Mainmidview extends Component {
             </div>
 
             <div className="Mainmid_plan_column plan_premium">
-              <div className="plan_title plan_premium_title">
-                <img src="../logo/logo_st.png" style={{ width: "45px" }} />
-                <h1> 프리미엄 질문 </h1>
-              </div>
+       
+                <div className="plan_title_ plan_premium_title" ><h1> <img src="../logo/logo_st.png" style={{ width: "45px" }} /> 프리미엄 질문 </h1></div>
+
 
               <div className="plan_premium_contents">
                 <h3>

@@ -18,8 +18,13 @@
     display: flex;
     width: 100%;
   }
+
+  br {
+    display: none;
+  }
 }
 
+//
 .ui.input {
   margin-top: 1rem;
   align-items: center;
@@ -70,8 +75,30 @@ h1.typing-txt {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 800px) {
+  .MainTopView_container {
+    margin: 0;
+  }
+
+  .MainTop_searchbar {
+    padding-top: 30%;
+  }
+
+  .MainTopView_container br {
+    display: block;
+  }
+
+  .MainTopView_container h1 {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
   .MainTop_searchbar {
     display: none;
+  }
+
+  .MainTopView_container h1 {
+    font-size: 3.5rem;
   }
 }

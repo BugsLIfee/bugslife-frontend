@@ -9,11 +9,9 @@ import Freeboardlistcontainer from './FreeBoardListContainer'
 class FreeBoardContainer extends Component {
 
     render() {
-
         const {freeboard_list}= this.props.Store.freeboard
         const {freeboard_cate} = this.props.Store.freeboard
         const {freeboard_select_posts} =this.props.Store.freeboard
-
     
     return(
             <div className="freeboard_container_wrap"> 

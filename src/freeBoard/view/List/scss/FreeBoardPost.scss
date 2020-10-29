@@ -78,3 +78,9 @@
   margin: 0;
   padding: 0;
 }
+
+@media (max-width: 780px) {
+  .post_container {
+    width: 100%;
+  }
+}
