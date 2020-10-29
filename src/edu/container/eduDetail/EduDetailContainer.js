@@ -8,6 +8,13 @@ import { inject, observer } from 'mobx-react'
 @observer
 class EduDetailContainer extends Component {
     render() {
+
+        const eduDetails = this.props.Store.edu.getEduDetail
+        const Id = this.props.Store.edu.getEduId
+
+        console.log(Id)
+        
+        console.log(eduDetails)
         return (
             <div className="eduDetailLayout">
                 <EduInfoContainer/>

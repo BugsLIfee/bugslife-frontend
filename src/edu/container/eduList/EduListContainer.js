@@ -18,8 +18,14 @@ class EduListContainer extends Component {
         this.state = {
           page: 1,
         }
-      }
+    }
+
+    onSelect = (Id) => {
+        this.props.Store.edu.setEduId(Id)
+        
+    }
     
+
       setNextPage = (e) => {
         this.setState({
           page: e.target.getAttribute("value"),
@@ -44,7 +50,7 @@ class EduListContainer extends Component {
                             <EduListImageContainer eduImg={eduList.imgUrl}/>
                         </Grid.Column>
                         <Grid.Column width={10} className="eduItemMain">
-                            <EduListMainContainer eduList={eduList}/>
+                            <EduListMainContainer eduList={eduList} onSelect={this.onSelect}/>
                         </Grid.Column>
                         <Grid.Column width={3} className="eduItemRating">
                             <EduListRatingContainer eduList={eduList} eduId={eduList.eId}/>
