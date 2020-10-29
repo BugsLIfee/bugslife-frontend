@@ -3,10 +3,10 @@ import EduListMainView from '../../view/list/EduListMainView'
 
 export class EduListMainContainer extends Component {
     render() {
-        const {eduList} = this.props
+        const {eduList, onSelect} = this.props
         return (
             <div>
-                <EduListMainView eduList={eduList}/>
+                <EduListMainView eduList={eduList} onSelect={onSelect}/>
             </div>
         )
     }

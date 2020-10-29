@@ -5,7 +5,7 @@ import EduDetailTestData from "./EduDetailTestData"
 class EduStore {
     @observable eduList = EduListTestData;
 
-    @observable eduReview = EduDetailTestData;
+    @observable eduDetail = EduDetailTestData;
 
     eId;
     //@observable eduReview = EduDetailTestData.review;
@@ -14,20 +14,23 @@ class EduStore {
         return this.eduList ? this.eduList.slice() : []
     }
 
-    // @computed get getEduDetail() {
-    //     return this.eduDetail ? this.eduDetail.slice() : []
-    // }
+    @computed get getEduDetail() {
+        return this.eduDetail ? this.eduDetail.slice() : []
+    }
+
+    get getEduId() {
+        return this.eId
+    }
 
     get getEduReview() {
-        console.log("겟에듀리뷰:",this.eduReview)
-        return this.eduReview.find(review => {
+        return this.eduDetail.find(review => {
             return review.eId === this.eId
         }).review.slice();
     }
 
     @action setEduId(id) {
         this.eId=id;
-        console.log("스토어에요0", this.eId)
+        console.log("gdgd",this.eId)
     }
 }
 
