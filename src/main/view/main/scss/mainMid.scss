@@ -15,15 +15,19 @@
   align-items: center;
 
   .MainmidView_container_title {
-    position: absolute;
-    left: 10%;
-    top: 3%;
+    // position: absolute;
+    // margin-bottom: 2rem;
+    // left: 10%;
+    // top: 3%;
+    text-align: left;
+    width: 100%;
+    padding-bottom: 10%;
   }
 }
 
 .Mainmid_plan {
-  width: 70%;
-  height: 80%;
+  // width: 70%;
+  // height: 80%;
   display: inline-flex;
   flex-direction: row;
   justify-content: space-between;
@@ -31,25 +35,32 @@
 
   .Mainmid_plan_column {
     border: 1px solid lightgray;
-    position: relative;
+    //position: relative;
     margin: 1.5rem;
     padding-bottom: 1.5rem;
     display: flex;
     flex-direction: column;
-    width: 45%;
-    height: 60%;
+    width: 100%;
     justify-content: center;
     text-align: center;
     border-radius: 20px;
     &:hover {
       box-shadow: gray 5px 5px 5px;
-      width: 45%;
-      height: 65%;
+      transform: scale(1.05);
       transition: 0.3s;
     }
 
+    h1 {
+      font-size: 1.7rem;
+      padding: 0.5rem 0;
+      text-align: center;
+      font-weight: bolder;
+      // background-color: lawngreen;
+      border-radius: 10px 10px 0 0;
+    }
+
     .plan_title {
-      position: absolute;
+      //position: absolute;
       width: 100%;
       top: 0;
       display: inline-flex;
@@ -69,8 +80,9 @@
 
     .plan_premium_contents,
     .plan_basic_contents {
-      position: relative;
-      margin-top: 2rem;
+      //position: relative;
+      //margin-top: 2rem;
+      padding: 1rem;
       h3 {
         font-size: 1.5rem;
         padding: 0.5rem;
@@ -81,13 +93,13 @@
 }
 
 .plan_basic_title {
-  padding: 0.5rem 1rem 0.5rem 0.5rem;
+  // padding: 0.5rem 1rem 0.5rem 0.5rem;
   border-radius: 10px 10px 0 0;
   background-color: rgb(241, 187, 187);
 }
 
 .plan_premium_title {
-  padding: 0.5rem 1rem 0.5rem 0.5rem;
+  // padding: 0.5rem 1rem 0.5rem 0.5rem;
   border-radius: 10px 10px 0 0;
   background-color: rgb(110, 177, 104);
 }
@@ -95,15 +107,21 @@
 @media (max-width: 800px) {
   .MainmidView_container {
     padding: 3rem;
+    margin-bottom: 3rem;
   }
   .Mainmid_plan {
     flex-direction: column;
   }
-  .Mainmid_plan_column {
-    width: 80% !important;
+
+  .Mainmid_plan .Mainmid_plan_column {
+    width: 90%;
   }
 
   .plan_premium_contents {
     padding-top: 1.5rem;
+  }
+
+  .Mainmid_wrap {
+    margin-bottom: 30%;
   }
 }

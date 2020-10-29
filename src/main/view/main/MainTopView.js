@@ -9,7 +9,7 @@ export default class MaintopView extends Component {
       <div className="MainTop_wrap">
         <BackgroundView />
         <div className="MainTopView_container">
-          <h1 className="typing-txt">도저히 안 풀리는 버그, <br /> 여기서 다 해결</h1>
+          <h1 className="typing-txt">주니어 개발자, <br /> 벅스라이프로 다 모여라</h1>
 
         <div className="MainTop_searchbar">        <Search /></div>
   
