@@ -14,7 +14,7 @@
 
 .freeboard_list {
   width: 100%;
-  padding-left: 2%;
+  // padding-left: 2%;
   display: flex;
   justify-content: center;
 }
@@ -51,6 +51,7 @@
 
   .freeboard_container_wrap {
     height: 100vh;
+    padding: 1rem;
   }
 
   .freeboard_list_wrap .freeboard_list {
@@ -60,6 +61,13 @@
   .freeboard_cate {
     margin: 0 auto 3rem auto;
     width: 70%;
+  }
+}
+
+@media (max-width: 780px) {
+  .freeboard_list_wrap .freeboard_list {
+    width: 100% !important;
+    margin: auto;
   }
 }
 

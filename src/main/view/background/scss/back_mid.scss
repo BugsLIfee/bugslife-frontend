@@ -31,6 +31,7 @@
   right: -4%;
   width: 14rem;
 }
+
 .back_mid_black_long {
   z-index: 1;
   right: 0;
@@ -58,4 +59,27 @@
   top: 70%;
   font-size: 5rem;
   opacity: 0.4;
+}
+
+@media (max-width: 800px) {
+  .back_mid_navy_circle {
+    width: 10rem;
+    height: 10rem;
+  }
+
+  .back_mid_yellow_cloud {
+    width: 8rem;
+    top: 35%;
+  }
+
+  .back_mid_red_semi {
+    right: -4%;
+    top: 30%;
+    width: 10rem;
+  }
+
+  .und {
+    right: 0;
+    font-size: 2rem;
+  }
 }

@@ -43,3 +43,25 @@
   position: relative;
   margin-bottom: 5rem;
 }
+
+@media (max-width: 1080px) {
+  .MainSearch_img {
+    display: none;
+    // width: 0;
+    // height: 0;
+  }
+
+  .MainSearch_container {
+    // position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+  }
+
+  .MainSearch_content {
+    top: auto !important;
+    right: auto !important;
+  }
+}
