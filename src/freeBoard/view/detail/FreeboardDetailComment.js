@@ -22,7 +22,7 @@ export default class Freeboarddetailcomment extends Component {
     }
 
     render() {
-        console.log(this.state.visible, this.state)
+        // console.log(this.state.visible, this.state)
         
         const comment =this.props.comment
 

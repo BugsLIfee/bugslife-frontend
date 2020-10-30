@@ -8,7 +8,12 @@ import "../view/detail/scss/FreeboardDetailiCon.scss"
 @inject("Store")
 @observer
 class Freeboarddetailcontainer extends Component {
+    state=({like:false})
 
+     onLikePost= async(like)=>{
+        this.setState({like:like})
+        await this.props.Store.freeboard.onLikePost(!like)
+    }
 
 
     render() {
@@ -16,21 +21,9 @@ class Freeboarddetailcontainer extends Component {
         return (
             <div className="freeboard_detail_wrap">
                     <div className="free_borad_title"><h1>자유게시판</h1></div>
-                {/* <div className="freeboard_detail_cate"> <h4>연애</h4> </div> */}
+  
                 <div className="freeboard_detail_postcontainer">
-                    {/* <div className="freeboard_detail_head">
-                        <div className="freeboard_detail_head_title">
-                        <div className="freeboard_detail_post_num freeboard_detail_col">글 번호</div>
-                        <div className="freeboard_detail_post_title freeboard_detail_col">제목</div>
-                    </div>
-                    
-                    <div className="freeboard_detial_head_info">
-                        <div className="freeboard_detail_post_date freeboard_detail_col">등록일</div>
-                        <div className="freeboard_detail_post_view freeboard_detail_col">조회수</div>
-                    </div>
-                        
-                   </div>           */}
-                    <Freeboarddetailview detail = {freeboard_detail}/>
+                    <Freeboarddetailview detail = {freeboard_detail} like={this.state.like} onLikePost={this.onLikePost} />
                 </div>
 
             </div>
