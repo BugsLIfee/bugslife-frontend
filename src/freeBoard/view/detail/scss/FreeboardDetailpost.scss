@@ -11,8 +11,6 @@
     font-size: 1rem;
     padding: 0.5rem;
     border: 1px solid lightgray;
-    // background-color: rgb(63, 153, 212);
-    // border-radius: 5px;
     color: gray;
   }
   a {
@@ -55,4 +53,75 @@
 .freeboard_detail_content_body {
   padding: 2rem;
   margin-bottom: 3rem;
+}
+
+.freeboard_detail_like-report {
+  display: flex;
+  flex-direction: row;
+  margin: 1rem auto;
+  padding: 2rem;
+  padding-top: 3rem;
+  justify-content: center;
+  border-radius: 15px;
+
+  .freeboard_detail_like {
+    h5 {
+      //color: rgb(51, 122, 168);
+      color: rgb(44, 150, 84);
+    }
+  }
+
+  .freeboard_detail_report {
+    h5 {
+      color: rgb(192, 54, 54);
+    }
+  }
+
+  .freeboard_detail_like_sec {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgb(197, 197, 197);
+    border-radius: 10px;
+    margin: 0.5rem;
+    h6 {
+      color: rgb(77, 77, 77);
+      padding: 0.5rem;
+      margin: 0;
+      border-radius: 100%;
+      font-weight: bolder;
+    }
+
+    &:hover {
+      cursor: pointer;
+      box-shadow: rgb(141, 141, 141) 2px 3px;
+      transition: 0.3s;
+    }
+  }
+
+  .like_done {
+    background-color: rgb(235, 255, 236);
+  }
+
+  .freeboard_detail_like_sec_icon h5 {
+    display: flex;
+    // padding: 0.5rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    font-weight: bolder;
+    font-size: 0.9rem;
+    border-right: 1px solid lightgray;
+    // background-color: red;
+  }
+}
+.freeboard_detail_like_img {
+  width: 1.2rem;
+}
+
+.freeboard_detail_report_img {
+  width: 1.2rem;
 }

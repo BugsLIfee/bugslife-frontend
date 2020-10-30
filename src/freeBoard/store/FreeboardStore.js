@@ -21,6 +21,20 @@ class FreeboardStore{
     freeboard_select_posts = [];
 
     
+    @action
+    onLikePost =(like)=>{
+      console.log(this.freeboard_detail.fb_post.like);
+
+      if(like ===false){
+        this.freeboard_detail.fb_post.like+=1
+        
+      }else{
+        this.freeboard_detail.fb_post.like-=1
+      }
+      console.log(this.freeboard_detail.fb_post);
+
+      
+    }
 
     @action
     onFilterPosts =(cate_list)=>{
@@ -53,7 +67,6 @@ class FreeboardStore{
     setCategorySelect=(cate_list)=>{
         this.onFilterPosts(cate_list);
     }
-
 
     @action
     setListOrderBy(e) {
