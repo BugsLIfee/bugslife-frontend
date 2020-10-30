@@ -7,15 +7,20 @@ import { Input, Menu, Button } from "semantic-ui-react"
 
 
 export default class Freeboardlistcontainer extends Component {
+  state = {}
+
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+  orderByNew = () => {
+    console.log("event")
+  }
 
     render() {
         const freeboard_list =this.props.freeboard_list;
-        const freeboard_select_posts = this.props.freeboard_select_posts;
+        const freeboard_select_posts = this.props.freeboard_select_posts
 
-
-        let totalPage = Math.floor(freeboard_select_posts.length / 5) == 0? 1:  Math.floor(freeboard_select_posts.length / 5) //60건이라면 totalPage
-        console.log(totalPage)
-        //console.log(freeboard_select_posts)
+        let totalPage = Math.floor(freeboard_select_posts.length / 5) === 0? 1:  Math.floor(freeboard_select_posts.length / 5) //60건이라면 totalPage
+        const { onSetOrderBy } = this.props
+        const { activeItem } = this.state
     
         return (
             
@@ -24,24 +29,24 @@ export default class Freeboardlistcontainer extends Component {
              <Menu position="left" className="listHeader headerBar">
               <Menu.Item
                 name="최신순"
-                // active={activeItem === "최신순"}
-                // onClick={() => {
-                //   onSetOrderBy("d")
-                // }}
+                active={activeItem === "최신순"}
+                onClick={() => {
+                  onSetOrderBy("d")
+                }}
               />
               <Menu.Item
                 name="조회수"
-                // active={activeItem === "조회수"}
-                // onClick={() => {
-                //   onSetOrderBy("v")
-                // }}
+                active={activeItem === "조회수"}
+                onClick={() => {
+                  onSetOrderBy("v")
+                }}
               />
               <Menu.Item
                 name="추천수"
-                // active={activeItem === "추천수"}
-                // onClick={() => {
-                //   onSetOrderBy("l")
-                // }}
+                active={activeItem === "추천수"}
+                onClick={() => {
+                  onSetOrderBy("l")
+                }}
               />
               <Menu.Item position="right">
                   <Input icon={{ name: "search", circular: true, link: true }} placeholder="Search" />
@@ -60,7 +65,7 @@ export default class Freeboardlistcontainer extends Component {
                 </div>
                     
                 </div>
-                <Freeboardlistview id="free_list" freeboard_list={freeboard_select_posts.length ==0 ? freeboard_list : freeboard_select_posts} />
+                <Freeboardlistview id="free_list" freeboard_list={freeboard_select_posts.length ===0 ? freeboard_list : freeboard_select_posts} />
                 <div className="free_list_pagination">
 
                 <Pagination

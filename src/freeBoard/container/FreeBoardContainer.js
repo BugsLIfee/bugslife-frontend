@@ -8,6 +8,10 @@ import Freeboardlistcontainer from './FreeBoardListContainer'
 @observer
 class FreeBoardContainer extends Component {
 
+    onSetListOrderBy = (e) => {
+        this.props.Store.freeboard.setListOrderBy(e)
+      }
+
     render() {
         const {freeboard_list}= this.props.Store.freeboard
         const {freeboard_cate} = this.props.Store.freeboard
@@ -23,7 +27,7 @@ class FreeBoardContainer extends Component {
                         <FreeboardcateContainer freeboard_cate ={freeboard_cate} />
                     </div>
                     <div className='freeboard_list'>
-                    <Freeboardlistcontainer freeboard_list={freeboard_list} freeboard_select_posts={freeboard_select_posts}/> 
+                        <Freeboardlistcontainer onSetOrderBy={this.onSetListOrderBy} freeboard_list={freeboard_list} freeboard_select_posts={freeboard_select_posts}/> 
                     </div>
                   
                 

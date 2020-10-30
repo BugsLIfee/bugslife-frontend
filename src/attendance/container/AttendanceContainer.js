@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import Attendancecalender from '../view/AttendanceCalender'
 import "../view/scss/calendar.scss"
 import { inject, observer } from "mobx-react"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 @inject("Store")
 @observer
@@ -17,8 +20,6 @@ import { inject, observer } from "mobx-react"
 
         let today = new Date();   
 
-
-
         let year = today.getFullYear(); // 년도
         let month = today.getMonth() + 1;  // 월
         let date = today.getDate();  // 날짜
@@ -28,9 +29,25 @@ import { inject, observer } from "mobx-react"
 
 
         if( error.length!==0){
-            alert(error) 
+            toast.error(error, {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                });
         }else{
-            alert("출석완료 🎊")
+            toast.info('출석완료 🎊', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                });
 
         };
 
@@ -86,7 +103,18 @@ import { inject, observer } from "mobx-react"
                 </div>
 
                 <div className="attn_btn">
-                    <button onClick={this.onClickBtn}> <h2> 출석체크! </h2></button>
+                    <button className = "attn_btn_" onClick={this.onClickBtn}> <h2> 출석체크! </h2></button>
+                     
+                     <ToastContainer 
+                        position="top-center"
+                        autoClose={5000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover />
                 </div>
                 <hr />
 

@@ -1,7 +1,4 @@
-import { action } from "mobx";
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
-// import MainContainer from "../../main/container/MainContainer";
 import "./scss/myPage_UserEditView.scss"
 
 class MyPageEditView extends Component {
