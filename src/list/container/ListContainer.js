@@ -21,7 +21,7 @@ class ListContainer extends Component {
     return (
       <Grid className="listLayout"> 
         <Grid.Column width={9} className="listItemBox" >
-        <Grid.Row className="header">
+        <Grid.Row className="ListGridHeader">
           <ListHeaderContainer onSetOrderBy={this.onSetListOrderBy} />
         </Grid.Row>
         <Grid.Row >

@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 import { Grid, Image } from "semantic-ui-react";
 import "../../view/scss/EduDetail.scss"
 
 export class EduDetailInfoView extends Component {
     render() {
+        const {eduDetail} = this.props
         return (
 
                <Grid className="eduInfoTable">
                     <Grid.Column width={3} className="eduInfoImg">
-                        <Image src="https://react.semantic-ui.com/images/wireframe/image.png" />
+                        <Image src={eduDetail.imgUrl} />
                     </Grid.Column>
 
                     <Grid.Column width={13} className="eduInfoColumn">
@@ -17,7 +19,7 @@ export class EduDetailInfoView extends Component {
                             교육과정명
                             </Grid.Column>
                             <Grid.Column className="eduCellBody">
-                            혁신성장
+                            {eduDetail.eTitle}
                             </Grid.Column>
                         </Grid.Row>
                         <Grid.Row className="eduInfoRow">
@@ -25,7 +27,7 @@ export class EduDetailInfoView extends Component {
                             교육기간
                             </Grid.Column>
                             <Grid.Column className="eduCellBody">
-                            내일
+                            {eduDetail.startDate} ~ {eduDetail.endDate}
                             </Grid.Column>
                         </Grid.Row>
                         <Grid.Row className="eduInfoRow">
@@ -33,7 +35,7 @@ export class EduDetailInfoView extends Component {
                             기관명
                             </Grid.Column>
                             <Grid.Column className="eduCellBody">
-                            멀캠
+                            {eduDetail.aTitle}
                             </Grid.Column>
                         </Grid.Row>
                         <Grid.Row className="eduInfoRow">
@@ -41,7 +43,7 @@ export class EduDetailInfoView extends Component {
                             주소
                             </Grid.Column>
                             <Grid.Column className="eduCellBody">
-                            우리집
+                            {eduDetail.addrDetail}
                             </Grid.Column>
                         </Grid.Row>
                         
@@ -49,9 +51,9 @@ export class EduDetailInfoView extends Component {
                                 
                         <Grid.Column className="eduInfoRow">
                         <div className="eduCellTitle">전화번호</div >
-                        <div className="eduCellSBody">교육과정명</div>
+                        <div className="eduCellSBody">{eduDetail.telephone}</div>
                         <div className="eduCellTitle">홈페이지</div>
-                        <div className="eduCellSBody">교육과정명</div>
+                        <div className="eduCellSBody"><a href={`http://${eduDetail.homepage}`} target="_blank">{eduDetail.homepage}</a></div>
                         </Grid.Column>
                             
                         
