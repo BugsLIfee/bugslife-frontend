@@ -7,6 +7,7 @@ const selected_post =
         views: 22,
         content: `하이 여러분 안녕 \n 자바스크립트로 알고리즘 풀어봤는데 언어를 바꾸려구요 \n 어떻게 생각하세요`,
         report_cnt:0,
+        like:1,
         is_blind:false,
      },
      comment: [

@@ -14,21 +14,22 @@ export default class Freeboardpost extends Component {
 
     componentDidMount(){
         const cate = this.props.post.cate;
-        const icon = this.state.cate_icon
-        if(cate == "연애"){
+
+
+        if(cate === "연애"){
             this.setState({cate_icon: "heart"});
-        }else if(cate == "회사"){
+        }else if(cate === "회사"){
             this.setState({cate_icon: "building outline"});
-        }else if(cate =="학업"){
+        }else if(cate ==="학업"){
             this.setState({cate_icon: "book"});
         }
-        else if(cate =="유머"){
+        else if(cate ==="유머"){
             this.setState({cate_icon: "smile outline"});
         }
-        else if(cate =="자유"){
+        else if(cate ==="자유"){
             this.setState({cate_icon: "bomb"});
         }
-        else if(cate =="취업"){
+        else if(cate ==="취업"){
             this.setState({cate_icon: "student"});
         }
         else {
@@ -39,7 +40,7 @@ export default class Freeboardpost extends Component {
 
     render() {
         const post = this.props.post
-        const cate = this.props.post.cate;
+        
         return (
            <div className="post_container">
 

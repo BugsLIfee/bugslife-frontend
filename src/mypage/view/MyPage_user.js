@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import SignUp from '../../user/view/SignUp'
 import MyPageEditView from './MyPage_EditView'
 
 export default class MypageUser extends Component {
