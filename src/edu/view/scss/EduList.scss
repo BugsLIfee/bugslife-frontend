@@ -50,6 +50,8 @@
     margin: 0px !important;
     width: 100% !important;
     .eduItemImg {
+      display: flex !important;
+      align-items: center;
       padding: 0px !important;
     }
     .eduItemMain {
@@ -92,6 +94,9 @@
       font-size: 1.3rem;
       color: #1d78ce;
     }
+  }
+  span {
+    padding: 0px !important;
   }
 }
 

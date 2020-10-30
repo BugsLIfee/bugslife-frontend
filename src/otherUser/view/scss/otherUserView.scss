@@ -1,9 +1,10 @@
 .otherUser_header {
-    margin-left: 5%;
-    font-size: 2.25rem;
+  margin-left: 5%;
+  font-size: 2.25rem;
 }
 
 .otherUser {
+
     margin: 0 auto;
     .profile {
         display: flex;
@@ -17,83 +18,97 @@
         align-items: center;
     }
 
-    .icon {
-        font-size: 5rem;
-        color: orange;
-    }
+  margin: 0 auto;
+
+  .profile {
+    display: flex;
+    margin: 2rem auto;
+    flex-direction: column;
+    justify-content: center;
+    width: 300px;
+    padding: 2rem;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    align-items: center;
+  }
+
+
+  .icon {
+    font-size: 5rem;
+    color: orange;
+  }
 }
 
 .MyPage_container {
-    position: relative;
-    margin: 0 auto;
+  position: relative;
+  margin: 0 auto;
 
-    h1 {
-        text-align: right;
-        padding-right: 3rem;
-    }
+  h1 {
+    text-align: right;
+    padding-right: 3rem;
+  }
 
-    #coin {
-        font-size: 2rem;
-        width: 100%;
-        padding-bottom: 5px;
-    }
+  #coin {
+    font-size: 2rem;
+    width: 100%;
+    padding-bottom: 5px;
+  }
 }
 
 .MyPage_curr {
-    position: relative;
-    left: 10%;
+  position: relative;
+  left: 10%;
 }
 
 .MyPage_content {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 3rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 3rem;
 }
 
 
 .MyPage_level {
     display: inline-flex;
     flex-direction: row;
-    padding-top: 0.7rem;
 }
 
 .MyPage_coin {
-    #MyPage_coin_icon {
-        font-size: 1.2rem;
-        //   padding-top: 5px;
-        padding-right: 5px;
-    }
-    h3 {
-        font-size: 1.2rem;
-    }
+  #MyPage_coin_icon {
+    font-size: 1.2rem;
+    //   padding-top: 5px;
+    padding-right: 5px;
+  }
+  h3 {
+    font-size: 1.2rem;
+  }
 }
 
 .MyPage_level {
-    #MyPage_level_icon {
-        font-size: 1.2rem;
-        padding-top: 5px;
-        padding-right: 5px;
-        color: olivedrab;
-    }
-    h3 {
-        font-size: 1.2rem;
-    }
+  #MyPage_level_icon {
+    font-size: 1.2rem;
+    padding-top: 5px;
+    padding-right: 5px;
+    color: olivedrab;
+  }
+  h3 {
+    font-size: 1.2rem;
+  }
 }
 
 .otherUser_action {
-    width: 87%;
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    margin-bottom: 7rem;
-    border: 1px solid lightgray;
-    border-radius: 10px;
-    padding-bottom: 2rem;
+  width: 87%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-bottom: 7rem;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding-bottom: 2rem;
 
-h1 {
+  h1 {
     text-align: center;
     padding: 1rem;
     display: inline;
@@ -103,61 +118,66 @@ h1 {
     font-size: 1.3rem;
     font-weight: border;
     margin-bottom: 3rem;
-}
+  }
 
-.MyPage_action_detail {
+  .MyPage_action_detail {
     display: inline-flex;
     flex-direction: row;
     justify-content: space-evenly;
 
     .action_detail_column {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
 
-    h3 {
+      h3 {
         font-size: 1.3rem;
         padding-bottom: 6px;
-    }
+      }
 
-    .att_rate {
+      .att_rate {
         color: green;
-    }
-    .post_rate {
+      }
+      .post_rate {
         color: orange;
-    }
+      }
 
-    .like_rate {
+      .like_rate {
         color: crimson;
-    }
+      }
 
-    .point_rate {
+      .point_rate {
         color: black;
-    }
+      }
 
-    .selected_rate {
+      .selected_rate {
         color: blue;
+      }
     }
-    }
-}
+  }
 }
 
 .otherUser_detail_title {
-    width: 87%;
-    padding-right: 3rem;
-    background: black;
-    margin: 2rem auto 3rem;
-    border-radius: 10px 10px 0 0;
+  width: 87%;
+  padding-right: 3rem;
+  background: black;
+  margin: 2rem auto 3rem;
+  border-radius: 10px 10px 0 0;
 
-    h3 {
-        text-align: center;
-        font-size: 1.5rem;
-        color: white;
-        padding: 0.7rem;
-        }
+  h3 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: white;
+    padding: 0.7rem;
+  }
 }
 .otherUser_detail {
+  margin: 3rem 6% 5rem 6%;
+  width: 87%;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 
     margin: 3rem 6% 5rem 6%;
     width: 87%;
@@ -206,54 +226,62 @@ h1 {
             display: none; 
         }
     }
+
+    .column_title {
+      text-align: center;
+      padding: 0.5rem;
+      font-size: 1.5rem;
+      font-weight: bolder;
+    }
+  }
 }
 
 .MyPage_detail_post_icon {
-    text-align: right;
-    a {
-        margin-right: 3px;
-    }
+  text-align: right;
+  a {
+    margin-right: 3px;
+  }
 }
 
 .MyPage_detail_columm_point {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .MyPage_detail_columm_point_card {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    height: 100%;
-    height: 5rem;
-    margin: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  height: 100%;
+  height: 5rem;
+  margin: 1rem;
 
-    &:hover {
-        cursor: pointer;
-        box-shadow: 5px 5px;
-    }
+  &:hover {
+    cursor: pointer;
+    box-shadow: 5px 5px;
+  }
 
-    #MyPage_detail_coin {
-        font-size: 1.4rem;
-        padding-right: 0.5rem;
-    }
+  #MyPage_detail_coin {
+    font-size: 1.4rem;
+    padding-right: 0.5rem;
+  }
 
-    h3 {
-        font-size: 1.5rem;
-    }
+  h3 {
+    font-size: 1.5rem;
+  }
 }
 
 .curr_point {
-    background-color: rgb(255, 212, 157);
-    transition: 0.3s;
+  background-color: rgb(255, 212, 157);
+  transition: 0.3s;
 }
 .charge_point {
-    background-color: rgb(250, 182, 93);
-    transition: 0.3s;
+  background-color: rgb(250, 182, 93);
+  transition: 0.3s;
 }
 .history_point {
-    background-color: rgb(253, 145, 5);
-    transition: 0.3s;
+  background-color: rgb(253, 145, 5);
+  transition: 0.3s;
 }

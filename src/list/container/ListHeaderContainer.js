@@ -6,7 +6,7 @@ class ListHeaderContainer extends Component {
   render() {
     const { onSetOrderBy } = this.props
     return (
-      <div className="header">
+      <div className="ListGridHeader">
         <span className="qna">
           <h1>버그 Q&A</h1>
         </span>

@@ -36,7 +36,31 @@
 .attn_btn {
   text-align: center;
   margin: 3rem 0;
-  @extend .blue_button;
+  border-radius: 10px;
+
+  .attn_btn_ {
+    border: none;
+    outline: none;
+  }
+  h2 {
+    width: fit-content;
+    border: none;
+    padding: 1rem 6rem;
+    border-radius: 10px;
+    background-color: $blue;
+    color: white;
+    font-size: 1.8rem;
+
+    &:hover {
+      transition: 0.3s;
+      background-color: rgb(49, 115, 160);
+      box-shadow: black 3px 3px;
+    }
+  }
+
+  &:focus {
+    outline: none;
+  }
 }
 
 .attn_info {
@@ -130,4 +154,9 @@
   left: 0;
   z-index: 4;
   padding: 4px;
+}
+
+.fc .fc-button .fc-icon {
+  vertical-align: baseline;
+  font-size: 1em;
 }

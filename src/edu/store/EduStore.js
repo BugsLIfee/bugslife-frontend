@@ -19,7 +19,9 @@ class EduStore {
     }
 
     get getEduId() {
+        console.log(this.eId)
         return this.eId
+    
     }
 
     get getEduReview() {
