@@ -5,10 +5,6 @@ import "./scss/myPage.scss";
 import CountUp from "react-countup";
 
 export default class MypageHome extends Component {
-constructor(props){
-  super(props)
-
-}
 
   render() {
     const image = "../main/pink_sqaure.png";

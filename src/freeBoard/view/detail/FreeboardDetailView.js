@@ -15,8 +15,8 @@ export default class Freeboarddetailview extends Component {
                 <div className="freeboard_detail_container">  
                     <div className="freeboard_detail_nav">
                         <a href="/freeboard"><h4>목록</h4></a>
-                        <a href="#"><h4>이전글</h4></a>
-                        <a href="#"><h4>다음글</h4></a>
+                        <a href="/"><h4>이전글</h4></a>
+                        <a href="/"><h4>다음글</h4></a>
                     </div>
                     <hr />
                     

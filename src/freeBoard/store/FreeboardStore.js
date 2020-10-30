@@ -1,4 +1,4 @@
-import { observable, computed, action } from "mobx"
+import { observable,  action } from "mobx"
 import FreeboardListData from "./FreeboardListData";
 import selected_post from "./FreeboardTestData";
 
@@ -25,18 +25,17 @@ class FreeboardStore{
     @action
     onFilterPosts =(cate_list)=>{
 
-    //console.log(cate_list)
       let select_post = []
 
       
-      if(cate_list.length==0){
+      if(cate_list.length===0){
         console.log("No category")
           this.freeboard_select_posts= this.freeboard_list
           
       }else{
         cate_list.map((cate)=> {
         let filtered= this.freeboard_list.filter((val)=> {
-             return val = (val.cate == cate)  
+             return val = (val.cate === cate)  
         })
         
         if(filtered.length > 0){
@@ -55,6 +54,23 @@ class FreeboardStore{
         this.onFilterPosts(cate_list);
     }
 
+
+    @action
+    setListOrderBy(e) {
+      switch (e) {
+        case "v":
+          let viewList = this.freeboard_list.sort((a, b) => b["views"] - a["views"])
+          this.freeboard_list = viewList
+          break
+        case "l":
+          let likeList = this.freeboard_list.sort((a, b) => b["addPoints"] - a["addPoints"])
+          this.freeboard_list = likeList
+          break
+        case "d":
+          this.freeboard_list = FreeboardListData;
+          break
+      }
+    }
 }
 
 export default FreeboardStore
