@@ -11,48 +11,24 @@ class ContactSideMenu extends Component {
     const activeItem  = this.props.menu;
     console.log("contact side menu:", activeItem);
     return (
-      <Menu vertical size="huge">
-        <Menu.Header
-          style={{ color: "white", backgroundColor: "green", padding: "20px" }}
-        >
-          CONTACT US
-        </Menu.Header>
-        <Menu.Item>
-          <Menu.Header>
-            1:1 문의 게시판
-            <Menu.Menu>
-              <Menu.Item
-                name="qna-my"
-                active={activeItem === "qna-my"}
-                onClick={this.handleItemClick}
-                as={Link}
-                to="/contact/qna-my"
-              >
-                나의 문의내역
-              </Menu.Item>
-              <Menu.Item
-                name="qna-write"
-                active={activeItem === "qna-write"}
-                onClick={this.handleItemClick}
-                as={Link}
-                to="/contact/qna-q-write"
-              >
-                1:1 문의하기
-              </Menu.Item>
-            </Menu.Menu>
-          </Menu.Header>
-        </Menu.Item>
-        <Menu.Item
-          
-            name="info"
-            active={activeItem === "info"}
-            onClick={this.handleItemClick}
-            as={Link}
-            to="/contact/info"
-          >
-            공지사항 게시판
-        </Menu.Item>
-      </Menu>
+     
+    <div className="contactside">
+        <a href="/contact/info">
+          <div className="list info">
+              공지사항
+          </div>
+        </a>
+        <a href="/contct/qna-write">
+          <div className="list">
+              1:1문의 하기 
+          </div>
+        </a>
+        <a href="/contact/qna-my">
+          <div className="list">
+              나의 1:1문의
+          </div>
+        </a>
+    </div>
     );
   }
 }

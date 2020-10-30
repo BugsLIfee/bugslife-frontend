@@ -1,0 +1,33 @@
+.info-header{
+    width: 50rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    .info-header-span{
+        width:100%;
+    }
+    
+    // .writeBtn{
+    //     float: right;
+    // }
+}
+
+.write_btn_box {
+    text-decoration: none;
+   font-size: 20px;
+    width: 200px !important;
+    text-align:right;
+    color:black;
+    border-radius: 10px ;
+    height: 50px;
+    line-height: 50px;
+    padding-right:20px;
+    
+   
+}
+.write_btn_box:hover {
+     text-decoration: none;
+    text-align:right;
+    background-color:black;
+    color:white;
+}
