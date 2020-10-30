@@ -33,7 +33,6 @@ import {
  } from "./Routes";
 
 import Signup from "./oauth/signup/Signup";
-import AdminPage from "./admin/view/AdminPage";
 
 
 
@@ -86,8 +85,7 @@ class App extends Component {
           <Route path="/point" component={PointPage} />
           <Route path="/posting_fr" component={FreeboardEditorContainer} />
           <Route path="/edu" component={EduListContainer} exact={true} />
-          <Route path="/edu/detail" component={EduDetailContainer} exact={true} />
-          <Route path="/test" component={AdminPage} exact={true} />
+          <Route path="/edu/detail/:id" component={EduDetailContainer}/>
           <Route path="/otherUser" component={OtherUserContainer}/>
 
         </Switch>

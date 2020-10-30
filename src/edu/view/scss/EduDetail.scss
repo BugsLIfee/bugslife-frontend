@@ -60,3 +60,81 @@
     }
   }
 }
+
+.eduReviewLayout {
+  margin: 50px 0;
+  padding: 15px;
+
+  border: 1px solid #cccccc;
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
+
+  .eduReviewHeader {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 10px;
+
+    .eduReviewHeadewValue {
+      font-size: 1rem;
+      font-weight: bold;
+      color: #555555;
+      padding: 0px 7px;
+      border-right: 1px solid #eaeaea;
+    }
+  }
+  .eduReviewBody {
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+
+    .eduReviewBodyL {
+      width: 20%;
+
+      .reviewRating {
+        display: flex;
+        flex-direction: column;
+
+        .allRate {
+          margin-bottom: 20px;
+          font-weight: bold;
+          margin-left: 5px;
+          align-items: center;
+          display: flex;
+          flex-direction: row;
+          .allRateValue {
+            margin-left: 15px;
+            font-size: 2rem;
+            color: #2281da;
+          }
+        }
+
+        .reviewRatingItem {
+          margin-bottom: 15px;
+          display: flex;
+          flex-direction: column;
+          font-weight: bold;
+
+          .reviewRatingBar {
+            margin-top: -5px;
+          }
+        }
+      }
+    }
+    .eduReviewBodyR {
+      width: 70%;
+      margin-top: 10px;
+      .eduReviewTitle {
+        font-size: 1.6rem;
+        font-weight: bold;
+      }
+      .eduReviewContent {
+        font-size: 1.2rem;
+        margin-top: 20px;
+      }
+    }
+  }
+}

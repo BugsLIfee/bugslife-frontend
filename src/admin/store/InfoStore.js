@@ -1,7 +1,6 @@
 import { observable, computed, action } from "mobx";
 import InfoApiModel from "../api/model/InfoApiModel";
 import InfoApi from "../api/InfoApi.js";
-import info from "../../contact/data/info";
 import infotype from "../../contact/data/category";
 
 export default class InfoStore {
@@ -11,10 +10,10 @@ export default class InfoStore {
   infos = [];
 
   @observable
-  info = info;
+  info = {};
 
   @observable
-  infoType = infotype;
+  infoType = {};
 
 
   @computed
@@ -28,7 +27,7 @@ export default class InfoStore {
   }
   @computed
   get getInfoType() {
-    return this.infoType ? { ...this.infoType } : {};
+    return this.infoType ? { ...this.infoType } : infotype;
   }
 
   @action
@@ -48,14 +47,14 @@ export default class InfoStore {
   }
 
   @action
-  async selectAllinfo() {
+  async selectAllinfo(CurrentUser) {
     console.log("selectall 스토어 도착!")
-    let result = await this.infoApi.infoList();
+    let result = await this.infoApi.infoList(CurrentUser);
     console.log("selectall 스토어리스트", result);
     if (result !== null) {
       this.infos = result;
     } else {
-      console.log(`${this.todo.todoNum}:TODO CREATE ERROR!`);
+      console.log( `공지사항 ERROR!`);
     }
   }
 
