@@ -52,7 +52,7 @@ class ListViewContainer extends Component {
     return (
       <div className="list_wrap">
         {list}
-        <div className="listpage paging">
+        <div className="listpage listQnAPaging">
           <Pagination
             boundaryRange={0}
             defaultActivePage={1}
