@@ -6,13 +6,16 @@ import { inject, observer } from "mobx-react";
 @inject("Store")
 @observer
 class InfoListContainer extends Component {
+  constructor(){
+    this.props.Store.info.selectAllinfo();
+
+  }
   render() {
     console.log("---Infolistcontainer---");
 
     const infoStore = this.props.Store.info;
-    //api 연결후 적용
-    //infoStore.selectAllinfo();
-    //  const { ListData, TypeData } = this.props.Store.admin;
+    
+    // const { ListData, TypeData } = this.props.Store.admin;
     return (
       <div>
         <InfoList ListData={infoStore.getinfos} TypeData={infoStore.getinfoType} />
