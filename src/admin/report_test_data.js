@@ -11,7 +11,7 @@ const report_test_data = [
         is_done: false,
     },
     {
-        id : 1,
+        id : 13,
         type: "영리목적/홍보성",
         date: "2020-10-22",
         detail: "학원홍보냄새가 지독합니다.",

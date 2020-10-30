@@ -8,9 +8,6 @@ export default function ReportListView(props) {
     const [report_status, setReportStatus] = useState(2);
     const [page, setPage] = useState(1);
 
-    useEffect(() => {       
-    }, [report_status, ])
-
     let report_list_paging = report_list.slice((page-1) *10, page*10)
     let totalPage = Math.floor(report_list.length / 10)
 
@@ -22,9 +19,14 @@ export default function ReportListView(props) {
         return <ReportItemView report={report} onReceiptReport={onReceiptReport}/>
     });
 
+    const reRenderingPage = (index) => {
+        onSelectCategory(index);
+        setPage(1);
+    }
     const onClickReportStatus = (e, {value}) => {
         setReportStatus(value) 
         onSelectReportStatus(value);
+        setPage(1)
     }
 
     const setNextPage = (e) => {
@@ -39,7 +41,7 @@ export default function ReportListView(props) {
                     <p className="title">카테고리</p>
                     <div className="item">
                         {category.map((category, index)=>{
-                            return <Checkbox onClick={()=>onSelectCategory(index)} label={{ children: category }} className="check_box" />
+                            return <Checkbox onClick={()=>reRenderingPage(index)} label={{ children: category }} className="check_box" />
                         })}
                     </div>
                     <p className="title">처리여부</p>
