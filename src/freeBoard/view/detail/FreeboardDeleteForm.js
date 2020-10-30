@@ -12,7 +12,7 @@ export default class Freeboarddeleteform extends Component {
     }
     
     handlePwdChange(event) {
-        // console.log(this.state)
+
         this.setState({pwd : event.target.value})
       }
 
@@ -37,7 +37,6 @@ export default class Freeboarddeleteform extends Component {
 
     render() {
         const {delete_com, cur_id, select_id} = this.props;
-        console.log(this.state)
 
         return (
         <div>
