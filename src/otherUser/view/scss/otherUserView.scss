@@ -4,9 +4,7 @@
 }
 
 .otherUser {
-
     margin: 0 auto;
-
     .profile {
         display: flex;
         margin: 2rem auto;
@@ -24,7 +22,6 @@
         color: orange;
     }
 }
-
 
 .MyPage_container {
     position: relative;
@@ -57,7 +54,7 @@
 }
 
 
-span {
+.MyPage_level {
     display: inline-flex;
     flex-direction: row;
     padding-top: 0.7rem;
@@ -85,7 +82,6 @@ span {
         font-size: 1.2rem;
     }
 }
-
 
 .otherUser_action {
     width: 87%;
@@ -168,7 +164,18 @@ h1 {
     display: inline-flex;
     flex-direction: row;
     justify-content: space-evenly;
+    height: 35rem;
+    overflow: hidden;
 
+    .recently_body {
+        
+        .feed {
+            .event {
+                height: 5rem;
+            }
+        }
+    }
+    
     .otherUser_detail_column {
         position: relative;
         padding: 1rem;
@@ -187,6 +194,16 @@ h1 {
             padding: 0.5rem;
             font-size: 1.5rem;
             font-weight: bolder;
+        }
+
+        .column_body {
+            overflow: scroll;
+            height: 90%;
+            padding: 1rem;
+        }
+
+        .column_body::-webkit-scrollbar {
+            display: none; 
         }
     }
 }
