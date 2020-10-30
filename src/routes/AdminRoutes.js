@@ -8,6 +8,7 @@ import InfoListContainer from "../admin/container/info/InfoListContainer";
 import InfoDetailContainer from "../admin/container/info/InfoDetailContainer";
 import InfoEditContainer from "../admin/container/info/InfoEditContainer";
 import ReportBoardContainer from "../admin/container/report/ReportBoardContainer";
+import InquiryContainer from "../admin/container/inquiry/InquiryContainer";
 
 
 const AdminRoutes = ({ match }) => {
@@ -20,6 +21,7 @@ const AdminRoutes = ({ match }) => {
       <Route exact path={`${match.url}/info-list`} component={InfoListContainer} />
       <Route exact path={`${match.url}/info-write`} component={InfoDetailContainer} />
       <Route exact path={`${match.url}/info-detail`} component={InfoEditContainer} />
+      <Route exact path={`${match.url}/inquiry`} component={InquiryContainer} />
       <Route exact path={`${match.url}/report`} component={ReportBoardContainer} />
     </>
   );
