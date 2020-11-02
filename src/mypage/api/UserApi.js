@@ -1,6 +1,6 @@
 import axios from "axios";
-import {request}from  "../../oauth/api/APIUtils";
-import { API_BASE_URL, ACCESS_TOKEN } from '../../oauth/constants/index';
+import {request} from  "../../oauth/api/APIUtils";
+
 
 class UserApi{
     URL = "/api/mypage/";
@@ -25,12 +25,12 @@ class UserApi{
     //     return temp;
     // }
 
-    userList(){
-        return request({
-            url: API_BASE_URL + URL,
-            method:"GET"
-        })
-    }
+    // userList(){
+    //     return request({
+    //         url: API_BASE_URL + URL,
+    //         method:"GET"
+    //     })
+    // }
 
 
 
@@ -38,6 +38,14 @@ class UserApi{
         let userJson = JSON.stringify(userApiModel);
         return axios.put(this.URL, userJson).then((response)=> (response&& response.data)||null)
     }
+
+    // userDetail(uid){
+    //     return(
+    //      axios.get(this.URL + uid)
+    //         .then((response)=>(response && response.data) || null)
+    //     )
+    // }
+
 
     userDetail(uid){
         return(

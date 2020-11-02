@@ -19,7 +19,6 @@ class Mypagecontainer extends Component {
   }
 
   onClickEvent = (params) => {
-    console.log(params);
     this.setState({ curr_component: `${params}` });
   };
 
@@ -36,18 +35,13 @@ class Mypagecontainer extends Component {
 
 
   componentDidMount(){
-    const {user} = this.props.Store;
-    user.selectUser(1);
+    const curr_user = this.props.Store.oauth.currentUser;
+    console.log(curr_user)
   }
 
   render() {
     const state = this.state.curr_component;
-    const {user} = this.props.Store;
-
-    const selected_user = user.getUser
-    // console.log("selected_user : "+ selected_user, JSON.stringify(selected_user))
-    
-    console.log(selected_user)
+    const user = this.props.Store.oauth.currentUser;
 
     const goToPoint = () => {
       this.setState({curr_component: "point"});
@@ -68,7 +62,6 @@ class Mypagecontainer extends Component {
           >
             <Menu.Item
               as="a"
-              //   href="/mypage"
               onClick={() => this.onClickEvent("home")}
             >
               <br></br>
@@ -77,7 +70,6 @@ class Mypagecontainer extends Component {
             </Menu.Item>
             <Menu.Item
               as="a"
-              //   href="/mypage/posts"
               onClick={() => this.onClickEvent("post")}
             >
               <Icon name="book" />
@@ -85,7 +77,6 @@ class Mypagecontainer extends Component {
             </Menu.Item>
             <Menu.Item
               as="a"
-              //   href="/"
               onClick={() => this.onClickEvent("user")}
             >
                <Icon name="male" />
@@ -93,7 +84,6 @@ class Mypagecontainer extends Component {
             </Menu.Item>
             <Menu.Item
               as="a"
-              //   href="/"
               onClick={() => this.onClickEvent("point")}
             >
               <i id="coin" class="fas fa-coins"></i>
@@ -102,10 +92,10 @@ class Mypagecontainer extends Component {
           </Sidebar>
           <div className="MyPage_curr">
             {this.user}
-            {state === "home" && <MypageHome user ={selected_user} onClickPoint={goToPoint}/>}
+            {state === "home" && <MypageHome user ={user} onClickPoint={goToPoint}/>}
             {state === "post" && <MypagePost />}
-            {state === "user" && <MypageUser user={selected_user} onSubmitForm={this.onSubmitForm}/>}
-            {state === "point" && <PointPage user={selected_user} />}
+            {state === "user" && <MypageUser user={user} onSubmitForm={this.onSubmitForm}/>}
+            {state === "point" && <PointPage user={user} />}
           </div>
 
           <Sidebar.Pusher>

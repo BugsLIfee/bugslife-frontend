@@ -12,7 +12,7 @@ export default class InfoEdit extends Component {
     const {info} = this.props;
     this.state={
       writerId:info.writerId ? info.writerId : "test",
-      categoryId:info.categoryId ? info.categoryId :"",
+      adminCategory:info.adminCategory ? info.adminCategory :"",
       registDate:info.registDate ? info.registDate : "",
       editDate:info.editDate ? info.editDate : "",
       title: info.title ? info.title : "",
@@ -54,7 +54,7 @@ export default class InfoEdit extends Component {
       onModifyInfo,
     } = this.props;
     
-    const {writerId, registDate,editDate,content, title,categoryId} =this.state;
+    const {writerId, registDate,editDate,content, title,adminCategory} =this.state;
 
 
     return (
@@ -75,8 +75,8 @@ export default class InfoEdit extends Component {
             readOnly
                fluid
             label="카테고리"
-              name="categoryId"
-              value={categoryId}
+              name="adminCateogory"
+              value={adminCategory}
             />
             {console.log("rg-?",registDate, editDate)}
             {registDate

@@ -16,15 +16,21 @@ export default class MypageHome extends Component {
     const user = this.props.user;
     const {onClickPoint} = this.props;
 
+    console.log("user? " +user)
+
+
     return (
       <>
         <div className="MyPage_content">
           <div className="MyPage_profile">
-            <i id="MyPage_profile_icon" class="far fa-grin"></i>
+           {(user.imageUrl === null)? (<i id="MyPage_profile_icon" class="far fa-grin"></i>): ( <img className= "MyPage_profile_img" src={user.imageUrl} />)}
+            {/* <img className= "MyPage_profile_img" src={user.imageUrl} />
+            <i id="MyPage_profile_icon" class="far fa-grin"></i> */}
             <br></br>
 
             <h2>{user.name}</h2>
-            <span className="MyPage_level">
+
+              <span className="MyPage_level">
               <i id="MyPage_level_icon" class="fas fa-check-circle"></i>
               <h3>
                 <strong>Level </strong>: {user.level}
@@ -33,14 +39,14 @@ export default class MypageHome extends Component {
             <span className="MyPage_coin">
               <i id="MyPage_coin_icon" class="fas fa-coins"></i>
               <h3>
-    <strong>Point </strong>: {user.point}p
+                  <strong>Point </strong>: {user.point}p
               </h3>
             </span>
           </div>
         </div>
         <div className="MyPage_action">
           <h1 className="action_title">
-            <b>User ID</b>님의 활동
+            <b>{user.name}</b>님의 활동
           </h1>
 
           <div className="MyPage_action_detail">

@@ -39,8 +39,8 @@ class InfoList extends Component {
     let CreateTableRowList = listPageOne.map((obj,key) => (
       <Table.Row key={key} onClick={()=>handleLink(`${obj.id}`)}>
         <Table.Cell >{obj.id}</Table.Cell>
-        <Table.Cell >{obj.writerId}</Table.Cell>
-        <Table.Cell > {MakeTypeName(obj)}</Table.Cell>
+        <Table.Cell >{obj.user.name}</Table.Cell>
+        <Table.Cell > {obj.adminCategory}</Table.Cell>
         <Table.Cell >{obj.title}</Table.Cell>
         <Table.Cell >
           {obj.editDate==="" 
