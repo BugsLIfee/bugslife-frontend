@@ -1,6 +1,5 @@
 import axios from "axios";
-import {request}from 
-"../../oauth/api/APIUtils";
+import {request}from  "../../oauth/api/APIUtils";
 import { API_BASE_URL, ACCESS_TOKEN } from '../../oauth/constants/index';
 export default class InfoApi {
   url = "/api/info/";
