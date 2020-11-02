@@ -1,9 +1,8 @@
 import axios from "axios";
-import {request}from 
-"../../oauth/api/APIUtils";
+import { request }from "../../oauth/api/APIUtils";
 import { API_BASE_URL, ACCESS_TOKEN } from '../../oauth/constants/index';
 export default class InfoApi {
-  url = "/api/info/";
+  url = "/api/notice/";
 
   infoCreate(infoApiModel) {
     return axios
@@ -19,8 +18,9 @@ export default class InfoApi {
   //todoList(todoApiModel):url get  return todo
   infoList(cyrrentUserInfo) {
     return request({
-      url:API_BASE_URL + "/api/info/",
+      url:API_BASE_URL + "/api/notice/",
       method:'GET'
+      
     });
      // .get(this.url)
      // .then((response) => (response && response.data) || null);
