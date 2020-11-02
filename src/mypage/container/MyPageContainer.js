@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Icon, Menu, Segment, Sidebar } from "semantic-ui-react";
 import MypageHome from "../view/MyPage_Home";
 import MypagePost from "../view/MyPage_Post";
-import "../scss/myPage.scss";
+import "../scss/myPageContainer.scss";
 import {inject, observer} from "mobx-react"
 import MypageUser from "../view/MyPage_user";
 import PointPage from "../../point/PointPage";

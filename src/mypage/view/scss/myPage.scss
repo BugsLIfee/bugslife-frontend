@@ -27,6 +27,7 @@
   align-items: center;
   padding-bottom: 3rem;
 }
+
 .MyPage_profile {
   display: flex;
   margin: 2rem auto;
@@ -47,12 +48,17 @@
     flex-direction: row;
     padding-top: 0.7rem;
   }
+
+  // .action_title {
+  //   text-align: center !important;
+  // }
+
   .MyPage_coin {
     #MyPage_coin_icon {
       font-size: 1.2rem;
-      //   padding-top: 5px;
       padding-right: 5px;
     }
+
     h3 {
       font-size: 1.2rem;
     }
@@ -82,7 +88,7 @@
   padding-bottom: 2rem;
 
   h1 {
-    text-align: center;
+    text-align: center !important;
     padding: 1rem;
     display: inline;
     color: white;
