@@ -63,7 +63,7 @@
         review : [{
             rid : 1,
             uid : "서동주",
-            userIcon: "../logo/userIcon.png",
+            userIcon: "../../public/logo/userIcon.png",
             eid : 1,
             eTitle : "혁신성장 클라우드 마이크로 서비스 아키텍쳐",
             title : "어렵지만 강사진과 수업내용이 모두 훌륭한 교육",

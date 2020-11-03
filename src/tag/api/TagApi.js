@@ -1,7 +1,10 @@
 import axios from "axios"
+import { request }from "../../oauth/api/APIUtils";
+import { API_BASE_URL, ACCESS_TOKEN } from '../../oauth/constants/index';
+
 
 class TagApi {
-  URL = "/api/tag/"
+  url = "/api/tag/"
 
   tagCreate(tagApiModel) {
     return axios.post(this.URL, tagApiModel).then((response) => (response && response.data) || null)
@@ -11,7 +14,11 @@ class TagApi {
   }
   //todoList(todoApiModel):url get  return todo
   tagListAll() {
-    return axios.get(this.URL).then((response) => (response && response.data) || null)
+    return request({
+      url:API_BASE_URL + "/api/tag/",
+      method:'GET'
+    });
+    // return axios.get(this.URL).then((response) => (response && response.data) || null)
   }
   //todoModify(todoApiModel):url put  return void
   tagModify(tagApiModel) {
