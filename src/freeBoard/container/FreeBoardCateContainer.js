@@ -23,7 +23,7 @@ class FreeboardcateContainer extends Component {
         }
 
         this.setState({cate_list : changed_list})
-        console.log(this.state.cate_list)
+        // console.log(this.state.cate_list)
         this.props.Store.freeboard.setCategorySelect(changed_list)
     }
 

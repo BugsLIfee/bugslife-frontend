@@ -1,11 +1,18 @@
-import { observable,  action } from "mobx"
+import { observable,  action, computed } from "mobx"
+import FreeboardApi from "../api/FreeboardApi";
 import FreeboardListData from "./FreeboardListData";
 import selected_post from "./FreeboardTestData";
 
 class FreeboardStore{
 
+    freeApi = new FreeboardApi();
+
     @observable
-    freeboard_list = FreeboardListData;
+    freeboard_list = []
+
+
+    // @observable
+    // freeboard_list = FreeboardListData;
 
     @observable
     freeboard_detail = selected_post;
@@ -20,10 +27,25 @@ class FreeboardStore{
     @observable 
     freeboard_select_posts = [];
 
+
+    @action
+    async freeboardList(){
+      console.log("Freeboard List======");
+      let result = await this.freeApi.freeboardList()
+
+      console.log("모든 freeboard List == " + result  );
+
+      if(result !==null){
+        this.freeboard_list =result;
+      } else{
+        console.log("freeboard nulllllllll");
+      }
+    }
+
     
     @action
     onLikePost =(like)=>{
-      console.log(this.freeboard_detail.fb_post.like);
+      // console.log(this.freeboard_detail.fb_post.like);
 
       if(like ===false){
         this.freeboard_detail.fb_post.like+=1
