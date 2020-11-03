@@ -17,19 +17,18 @@ class InfoList extends Component {
   };
 
   render() {
-    const { ListData, TypeData } = this.props;
+    const { ListData } = this.props;
     console.log("listdata", ListData);
-    console.log("typedata", TypeData);
 
    const handleLink = (id) => {
     this.props.history.push("/admin/info-detail?id=" + id);
    };
-    const MakeTypeName = (data) => {
-      let typeObj = TypeData.find((obj) => obj.categoryId === data.categoryId);
-      let typeName = typeObj.categoryname;
-      console.log("typeName==", typeName);
-      return typeName;
-    };
+    // const MakeTypeName = (data) => {
+    //   let typeObj = TypeData.find((obj) => obj.categoryId === data.categoryId);
+    //   let typeName = typeObj.categoryname;
+    //   console.log("typeName==", typeName);
+    //   return typeName;
+    // };
 
     let listPageOne = ListData.slice(
       (this.state.page - 1) * 10,
@@ -39,8 +38,8 @@ class InfoList extends Component {
     let CreateTableRowList = listPageOne.map((obj,key) => (
       <Table.Row key={key} onClick={()=>handleLink(`${obj.id}`)}>
         <Table.Cell >{obj.id}</Table.Cell>
-        <Table.Cell >{obj.writerId}</Table.Cell>
-        <Table.Cell > {MakeTypeName(obj)}</Table.Cell>
+        <Table.Cell >{obj.user.name}</Table.Cell>
+        <Table.Cell > {obj.adminCategory}</Table.Cell>
         <Table.Cell >{obj.title}</Table.Cell>
         <Table.Cell >
           {obj.editDate==="" 

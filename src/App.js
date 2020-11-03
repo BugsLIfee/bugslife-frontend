@@ -33,10 +33,13 @@ import {
  } from "./Routes";
 
 import Signup from "./oauth/signup/Signup";
+import AdminRedirectHandler from "./oauth/oauth2/AdminRedirectHandler";
+import { inject, Observer } from "mobx-react";
 
 
 
-
+@inject("Store")
+@Observer
 class App extends Component {
 
    constructor(props) {
@@ -66,7 +69,7 @@ class App extends Component {
           <Route exact path="/" component={MainContainer} exact={true} />
           <Route path="/list" component={ListContainer} exact={true} />
           <Route path="/detail" component={DetailPage} exact={true} />
-          <Route path="/admin" component={AdminContainer}  />
+          <PrivateRoute path="/admin" authenticated={this.props.Store.oauth.getCurrentUser} component={AdminContainer}  />
           <Route path="/contact/:menu" component={ContactContainer} />
           <Route path="/mypage" component={Mypagecontainer} exact={true} />
           <Route path="/posting" component={PostingContainer} exact={true} />
@@ -77,6 +80,7 @@ class App extends Component {
             {/* <Route path="/signup"
               render={(props) => <Signup authenticated={this.state.authenticated}
                {...props} />}/> */}
+         
           <Route path="/oauth2/redirect" component={OAuth2RedirectHandler}/>  
           <Route path="/login" component={LoginContainer} exact={true}/> 
           {/* <Route component={NotFound}></Route> */}

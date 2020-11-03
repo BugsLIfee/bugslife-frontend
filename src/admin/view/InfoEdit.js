@@ -9,14 +9,16 @@ export default class InfoEdit extends Component {
 
   constructor(props){
     super(props)
-    const {info} = this.props;
+    const {info,currentUser} = this.props;
+    console.log("뭐넘겨주니..?",this.props);
     this.state={
-      writerId:info.writerId ? info.writerId : "test",
-      categoryId:info.categoryId ? info.categoryId :"",
-      registDate:info.registDate ? info.registDate : "",
-      editDate:info.editDate ? info.editDate : "",
-      title: info.title ? info.title : "",
-      content:info.title ? info.title : "",
+      user:{...currentUser},
+      username: info&&info.user? info.user.name :currentUser.name,
+      adminCategory:info&&info.adminCategory ? info.adminCategory :"",
+      registDate:info&&info.registDate ? info.registDate : "",
+      editDate:info&&info.editDate ? info.editDate : "",
+      title: info&&info.title ? info.title : "",
+      content:info&&info.title ? info.title : "",
     }
   }
   
@@ -30,16 +32,16 @@ export default class InfoEdit extends Component {
     this.setState({
       [e.target.name]: e.target.value
     });
-    console.log("------statechage:",this.state);
+    console.log("------statechange:",this.state);
   }
   
   onsubmit=()=>{
-    const {info} = this.props;
+    const {info, user} = this.props;
       this.setState({
         ...this.state,
         registDate: info.registDate? info.registDate:this.nowDate(),
         editDate:info.registDate? this.nowDate() : "",
-        
+        user:{...user}
       })
       console.log("onSubmitstate----", {...this.state});
     return {...this.state}
@@ -54,7 +56,7 @@ export default class InfoEdit extends Component {
       onModifyInfo,
     } = this.props;
     
-    const {writerId, registDate,editDate,content, title,categoryId} =this.state;
+    const {username, registDate,editDate,content, title,adminCategory} =this.state;
 
 
     return (
@@ -67,37 +69,37 @@ export default class InfoEdit extends Component {
             readOnly
                fluid
             label="운영팀"
-              name="writerId"
-              value={writerId}
+              name="username"
+              value={username}
             />
             <Form.Input
             width={3}
             readOnly
                fluid
             label="카테고리"
-              name="categoryId"
-              value={categoryId}
+              name="adminCategory"
+              value={adminCategory}
             />
-            {console.log("rg-?",registDate, editDate)}
+         
             {registDate
            ? <Form.Input
-           width={3}
-               fluid readOnly
-            label="작성일"
+              width={3}
+              fluid readOnly
+              label="작성일"
               name="registDate"
               value={registDate}
-              
             />
-    :""}
-            {editDate?
+            :""}
 
+            {editDate?
             <Form.Input
-            width={3}
-               fluid readOnly
-            label="수정일"
+              width={3}
+              fluid readOnly
+              label="수정일"
               name="editDate"
               value={editDate}
-            />:""}
+            />
+            :""}
           
           <Form.Input
             width={6}

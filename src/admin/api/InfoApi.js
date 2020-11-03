@@ -1,42 +1,43 @@
-import axios from "axios";
-import {request}from 
-"../../oauth/api/APIUtils";
-import { API_BASE_URL, ACCESS_TOKEN } from '../../oauth/constants/index';
+import { request }from "../../oauth/api/APIUtils";
 export default class InfoApi {
-  url = "/api/info/";
+  
+  NOTICE_API_URL = "http://localhost:8088/api/admin/notice/";
 
   infoCreate(infoApiModel) {
-    return axios
-      .post(this.url, infoApiModel)
-      .then((response) => (response && response.data) || null);
+         return request({
+          url: this.NOTICE_API_URL,
+          method: 'POST',
+          body: JSON.stringify(infoApiModel)
+      });
   }
 
   infoDetail(id) {
-    return axios
-      .get(this.url + `${id}`)
-      .then((response) => (response && response.data) || null);
+       return request({
+          url: this.NOTICE_API_URL + id,
+          method: 'GET',
+      });
   }
   //todoList(todoApiModel):url get  return todo
-  infoList(cyrrentUserInfo) {
+  infoList() {
     return request({
-      url:API_BASE_URL + "/api/info/",
+      url: this.NOTICE_API_URL,
       method:'GET'
     });
-     // .get(this.url)
-     // .then((response) => (response && response.data) || null);
   }
   //todoModify(todoApiModel):url put  return void
   infoModify(infoApiModel) {
     //let todoJson = JSON.stringify(todoApiModel);
-    return axios
-      .put(this.url, infoApiModel)
-      .then((response) => (response && response.data) || null);
+       return request({
+          url: this.NOTICE_API_URL,
+          method: 'PUT',
+          body: JSON.stringify(infoApiModel)
+      });
   }
   //todoDelete(todoApiModel):url delete return void
   infoDelete(id) {
-    console.log("info-api delete:", id);
-    return axios
-      .delete(this.url + `${id}`)
-      .then((response) => (response && response.data) || null);
+       return request({
+          url: this.NOTICE_API_URL,
+          method: 'DELETE',
+      });
   }
 }
