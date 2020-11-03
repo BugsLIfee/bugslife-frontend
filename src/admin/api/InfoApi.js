@@ -2,7 +2,7 @@ import { request }from "../../oauth/api/APIUtils";
 
 export default class InfoApi {
   
-  NOTICE_API_URL = "http://localhost:8088/api/notice/";
+  NOTICE_API_URL = "http://localhost:8088/api/admin/notice/";
 
   infoCreate(infoApiModel) {
          return request({
@@ -14,12 +14,12 @@ export default class InfoApi {
 
   infoDetail(id) {
        return request({
-          url: this.NOTICE_API_URL+id,
+          url: this.NOTICE_API_URL + id,
           method: 'GET',
       });
   }
   //todoList(todoApiModel):url get  return todo
-  infoList(cyrrentUserInfo) {
+  infoList() {
     return request({
       url: this.NOTICE_API_URL,
       method:'GET'
@@ -38,7 +38,7 @@ export default class InfoApi {
   infoDelete(id) {
        return request({
           url: this.NOTICE_API_URL,
-          method: 'DELTE',
+          method: 'DELETE',
       });
   }
 }

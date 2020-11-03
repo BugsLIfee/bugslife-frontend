@@ -19,8 +19,8 @@ const AdminRoutes = ({ match }) => {
       <Route exact path={`${match.url}/board`} component={BoardMngContainer} />
       <Route exact path={`${match.url}/qna-all`} component={QuestionAllListContainer} />
       <Route exact path={`${match.url}/info-list`} component={InfoListContainer} />
-      <Route exact path={`${match.url}/info-write`} component={InfoDetailContainer} />
-      <Route exact path={`${match.url}/info-detail`} component={InfoEditContainer} />
+      <Route exact path={`${match.url}/info-write`} component={InfoEditContainer} />
+      <Route exact path={`${match.url}/info-detail`} component={InfoDetailContainer} />
       <Route exact path={`${match.url}/inquiry`} component={InquiryContainer} />
       <Route exact path={`${match.url}/report`} component={ReportBoardContainer} />
     </>

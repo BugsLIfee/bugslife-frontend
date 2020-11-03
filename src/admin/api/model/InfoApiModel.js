@@ -3,12 +3,13 @@ class InfoApiModel{
     writer="";
     title="";
     content="";
-    categoryId="";
+    adminCategory="";
     registDate="";
     editDate="";
-    constructor(id, categoryId, writer, title, content,registDate,editDate){
+
+    constructor(id, adminCategory, writer, title, content,registDate,editDate){
         this.id= id;
-        this.categoryId = categoryId;
+        this.adminCategory = adminCategory;
         this.writer = writer;
         this.title = title;
         this.content = content;

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { ACCESS_TOKEN } from '../constants/index';
 import { Redirect } from 'react-router-dom'
 
-class OAuth2RedirectHandler extends Component {
+class AdminRedirectHandler extends Component {
     getUrlParameter(name) {
         name = name.replace(/[\]]/, '\\[').replace(/[\]]/, '\\]');
         var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
@@ -13,25 +13,22 @@ class OAuth2RedirectHandler extends Component {
 
     render() {        
         const token = this.getUrlParameter('token');
-        const error = this.getUrlParameter('error');
         const role = this.getUrlParameter('role');
-
-        if(token) {
-            localStorage.setItem(ACCESS_TOKEN, token);
+console.log("0000????------",this.getUrlParameter('role'));
+        if(role) {
+           // localStorage.setItem(ACCESS_TOKEN, token);
             return <Redirect to={{
-                pathname: "/profile",
+                pathname: "/admin/member",
                 state: { from: this.props.location }
             }}/>; 
-        }else {
-            return <Redirect to={{
-                pathname: "/login",
-                state: { 
-                    from: this.props.location,
-                    error: error 
-                }
-            }}/>; 
+        } else {
+            alert(" 관리자계정이 아닙니다 ! ");
+            return (
+            <Redirect to="/"/>
+                
+            ); 
         }
     }
 }
 
-export default OAuth2RedirectHandler;
+export default AdminRedirectHandler;

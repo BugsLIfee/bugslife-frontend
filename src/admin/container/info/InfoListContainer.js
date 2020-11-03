@@ -16,7 +16,7 @@ class InfoListContainer extends Component {
     // const { ListData, TypeData } = this.props.Store.admin;
     return (
       <div>
-        <InfoList ListData={infoStore.getInfos} history={this.props.history} />
+        <InfoList ListData={infoStore.getInfos}  history={this.props.history} />
       </div>
     );
   }

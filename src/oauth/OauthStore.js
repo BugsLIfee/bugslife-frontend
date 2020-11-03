@@ -39,7 +39,7 @@ loadCurrentlyLoggedInUser() {
     
     getCurrentUser()
     .then(response => {
-        console.log("잘받아오나요?",response);
+        console.log("로그인 유저 잘받아오나요?",response);
         this.currentUser= response;
         this.authenticated=true;
         this.loading=false;

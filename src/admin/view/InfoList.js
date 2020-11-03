@@ -17,19 +17,18 @@ class InfoList extends Component {
   };
 
   render() {
-    const { ListData, TypeData } = this.props;
+    const { ListData } = this.props;
     console.log("listdata", ListData);
-    console.log("typedata", TypeData);
 
    const handleLink = (id) => {
     this.props.history.push("/admin/info-detail?id=" + id);
    };
-    const MakeTypeName = (data) => {
-      let typeObj = TypeData.find((obj) => obj.categoryId === data.categoryId);
-      let typeName = typeObj.categoryname;
-      console.log("typeName==", typeName);
-      return typeName;
-    };
+    // const MakeTypeName = (data) => {
+    //   let typeObj = TypeData.find((obj) => obj.categoryId === data.categoryId);
+    //   let typeName = typeObj.categoryname;
+    //   console.log("typeName==", typeName);
+    //   return typeName;
+    // };
 
     let listPageOne = ListData.slice(
       (this.state.page - 1) * 10,

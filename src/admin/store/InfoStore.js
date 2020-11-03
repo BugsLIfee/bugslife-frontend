@@ -12,9 +12,6 @@ export default class InfoStore {
   @observable
   info = {};
 
-  @observable
-  infoType = {};
-
 
   @computed
   get getInfos() {
@@ -23,12 +20,9 @@ export default class InfoStore {
 
   @computed
   get getInfo() {
-    return this.info ? { ...this.info } : {};
+    return this.info ? this.info.slice() : {};
   }
-  @computed
-  get getInfoType() {
-    return this.infoType ? { ...this.infoType } : infotype;
-  }
+
 
   @action
   setInfoProp(name, value) {
@@ -39,31 +33,29 @@ export default class InfoStore {
   }
 
   @action
-  async onAddInfo(InfoApiModel) {
+  async onAddInfo(infoObj) {
+    console.log("before:",infoObj);
+    infoObj = new InfoApiModel(infoObj);
+    console.log("after:",infoObj);
     let result = await this.infoApi.infoCreate(InfoApiModel);
     if (result === null) {
-      console.log(`${this.todo.todoNum}:TODO CREATE ERROR!`);
+      console.log(`${this.InfoApiModel.id}:info CREATE ERROR!`);
+    }else{
+      console.log(result,": 입력 성공 ! ! ");
     }
   }
 
   @action
   async selectAllinfo(CurrentUser) {
-    console.log("selectall 스토어 도착!")
     let result = await this.infoApi.infoList(CurrentUser);
-    console.log("selectall 스토어리스트", result);
-    if (result !== null) {
-      this.infos = result;
-    } else {
-      console.log( `공지사항 ERROR!`);
-    }
+    this.infos = result;
+    console.log("infoList in infoStore ::", this.infos);
+
   }
 
   @action
   async selectInfo(id) {
     this.info = await this.infoApi.infoDetail(id);
-    console.log("store에서 info 찍히나요?", this.info);
-    if (this.info === null) {
-      console.log(`${id}: Not Found ERROR!!`);
-    }
+    console.log("info in infoStore ::", this.info);
   }
 }

@@ -1,28 +1,21 @@
 import React, { Component } from "react";
-import CKEditor from "@ckeditor/ckeditor5-react";
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import InfoEdit from "../../view/InfoEdit";
 import { observer, inject } from "mobx-react";
 
 @inject("Store")
 @observer
 class InfoEditContainer extends Component {
-  info = this.props.Store.info;
+  info= this.props.Store;
 
   onSetInfoProp = (name, value) => {
     this.info.setInfoProp(name, value);
   };
 
   onAddInfo = (infoObj) => {
-    //TodoStore의 addTodo(todo) 호출
-    
-    let infoData = this.info.getInfo;
-    
+
     console.log("addInfo함수 호출", infoObj);
-    infoData = { ...infoData };
     this.info.onAddInfo(infoObj);
     alert("성공");
-    //document.location.href="/info-list";
   };
 
   onRemoveInfo = () => {
@@ -36,11 +29,13 @@ class InfoEditContainer extends Component {
     this.info.modifyInfo(infoData);
   };
   render() {
-   
+   const oauth = this.props.Store.oauth;
+   console.log(oauth.getCurrentUserInfo);
     return (
       <div>
         <InfoEdit
           info={this.info.getInfo}
+          currentUser={oauth.getCurrentUserInfo}
           onSetInfoProp={this.onSetInfoProp}
           onAddInfo={this.onAddInfo}
           onRemoveInfo={this.onRemoveInfo}
