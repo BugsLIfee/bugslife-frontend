@@ -1,3 +1,5 @@
+@import "../../../common/customScss";
+
 .eduDetailLayout {
   display: flex;
   flex-direction: column;
@@ -7,7 +9,8 @@
 
 .eduInfoTable {
   display: flex;
-  margin-top: 10px !important;
+  margin-top: 15px !important;
+  margin-bottom: 0px !important;
 
   width: 1000px !important;
   border-top: 4px solid #2f9cd5 !important;
@@ -60,9 +63,38 @@
     }
   }
 }
+.addReview {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.blue_btn {
+  .blue_btn_ {
+    width: fit-content;
+    border: none;
+    padding: 1rem 6rem;
+    border-radius: 10px;
+    background-color: $blue;
+
+    &:hover {
+      transition: 0.3s;
+      background-color: rgb(49, 115, 160);
+      box-shadow: black 3px 3px;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+  h2 {
+    color: white;
+    font-size: 1.8rem;
+  }
+}
 
 .eduReviewLayout {
-  margin: 50px 0;
+  margin-bottom: 30px;
   padding: 15px;
 
   border: 1px solid #cccccc;
@@ -118,6 +150,10 @@
           flex-direction: column;
           font-weight: bold;
 
+          label {
+            display: flex !important;
+          }
+
           .reviewRatingBar {
             margin-top: -5px;
           }
@@ -136,5 +172,44 @@
         margin-top: 20px;
       }
     }
+  }
+}
+
+.addEduReviewTitle {
+  display: flex !important;
+  align-items: flex-start !important;
+  width: 100% !important;
+  .field {
+    width: 100% !important;
+    .ui {
+      width: 100% !important;
+      margin: 0px !important;
+    }
+  }
+}
+
+.addEduReviewBodyR {
+  width: 70%;
+  .eduReviewTitle {
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
+  .addEduReviewRecommand {
+    font-size: 1rem;
+    margin-top: 20px !important;
+    .recommandTextArea {
+      margin-top: 8px;
+      margin-bottom: 20px;
+    }
+    .reviewRecommand {
+      color: blue;
+    }
+    .reviewUnrecommand {
+      color: red;
+    }
+  }
+  .addReviewButton {
+    display: flex;
+    justify-content: flex-end;
   }
 }

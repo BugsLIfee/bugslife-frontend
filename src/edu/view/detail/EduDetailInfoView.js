@@ -7,7 +7,6 @@ export class EduDetailInfoView extends Component {
     render() {
         const {eduDetail} = this.props
         return (
-
                <Grid className="eduInfoTable">
                     <Grid.Column width={3} className="eduInfoImg">
                         <Image src={eduDetail.imgUrl} />
@@ -59,7 +58,6 @@ export class EduDetailInfoView extends Component {
                         
                     </Grid.Column>
                 </Grid> 
-                
         )
     }
 }

@@ -28,7 +28,7 @@ import 'react-toastify/dist/ReactToastify.css';
         this.props.Store.attendance.addAttn(newDate)
 
 
-        if( error.length!==0){
+        if(error.length!==0){
             toast.error(error, {
                 position: "top-center",
                 autoClose: 5000,

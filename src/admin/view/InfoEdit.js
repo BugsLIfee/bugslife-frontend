@@ -56,8 +56,8 @@ export default class InfoEdit extends Component {
       onModifyInfo,
     } = this.props;
     
-    const {username, registDate,editDate,content, title,adminCategory} =this.state;
 
+    const {username, registDate,editDate,content, title,adminCategory} =this.state;
 
     return (
       <div>

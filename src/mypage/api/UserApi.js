@@ -1,4 +1,6 @@
 import axios from "axios";
+import {request} from  "../../oauth/api/APIUtils";
+
 
 class UserApi{
     URL = "/api/mypage/";
@@ -11,22 +13,39 @@ class UserApi{
         .then((response)=>(response && response.data )||null)
     }
 
-    userList(){
-        let temp = axios.
-        get(this.URL)
-        .then((response)=> {
-            //console.log("JSON in UserAPI = "+ JSON.stringify(response.data))
-            return JSON.stringify(response.data)
-        })
+    // userList(){
+    //     let temp = axios.
+    //     get(this.URL)
+    //     .then((response)=> {
+    //         //console.log("JSON in UserAPI = "+ JSON.stringify(response.data))
+    //         return JSON.stringify(response.data)
+    //     })
 
-        // console.log("API USERLIST TEMP", temp)
-        return temp;
-    }
+    //     // console.log("API USERLIST TEMP", temp)
+    //     return temp;
+    // }
+
+    // userList(){
+    //     return request({
+    //         url: API_BASE_URL + URL,
+    //         method:"GET"
+    //     })
+    // }
+
+
 
     userUpdate(userApiModel){
         let userJson = JSON.stringify(userApiModel);
         return axios.put(this.URL, userJson).then((response)=> (response&& response.data)||null)
     }
+
+    // userDetail(uid){
+    //     return(
+    //      axios.get(this.URL + uid)
+    //         .then((response)=>(response && response.data) || null)
+    //     )
+    // }
+
 
     userDetail(uid){
         return(

@@ -1,4 +1,5 @@
 import { request }from "../../oauth/api/APIUtils";
+
 export default class InfoApi {
   
   NOTICE_API_URL = "http://localhost:8088/api/admin/notice/";
