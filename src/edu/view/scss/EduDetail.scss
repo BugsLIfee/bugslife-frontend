@@ -9,7 +9,7 @@
 
 .eduInfoTable {
   display: flex;
-  margin-top: 10px !important;
+  margin-top: 15px !important;
   margin-bottom: 0px !important;
 
   width: 1000px !important;
@@ -63,11 +63,13 @@
     }
   }
 }
-
-.blue_btn {
+.addReview {
   display: flex;
   justify-content: center;
   margin: 20px 0;
+}
+
+.blue_btn {
   .blue_btn_ {
     width: fit-content;
     border: none;
@@ -148,6 +150,10 @@
           flex-direction: column;
           font-weight: bold;
 
+          label {
+            display: flex !important;
+          }
+
           .reviewRatingBar {
             margin-top: -5px;
           }
@@ -166,5 +172,44 @@
         margin-top: 20px;
       }
     }
+  }
+}
+
+.addEduReviewTitle {
+  display: flex !important;
+  align-items: flex-start !important;
+  width: 100% !important;
+  .field {
+    width: 100% !important;
+    .ui {
+      width: 100% !important;
+      margin: 0px !important;
+    }
+  }
+}
+
+.addEduReviewBodyR {
+  width: 70%;
+  .eduReviewTitle {
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
+  .addEduReviewRecommand {
+    font-size: 1rem;
+    margin-top: 20px !important;
+    .recommandTextArea {
+      margin-top: 8px;
+      margin-bottom: 20px;
+    }
+    .reviewRecommand {
+      color: blue;
+    }
+    .reviewUnrecommand {
+      color: red;
+    }
+  }
+  .addReviewButton {
+    display: flex;
+    justify-content: flex-end;
   }
 }
