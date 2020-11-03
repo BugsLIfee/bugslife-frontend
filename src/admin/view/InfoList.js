@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { Container, Table, Pagination } from "semantic-ui-react";
-
+import { Link, NavLink } from "react-router-dom";
+import { Container, Table, Pagination, Button, Icon } from "semantic-ui-react";
+import "./scss/infoList.scss";
 class InfoList extends Component {
   constructor(props) {
     super(props);
@@ -21,8 +21,11 @@ class InfoList extends Component {
     console.log("listdata", ListData);
     console.log("typedata", TypeData);
 
+   const handleLink = (id) => {
+    this.props.history.push("/admin/info-detail?id=" + id);
+   };
     const MakeTypeName = (data) => {
-      let typeObj = TypeData.find((obj) => obj.categoryId === data.category);
+      let typeObj = TypeData.find((obj) => obj.categoryId === data.categoryId);
       let typeName = typeObj.categoryname;
       console.log("typeName==", typeName);
       return typeName;
@@ -34,10 +37,10 @@ class InfoList extends Component {
     );
 
     let CreateTableRowList = listPageOne.map((obj,key) => (
-      <Table.Row key={key} as={Link} to={`/admin/info-detail?id=${obj.id}`}>
+      <Table.Row key={key} onClick={()=>handleLink(`${obj.id}`)}>
         <Table.Cell >{obj.id}</Table.Cell>
-        <Table.Cell >{obj.writerId}</Table.Cell>
-        <Table.Cell > {MakeTypeName(obj)}</Table.Cell>
+        <Table.Cell >{obj.user.name}</Table.Cell>
+        <Table.Cell > {obj.adminCategory}</Table.Cell>
         <Table.Cell >{obj.title}</Table.Cell>
         <Table.Cell >
           {obj.editDate==="" 
@@ -55,20 +58,33 @@ class InfoList extends Component {
     }
     return (
       <Container>
+        <div className="info-header">
+          <span className="info-header-span" role="img" aria-label="aria">
+            <div className="info-title">
+            <h3>📢 공지사항 목록</h3>
+            </div>
+            <a href="/admin/info-write">
+            <div className="write_btn_box">
+            <Icon name="pencil"/>공지사항 작성
+            </div>
+            </a>
+            <br/><br/>
+          </span>
+        </div>
         <Table celled>
           <Table.Header>
             <Table.Row>
-              <Table.HeaderCell>번호</Table.HeaderCell>
-              <Table.HeaderCell>작성자</Table.HeaderCell>
-              <Table.HeaderCell>문의종류</Table.HeaderCell>
-              <Table.HeaderCell>제목</Table.HeaderCell>
-              <Table.HeaderCell>날짜</Table.HeaderCell>
-              <Table.HeaderCell>조회수</Table.HeaderCell>
+              <Table.HeaderCell >번호</Table.HeaderCell>
+              <Table.HeaderCell >작성자</Table.HeaderCell>
+              <Table.HeaderCell >문의종류</Table.HeaderCell>
+              <Table.HeaderCell >제목</Table.HeaderCell>
+              <Table.HeaderCell >날짜</Table.HeaderCell>
+              <Table.HeaderCell >조회수</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
 
           <Table.Body>{CreateTableRowList}</Table.Body>
-        </Table>
+      </Table>
         <Pagination
           boundaryRange={0}
           defaultActivePage={1}
@@ -78,7 +94,10 @@ class InfoList extends Component {
           siblingRange={2}
           onPageChange={this.setNextPage}
           totalPages={totalPage}
-        />
+          style={{float: 'right'}}
+          />
+         
+    
       </Container>
     );
   }

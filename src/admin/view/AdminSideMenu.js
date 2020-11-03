@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import { Container,Menu ,Segment} from "semantic-ui-react";
-import {Link} from "react-router-dom";
 import "./scss/adminPage.scss";
 
 class AdminSideMenu extends Component {
   render() {
     return (
+      
     <div className="adminside">
         <a href="/admin/member">
           <div className="list">
@@ -17,15 +16,16 @@ class AdminSideMenu extends Component {
               신고관리
           </div>
         </a>
-        <a href="/admin/info">
+        <a href="/admin/info-list">
           <div className="list info">
               공지사항관리
           </div>
         </a>
-
+        <a href="/admin/inquiry">
           <div className="list inquiry">
               1:1문의 관리
           </div>
+        </a>
     </div>
     );
   }

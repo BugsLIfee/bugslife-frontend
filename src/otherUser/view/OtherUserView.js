@@ -10,12 +10,51 @@ export default class OtherUserView extends Component {
 
     render() {
         const image = "../main/pink_sqaure.png";
-        const date = "3 days ago";
-        const summary = "Laura Faucet created a post";
-        const extraText = "Have you seen what's going on in Israel? Can you believe it.";
+        const {user, questions, answers, top5 } = this.props;
 
-        const user = this.props.user;
-        const {onClickPoint} = this.props;
+        const selected = answers.filter(answer => answer.is_selected===true).length;
+
+        const top5_list = top5.map(post => {
+            return (
+                <Feed.Event
+                    image={image}
+                    date={post.date}
+                    summary={post.title}
+                />
+            )
+        })
+
+        const question_list = questions.map(question => {
+            return (
+               
+                    <List.Item>
+                        <List.Content>
+                        <List.Header>{question.date}</List.Header>
+                        {question.title}
+                        </List.Content>
+                        <div className="MyPage_detail_post_icon">
+                        <a>
+                            <Icon name="edit"></Icon>
+                        </a>
+                        </div>
+                    </List.Item>
+        )})
+
+        const answer_list = answers.map(answer => {
+            return (
+                    <List.Item>
+                        <List.Content>
+                        <List.Header>{answer.date}</List.Header>
+                        {answer.title}
+                        </List.Content>
+                        <div className="MyPage_detail_post_icon">
+                        <a>
+                            <Icon name="edit"></Icon>
+                        </a>
+                        </div>
+                    </List.Item>
+        )})
+
 
     return (
         <>
@@ -25,18 +64,18 @@ export default class OtherUserView extends Component {
                 <i id="MyPage_profile_icon" class="far fa-grin"></i>
                 <br></br>
 
-                <h2>리자몽워터</h2>
+                <h2>{user.name}</h2>
                 <span classNa터e="MyPage_level">
                     <i id="MyPage_level_icon" class="fas fa-check-circle"></i>
                     <h3>
-                    <strong>Level </strong>: 155
+                    <strong>Level </strong>: {user.level}
                     </h3>
                 </span>
             </div>
         </div>
         <div className="otherUser_action">
             <h1 className="action_title">
-            <b>User ID</b>님의 활동
+            <b>{user.name}</b>님의 활동
             </h1>
 
             <div className="MyPage_action_detail">
@@ -53,7 +92,7 @@ export default class OtherUserView extends Component {
                 <h3>질문 수</h3>
                 <h2 className="action_detail_rate">
                 <b className="post_rate">
-                    <CountUp end={14} duration={5} />
+                    <CountUp end={questions.length} duration={5} />
                 </b>{" "}
                 개
                 </h2>
@@ -62,7 +101,7 @@ export default class OtherUserView extends Component {
                 <h3>답변 수</h3>
                 <h2 className="action_detail_rate">
                 <b className="solution_rate">
-                    <CountUp end={10} duration={5} />
+                    <CountUp end={answers.length} duration={5} />
                 </b>{" "}
                 개
                 </h2>
@@ -71,7 +110,7 @@ export default class OtherUserView extends Component {
                 <h3>답변 채택 수</h3>
                 <h2 className="action_detail_rate">
                 <b className="selected_rate">
-                    <CountUp end={5} duration={5} />
+                    <CountUp end={selected} duration={5} />
                 </b>{" "}
                 개
                 </h2>
@@ -93,71 +132,34 @@ export default class OtherUserView extends Component {
 
         <div className="otherUser_detail">
             <div className="otherUser_detail_column">
-            <h1 className="column_title">최근 활동</h1>
-            <Feed>
-                <Feed.Event
-                image={image}
-                date={date}
-                summary={summary}
-                extraText={extraText}
-                />
-
-                <Feed.Event>
-                <Feed.Label image={image} />
-                <Feed.Content
-                    date={date}
-                    summary={summary}
-                    extraText={extraText}
-                />
-                </Feed.Event>
-
-                <Feed.Event>
-                <Feed.Label image={image} />
-                <Feed.Content>
-                    <Feed.Date content={date} />
-                    <Feed.Summary content={summary} />
-                    <Feed.Extra text content={extraText} />
-                </Feed.Content>
-                </Feed.Event>
-            </Feed>
+                <h1 className="column_title">최근 활동</h1>
+                {}
+                <div className="recently_body">
+                    <Feed>
+                        {top5_list}
+                    </Feed>
+                </div>
+            </div>
+            <div className="otherUser_detail_column">
+                <h1 className="column_title">리자몽워터님의 질문</h1>
+                <div className="column_body">
+                    <Segment inverted>
+                        <List divided inverted relaxed>
+                            {question_list}
+                        </List>
+                    </Segment>
+                </div>
             </div>
 
             <div className="otherUser_detail_column">
-            <h1 className="column_title">리자몽워터님의 질문</h1>
-            <Segment inverted>
-                <List divided inverted relaxed>
-                <List.Item>
-                    <List.Content>
-                    <List.Header>Post Title</List.Header>
-                    질문 내용 블라블라
-                    </List.Content>
-                    <div className="MyPage_detail_post_icon">
-                    <a>
-                        <Icon name="edit"></Icon>
-                    </a>
-                    </div>
-                </List.Item>
-                </List>
-            </Segment>
-            </div>
-
-            <div className="otherUser_detail_column">
-            <h1 className="column_title">리자몽워터님의 답변</h1>
-            <Segment inverted>
-                <List divided inverted relaxed>
-                <List.Item>
-                    <List.Content>
-                    <List.Header>Post Title</List.Header>
-                    질문 내용 블라블라
-                    </List.Content>
-                    <div className="MyPage_detail_post_icon">
-                    <a>
-                        <Icon name="edit"></Icon>
-                    </a>
-                    </div>
-                </List.Item>
-                </List>
-            </Segment>
+                <h1 className="column_title">리자몽워터님의 답변</h1>
+                <div className="column_body">
+                <Segment inverted>
+                    <List divided inverted relaxed>
+                        {answer_list}
+                    </List>
+                </Segment>
+                </div>
             </div>
         </div>
         </>
