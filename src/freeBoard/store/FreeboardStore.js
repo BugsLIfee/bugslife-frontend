@@ -10,7 +10,6 @@ class FreeboardStore{
     @observable
     freeboard_list = []
 
-
     // @observable
     // freeboard_list = FreeboardListData;
 
