@@ -8,24 +8,17 @@ import PostingView from "../view/PostingView"
 @observer
 class PostingContainer extends Component {
     
-    constructor(props) {
-        super(props)
-        this.state = {
-            tags : ["javascript", "C++"]
-        }
-    }
-
     render() {
-        const { tags } = this.state;
-        const onInsertTag = (tag) => {
-            this.setState({
-                tags : tags.concat(tag)    
-            });
+
+        const { bugBoardPosting } = this.props.Store;
+        const { user } = this.props.Store;
+        const onAddPost = (postObj) => {
+            bugBoardPosting.onAddPost(postObj);
         }
 
         return (
             <div>
-                <PostingView tags={tags} onInsertTag={onInsertTag} />
+                <PostingView onAddPost={onAddPost} user={user}/>
             </div>
         );
     }

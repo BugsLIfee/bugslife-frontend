@@ -1,12 +1,16 @@
-import axios from "axios";
+import { request } from "../../oauth/api/APIUtils";
 
 export default class PostingApi {
-  url = "/api/bugboard/posting/";
 
-  postCreate(detailApiModel) {
-    return axios
-      .post(this.url, detailApiModel)
-      .then((response) => (response && response.data) || null);
+  url = "http://localhost:8088/api/bugboard/posting/";
+
+  postCreate(postingApiModel) {
+    
+    return request({
+      url: this.url,
+      method: 'POST',
+      body: JSON.stringify(postingApiModel)
+    });
   }
 
   // detailDetail(id) {

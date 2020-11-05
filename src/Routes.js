@@ -36,7 +36,7 @@ export {default as FreeboardEditorContainer} from "./freeBoard/view/Editor/conta
 export {default as MainContainer} from "./main/container/MainContainer";
 export {default as ListContainer} from "./list/container/ListContainer";
 export {default as DetailPage} from "./detail/DetailPage";
-export {default as PostingContainer} from "./posting/container/PostingContainer";
+export {default as PostingContainer} from "./bugBoardPosting/container/PostingContainer";
 export {default as Attendancecontainer} from "./attendance/container/AttendanceContainer";
 export {default as EduListContainer} from "./edu/container/eduList/EduListContainer"
 export {default as EduDetailContainer} from "./edu/container/eduDetail/EduDetailContainer";
