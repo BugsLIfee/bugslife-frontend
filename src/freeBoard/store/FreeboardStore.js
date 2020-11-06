@@ -1,5 +1,6 @@
 import { observable,  action, computed } from "mobx"
 import FreeboardApi from "../api/FreeboardApi";
+import FreeboardPostModel from "../api/model/post/FreeboardPostModel";
 import FreeboardListData from "./FreeboardListData";
 import selected_post from "./FreeboardTestData";
 
@@ -10,11 +11,8 @@ class FreeboardStore{
     @observable
     freeboard_list = []
 
-    // @observable
-    // freeboard_list = FreeboardListData;
-
     @observable
-    freeboard_detail = selected_post;
+    freeboard_detail = {}
 
     @observable
     freeboard_cate = ["자유", "취업", "연애", "학업", "유머", "스포츠", "회사"];
@@ -32,14 +30,29 @@ class FreeboardStore{
       console.log("Freeboard List======");
       let result = await this.freeApi.freeboardList()
 
-      console.log("모든 freeboard List == " + result  );
-
       if(result !==null){
-        this.freeboard_list =result;
+        this.freeboard_list =result.map(val=>  { return{...val} });
+
       } else{
         console.log("freeboard nulllllllll");
       }
     }
+
+    @action
+    async freeboardPostSelect(postId){
+      console.log("=======freeboard Post Select========");
+      let post = await this.freeApi.freeboardPostSelect(postId);
+      this.freeboard_detail = post;
+      console.log(this.freeboard_detail);
+
+      console.log("=======freeboard store end========");
+    }
+
+    // @action
+    // async postList(){
+    //   const apiList = this.freeApi.freeboardList();
+    //   return this.freeboard_list = apiList.map(post => new FreeboardPostModel(post));
+    // }
 
     
     @action
@@ -61,8 +74,6 @@ class FreeboardStore{
     onFilterPosts =(cate_list)=>{
 
       let select_post = []
-
-      
       if(cate_list.length===0){
         console.log("No category")
           this.freeboard_select_posts= this.freeboard_list
@@ -76,7 +87,7 @@ class FreeboardStore{
         if(filtered.length > 0){
              select_post.push(filtered[0]) 
             }
-            }) ;
+          }) ;
  
        this.freeboard_select_posts = select_post
        

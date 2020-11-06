@@ -9,22 +9,34 @@ export default class Freeboarddetailview extends Component {
         this.props.onLikePost( !this.props.like)
     }
 
-    render() {
+    render() { 
         
-        const freeboard_detail =this.props
-        const post =freeboard_detail.detail.fb_post;
-        const comment =freeboard_detail.detail.comment;
-        const like =post.like;
-        const report_cnt =post.report_cnt;
+
+        const post =this.props.detail;
+        console.log(this.props)
+        console.log(post)
+      
+        const comment =post.comments;
+   
+    
         const done = this.props.like ? "like_done" : "like_yet";
+
 
         return (
             <div>
                 <div className="freeboard_detail_container">  
                     <div className="freeboard_detail_nav">
-                        <a href="/freeboard"><h4>목록</h4></a>
-                        <a href="/"><h4>이전글</h4></a>
-                        <a href="/"><h4>다음글</h4></a>
+                        <div className="freeboard_nav_left" >
+                            <a href="/freeboard"><h4>목록</h4></a>
+                            <a href="/"><h4>이전글</h4></a>
+                            <a href="/"><h4>다음글</h4></a>
+                        </div>
+
+                        <div className="freeboard_nav_right">
+                            <a href="/"><h4>수정</h4></a>
+                            <a href="/"><h4>삭제</h4></a>
+                        </div>
+
                     </div>
                     <hr />
                     
@@ -33,10 +45,11 @@ export default class Freeboarddetailview extends Component {
                         <h2>{post.title}</h2>
                         <div className="content_meta"> 
                         <h4> {post.cate}</h4>        
-                        <h5> 작성일 : {post.date}</h5>
-                        <h5> 조회수 : {post.views}</h5>
-                        <h5> 댓글 수 : [{comment.length}]</h5></div>
+                        <h5> 작성일 : {post.registerDate}</h5>
+                        <h5> 조회수 : {post.viewCnt}</h5>
+                        {/* <h5> 댓글 수 : [{comment.length}]</h5>*/}
             
+                        </div> 
                         </div>  
 
                         <div className="freeboard_detail_content_body">
@@ -45,12 +58,12 @@ export default class Freeboarddetailview extends Component {
                         </div>
                
                         <div className="freeboard_detail_like-report">
-                            <div  onClick={this.onLikePost}  className={"freeboard_detail_like freeboard_detail_like_sec " + done }>  
+                            <div onClick={this.onLikePost}  className={"freeboard_detail_like freeboard_detail_like_sec " + done }>  
                             
                                 <div className="freeboard_detail_like_sec_icon"  >  
                                     <h5>추천<img className = "freeboard_detail_like_img" src="../../logo/logo_green_blank.png" /></h5>
                                     </div>
-                                    <h6>{like}</h6>
+                                    <h6>{post.likes}</h6>
                                 </div>
                           
 
@@ -60,13 +73,13 @@ export default class Freeboarddetailview extends Component {
                                     <ReportModalContainer bt_text= {<h5>신고 <img className = "freeboard_detail_report_img" src="../../logo/logo_red_blank.png" /></h5>} />
                                      {/* <h5 onClick>신고<img className = "freeboard_detail_report_img" src="../../logo/logo_red_blank.png" /></h5>  */}
                                     </div>
-                                <h6>{report_cnt}</h6>
+                                <h6>{post.reportCnt}</h6>
                             </div>
                         </div>
                         </div>      
                       <div className="">
                             <Freeboarddetailcomment comment ={comment} />
-                        </div>    
+                       </div>    
                 
                 </div>
             </div>

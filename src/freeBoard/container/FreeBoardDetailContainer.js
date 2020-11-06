@@ -18,6 +18,11 @@ class Freeboarddetailcontainer extends Component {
 
     render() {
         const {freeboard_detail} = this.props.Store.freeboard;
+
+        console.log("=====freeboard_detail container=======")
+        console.log(JSON.stringify(freeboard_detail))
+    
+
         return (
             <div className="freeboard_detail_wrap">
                     <div className="free_borad_title"><h1>자유게시판</h1></div>

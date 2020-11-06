@@ -8,16 +8,22 @@ import Freeboardlistcontainer from './FreeBoardListContainer'
 @observer
 class FreeBoardContainer extends Component {
 
+    componentDidMount(){
+    this.props.Store.freeboard.freeboardList();
+    }
+
     onSetListOrderBy = (e) => {
         this.props.Store.freeboard.setListOrderBy(e)
       }
 
     render() {
+        // const {freeboard_list}= this.props.Store.postList();
         const {freeboard_list}= this.props.Store.freeboard
         const {freeboard_cate} = this.props.Store.freeboard
         const {freeboard_select_posts} =this.props.Store.freeboard
     
-    return(
+        // console.log(JSON.stringify(freeboard_list))
+        return(
             <div className="freeboard_container_wrap"> 
                 <div className="free_borad_title">
                     <h1>자유게시판</h1>
