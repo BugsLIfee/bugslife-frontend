@@ -6,10 +6,13 @@ export default class Freeboardlistview extends Component {
 
     render() {
         const freeboard_list = this.props.freeboard_list;
-        return (<div>
+        const onSelectPost = this.props.onSelectPost;
+
+        return (
+        <div>
             {freeboard_list.map((post)=>{
-            return <Freeboardpost post={post}/>
-        })}
+            return <Freeboardpost post={post} onSelectPost={onSelectPost}/>
+                })}
         </div>)
     }
 }

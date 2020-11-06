@@ -24,16 +24,23 @@ export default class Freeboarddetailcomment extends Component {
         // console.log(this.state.select_comm)
     }
 
+
     render() {
         // console.log(this.state.visible, this.state)
         const select_comm= this.state.select_comm;
-        console.log(select_comm)
-        const comment =this.props.comment
+        // console.log(select_comm)
+       let comment =this.props.comment
         //const showBar = this.state.select_id == id && this.state.showBar? "showBar": "hideBar"
+
+        comment == undefined ? console.log("comemnt Undifined Error") : comment.map(val=> console.log(val))
 
         return (
             <div className="freeboard_detail_comment_container">
-                 {comment.map((com)=>{
+       
+                {comment == undefined ? (<div><h6></h6></div>)    
+                        :               
+                 (
+                     comment.map((com)=>{
                     return <div className="freeboard_detail_comment" key={com.id}> 
                     <div className="freeboard_comment_sec">
                         <div className="freeboard_detail_comment_content">
@@ -70,12 +77,17 @@ export default class Freeboarddetailcomment extends Component {
                             <Freeboarddeleteform user_pwd ={com.pwd} delete_com={this.state.delete_com} cur_id={com.id} select_id={this.state.comment_id}/>
                         </div>
                     </div>
-                        })}
+                     }))
+            }
                     
+                     
+                
                         <div className="default_comment_form">
                         <Freeboarddetailcommentform visible={true} cur_id={0} select_id={0}/>
                         </div>
-                       
+                        
+                        
+                    
                  </div>
         )
     }

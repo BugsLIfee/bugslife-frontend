@@ -13,8 +13,21 @@ export default class FreeboardApi{
     // }
 
     freeboardList(){
-        return axios.get(this.FREE_API_URL).then(
-            (response)=> (response && response.date) || null
+       let result = axios.get(this.FREE_API_URL).then(
+           (response)=>(response && response.data) || null
+       )
+       console.log("api result----",result);
+
+       return result;
+        // return axios.get(this.FREE_API_URL).then(
+        //     (response)=> (response && response.date) || null
+        // )
+    }
+
+    freeboardPostSelect(postNum){
+        let post = axios.get(this.FREE_API_URL+ postNum).then(
+            (response)=>(response && response.data) || null
         )
+        return post;
     }
 }

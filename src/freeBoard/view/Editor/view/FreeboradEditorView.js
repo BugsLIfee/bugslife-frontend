@@ -16,24 +16,33 @@ import "./scss/posting.scss"
 
 
 export default class FreeboardEditorView extends Component {
+    state=({selectCate : ""})
+
+    selectCate=(e, data)=>{
+   
+        this.setState({selectCate : data.value})
+        console.log(this.state.selectCate);
+
+    }
 
     render() {
         const category = this.props.category;
         const categoryOptions = category.map((category, ind) => {
-            return ({
-                key: category,
+            // category.onClick
+             return ({
+                key: ind,
                 text: category,
                 value: category,
-            }
+                }
             )
         })
-        //console.log(categoryOptions)
+
         return(
             <div className="posting">
                 <div className="posting_header">
                     <h2 className ="posting_title">자유게시판 글쓰기</h2>
                     <div className="posting_header_title_container">
-                    <Dropdown placeholder='카테고리' search selection options={categoryOptions} />
+                    <Dropdown placeholder='카테고리' search selection options={categoryOptions} onChange={this.selectCate} />
                     <input className="posting_header_title" placeholder="제목을 입력해주세요" />
                     </div>
 
