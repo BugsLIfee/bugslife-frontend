@@ -18,8 +18,6 @@ class Freeboardlistcontainer extends Component {
   }
 
   onSelectPost=(postId)=> {
-    console.log("=====freeboardList Container post Select========")
-    console.log(1235)
     this.props.Store.freeboard.freeboardPostSelect(postId);
   }
 

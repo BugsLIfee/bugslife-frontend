@@ -40,12 +40,11 @@ class FreeboardStore{
 
     @action
     async freeboardPostSelect(postId){
-      console.log("=======freeboard Post Select========");
+  
       let post = await this.freeApi.freeboardPostSelect(postId);
       this.freeboard_detail = post;
       console.log(this.freeboard_detail);
-
-      console.log("=======freeboard store end========");
+;
     }
 
     // @action
@@ -57,16 +56,12 @@ class FreeboardStore{
     
     @action
     onLikePost =(like)=>{
-      // console.log(this.freeboard_detail.fb_post.like);
-
       if(like ===false){
-        this.freeboard_detail.fb_post.like+=1
+        this.freeboard_detail.likes+=1
         
       }else{
-        this.freeboard_detail.fb_post.like-=1
+        this.freeboard_detail.likes-=1
       }
-      console.log(this.freeboard_detail.fb_post);
-
       
     }
 

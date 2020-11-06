@@ -10,18 +10,13 @@ export default class Freeboarddetailview extends Component {
     }
 
     render() { 
-        
-
         const post =this.props.detail;
-        console.log(this.props)
-        console.log(post)
-      
         const comment =post.comments;
-   
-    
         const done = this.props.like ? "like_done" : "like_yet";
 
-
+        console.log("=======comment ==== ")
+        console.log(JSON.stringify(comment))
+        
         return (
             <div>
                 <div className="freeboard_detail_container">  
