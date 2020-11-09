@@ -1,8 +1,5 @@
-import FreeboardCommenetModel from "../comment/FreeboardCommentModel";
-
-class FreeboardPostModel{
+class FreeboardPostAddModel{
     constructor(post) {
-        this.id = post.id
         this.cate = post.cate
         this.title = post.title
         this.content = post.content;
@@ -11,10 +8,8 @@ class FreeboardPostModel{
         this.isHide = post.isHide
         this.viewCnt = post.viewCnt
         this.reportCnt = post.reportCnt
-        this.likes = post.likes
-        this.comments = post.comments.map(comment => new FreeboardCommenetModel(comment))
     }
-    
+
 }
 
-export default FreeboardPostModel
+export default FreeboardPostAddModel;

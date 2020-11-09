@@ -1,5 +1,6 @@
 import { observable,  action, computed } from "mobx"
 import FreeboardApi from "../api/FreeboardApi";
+import FreeboardPostAddModel from "../api/model/post/FreeboardPostAddModel";
 import FreeboardPostModel from "../api/model/post/FreeboardPostModel";
 import FreeboardListData from "./FreeboardListData";
 import selected_post from "./FreeboardTestData";
@@ -25,6 +26,12 @@ class FreeboardStore{
     freeboard_select_posts = [];
 
 
+    @computed get _detail(){
+      return this.freeboard_detail ? {...this.freeboard_detail} : {};
+    }
+    
+
+
     @action
     async freeboardList(){
       console.log("Freeboard List======");
@@ -40,29 +47,35 @@ class FreeboardStore{
 
     @action
     async freeboardPostSelect(postId){
-  
       let post = await this.freeApi.freeboardPostSelect(postId);
       this.freeboard_detail = post;
       console.log(this.freeboard_detail);
-;
     }
 
-    // @action
-    // async postList(){
-    //   const apiList = this.freeApi.freeboardList();
-    //   return this.freeboard_list = apiList.map(post => new FreeboardPostModel(post));
-    // }
+    @action
+    async onCreatePost(post){
+      if(post.cate ==""){
+        alert("카테고리는 필수 선택사항입니다.")
+        return;
+      }
+      post = new FreeboardPostAddModel(post);
+      let result = await this.freeApi.freeboardCreatePost(post);
 
+      if(result == null){
+        console.log("Null exception on Creating Freeboard Post")
+      }else{
+   
+        console.log(result, "자유게시글 입력성공")
+      }
+    }
     
     @action
     onLikePost =(like)=>{
       if(like ===false){
         this.freeboard_detail.likes+=1
-        
       }else{
         this.freeboard_detail.likes-=1
       }
-      
     }
 
     @action

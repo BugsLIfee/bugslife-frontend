@@ -42,13 +42,13 @@ export default class Freeboarddetailview extends Component {
                         <h4> {post.cate}</h4>        
                         <h5> 작성일 : {post.registerDate}</h5>
                         <h5> 조회수 : {post.viewCnt}</h5>
-                        {/* <h5> 댓글 수 : [{comment.length}]</h5>*/}
+                       {/* <h5> 댓글 수 : [{comment.length}]</h5>*/}
             
                         </div> 
                         </div>  
 
                         <div className="freeboard_detail_content_body">
-                        <p>{post.content}</p>
+                        <p> {post.content}</p>
                 
                         </div>
                
