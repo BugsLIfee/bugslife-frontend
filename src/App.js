@@ -85,8 +85,8 @@ class App extends Component {
           <Route path="/oauth2/redirect" component={OAuth2RedirectHandler}/>  
           <Route path="/login" component={LoginContainer} exact={true}/> 
           {/* <Route component={NotFound}></Route> */}
-          <Route path="/freeboard/list" component={FreeBoardContainer} exact={true} />
-          <Route path="/freeboard/detail" component={Freeboarddetailcontainer} exact={true} />
+          <Route path="/freeboard" component={FreeBoardContainer} exact={true} />
+          <Route path="/freeboard/detail/:post_id" component={Freeboarddetailcontainer} exact={true} />
           <Route path="/point" component={PointPage} />
           <Route path="/posting_fr" component={FreeboardEditorContainer} />
           <Route path="/edu" component={EduListContainer} exact={true} />

@@ -15,9 +15,9 @@ const FreeboardRoutes = ({location, match})=>{
     // console.log(parsing)
     return(
         <>
-            <Route exact path ={`${match.url}/list`} component={FreeBoardContainer} />
+            <Route exact path ={`${match.url}`} component={FreeBoardContainer} />
             {/* <Route exact path ={`${match.url}/datail`} component={Freeboarddetailcontainer} /> */}
-            <Route path ={`${match.url}/datail/`} component={Freeboarddetailcontainer} />
+            <Route path ={`${match.url}/datail/:post_id`} component={Freeboarddetailcontainer} />
         </>
     )
 }
