@@ -11,10 +11,12 @@ class FreeboardEditorContainer extends Component {
 
     render() {
         const { freeboard_cate } = this.props.Store.freeboard;
-
+        const onCreatePost =(post)=>{
+            this.props.Store.freeboard.onCreatePost(post)
+        }
         return (
             <div>
-                <FreeboardEditorView category={freeboard_cate}/>
+                <FreeboardEditorView onCreatePost={onCreatePost} category={freeboard_cate}/>
             </div>
         );
     }

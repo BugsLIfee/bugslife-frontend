@@ -1,33 +1,56 @@
 import React, { Component } from "react";
 import _ from 'lodash'
 import { Dropdown } from 'semantic-ui-react'
-import CKEditor from "@ckeditor/ckeditor5-react";
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-// import EasyImage from '@ckeditor/ckeditor5-easy-image/src/easyimage';
-// import Image from '@ckeditor/ckeditor5-image/src/image';
-// import ImageCaption from '@ckeditor/ckeditor5-image/src/imagecaption';
-// import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle';
-// import ImageToolbar from '@ckeditor/ckeditor5-image/src/imagetoolbar';
-// import ImageUpload from '@ckeditor/ckeditor5-image/src/imageupload';
-
+import 'codemirror/lib/codemirror.css';
+import '@toast-ui/editor/dist/toastui-editor.css';
+import { Editor } from '@toast-ui/react-editor';
 
 import "./scss/posting.scss"
 
 
 
 export default class FreeboardEditorView extends Component {
-    state=({selectCate : ""})
+    state=(
+        { 
+            cate : "",
+            title : "",
+            content  : "",
+            registerDate : "",
+            updateDate : "",
+            isHide : false,
+            viewCnt : 0,
+            likes: 0,
+            reportCnt: 0,
+        }
+    )
+
+    editorRef = React.createRef();
+
 
     selectCate=(e, data)=>{
-   
-        this.setState({selectCate : data.value})
-        console.log(this.state.selectCate);
+        this.onSetDate()
+        this.setState({cate : data.value})
+        console.log(this.state.cate);
+
 
     }
 
+    onSetDate=()=>{
+        let today =  new Date();
+
+        let Y =today.getFullYear()
+        let M = today.getMonth();
+        let D = today.getDate();
+
+        return this.setState({...this.state, registerDate : `${Y}-${M}-${D}`, updateDate:`${Y}-${M}-${D}` })
+    }
+
+
     render() {
         const category = this.props.category;
+        const onCreatePost = this.props.onCreatePost
         const categoryOptions = category.map((category, ind) => {
+            
             // category.onClick
              return ({
                 key: ind,
@@ -37,13 +60,14 @@ export default class FreeboardEditorView extends Component {
             )
         })
 
+        console.log(this.state)
         return(
             <div className="posting">
                 <div className="posting_header">
                     <h2 className ="posting_title">자유게시판 글쓰기</h2>
                     <div className="posting_header_title_container">
                     <Dropdown placeholder='카테고리' search selection options={categoryOptions} onChange={this.selectCate} />
-                    <input className="posting_header_title" placeholder="제목을 입력해주세요" />
+                    <input className="posting_header_title" placeholder="제목을 입력해주세요" onChange={(e)=> {this.setState({...this.state, title: e.target.value })}}/>
                     </div>
 
                    
@@ -51,43 +75,18 @@ export default class FreeboardEditorView extends Component {
                 </div>
                 <br />
                 <br />
-                <CKEditor
-                    className="ckEditor"
-
-                    editor={ClassicEditor}
-                    
-                    onInit={(editor) => {
-                        console.log("Editor is ready to use!", editor);
+                <Editor
+                    height="50rem"
+                    initialEditType="wysiwyg"
+                    previewStyle="vertical"
+                    ref={this.editorRef}
+                    onChange = {() => {
+                        this.setState({
+                            content: this.editorRef.current.getInstance().getHtml()
+                        })
                     }}
-                    
-                    onChange={(event, editor) => {
-                        const data = editor.getData();
-                        console.log({ event, editor, data });
-                    }}
-                    
-                    onBlur={(event, editor) => {
-                        console.log("Blur.", editor);
-                    }}
-                    
-                    onFocus={(event, editor) => {
-                        console.log("Focus.", editor);
-                    }}
-
-                    // config = {{
-                    //     plugins: [EasyImage, Image, ImageCaption, ImageStyle, ImageToolbar, ImageUpload ],
-                        
-                    //     image: {
-                    //         toolbar: [
-                    //             'imageStyle:full',
-                    //             'imageStyle:side',
-                    //             '|',
-                    //             'imageTextAlternative'
-                    //         ]
-                    //       }
-                    //     }}
-          
                 />
-
+          
 
 
                     <div className="posting_bottom">
@@ -99,7 +98,7 @@ export default class FreeboardEditorView extends Component {
                     </div>
 
                     <div className="upload">
-                    <button className="upload_btn" type="submit"> 
+                    <button className="upload_btn" type="submit" onClick={()=>onCreatePost(this.state)}> 
                         <h5>작성 완료</h5>
                     </button>
                 </div>

@@ -17,9 +17,9 @@ class Freeboardlistcontainer extends Component {
     console.log("event")
   }
 
-  onSelectPost=(postId)=> {
-    this.props.Store.freeboard.freeboardPostSelect(postId);
-  }
+  // onSelectPost=(postId)=> {
+  //   this.props.Store.freeboard.freeboardPostSelect(postId);
+  // }
 
     render() {
         const freeboard_list =this.props.freeboard_list;
@@ -72,7 +72,7 @@ class Freeboardlistcontainer extends Component {
                 </div>
                     
                 </div>
-                <Freeboardlistview id="free_list" onSelectPost = {this.onSelectPost} freeboard_list={freeboard_select_posts.length ===0 ? freeboard_list : freeboard_select_posts} />
+                <Freeboardlistview id="free_list" freeboard_list={freeboard_select_posts.length ===0 ? freeboard_list : freeboard_select_posts} />
                 <div className="free_list_pagination">
 
                 <Pagination
