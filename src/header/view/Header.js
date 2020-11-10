@@ -41,7 +41,7 @@ class Header extends Component {
                 className={
                   this.state.scrollTop < 180 ? "logo_top" : "logo_down"
                 }
-                src="../logo/logo_st.png"
+                src="/logo/logo_st.png"
                 href="/"
               />
               <h1

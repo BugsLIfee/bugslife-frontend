@@ -26,14 +26,14 @@ ReactDOM.render(
           "/posting",
           "/api/mypage",
           "/freeboard",
+          "/freeboard/detail/:id",
           "/oauth2/redirect",
           "/profile",
-          "/freeboard_detail",
           "/posting_fr",
           "/point",
           "/attendance",
           "/edu",
-          "/edu/detail/:id",
+          "/edu/detail/",
           "/test",
           "/otherUser"
         ]}

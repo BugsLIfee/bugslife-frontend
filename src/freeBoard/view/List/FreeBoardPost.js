@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import "./scss/FreeBoardPost.scss"
 import { Icon } from 'semantic-ui-react'
+import { Link, Route } from 'react-router-dom';
+import Freeboarddetailcontainer from '../../container/FreeBoardDetailContainer';
 
 
 export default class Freeboardpost extends Component {
@@ -39,25 +41,25 @@ export default class Freeboardpost extends Component {
 
 
     render() {
-        const post = this.props.post
-        
+        const post = this.props.post;
+        // const onSelectPost =this.props.onSelectPost
+        const comments = post.comments
+    
         return (
            <div className="post_container">
-
-
-               <h4 className="post_id">{post.post_id}</h4>
+               <h4 className="post_id">{post.id}</h4>
                <h4 className="post_cate">
  
                    {post.cate}
                    <Icon className ="cate_icon" name= {this.state.cate_icon} /> </h4>
-                <a href="/freeboard_detail"><h4 className="post_title_txt">{post.title} </h4>
-                <span className="post_comment">[{post.comments}]</span> </a>
+                    <Link to={`/freeboard/detail/${post.id}`}><h4 className="post_title_txt" >{post.title} </h4>
+                <span className="post_comment">[{comments.length}]</span> </Link>
   
                     <p className="post_date">
-                        {post.date}
+                        {post.registerDate}
                     </p>
                     <p className="post_view">
-                        {post.views}
+                        {post.viewCnt}
                     </p>
            </div>
         )
