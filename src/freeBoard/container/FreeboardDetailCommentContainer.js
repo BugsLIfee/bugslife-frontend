@@ -1,10 +1,16 @@
+import { inject, observer } from 'mobx-react'
 import React, { Component } from 'react'
-import ReportModalContainer from '../../../report/container/ReportContainer'
-import Freeboarddetailcommentform from './ FreeboardDetailCommentForm'
-import Freeboarddeleteform from './FreeboardDeleteForm'
-import "./scss/FreeboarDetailComm.scss"
+import ReportModalContainer from '../../report/container/ReportContainer'
+import Freeboarddetailcommentform from '../view/detail/ FreeboardDetailCommentForm'
+import Freeboarddeleteform from '../view/detail/FreeboardDeleteForm'
+import Freeboardsubcommform from '../view/detail/FreeboardSubCommForm'
+import "../view/detail/scss/FreeboarDetailComm.scss"
+import Freeboardsubcommcontainer from './FreeboardSubcommContainer'
 
-export default class Freeboarddetailcomment extends Component {
+
+@observer
+@inject("Store")
+ class Freeboarddetailcommentcontainer extends Component {
     state = { visible: false, comment_id: -1, delete_com: false, showBar: false, select_comm:-1 }
 
     onCommentClick=(id)=>{
@@ -13,38 +19,52 @@ export default class Freeboarddetailcomment extends Component {
         this.setState({comment_id: id});
     }
     
+    // 삭제 폼 토글용
     onCommentDelete=(id)=>{
         this.setState({delete_com: !this.state.delete_com});
         this.setState({visible: false});
         this.setState({comment_id: id});
     }
 
+    // 코멘트 삭제용
+    onDeleteComment=(commentId, pwd)=>{
+        this.props.Store.freeboard.onDeleteComment(this.props.postId, commentId, pwd);
+    }
+
     onShowComm =(id)=>{
         this.setState({showBar:!this.state.showBar, select_comm:id})
-        // console.log(this.state.select_comm)
+    }
+
+    onCreateComment=(comment)=>{
+        this.props.Store.freeboard.onCreateComment(this.props.postId, comment);
+   
+    }   
+
+    onCreateSubComment =(comment)=>{
+        this.props.Store.freeboard.onCreateSubComment(this.props.postId, comment);
+     
     }
 
 
     render() {
-        // console.log(this.state.visible, this.state)
         const select_comm= this.state.select_comm;
-        // console.log(select_comm)
-       let comment =this.props.comment
-        //const showBar = this.state.select_id == id && this.state.showBar? "showBar": "hideBar"
-
-        comment == undefined ? console.log("comemnt Undifined Error") : comment.map(val=> console.log(val))
+        let comments =this.props.comments;
+        let postId = this.props.postId;
 
         return (
             <div className="freeboard_detail_comment_container">
        
-                {comment == undefined ? (<div><h6></h6></div>)    
+                {comments == undefined ? (<div><h6></h6></div>)    
                         :               
                  (
-                     comment.map((com)=>{
+                     comments.map((com)=>{
                     return <div className="freeboard_detail_comment" key={com.id}> 
-                    <div className="freeboard_comment_sec">
+                        <div className="freeboard_comment_sec">
                         <div className="freeboard_detail_comment_content">
-                            <span className="freeboard_comment_info"> <h6>익명의 고수</h6> <p>{com.date}</p></span>
+                            <span className="freeboard_comment_info"> 
+                                <h6>{com.writer}</h6> 
+                                <p>{com.registerDate}</p>
+                            </span>
                             <p id="freeboard_comment_info_txt">{com.content}</p>
                         </div>
                     
@@ -53,7 +73,6 @@ export default class Freeboarddetailcomment extends Component {
                            
 
                             <div className={"freeboard_detail_comment_rep_btn_container " + ((select_comm === com.id) && (this.state.showBar)? "showBar": "hideBar")}>
-
                                 <div className="freeboard_detail_comment_rep_btn">
                                     <h6 onClick={()=>this.onCommentClick(com.id)} >답글</h6>
                                     <h6 onClick={()=>this.onCommentDelete(com.id)}> 삭제</h6>
@@ -68,27 +87,35 @@ export default class Freeboarddetailcomment extends Component {
                             <h6 onClick={()=>this.onCommentDelete(com.id)}> 삭제</h6>
                             <ReportModalContainer bt_text= {<h6>신고</h6>} />
                         </div>
+                 
+       
                     </div>
+
+                        {/* 버튼을 클릭해야 나오는 메뉴들  */}
                         <div className="visible_comment_form">
-                        <Freeboarddetailcommentform visible={this.state.visible} cur_id={com.id} select_id={this.state.comment_id} />
+                            <Freeboardsubcommform visible={this.state.visible} cur_id={com.id} select_id={this.state.comment_id} onCreateSubComment={this.onCreateSubComment}/>
                         </div>
                        
                         <div className="visible_delete_form">
-                            <Freeboarddeleteform user_pwd ={com.pwd} delete_com={this.state.delete_com} cur_id={com.id} select_id={this.state.comment_id}/>
+                            <Freeboarddeleteform onDeleteComment={this.onDeleteComment} user_pwd ={com.pwd} delete_com={this.state.delete_com} cur_id={com.id} select_id={this.state.comment_id}/>
                         </div>
+
+                        <div className="freeboard_subComment_container">
+                            <Freeboardsubcommcontainer comment= {com}/>
+                        </div>
+
                     </div>
-                     }))
+                     }))          
             }
-                    
-                     
-                
+
                         <div className="default_comment_form">
-                        <Freeboarddetailcommentform visible={true} cur_id={0} select_id={0}/>
+                        <Freeboarddetailcommentform postId={postId} visible={true} cur_id={0} select_id={0} onCreateComment={this.onCreateComment}/>
                         </div>
-                        
-                        
+
                     
                  </div>
         )
     }
 }
+
+export default Freeboarddetailcommentcontainer;

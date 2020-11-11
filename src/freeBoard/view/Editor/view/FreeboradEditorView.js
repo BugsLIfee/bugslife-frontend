@@ -19,31 +19,58 @@ export default class FreeboardEditorView extends Component {
             updateDate : "",
             isHide : false,
             viewCnt : 0,
+            pwd : "",
             likes: 0,
             reportCnt: 0,
+            isValid: false
         }
     )
 
     editorRef = React.createRef();
 
+    onSubmitForm=()=>{
+
+        let post = this.state;
+        
+        if(post.pwd === "" || post.pwd === undefined || post.pwd === null){
+            return alert("유효하지 않은 비밀번호입니다.")
+        }
+
+        console.log(this.state.isValid);
+
+        //비밃번호 유효성 검사
+        if(this.state.isValid === true){   
+            console.log("it is okay to post")
+            this.props.onCreatePost(post)
+        }else{
+            alert("비밀번호가 일치하지 않습니다.")
+        }
+
+    }
 
     selectCate=(e, data)=>{
         this.onSetDate()
         this.setState({cate : data.value})
-        console.log(this.state.cate);
-
-
     }
 
     onSetDate=()=>{
         let today =  new Date();
-
         let Y =today.getFullYear()
         let M = today.getMonth();
         let D = today.getDate();
-
         return this.setState({...this.state, registerDate : `${Y}-${M}-${D}`, updateDate:`${Y}-${M}-${D}` })
     }
+
+    onValidationCheck=(event)=>{
+        let confirmed_pwd = event.target.value;
+
+        console.log(confirmed_pwd);
+
+        if(confirmed_pwd === this.state.pwd){
+            this.setState({...this.state, isValid : true})
+        }
+    }
+
 
 
     render() {
@@ -92,13 +119,12 @@ export default class FreeboardEditorView extends Component {
                     <div className="posting_bottom">
                     <div className="posting_header_userInfo">
                         {/* <input className= "posting_userinfo_input posting_userInfo_id"  type="text" placeholder="닉네임"/> */}
-                        <input className= "posting_userinfo_input posting_userInfo_pwd"  type="password" placeholder="비밀번호"/>
-                        <input className= "posting_userinfo_input posting_userInfo_pwd" type="password" placeholder="비밀번호확인"/>
-
+                        <input onChange={(e)=> {this.setState({...this.state, pwd: e.target.value })}} className= "posting_userinfo_input posting_userInfo_pwd"  type="password" placeholder="비밀번호"/>
+                        <input onChange={(e)=> this.onValidationCheck(e)}  className= "posting_userinfo_input posting_userInfo_pwd" type="password" placeholder="비밀번호확인"/>
                     </div>
 
                     <div className="upload">
-                    <button className="upload_btn" type="submit" onClick={()=>onCreatePost(this.state)}> 
+                    <button className="upload_btn" type="submit" onClick={()=>this.onSubmitForm()}> 
                         <h5>작성 완료</h5>
                     </button>
                 </div>

@@ -4,6 +4,7 @@ class FreeboardCommenetModel{
     constructor(comment){
         this.id = comment.id;
         this.postId = comment.postId
+        this.writer = comment.writer
         this.content = comment.content
         this.registerDate =comment.registerDate
         this.isHide = comment.isHide

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import "./scss/FreeboarDetailComm.scss"
 
-export default class Freeboarddeleteform extends Component {
+export default class Freeboardsubdeleteform extends Component {
     constructor(props){
         super(props);
         this.state={pwd : "", confirm_pwd: ""}
@@ -23,22 +23,22 @@ export default class Freeboarddeleteform extends Component {
     onCommentDelete=()=>{
         let {pwd} = this.state;
         let {confirm_pwd} = this.state;
-        let commentId = this.props.select_id;
-       
+        let correct_pwd;
+
         if( (pwd == confirm_pwd)){
          alert("댓글을 삭제하시겠습니까?")
+         correct_pwd = pwd
         }else{
             alert("비밀번호가 일치하지 않습니다.")
         }
-        this.props.onDeleteComment(commentId ,pwd)
+
+        this.props.onSubCommDelete(correct_pwd);
      
     }
 
-
-
     render() {
         const {delete_com, cur_id, select_id} = this.props;
-        
+
         return (
         <div>
             {delete_com && (cur_id ===select_id) ?
@@ -52,4 +52,3 @@ export default class Freeboarddeleteform extends Component {
         )
     }
 }
-

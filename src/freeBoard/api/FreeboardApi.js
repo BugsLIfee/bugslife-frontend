@@ -10,8 +10,6 @@ export default class FreeboardApi{
        let result = axios.get(this.FREE_API_URL).then(
            (response)=>(response && response.data) || null
        )
-       console.log("api result----",result);
-
        return result;
 
     }
@@ -29,4 +27,66 @@ export default class FreeboardApi{
         )
         return newPost;
     }
+
+    freeboardComments(postId){
+        let comments = axios.get(`${this.FREE_API_URL}${postId}/comment`).then(
+            (response)=>(response && response.data) || null
+        )
+        return comments;
+    }
+
+    freeboardCreateComment(postId, comment){
+        console.log(postId, comment)
+        let new_comment = axios.post(`${this.FREE_API_URL}${postId}/comment`, comment).then(
+            (response)=>(response && response.data) || null
+        )
+            return new_comment;
+    }
+
+
+    freeboardCommentDelete(postId, commentId, pwd){
+        console.log(postId, commentId, pwd);
+        let result = axios.delete(this.FREE_API_URL+postId +`/comment/${commentId}`, {
+            params : {pwd:pwd}
+        }).then(
+            (response)=>(response && response.data) || null
+        )
+        return result;
+    }
+
+    freeboardsubCommCreate(postId, commentId, comment){
+        let new_comment = axios.post(`${this.FREE_API_URL}${postId}/comment/${commentId}/subcomment`, comment).then(
+            (response)=>(response && response.data) || null
+        )
+            return new_comment;
+    }
+
+    freeboardsubCommDelete(postId, commentId, subCommId, pwd){
+        // DELETE /api/freeboard/{postId}/comment/{commentId}/{subcommId}
+        let url = this.FREE_API_URL+postId+`/comment/${commentId}/${subCommId}`
+        let result = axios.delete(url, {
+            params : {pwd : pwd}
+        }).then(
+            (response)=>(response && response.data) || null
+        )
+
+        return result
+        
+    }
+
+    freeboardPostDelete(postId, pwd){
+    
+        let result = axios.delete(this.FREE_API_URL + postId ,{
+            params : {pwd: pwd}
+        }).then(
+            (response)=>(response && response.data) || null
+        )
+
+        return result;
+    }
+
+
+    // freeboardCommentList(){
+    //     let commentList = axios
+    // }
 }

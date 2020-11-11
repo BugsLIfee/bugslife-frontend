@@ -43,7 +43,7 @@ export default class Freeboardpost extends Component {
     render() {
         const post = this.props.post;
         // const onSelectPost =this.props.onSelectPost
-        const comments = post.comments
+        const comments = this.props.comments
     
         return (
            <div className="post_container">
@@ -53,7 +53,8 @@ export default class Freeboardpost extends Component {
                    {post.cate}
                    <Icon className ="cate_icon" name= {this.state.cate_icon} /> </h4>
                     <Link to={`/freeboard/detail/${post.id}`}><h4 className="post_title_txt" >{post.title} </h4>
-                <span className="post_comment">[{comments.length}]</span> </Link>
+                {/* <span className="post_comment">[{comment.length}]</span>  */}
+                </Link>
   
                     <p className="post_date">
                         {post.registerDate}

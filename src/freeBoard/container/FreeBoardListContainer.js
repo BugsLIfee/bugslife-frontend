@@ -17,18 +17,15 @@ class Freeboardlistcontainer extends Component {
     console.log("event")
   }
 
-  // onSelectPost=(postId)=> {
-  //   this.props.Store.freeboard.freeboardPostSelect(postId);
-  // }
 
     render() {
         const freeboard_list =this.props.freeboard_list;
         const freeboard_select_posts = this.props.freeboard_select_posts;
-
         let totalPage = Math.floor(freeboard_select_posts.length / 5) === 0? 1:  Math.floor(freeboard_select_posts.length / 5) //60건이라면 totalPage
         const { onSetOrderBy } = this.props
         const { activeItem } = this.state
-
+      
+        const {freeboardCommentSelect} = this.props.Store.freeboard;
         return (
             
             <div className="freeboard_list_wrap">
@@ -72,7 +69,7 @@ class Freeboardlistcontainer extends Component {
                 </div>
                     
                 </div>
-                <Freeboardlistview id="free_list" freeboard_list={freeboard_select_posts.length ===0 ? freeboard_list : freeboard_select_posts} />
+                <Freeboardlistview id="free_list" freeboardCommentSelect= {freeboardCommentSelect} freeboard_list={freeboard_select_posts.length ===0 ? freeboard_list : freeboard_select_posts} />
                 <div className="free_list_pagination">
 
                 <Pagination
