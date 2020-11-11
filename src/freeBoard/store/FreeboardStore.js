@@ -3,6 +3,7 @@ import FreeboardApi from "../api/FreeboardApi";
 import FreeboardPostAddModel from "../api/model/post/FreeboardPostAddModel";
 // import FreeboardPostModel from "../api/model/post/FreeboardPostModel";
 import  { Redirect } from 'react-router-dom'
+import FreeboardCommentAddModel from "../api/model/comment/FreeboardCommentAddModel";
 
 class FreeboardStore{
 
@@ -68,7 +69,6 @@ class FreeboardStore{
       if(post.pwd === "" || post.pwd === undefined || post.pwd ===null){
         return alert("비밀번호를 입력해주세요.")
       }
-      
       if(post.cate ===""){
         alert("카테고리는 필수 선택사항입니다.")
         return;
@@ -86,14 +86,47 @@ class FreeboardStore{
     }
     
     @action
-    async onCreateComment(postId,comment){
-      let result = await this.freeApi.freeboardCreateComment(postId, comment);
+    async onCreateComment(postId, comment){
+
+      let newComment = new FreeboardCommentAddModel(comment);
+      console.log(newComment)
+      let result = await this.freeApi.freeboardCreateComment(postId, newComment);
 
       console.log("====store 전달 완료=====")
       if(result==null){
         return "댓글 등록 에러"
       }else{
         return "댓글 등록 성공"
+      }
+    }
+
+    @action
+    async onDeleteComment( postId ,commentId, pwd){
+      console.log("====store====")
+      console.log(postId, commentId, pwd);
+
+      let result = await this.freeApi.freeboardCommentDelete(postId, commentId, pwd);
+      if(result ===null){
+        return "댓글 삭제 실패"
+      }else{
+        alert("댓글이 삭제되었습니다.")
+        return "댓글 삭제 성공"
+      }
+    }
+
+    @action 
+    async onCreateSubComment(postId, comment){
+      console.log(postId, comment)
+
+      let commentId = comment.commentId;
+
+      console.log(postId, commentId, comment)
+      let result = await this.freeApi.freeboardsubCommCreate(postId, commentId, comment);
+
+      if(result == null){
+        return "서브댓글 작성 실패"
+      }else{
+        return "서브댓글 작성 완료"
       }
     }
 

@@ -6,6 +6,7 @@ class FreeboardCommentAddModel{
         this.registerDate =comment.registerDate
         this.isHide = comment.isHide
         this.reportCnt = comment.reportCnt;
+        this.pwd = comment.pwd
     }
 
 }

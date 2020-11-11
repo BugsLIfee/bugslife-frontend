@@ -36,12 +36,28 @@ export default class FreeboardApi{
     }
 
     freeboardCreateComment(postId, comment){
-        console.log("====API 전달 완료=====")
         console.log(postId, comment)
         let new_comment = axios.post(`${this.FREE_API_URL}${postId}/comment`, comment).then(
             (response)=>(response && response.data) || null
         )
-        console.log("====BACKEND=====")
+            return new_comment;
+    }
+
+
+    freeboardCommentDelete(postId, commentId, pwd){
+        console.log(postId, commentId, pwd);
+        let result = axios.delete(this.FREE_API_URL+postId +`/comment/${commentId}`, {
+            params : {pwd:pwd}
+        }).then(
+            (response)=>(response && response.data) || null
+        )
+        return result;
+    }
+
+    freeboardsubCommCreate(postId, commentId, comment){
+        let new_comment = axios.post(`${this.FREE_API_URL}${postId}/comment/${commentId}/subcomment`, comment).then(
+            (response)=>(response && response.data) || null
+        )
             return new_comment;
     }
 
@@ -55,6 +71,7 @@ export default class FreeboardApi{
         console.log(result);
         return result;
     }
+
 
     // freeboardCommentList(){
     //     let commentList = axios

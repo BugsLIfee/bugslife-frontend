@@ -13,9 +13,23 @@ export default class Freeboarddetailcommentform extends Component {
         pwd: ""        
     })
     
+
+    onSetDate=()=>{
+        let today =  new Date();
+        let Y =today.getFullYear()
+        let M = today.getMonth();
+        let D = today.getDate();
+
+        return this.setState({...this.state, registerDate : `${Y}-${M}-${D}` })
+    }
+
+
     onWriteComment=()=>{
-        this.onSetDate();
-        // this.setState({...this.state,})
+        let today =  new Date();
+        let Y =today.getFullYear()
+        let M = today.getMonth();
+        let D = today.getDate();
+        this.setState({...this.state, registerDate : `${Y}-${M}-${D}` })
      
         let comment = this.state
 
@@ -36,25 +50,15 @@ export default class Freeboarddetailcommentform extends Component {
         console.log("====view 전달 완료=====")
     }
 
-    onSetDate=()=>{
-        let today =  new Date();
-        let Y =today.getFullYear()
-        let M = today.getMonth();
-        let D = today.getDate();
-
-        //post Id 설정
-
-
-        return this.setState({...this.state, registerDate : `${Y}-${M}-${D}`, updateDate:`${Y}-${M}-${D}` })
-    }
+ 
 
 
     render() {
         const {visible, cur_id, select_id} = this.props;
 
    
-        // console.log("====comment Container postId    :  " + this.props.postId) 
-        console.log(this.state)
+        // // console.log("====comment Container postId    :  " + this.props.postId) 
+        // console.log(this.state)
         return (
             <div>
                 { visible && (cur_id === select_id) ?  

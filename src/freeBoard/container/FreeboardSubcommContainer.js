@@ -7,7 +7,7 @@ export default class Freeboardsubcommcontainer extends Component {
     render() {
         let {comment} =this.props;
         let subComm = comment.subComments;
-        console.log(subComm)
+
         return (
             <div>
                    {

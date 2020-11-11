@@ -8,8 +8,7 @@ export default class Freeboardsubcommview extends Component {
     render() {
         let {subcomment} = this.props;
         const select_comm = this.state.select_comm;
-        console.log(subcomment)
-        
+
         return (
             <div class="freeboard_subcomm_con">
                 <h5 className="freeboard_subcomm_sec_icon">⎿</h5>
@@ -18,7 +17,7 @@ export default class Freeboardsubcommview extends Component {
                 <div className="freeboard_subcomm_sec_content">
                     <span className="freeboard_subcomm_info">
                         
-                        <h6>대댓글러</h6>
+                        <h6>{subcomment.writer}</h6>
                         <p>{subcomment.registerDate}</p>
                     </span> 
                      <p className="freeboard_subcomm_txt">{subcomment.content}</p>

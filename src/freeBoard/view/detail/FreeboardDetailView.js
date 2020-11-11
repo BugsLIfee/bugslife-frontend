@@ -22,7 +22,6 @@ export default class Freeboarddetailview extends Component {
         const comments =this.props.comments;
         const done = this.props.like ? "like_done" : "like_yet";
 
-        console.log("detail view postId    :  " + post.id) 
         return (
             <div>
                 <div className="freeboard_detail_container">  

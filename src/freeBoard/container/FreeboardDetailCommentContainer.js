@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import ReportModalContainer from '../../report/container/ReportContainer'
 import Freeboarddetailcommentform from '../view/detail/ FreeboardDetailCommentForm'
 import Freeboarddeleteform from '../view/detail/FreeboardDeleteForm'
+import Freeboardsubcommform from '../view/detail/FreeboardSubCommForm'
 import "../view/detail/scss/FreeboarDetailComm.scss"
 import Freeboardsubcommcontainer from './FreeboardSubcommContainer'
 
@@ -18,10 +19,16 @@ import Freeboardsubcommcontainer from './FreeboardSubcommContainer'
         this.setState({comment_id: id});
     }
     
+    // 삭제 폼 토글용
     onCommentDelete=(id)=>{
         this.setState({delete_com: !this.state.delete_com});
         this.setState({visible: false});
         this.setState({comment_id: id});
+    }
+
+    // 코멘트 삭제용
+    onDeleteComment=(commentId, pwd)=>{
+        this.props.Store.freeboard.onDeleteComment(this.props.postId, commentId, pwd);
     }
 
     onShowComm =(id)=>{
@@ -30,15 +37,19 @@ import Freeboardsubcommcontainer from './FreeboardSubcommContainer'
 
     onCreateComment=(comment)=>{
         this.props.Store.freeboard.onCreateComment(this.props.postId, comment);
-        console.log("====container 전달 완료=====", +comment, this.props.postId)
+   
     }   
+
+    onCreateSubComment =(comment)=>{
+        this.props.Store.freeboard.onCreateSubComment(this.props.postId, comment);
+     
+    }
+
 
     render() {
         const select_comm= this.state.select_comm;
         let comments =this.props.comments;
         let postId = this.props.postId;
-        console.log(comments)
-        console.log("comment Container postId    :  " + postId) 
 
         return (
             <div className="freeboard_detail_comment_container">
@@ -83,11 +94,11 @@ import Freeboardsubcommcontainer from './FreeboardSubcommContainer'
 
 
                         <div className="visible_comment_form">
-                            <Freeboarddetailcommentform visible={this.state.visible} cur_id={com.id} select_id={this.state.comment_id} />
+                            <Freeboardsubcommform visible={this.state.visible} cur_id={com.id} select_id={this.state.comment_id} onCreateSubComment={this.onCreateSubComment}/>
                         </div>
                        
                         <div className="visible_delete_form">
-                            <Freeboarddeleteform user_pwd ={com.pwd} delete_com={this.state.delete_com} cur_id={com.id} select_id={this.state.comment_id}/>
+                            <Freeboarddeleteform onDeleteComment={this.onDeleteComment} user_pwd ={com.pwd} delete_com={this.state.delete_com} cur_id={com.id} select_id={this.state.comment_id}/>
                         </div>
 
                         <div className="freeboard_subComment_container">
