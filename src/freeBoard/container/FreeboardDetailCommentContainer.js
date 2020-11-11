@@ -91,8 +91,7 @@ import Freeboardsubcommcontainer from './FreeboardSubcommContainer'
        
                     </div>
 
-
-
+                        {/* 버튼을 클릭해야 나오는 메뉴들  */}
                         <div className="visible_comment_form">
                             <Freeboardsubcommform visible={this.state.visible} cur_id={com.id} select_id={this.state.comment_id} onCreateSubComment={this.onCreateSubComment}/>
                         </div>

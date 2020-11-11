@@ -1,8 +1,15 @@
+import { inject, observer } from 'mobx-react';
 import React, { Component } from 'react'
 import Freeboardsubcommview from '../view/detail/FreeboardSubCommView';
 
-export default class Freeboardsubcommcontainer extends Component {
 
+@observer
+@inject("Store")
+class Freeboardsubcommcontainer extends Component {
+
+    onDeleteSubComment=(commentId, subcommId, pwd)=>{
+        this.props.Store.freeboard.onDeleteSubComment( commentId, subcommId, pwd);
+    }
 
     render() {
         let {comment} =this.props;
@@ -13,10 +20,12 @@ export default class Freeboardsubcommcontainer extends Component {
                    {
                        subComm.map(comm=>{ 
                            return(
-                           <Freeboardsubcommview subcomment = {comm} />
+                           <Freeboardsubcommview onDeleteSubComment={this.onDeleteSubComment} subcomment = {comm} />
                        )})
                    }
             </div>
         )
     }
 }
+
+export default Freeboardsubcommcontainer

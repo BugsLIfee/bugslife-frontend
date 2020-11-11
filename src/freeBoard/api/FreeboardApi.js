@@ -61,14 +61,27 @@ export default class FreeboardApi{
             return new_comment;
     }
 
+    freeboardsubCommDelete(postId, commentId, subCommId, pwd){
+        // DELETE /api/freeboard/{postId}/comment/{commentId}/{subcommId}
+        let url = this.FREE_API_URL+postId+`/comment/${commentId}/${subCommId}`
+        let result = axios.delete(url, {
+            params : {pwd : pwd}
+        }).then(
+            (response)=>(response && response.data) || null
+        )
+
+        return result
+        
+    }
+
     freeboardPostDelete(postId, pwd){
-        console.log(this.FREE_API_URL + postId)
+    
         let result = axios.delete(this.FREE_API_URL + postId ,{
             params : {pwd: pwd}
         }).then(
             (response)=>(response && response.data) || null
         )
-        console.log(result);
+
         return result;
     }
 

@@ -131,6 +131,20 @@ class FreeboardStore{
     }
 
     @action
+    async onDeleteSubComment(commentId, subCommId, pwd){
+      console.log(commentId, subCommId, pwd)
+      let postId = this.freeboard_detail.id;
+
+      let result = await this.freeApi.freeboardsubCommDelete(postId, commentId, subCommId, pwd);
+
+      if(result ==null){
+        return "대댓글 삭제 실패"
+      }else{
+        return "대댓글 삭제 성공"
+      }
+    }
+
+    @action
     onLikePost =(like)=>{
       if(like ===false){
         this.freeboard_detail.likes+=1

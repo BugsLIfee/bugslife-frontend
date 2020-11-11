@@ -1,7 +1,12 @@
-.freeboard_subcomm_con {
+.freeboard_subcomm_up {
   display: flex;
   flex-direction: row;
   padding: 0.5rem;
+}
+
+.freeboard_subcomm_con {
+  display: flex;
+  flex-direction: column;
 }
 
 .freeboard_subcomm_sec {
