@@ -35,6 +35,17 @@ export default class FreeboardApi{
         return comments;
     }
 
+    freeboardPostDelete(postId, pwd){
+        console.log(this.FREE_API_URL + postId)
+        let result = axios.delete(this.FREE_API_URL + postId ,{
+            params : {pwd: pwd}
+        }).then(
+            (response)=>(response && response.data) || null
+        )
+        console.log(result);
+        return result;
+    }
+
     // freeboardCommentList(){
     //     let commentList = axios
     // }

@@ -13,7 +13,8 @@ export default class Freeboarddetailview extends Component {
     onDeletePost=()=>{
         let pwd =  prompt("게시글 비밀번호")
         let confirmed_pwd = prompt("비밀번호 확인")
-        this.props.onDeletePost(pwd, confirmed_pwd);
+        let postId = this.props.detail.id;
+        this.props.onDeletePost(pwd, confirmed_pwd, postId);
     }
 
     render() { 
@@ -47,7 +48,7 @@ export default class Freeboarddetailview extends Component {
                         <h4> {post.cate}</h4>        
                         <h5> 작성일 : {post.registerDate}</h5>
                         <h5> 조회수 : {post.viewCnt}</h5>
-                       <h5> 댓글 수 : [{comments.length}]</h5>
+                        <h5> 댓글 수 : [{comments.length}]</h5>
             
                         </div> 
                         </div>  

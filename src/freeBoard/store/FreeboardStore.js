@@ -2,7 +2,7 @@ import { observable,  action, computed } from "mobx"
 import FreeboardApi from "../api/FreeboardApi";
 import FreeboardPostAddModel from "../api/model/post/FreeboardPostAddModel";
 // import FreeboardPostModel from "../api/model/post/FreeboardPostModel";
-
+import  { Redirect } from 'react-router-dom'
 
 class FreeboardStore{
 
@@ -78,10 +78,10 @@ class FreeboardStore{
       let result = await this.freeApi.freeboardCreatePost(post);
 
       if(result == null){
+        alert("게시글 입력에 에러가 발생했습니다.")
         console.log("Null exception on Creating Freeboard Post")
       }else{
-   
-        console.log(result, "자유게시글 입력성공")
+        console.log(result, "자유게시글 입력성공");
       }
     }
     
@@ -95,9 +95,14 @@ class FreeboardStore{
     }
 
     @action
-    onDeletePost=(pwd, confirmed_pwd)=>{
-        if(pwd===confirmed_pwd){
-          alert("correct")
+    async onDeletePost(pwd, postId){ 
+      console.log(pwd, postId)
+
+        let result = await this.freeApi.freeboardPostDelete(postId, pwd)
+        if(result ==null){
+          return "포스트 삭제 에러"
+        }else{
+          return "포스트 삭제 성공"
         }
     }
 

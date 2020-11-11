@@ -28,23 +28,6 @@ export default class FreeboardEditorView extends Component {
 
     editorRef = React.createRef();
 
-
-    // onSubmitForm(event){
-    //    
-    //     let post = {};
-    //     post["cate"] = "";
-    //     post["title"] = "";
-    //     post["content"] = "";
-    //     post["registerDate"] = "";
-    //     post["updateDate"] = "";
-    //     post["isHide"] = false;
-    //     post["viewCnt"] = 0;
-    //     post["pwd"] = "";
-    //     post["likes"] = "";
-    //     post["content"] = "";
-    // }
-
-
     onSubmitForm=()=>{
 
         let post = this.state;

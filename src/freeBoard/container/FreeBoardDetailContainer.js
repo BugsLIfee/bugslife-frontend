@@ -15,8 +15,17 @@ class Freeboarddetailcontainer extends Component {
         await this.props.Store.freeboard.onLikePost(!like)
     }
 
-    onDeletePost=(pwd, confirmed_pwd)=>{
-        this.props.Store.freeboard.onDeletePost(pwd,confirmed_pwd)
+    onDeletePost=(pwd, confirmed_pwd, postId)=>{
+        let correct_pwd;
+        if(pwd ===confirmed_pwd){
+            correct_pwd = pwd
+            alert("correct")
+          }else{
+              alert("비밀번호가 틀렸습니다.")
+          }
+
+          console.log("Freeboard Detail Container : " + correct_pwd, postId)
+        this.props.Store.freeboard.onDeletePost(correct_pwd, postId)
     }
 
     componentDidMount=()=>{
