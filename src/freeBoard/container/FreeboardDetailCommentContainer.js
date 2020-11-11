@@ -1,3 +1,4 @@
+import { inject, observer } from 'mobx-react'
 import React, { Component } from 'react'
 import ReportModalContainer from '../../report/container/ReportContainer'
 import Freeboarddetailcommentform from '../view/detail/ FreeboardDetailCommentForm'
@@ -5,7 +6,10 @@ import Freeboarddeleteform from '../view/detail/FreeboardDeleteForm'
 import "../view/detail/scss/FreeboarDetailComm.scss"
 import Freeboardsubcommcontainer from './FreeboardSubcommContainer'
 
-export default class Freeboarddetailcommentcontainer extends Component {
+
+@observer
+@inject("Store")
+ class Freeboarddetailcommentcontainer extends Component {
     state = { visible: false, comment_id: -1, delete_com: false, showBar: false, select_comm:-1 }
 
     onCommentClick=(id)=>{
@@ -24,11 +28,17 @@ export default class Freeboarddetailcommentcontainer extends Component {
         this.setState({showBar:!this.state.showBar, select_comm:id})
     }
 
+    onCreateComment=(comment)=>{
+        this.props.Store.freeboard.onCreateComment(this.props.postId, comment);
+        console.log("====container 전달 완료=====", +comment, this.props.postId)
+    }   
 
     render() {
         const select_comm= this.state.select_comm;
         let comments =this.props.comments;
+        let postId = this.props.postId;
         console.log(comments)
+        console.log("comment Container postId    :  " + postId) 
 
         return (
             <div className="freeboard_detail_comment_container">
@@ -41,7 +51,7 @@ export default class Freeboarddetailcommentcontainer extends Component {
                         <div className="freeboard_comment_sec">
                         <div className="freeboard_detail_comment_content">
                             <span className="freeboard_comment_info"> 
-                                <h6>익명의 고수</h6> 
+                                <h6>{com.writer}</h6> 
                                 <p>{com.registerDate}</p>
                             </span>
                             <p id="freeboard_comment_info_txt">{com.content}</p>
@@ -89,7 +99,7 @@ export default class Freeboarddetailcommentcontainer extends Component {
             }
 
                         <div className="default_comment_form">
-                        <Freeboarddetailcommentform visible={true} cur_id={0} select_id={0}/>
+                        <Freeboarddetailcommentform postId={postId} visible={true} cur_id={0} select_id={0} onCreateComment={this.onCreateComment}/>
                         </div>
 
                     
@@ -97,3 +107,5 @@ export default class Freeboarddetailcommentcontainer extends Component {
         )
     }
 }
+
+export default Freeboarddetailcommentcontainer;

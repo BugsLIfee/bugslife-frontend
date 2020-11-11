@@ -86,6 +86,18 @@ class FreeboardStore{
     }
     
     @action
+    async onCreateComment(postId,comment){
+      let result = await this.freeApi.freeboardCreateComment(postId, comment);
+
+      console.log("====store 전달 완료=====")
+      if(result==null){
+        return "댓글 등록 에러"
+      }else{
+        return "댓글 등록 성공"
+      }
+    }
+
+    @action
     onLikePost =(like)=>{
       if(like ===false){
         this.freeboard_detail.likes+=1
