@@ -5,6 +5,7 @@ class FreeboardPostAddModel{
         this.content = post.content;
         this.registerDate = post.registerDate
         this.updateDate = post.updateDate
+        this.pwd = post.pwd
         this.isHide = post.isHide
         this.viewCnt = post.viewCnt
         this.reportCnt = post.reportCnt

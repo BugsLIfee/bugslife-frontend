@@ -1,8 +1,7 @@
 .freeboard_detail_comment_container {
   background-color: rgb(231, 231, 231);
   border-radius: 0 0 10px 10px;
-
-  padding-top: 1rem;
+  margin-top: 1rem;
   position: relative;
 
   .freeboard_detail_comment {
@@ -10,6 +9,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    border-top: 1px solid lightgray;
 
     .freeboard_comment_sec {
       display: inline-flex;
@@ -211,4 +211,10 @@
 
 .showBar {
   display: block;
+}
+
+.freeboard_subComment_container {
+  padding: 1rem;
+  padding-left: 3rem;
+  // background-color: red;
 }

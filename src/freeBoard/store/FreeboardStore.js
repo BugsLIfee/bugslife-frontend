@@ -1,9 +1,8 @@
 import { observable,  action, computed } from "mobx"
 import FreeboardApi from "../api/FreeboardApi";
 import FreeboardPostAddModel from "../api/model/post/FreeboardPostAddModel";
-import FreeboardPostModel from "../api/model/post/FreeboardPostModel";
-import FreeboardListData from "./FreeboardListData";
-import selected_post from "./FreeboardTestData";
+// import FreeboardPostModel from "../api/model/post/FreeboardPostModel";
+
 
 class FreeboardStore{
 
@@ -18,6 +17,11 @@ class FreeboardStore{
     @observable
     freeboard_cate = ["자유", "취업", "연애", "학업", "유머", "스포츠", "회사"];
 
+    @observable
+    comments = [];
+
+    @observable
+    comment = {};
 
     @observable
     select_cate = [];
@@ -34,7 +38,6 @@ class FreeboardStore{
 
     @action
     async freeboardList(){
-      console.log("Freeboard List======");
       let result = await this.freeApi.freeboardList()
 
       if(result !==null){
@@ -49,15 +52,28 @@ class FreeboardStore{
     async freeboardPostSelect(postId){
       let post = await this.freeApi.freeboardPostSelect(postId);
       this.freeboard_detail = post;
-      console.log(this.freeboard_detail);
+      // console.log(this.freeboard_detail);
+
+    }
+
+    @action
+    async freeboardCommentSelect(postId){
+      let post_comments = await this.freeApi.freeboardComments(postId);
+      this.comments = post_comments;
+      return post_comments;
     }
 
     @action
     async onCreatePost(post){
-      if(post.cate ==""){
+      if(post.pwd === "" || post.pwd === undefined || post.pwd ===null){
+        return alert("비밀번호를 입력해주세요.")
+      }
+      
+      if(post.cate ===""){
         alert("카테고리는 필수 선택사항입니다.")
         return;
       }
+
       post = new FreeboardPostAddModel(post);
       let result = await this.freeApi.freeboardCreatePost(post);
 
@@ -76,6 +92,13 @@ class FreeboardStore{
       }else{
         this.freeboard_detail.likes-=1
       }
+    }
+
+    @action
+    onDeletePost=(pwd, confirmed_pwd)=>{
+        if(pwd===confirmed_pwd){
+          alert("correct")
+        }
     }
 
     @action
@@ -120,7 +143,7 @@ class FreeboardStore{
           this.freeboard_list = likeList
           break
         case "d":
-          this.freeboard_list = FreeboardListData;
+          // this.freeboard_list = FreeboardListData;
           break
       }
     }

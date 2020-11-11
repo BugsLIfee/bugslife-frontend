@@ -10,8 +10,6 @@ export default class FreeboardApi{
        let result = axios.get(this.FREE_API_URL).then(
            (response)=>(response && response.data) || null
        )
-       console.log("api result----",result);
-
        return result;
 
     }
@@ -29,4 +27,15 @@ export default class FreeboardApi{
         )
         return newPost;
     }
+
+    freeboardComments(postId){
+        let comments = axios.get(`${this.FREE_API_URL}${postId}/comment`).then(
+            (response)=>(response && response.data) || null
+        )
+        return comments;
+    }
+
+    // freeboardCommentList(){
+    //     let commentList = axios
+    // }
 }

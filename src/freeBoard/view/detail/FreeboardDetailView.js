@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import ReportModalContainer from '../../../report/container/ReportContainer'
-import Freeboarddetailcomment from './FreeboardDetailComment';
+import Freeboarddetailcommentcontainer from '../../container/FreeboardDetailCommentContainer';
 import "./scss/FreeboardDetailpost.scss"
+import {toJS} from "mobx"
 
 export default class Freeboarddetailview extends Component {
 
@@ -9,14 +10,18 @@ export default class Freeboarddetailview extends Component {
         this.props.onLikePost( !this.props.like)
     }
 
+    onDeletePost=()=>{
+        let pwd =  prompt("게시글 비밀번호")
+        let confirmed_pwd = prompt("비밀번호 확인")
+        this.props.onDeletePost(pwd, confirmed_pwd);
+    }
+
     render() { 
         const post =this.props.detail;
-        const comment =post.comments;
+        const comments =this.props.comments;
         const done = this.props.like ? "like_done" : "like_yet";
 
-        console.log("=======comment ==== ")
-        console.log(JSON.stringify(comment))
-        
+       
         return (
             <div>
                 <div className="freeboard_detail_container">  
@@ -29,7 +34,7 @@ export default class Freeboarddetailview extends Component {
 
                         <div className="freeboard_nav_right">
                             <a href="/"><h4>수정</h4></a>
-                            <a href="/"><h4>삭제</h4></a>
+                            <a href="#" onClick={this.onDeletePost}><h4>삭제</h4></a>
                         </div>
 
                     </div>
@@ -42,7 +47,7 @@ export default class Freeboarddetailview extends Component {
                         <h4> {post.cate}</h4>        
                         <h5> 작성일 : {post.registerDate}</h5>
                         <h5> 조회수 : {post.viewCnt}</h5>
-                       {/* <h5> 댓글 수 : [{comment.length}]</h5>*/}
+                       <h5> 댓글 수 : [{comments.length}]</h5>
             
                         </div> 
                         </div>  
@@ -73,7 +78,7 @@ export default class Freeboarddetailview extends Component {
                         </div>
                         </div>      
                       <div className="">
-                            <Freeboarddetailcomment comment ={comment} />
+                            <Freeboarddetailcommentcontainer comments ={comments} />
                        </div>    
                 
                 </div>
