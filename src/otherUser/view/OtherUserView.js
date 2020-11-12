@@ -4,9 +4,6 @@ import CountUp from "react-countup";
 import "./scss/otherUserView.scss"
 
 export default class OtherUserView extends Component {
-    constructor(props){
-    super(props)
-    }
 
     render() {
         const image = "../main/pink_sqaure.png";
@@ -33,7 +30,7 @@ export default class OtherUserView extends Component {
                         {question.title}
                         </List.Content>
                         <div className="MyPage_detail_post_icon">
-                        <a>
+                        <a href="/">
                             <Icon name="edit"></Icon>
                         </a>
                         </div>
@@ -48,7 +45,7 @@ export default class OtherUserView extends Component {
                         {answer.title}
                         </List.Content>
                         <div className="MyPage_detail_post_icon">
-                        <a>
+                        <a href="/">
                             <Icon name="edit"></Icon>
                         </a>
                         </div>

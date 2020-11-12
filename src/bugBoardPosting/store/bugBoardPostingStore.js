@@ -1,4 +1,4 @@
-import { observable, computed, action } from "mobx";
+import { action } from "mobx";
 import PostingApi from "../api/PostingApi";
 import PostingApiModel from "../api/model/PostingApiModel"
 
@@ -9,7 +9,7 @@ class PostingStore {
     @action
     async onAddPost(postObj) {
         postObj = new PostingApiModel(postObj);
-        let result = await this.postingApi.postCreate(postObj);
+        await this.postingApi.postCreate(postObj);
     }
 }
 

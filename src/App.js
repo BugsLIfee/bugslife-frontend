@@ -65,7 +65,7 @@ class App extends Component {
       </div>
       <Router>
         <Switch>
-          <Route exact path="/" component={MainContainer} exact={true} />
+          <Route exact path="/" component={MainContainer}  />
           <Route path="/list" component={ListContainer} exact={true} />
           <Route path="/detail" component={DetailPage} exact={true} />
           <PrivateRoute path="/admin" authenticated={this.props.Store.oauth.getCurrentUser} component={AdminContainer}  />

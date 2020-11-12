@@ -8,7 +8,6 @@ import googleLogo from '../img/google-logo.png';
 import githubLogo from '../img/github-logo.png';
 //import Alert from 'react-s-alert';
 import { Icon } from 'semantic-ui-react';
-import { Alert } from '@material-ui/lab';
 
 class Login extends Component {
     componentDidMount() {

@@ -5,8 +5,12 @@ import "../view/detail/scss/FreeboardDetailiCon.scss"
 
 
 
+
+
+
 @inject("Store")
 @observer
+
 class Freeboarddetailcontainer extends Component {
     state=({like:false})
 

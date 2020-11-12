@@ -16,7 +16,7 @@ export default class InsertCommentView extends Component {
         let comment_body; 
         return(
             <div>
-                { login === "false" ?  <p>댓글을 남기려면 <a href="#" >로그인</a> 해주세요.</p> :
+                { login === "false" ?  <p>댓글을 남기려면 <a href="/" >로그인</a> 해주세요.</p> :
                     <InputGroup size="lg" className="input_comment">
                         <FormControl 
                             id="question_comment_insert_form"
