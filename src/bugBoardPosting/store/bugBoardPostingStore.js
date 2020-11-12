@@ -5,11 +5,12 @@ import PostingApiModel from "../api/model/PostingApiModel"
 class PostingStore {
 
     postingApi = new PostingApi();
+    post = {};
 
     @action
     async onAddPost(postObj) {
         postObj = new PostingApiModel(postObj);
-        let result = await this.postingApi.postCreate(postObj);
+        await this.postingApi.postCreate(postObj);
     }
 }
 

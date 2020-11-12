@@ -13,12 +13,12 @@ export default class AnswerHeaderView extends Component {
                     <i class="fas fa-font answer_mark"></i>
                     <img src="../logo/logo_st.png" class="writer_icon" /> 
                     <div class="writer_info_text">
-                        <div class="writer_id"> {answer.writer_id} </div>
+                        <div class="writer_id"> {answer.writer} </div>
                         <div class="writer_level"> {answer.writer_lv} </div>
                     </div>
                 </div>
                 <div className="_info">
-                        <div class="upload_date"> {answer.date} &nbsp; | &nbsp; </div>
+                        <div class="upload_date"> {answer.regist_date} &nbsp; | &nbsp; </div>
                         <div className="report"> <ReportModalContainer bt_text = {<div><i class="fas fa-ban"></i> 신고</div>} /> </div>
                 </div>
             </div>

@@ -53,8 +53,7 @@ class FreeboardStore{
     async freeboardPostSelect(postId){
       let post = await this.freeApi.freeboardPostSelect(postId);
       this.freeboard_detail = post;
-      // console.log(this.freeboard_detail);
-
+      // console.log("스토어 안임",this.freeboard_detail);
     }
 
     @action
