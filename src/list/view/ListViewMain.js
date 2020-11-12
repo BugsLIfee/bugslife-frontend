@@ -26,16 +26,9 @@ class ListViewMain extends Component {
           <div class="tab-box">
             <div class="tag-box">{tags}</div>
 
-          {/* <div class="box-like">
-            <span class="img">
-              <img src="../../detail/empty_bookmark.png"></img>
-            </span>
-            <span class="number">{listView.addPoints}</span>
-          </div> */}
-
             <div class="box-grade">
               <span class="btn-grade img">
-                <img style={img} src={listView.userIcon}></img>
+                <img style={img} src={listView.userIcon} alt=""></img>
               </span>
               <span class="value">
                 <span class="name">{listView.writer_id}</span>
