@@ -1,6 +1,4 @@
 import axios from "axios";
-import {request} from  "../../oauth/api/APIUtils";
-
 
 class UserApi{
     URL = "/api/mypage/";

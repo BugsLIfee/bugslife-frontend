@@ -20,7 +20,7 @@ export default class MypagePost extends Component {
                       <List.Header>Post Title</List.Header>
                       질문 내용 블라블라
                       <div className="MyPage_post_action">
-                        <b>답변 수 : </b>5 | <b>좋아요 <span>❤️ </span>:</b> 5 |{" "}
+                        <b>답변 수 : </b>5  <span role="img">|</span> <b>좋아요 <span role="img"> ❤️ </span>:</b> 5 <span role="img">|</span> 
                         <b> 포인트 : </b> 1
                       </div>
                       <p className="MyPage_post_date">
@@ -29,10 +29,10 @@ export default class MypagePost extends Component {
                     </List.Content>
 
                     <div className="MyPage_detail_post_icon">
-                      <a>
+                      <a href="/">
                         <Icon name="edit"></Icon>
                       </a>
-                      <a>
+                      <a href="/">
                         <Icon name="delete"></Icon>
                       </a>
                     </div>
@@ -56,10 +56,10 @@ export default class MypagePost extends Component {
                       </p>
                     </List.Content>
                     <div className="MyPage_detail_post_icon">
-                      <a>
+                      <a href="/">
                         <Icon name="edit"></Icon>
                       </a>
-                      <a>
+                      <a href="/">
                         <Icon name="delete"></Icon>
                       </a>
                     </div>

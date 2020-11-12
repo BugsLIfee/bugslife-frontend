@@ -64,7 +64,7 @@ class DetailStore {
 
   @action addAnswerComment(id, comment){
       this.answers.find(answer => {
-          return answer.id==id;
+          return answer.id===id;
       }).comments.push(comment);
   }
 

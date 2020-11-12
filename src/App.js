@@ -35,9 +35,6 @@ import {
 import Signup from "./oauth/signup/Signup";
 import AdminRedirectHandler from "./oauth/oauth2/AdminRedirectHandler";
 import { inject, Observer } from "mobx-react";
-import FreeboardRoutes from "./routes/FreeboardRoutes";
-
-
 
 @inject("Store")
 @Observer

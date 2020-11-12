@@ -9,14 +9,17 @@ export default class Backgroundmid extends Component {
         <img
           className="back_mid_black_long back_mid "
           src="../main/black_longsqaure.png"
+          alt="main_background_img"
         ></img>
         <img
           className="back_mid_yellow_cloud back_mid"
           src="../main/sqaure.png"
+          alt="main_background_img"
         ></img>
         <img
           className="back_mid_red_semi back_mid"
           src="../main/red_semi.png"
+          alt="main_background_img"
         ></img>
 
         <h1 className="back und">undifined</h1>
