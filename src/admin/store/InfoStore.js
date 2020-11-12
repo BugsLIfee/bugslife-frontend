@@ -1,7 +1,6 @@
 import { observable, computed, action } from "mobx";
 import InfoApiModel from "../api/model/InfoApiModel";
 import InfoApi from "../api/InfoApi.js";
-import infotype from "../../contact/data/category";
 
 export default class InfoStore {
   infoApi = new InfoApi();

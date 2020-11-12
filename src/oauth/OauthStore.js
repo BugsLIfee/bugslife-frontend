@@ -62,9 +62,10 @@ loadCurrentlyLoggedInUser() {
     this.currentUser= null;
     this.isAdmin = false;
     
-    // Alert.success("로그아웃 되었습니다! ");
-    alert("로그아웃 되었습니다! ");
-    
+
+    if (window.confirm("로그아웃하시겠습니까?")) { 
+    window.open("/", "로그아웃되었습니다!");
+    }
 
  }
 

@@ -4,9 +4,10 @@ import InfoListContainer from '../admin/container/info/InfoListContainer';
 import QuestionMyListContainer from '../contact/container/QuestionMyListContainer';
 import { Route } from 'react-router-dom';
 import QuestionManyContainer from '../contact/container/QuestionManyContainer';
+import ChatbotContainer from '../chat/container/ChatbotContainer';
 
 
-const AdminRoutes = ({ match }) => {
+const ContactRoutes = ({ match }) => {
 
   return (
     <>
@@ -14,8 +15,9 @@ const AdminRoutes = ({ match }) => {
       <Route exact path={`${match.url}/qna-write`} component={QuestionEditContainer} />
       <Route exact path={`${match.url}/info`} component={InfoListContainer} />
       <Route exact path={`${match.url}/qna-many`} component={QuestionManyContainer} />
+      <Route exact path={`${match.url}/chat`} component={ChatbotContainer} />
 
     </>
   );
 };
-export default AdminRoutes;
+export default ContactRoutes;
