@@ -2,6 +2,7 @@ import { observable,  action, computed } from "mobx"
 import FreeboardApi from "../api/FreeboardApi";
 import FreeboardPostAddModel from "../api/model/post/FreeboardPostAddModel";
 import FreeboardCommentAddModel from "../api/model/comment/FreeboardCommentAddModel";
+import { observer } from "mobx-react";
 
 class FreeboardStore{
 
@@ -12,6 +13,14 @@ class FreeboardStore{
 
     @observable
     freeboard_detail = {}
+
+    // @action
+    // onLike(){
+    //   this.freeboard_detail.likes +=1
+    // }
+
+    @observable
+    freePost_likes = this.freeboard_detail.likes;
 
     @observable
     freeboard_cate = ["자유", "취업", "연애", "학업", "유머", "스포츠", "회사"];
@@ -49,8 +58,13 @@ class FreeboardStore{
 
     @action
     async freeboardPostSelect(postId){
-      let post = await this.freeApi.freeboardPostSelect(postId);
-      this.freeboard_detail = post;
+      // let post = await this.freeApi.freeboardPostSelect(postId);
+       this.freeboard_detail = await this.freeApi.freeboardPostSelect(postId);
+       this.increaseViewCnt(postId);
+    }
+
+    @action increaseViewCnt(postId){
+      this.freeApi.freeboardIncreView(postId);
     }
 
     @action
@@ -88,8 +102,6 @@ class FreeboardStore{
       console.log(newComment)
       let result = await this.freeApi.freeboardCreateComment(postId, newComment);
 
-      console.log("====store 전달 완료=====")
-      console.log(result)
       if(result==null){
         return "댓글 등록 에러"
       }else{
@@ -143,10 +155,17 @@ class FreeboardStore{
 
     @action
     onLikePost =(like)=>{
+      console.log("store" + like)
+      let postId = this.freeboard_detail.id;
+
       if(like ===false){
-        this.freeboard_detail.likes+=1
+        let result = this.freeApi.freeboardPostLike(postId);
+
+        console.log(result);
+        console.log(this.freeboard_detail)
       }else{
-        this.freeboard_detail.likes-=1
+        this.freeApi.freeboardPostDislike(postId);
+        console.log("dislike post store;")
       }
     }
 
@@ -172,15 +191,14 @@ class FreeboardStore{
           
       }else{
         cate_list.map((cate)=> {
+
         let filtered= this.freeboard_list.filter((val)=> {
              return val = (val.cate === cate)  
         })
-        console.log("filtered : "+ filtered)
 
         if(filtered.length > 0){
           filtered.map(val=> select_post.push(val))
-            //  select_post.push(filtered[0]) 
-            }
+          }
         }) ;
  
        this.freeboard_select_posts = select_post
@@ -208,6 +226,8 @@ class FreeboardStore{
         case "d":
           // this.freeboard_list = FreeboardListData;
           break
+        default :
+          return "End";
       }
     }
 }

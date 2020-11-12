@@ -36,7 +36,7 @@ export default class Freeboardsubcommview extends Component {
 
 
         return (
-            <div class="freeboard_subcomm_con">
+            <div className="freeboard_subcomm_con">
 
                 <div className="freeboard_subcomm_up">
                 <h5 className="freeboard_subcomm_sec_icon">⎿</h5>
@@ -55,7 +55,7 @@ export default class Freeboardsubcommview extends Component {
                    
                     <div className="freeboard_detail_comment_responsive">
                         <h4 className= "freeboard_detail_comment_btn_responsive" onClick={()=>this.onShowComm(subcomment.id)}>
-                            <i class="fas fa-ellipsis-v"></i>
+                            <i className="fas fa-ellipsis-v"></i>
                         </h4>
 
                         <div className={"freeboard_detail_comment_rep_btn_container " + ((select_comm === subcomment.id) && (this.state.showBar)? "showBar": "hideBar")}>

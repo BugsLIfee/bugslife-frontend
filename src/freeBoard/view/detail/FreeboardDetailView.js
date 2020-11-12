@@ -4,9 +4,21 @@ import Freeboarddetailcommentcontainer from '../../container/FreeboardDetailComm
 import "./scss/FreeboardDetailpost.scss"
 
 export default class Freeboarddetailview extends Component {
+    state=({ likeCnt:0 })
 
-    onLikePost=()=>{
-        this.props.onLikePost( !this.props.like)
+    onLikePost=async ()=>{
+        this.props.onLikePost(!this.props.like)
+        // this.setState({like:!this.state.like})
+
+        // if (this.props.like ==true){
+        //     // console.log(this.state.likeCnt-1)
+        //    await this.setState({likeCnt : this.state.likeCnt-1})
+        // }else{
+        //     // console.log(this.state.likeCnt+1)
+        //     await this.setState({likeCnt : this.state.likeCnt+1})
+        // }
+        // console.log(this.state)
+        this.forceUpdate();
     }
 
     onDeletePost=()=>{
@@ -16,7 +28,20 @@ export default class Freeboarddetailview extends Component {
         this.props.onDeletePost(pwd, confirmed_pwd, postId);
     }
 
+
+
+    static getDerivedStateFromProps(nextProps, prevState) {
+        let likes_props = nextProps.detail.likes
+        if(likes_props!==prevState.likeCnt){
+            return { likeCnt : likes_props}
+        }
+        // console.log(likes_props!==prevState.likeCnt)
+        return null
+    }
+
+
     render() { 
+
         const post =this.props.detail;
         const comments =this.props.comments;
         const done = this.props.like ? "like_done" : "like_yet";
@@ -62,7 +87,7 @@ export default class Freeboarddetailview extends Component {
                                 <div className="freeboard_detail_like_sec_icon"  >  
                                     <h5>추천<img className = "freeboard_detail_like_img" src="../../logo/logo_green_blank.png" alt="freeboardDetail_logo" /></h5>
                                     </div>
-                                    <h6>{post.likes}</h6>
+                                    <h6>{ post.likes + this.props.likeCnt}</h6>
                                 </div>
                           
 
