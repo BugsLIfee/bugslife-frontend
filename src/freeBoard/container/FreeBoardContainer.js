@@ -3,7 +3,6 @@ import { inject, observer } from "mobx-react"
 import FreeboardcateContainer from './FreeBoardCateContainer'
 import "../view/List/scss/FreeBoard.scss"
 import Freeboardlistcontainer from './FreeBoardListContainer'
-import FreeboardRoutes from '../../routes/FreeboardRoutes'
 
 @inject("Store")
 @observer

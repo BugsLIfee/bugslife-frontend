@@ -4,6 +4,7 @@ import { Button, Grid, Icon, Input } from "semantic-ui-react";
 import { inject, observer } from "mobx-react";
 import ContactRoutes from "../../routes/ContactRoutes";
 import "../view/scss/contactPage.scss";
+import { Link } from 'react-router-dom';
 @inject("Store")
 @observer
 class ContactContainer extends Component {
@@ -18,7 +19,7 @@ class ContactContainer extends Component {
                고객센터
             </span>
           <Input color="violet" style={{marginLeft:"230px"}}size='mini' icon='search' placeholder='자주묻는질문...' />
-          <Button size="big" color="violet"style={{marginLeft:"200px"}}>
+          <Button size="big" as={Link} to="/contact/chat"  color="violet"style={{marginLeft:"200px"}}>
           <Icon name='chat' />
               1:1 채팅 문의하기 
           </Button>

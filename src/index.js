@@ -35,7 +35,7 @@ ReactDOM.render(
           "/edu",
           "/edu/detail/:id",
           "/test",
-          "/otherUser"
+          "/otherUser",
         ]}
         component={App}
         exact={true}

@@ -3,14 +3,14 @@ import {
     Route,
     Redirect
   } from "react-router-dom";
-  import AdminRedirectHandler from "../oauth2/AdminRedirectHandler";
+import OAuth2RedirectHandler from '../oauth2/OAuth2RedirectHandler';
 
   function PrivateRoute ({ component: Component, authenticated,role, ...rest }) {
     return (
         <Route
             {...rest}
             render = {props => 
-                new AdminRedirectHandler('users')?(
+                new OAuth2RedirectHandler('users')?(
                     <Component {...rest} {...props} />
                 ) : ( 
                     <Redirect to={{
