@@ -1,12 +1,7 @@
 import React, {useState} from 'react';
 import { Form, Button, Header, Modal, Radio, Checkbox} from 'semantic-ui-react'
-import {
-    PGS,
-    METHODS_FOR_INICIS,
-    QUOTAS_FOR_INICIS_AND_KCP,
-} from './constants';
+import { PGS } from './constants';
 import "./scss/payment_modal.scss";
-
 
 export default function PaymentModal(props) {
   // let data = {
@@ -35,7 +30,6 @@ export default function PaymentModal(props) {
   const [allAgree, setAllAgree] = useState();
   const [agree1, setAgree1] = useState();
   const [agree2, setAgree2] = useState();
-  const [pg_name, setPgName] = useState();
   const [data, setData] = useState(
     {
       pg: 'html5_inicis',
@@ -104,7 +98,6 @@ export default function PaymentModal(props) {
   function callback(response) {
     const {
       success,
-      merchant_uid,
       error_msg,
     } = response;
 

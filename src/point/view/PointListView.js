@@ -125,13 +125,11 @@ const EnhancedTableToolbar = (props) => {
 
     return (
     <Toolbar
-        className={clsx(classes.root, {
+        className={`${clsx(classes.root, {
             [classes.highlight]: numSelected > 0,
-        })}
-
-        className="point_list_title"
+        })} point_list_title`}
     >
-        <Typography className={classes.title} className="point_list_title" variant="h6" id="tableTitle" component="div">
+        <Typography className={`${classes.title} point_list_title`} variant="h6" id="tableTitle" component="div">
             Point 변동 내역
         </Typography>
     </Toolbar>
