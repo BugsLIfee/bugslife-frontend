@@ -9,7 +9,7 @@ class PostingStore {
     @action
     async onAddPost(postObj) {
         postObj = new PostingApiModel(postObj);
-        let result = await this.postingApi.postCreate(postObj);
+        await this.postingApi.postCreate(postObj);
     }
 }
 
