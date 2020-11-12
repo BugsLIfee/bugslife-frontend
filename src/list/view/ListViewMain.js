@@ -35,7 +35,7 @@ class ListViewMain extends Component {
 
             <div class="box-grade">
               <span class="btn-grade img">
-                <img style={img} src={listView.userIcon}></img>
+                <img style={img} src={listView.userIcon} alt="img"></img>
               </span>
               <span class="value">
                 <span class="name">{listView.writer_id}</span>

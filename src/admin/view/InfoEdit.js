@@ -61,7 +61,7 @@ export default class InfoEdit extends Component {
 
     return (
       <div>
-        <h2>📢공지사항 작성 페이지 </h2>
+        <h2>   <span role="img" aria-label="aria">📢공지사항 작성 페이지 </span></h2>
         <Form>
             
             <Form.Input

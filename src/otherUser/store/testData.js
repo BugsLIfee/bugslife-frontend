@@ -4,7 +4,6 @@ const User = {
     attendence: 74,
     level: 95,
     solved: 37,
-    questions: 132,
     likes: 22,
 
     questions : [

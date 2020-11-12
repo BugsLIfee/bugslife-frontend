@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
 import { Grid, Image } from "semantic-ui-react";
 import "../../view/scss/EduDetail.scss"
 
@@ -52,7 +51,7 @@ export class EduDetailInfoView extends Component {
                         <div className="eduCellTitle">전화번호</div >
                         <div className="eduCellSBody">{eduDetail.telephone}</div>
                         <div className="eduCellTitle">홈페이지</div>
-                        <div className="eduCellSBody"><a href={`http://${eduDetail.homepage}`} target="_blank">{eduDetail.homepage}</a></div>
+                        <div className="eduCellSBody"><a href={`http://${eduDetail.homepage}`} target="_blank" rel="noopener noreferrer">{eduDetail.homepage}</a></div>
                         </Grid.Column>
                             
                         

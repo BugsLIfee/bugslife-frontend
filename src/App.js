@@ -33,7 +33,6 @@ import {
  } from "./Routes";
 
 import Signup from "./oauth/signup/Signup";
-import AdminRedirectHandler from "./oauth/oauth2/AdminRedirectHandler";
 import { inject, Observer } from "mobx-react";
 
 @inject("Store")

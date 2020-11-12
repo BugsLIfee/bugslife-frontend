@@ -3,10 +3,10 @@ import "./scss/ListItem.scss"
 
 class ListViewLabel extends Component {
   render() {
-    const img = {
-      width: "35px",
-      height: "35px",
-    }
+    // const img = {
+    //   width: "35px",
+    //   height: "35px",
+    // }
     const { listView } = this.props
     return (
       <div class="list_item_label">

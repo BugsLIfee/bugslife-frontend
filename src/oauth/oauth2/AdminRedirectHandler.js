@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ACCESS_TOKEN } from '../constants/index';
+// import { ACCESS_TOKEN } from '../constants/index';
 import { Redirect } from 'react-router-dom'
 
 class AdminRedirectHandler extends Component {
@@ -12,7 +12,7 @@ class AdminRedirectHandler extends Component {
     };
 
     render() {        
-        const token = this.getUrlParameter('token');
+        // const token = this.getUrlParameter('token');
         const role = this.getUrlParameter('role');
 console.log("0000????------",this.getUrlParameter('role'));
         if(role) {

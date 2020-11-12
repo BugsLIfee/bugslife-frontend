@@ -11,7 +11,7 @@ export class EduDetailReviewView extends Component {
 
             <div className="eduReviewLayout">
                 <div className="eduReviewHeader">
-                    <img src={review.userIcon}></img>
+                    <img src={review.userIcon} alt="img"></img>
                     {/* <img src="https://via.placeholder.com/40x40.png"></img> */}
                     <div className="eduReviewHeadewValue">{review.uid}</div>
                     <div className="eduReviewHeadewValue">{review.eTitle}</div>

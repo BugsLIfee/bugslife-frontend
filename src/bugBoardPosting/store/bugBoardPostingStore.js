@@ -1,4 +1,4 @@
-import { observable, computed, action } from "mobx";
+import { action } from "mobx";
 import PostingApi from "../api/PostingApi";
 import PostingApiModel from "../api/model/PostingApiModel"
 

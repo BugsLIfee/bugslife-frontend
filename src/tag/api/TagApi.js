@@ -1,6 +1,6 @@
 import axios from "axios"
 import { request }from "../../oauth/api/APIUtils";
-import { API_BASE_URL, ACCESS_TOKEN } from '../../oauth/constants/index';
+import { API_BASE_URL } from '../../oauth/constants/index';
 
 
 class TagApi {

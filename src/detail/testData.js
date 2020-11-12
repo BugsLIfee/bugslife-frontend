@@ -10,20 +10,7 @@ const testData = {
         writer_lv : "level 6. 알록달록 코뎅이",
         date : "2020.01.30",
         views : 131,   
-        body : "# 안녕하세요 C++ 초보입니다. \n ### `cmath` 라이브러리 `pow()`함수를 쓰다가 궁금한 점이 있어서 질문드립니다. \
-                \n 코드는 다음과 같습니다! <br />\
-                \n ```cpp\
-                \n #include <iostream>\
-                \n #include <cmath>\
-                \n using namespace std;\
-                \n int main() {\
-                \n  int n = pow(10, 4); \
-                \n  cout << n; // 왜 9999가 출력? \
-                \n}\
-                \n```\
-                \n 예상한 값은 10000인데 왜 9999가 출력되는 것인가요? \
-                \n 고수님들 답변 부탁드립니다 ㅠㅠ \
-                ", 
+        body : "# 안녕하세요 C++ 초보입니다. ", 
         tags : [ "C++", "Algorithm" ],
         comments: [
             {
