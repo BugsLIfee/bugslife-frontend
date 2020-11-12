@@ -1,5 +1,5 @@
 .posting {
-  margin: 3rem auto;
+  margin: auto;
   width: 980px;
 
   .posting_title {
@@ -63,7 +63,7 @@
   .upload {
     display: flex;
     justify-content: flex-end;
-    margin: 0;
+    margin: 0 !important;
 
     .upload_btn {
       padding: 0.5rem 1.5rem;
