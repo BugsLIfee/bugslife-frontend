@@ -1,4 +1,3 @@
-import { set } from "mobx"
 import React, { Component } from "react"
 import { Badge } from "react-bootstrap"
 import "./scss/ListTag.scss"

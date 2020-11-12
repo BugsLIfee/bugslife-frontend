@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Input, Header, Menu } from "semantic-ui-react"
+import { Input, Menu } from "semantic-ui-react"
 import "./scss/ListMain.scss"
 
 export default class ListHeaderview extends Component {

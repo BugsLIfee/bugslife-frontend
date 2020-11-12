@@ -25,6 +25,7 @@ class ListStore {
       case "d":
         this.list = testListData
         break
+      default : break;
     }
   }
 }

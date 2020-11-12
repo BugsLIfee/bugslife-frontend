@@ -14,7 +14,7 @@ export default class EduListHeaderView extends Component {
         
         return (
             <div>
-                <img src="../edu/eduHome.png" width="1000px"/>
+                <img src="../edu/eduHome.png" width="1000px" alt=""/>
                 <div className="eduListHeader">
                     <h5>전체<div className="fontColor">&nbsp;{eduLists}</div>건</h5>
                     <div className="searchLayout">
