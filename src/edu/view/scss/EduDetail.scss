@@ -35,6 +35,7 @@
     margin: 0px !important;
     padding: 0px !important;
     height: 20% !important;
+
     .eduCellTitle {
       display: flex;
       width: 15% !important;
@@ -93,6 +94,29 @@
   }
 }
 
+.eduReviewHeader {
+  width: 1000px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center !important;
+  padding-left: 10px;
+  margin-bottom: 15px;
+  .eduReviewSelector {
+    margin-left: 20px;
+    width: 35% !important;
+    display: flex !important;
+
+    .menu .selected.item {
+      width: 100% !important;
+    }
+  }
+  .reviewHeaderTitle {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #333333;
+  }
+}
+
 .eduReviewLayout {
   margin-bottom: 30px;
   padding: 15px;
@@ -102,14 +126,36 @@
   display: flex;
   flex-direction: column;
 
-  .eduReviewHeader {
+  .eduReviewTitle {
     width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
     margin-left: 10px;
+    justify-content: space-between;
 
-    .eduReviewHeadewValue {
+    .eduReviewTitleInfo {
+      display: flex;
+    }
+
+    .eduReviewClick {
+      cursor: pointer;
+    }
+
+    .reviewHate {
+      display: flex;
+      justify-content: flex-end;
+      margin-right: 30px;
+      font-size: 1.1rem;
+      color: #555555;
+      font-weight: bold;
+      .reviewHateValue {
+        font-weight: 500;
+        color: orangered;
+      }
+    }
+
+    .eduReviewTitleValue {
       font-size: 1rem;
       font-weight: bold;
       color: #555555;
@@ -163,16 +209,33 @@
     .eduReviewBodyR {
       width: 70%;
       margin-top: 10px;
-      .eduReviewTitle {
+      .reviewTitle {
         font-size: 1.6rem;
         font-weight: bold;
+        margin-bottom: 20px;
       }
       .eduReviewContent {
         font-size: 1.2rem;
-        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-top: 8px;
+        min-height: 100px;
+      }
+      .reviewRecommand {
+        color: blue;
+      }
+      .reviewUnrecommand {
+        color: red;
       }
     }
   }
+}
+
+.addEduReviewHeader {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: auto;
 }
 
 .addEduReviewTitle {
@@ -198,8 +261,8 @@
     font-size: 1rem;
     margin-top: 20px !important;
     .recommandTextArea {
-      margin-top: 8px;
       margin-bottom: 20px;
+      margin-top: 8px;
     }
     .reviewRecommand {
       color: blue;
@@ -211,5 +274,15 @@
   .addReviewButton {
     display: flex;
     justify-content: flex-end;
+  }
+}
+
+.eduSelector {
+  width: 70% !important;
+  display: flex !important;
+  margin-bottom: 15px;
+
+  .menu .selected.item {
+    width: 100% !important;
   }
 }
