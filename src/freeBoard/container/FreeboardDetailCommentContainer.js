@@ -8,8 +8,10 @@ import "../view/detail/scss/FreeboarDetailComm.scss"
 import Freeboardsubcommcontainer from './FreeboardSubcommContainer'
 
 
-@observer
+
 @inject("Store")
+@observer
+
  class Freeboarddetailcommentcontainer extends Component {
     state = { visible: false, comment_id: -1, delete_com: false, showBar: false, select_comm:-1 }
 
@@ -46,6 +48,10 @@ import Freeboardsubcommcontainer from './FreeboardSubcommContainer'
     }
 
 
+    componentWillReceiveProps=()=>{
+
+    }
+
     render() {
         const select_comm= this.state.select_comm;
         let comments =this.props.comments;
@@ -54,7 +60,7 @@ import Freeboardsubcommcontainer from './FreeboardSubcommContainer'
         return (
             <div className="freeboard_detail_comment_container">
        
-                {comments == undefined ? (<div><h6></h6></div>)    
+                {comments === undefined ? (<div><h6> </h6></div>)    
                         :               
                  (
                      comments.map((com)=>{

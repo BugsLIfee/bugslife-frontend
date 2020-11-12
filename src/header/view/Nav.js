@@ -35,7 +35,7 @@ onLogout=()=>{
             {" "}
             <h2 onClick={this.onShowNav}> <i class="fas fa-bars"></i></h2>
        
-            <div className={this.state.show == true? "responsive_nav_content" : "noShow"}>
+            <div className={this.state.show === true? "responsive_nav_content" : "noShow"}>
         {oauth.isLogin?
         (
           <>

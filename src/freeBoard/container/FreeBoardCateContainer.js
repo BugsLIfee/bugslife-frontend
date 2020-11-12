@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { Checkbox } from 'semantic-ui-react'
 import "../view/List/scss/FreeBoardCate.scss"
 
+
 @inject("Store")
 @observer
 class FreeboardcateContainer extends Component {
@@ -17,7 +18,7 @@ class FreeboardcateContainer extends Component {
 
         let changed_list = this.state.cate_list.slice(0);
         if(changed_list.includes(category)){
-            changed_list = changed_list.filter((val)=> val!=category);
+            changed_list = changed_list.filter((val)=> val!==category);
         }else{
             changed_list.push(category)
         }
@@ -30,7 +31,7 @@ class FreeboardcateContainer extends Component {
     
     render() {
         const cate = this.props.freeboard_cate;
-        const {selected_cate} = this.props.Store.freeboard;
+        // const {selected_cate} = this.props.Store.freeboard;
         
 
         return (

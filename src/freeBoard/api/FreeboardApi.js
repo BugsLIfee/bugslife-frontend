@@ -1,4 +1,3 @@
-import { request }from "../../oauth/api/APIUtils";
 import axios from "axios";
 
 export default class FreeboardApi{
