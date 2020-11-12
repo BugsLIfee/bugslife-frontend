@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import ReportModalContainer from '../../../report/container/ReportContainer'
 import Freeboarddetailcommentcontainer from '../../container/FreeboardDetailCommentContainer';
 import "./scss/FreeboardDetailpost.scss"
-import {toJS} from "mobx"
 
 export default class Freeboarddetailview extends Component {
 

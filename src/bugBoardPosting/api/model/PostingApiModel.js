@@ -7,7 +7,6 @@ class PostingApiModel{
     // tags = "";
 
     constructor(postObj){
-        // console.log(postObj)
         this.title = postObj.title;
         this.content = postObj.content;
         this.isPublic = postObj.isPublic;
