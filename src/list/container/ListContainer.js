@@ -17,6 +17,7 @@ class ListContainer extends Component {
 
   render() {
     const list = this.props.Store.list.getList
+    this.props.Store.list.allList();
 
     return (
       <Grid className="listLayout"> 

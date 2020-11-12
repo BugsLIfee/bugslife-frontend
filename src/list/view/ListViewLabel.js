@@ -7,11 +7,11 @@ class ListViewLabel extends Component {
     return (
       <div class="list_item_label">
         <div class="inner">
-          <span class="count">{listView.answer}</span>
+          <span class="count">{listView.numOfAnswers}</span>
           <span class="answer">답변</span>
         </div>
         <div class="view">
-          <span>{listView.views} views</span>
+          <span>{listView.view} views</span>
           </div>
       </div>
     )
