@@ -1,6 +1,8 @@
 import { observable , computed, action} from "mobx";
 import { getCurrentUser } from './api/APIUtils';
 import { ACCESS_TOKEN } from './constants/index';
+import swal from 'sweetalert';
+
 //import Alert from 'react-s-alert';
 class OauthStore {
 
@@ -63,9 +65,25 @@ loadCurrentlyLoggedInUser() {
     this.isAdmin = false;
     
 
-    if (window.confirm("로그아웃하시겠습니까?")) { 
-    window.open("/", "로그아웃되었습니다!");
-    }
+    swal({
+        title: "로그아웃하시겠습니까?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    })
+    .then((willLogout) => {
+        if (willLogout) {
+            swal("로그아웃되셨습니다!!", {
+            icon: "success",
+            });
+            window.open("/");
+        } else {
+            swal("일시적인 장애로 로그아웃 실패! ");
+        }
+        
+    });
+
+
 
  }
 
