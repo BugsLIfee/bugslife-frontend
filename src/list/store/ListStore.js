@@ -1,6 +1,6 @@
 import { observable, computed, action } from "mobx"
 import BugBoardListApi from "../api/BugBoardListApi"
-import testListData from "../testListData"
+
 
 class ListStore {
 
@@ -34,12 +34,13 @@ class ListStore {
         this.list = likeList
         break
       case "d":
-        let dateList = this.list.sort((a, b) => b["registDate"] - a["registDate"])
+        let dateList = this.list.sort((a, b) =>  Date.parse(b["registDate"]) -  Date.parse(a["registDate"]))
         this.list = dateList
         break
       default : break;
     }
   }
+
 }
 
 export default ListStore

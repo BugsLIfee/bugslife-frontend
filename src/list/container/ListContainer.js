@@ -11,13 +11,18 @@ import "../view/scss/ListTag.scss"
 @inject("Store")
 @observer
 class ListContainer extends Component {
+
+  componentDidMount(){
+    const { list } = this.props.Store
+    list.allList();
+  }
+
   onSetListOrderBy = (e) => {
     this.props.Store.list.setListOrderBy(e)
   }
 
   render() {
     const list = this.props.Store.list.getList
-    this.props.Store.list.allList();
 
     return (
       <Grid className="listLayout"> 

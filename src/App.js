@@ -88,7 +88,7 @@ class App extends Component {
           <Route path="/point" component={PointPage} />
           <Route path="/posting_fr" component={FreeboardEditorContainer} />
           <Route path="/edu" component={EduListContainer} exact={true} />
-          <Route path="/edu/detail/:id" component={EduDetailContainer}/>
+          <Route path="/edu/detail/:eid/:aid" component={EduDetailContainer}/>
           <Route path="/otherUser" component={OtherUserContainer}/>
 
         </Switch>
