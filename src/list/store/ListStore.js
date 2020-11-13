@@ -1,12 +1,23 @@
 import { observable, computed, action } from "mobx"
-import testListData from "../testListData"
+import BugBoardListApi from "../api/BugBoardListApi"
+
 
 class ListStore {
-  @observable list = testListData
+
+  bugBoardListApi = new BugBoardListApi();
+
+  @observable list = [];
 
   @computed get getList() {
     return this.list ? this.list.slice() : []
   }
+
+  @action
+  async allList() {
+    let result = await this.bugBoardListApi.bugBoardList()
+    this.list = result
+  }
+
   @action
   setListOrderBy(e) {
     switch (e) {
@@ -15,19 +26,21 @@ class ListStore {
         this.list = pointList
         break
       case "v":
-        let viewList = this.list.sort((a, b) => b["views"] - a["views"])
+        let viewList = this.list.sort((a, b) => b["view"] - a["view"])
         this.list = viewList
         break
       case "l":
-        let likeList = this.list.sort((a, b) => b["addPoints"] - a["addPoints"])
+        let likeList = this.list.sort((a, b) => b["likes"] - a["likes"])
         this.list = likeList
         break
       case "d":
-        this.list = testListData
+        let dateList = this.list.sort((a, b) =>  Date.parse(b["registDate"]) -  Date.parse(a["registDate"]))
+        this.list = dateList
         break
       default : break;
     }
   }
+
 }
 
 export default ListStore

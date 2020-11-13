@@ -17,7 +17,7 @@ export default class MypageHome extends Component {
     const {onClickPoint} = this.props;
 
     console.log("user? " +user)
-    
+
     return (
       <>
         <div className="MyPage_content">

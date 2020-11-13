@@ -1,12 +1,26 @@
 import React, { Component } from 'react'
 import ReportModalContainer from '../../../report/container/ReportContainer'
 import Freeboarddetailcommentcontainer from '../../container/FreeboardDetailCommentContainer';
+import PostContent from './FreeboardPostContent';
+import FreeboardPostContent from './FreeboardPostContent';
 import "./scss/FreeboardDetailpost.scss"
 
 export default class Freeboarddetailview extends Component {
+    state=({ likeCnt:0 })
 
-    onLikePost=()=>{
-        this.props.onLikePost( !this.props.like)
+    onLikePost=async ()=>{
+        this.props.onLikePost(!this.props.like)
+        // this.setState({like:!this.state.like})
+
+        // if (this.props.like ==true){
+        //     // console.log(this.state.likeCnt-1)
+        //    await this.setState({likeCnt : this.state.likeCnt-1})
+        // }else{
+        //     // console.log(this.state.likeCnt+1)
+        //     await this.setState({likeCnt : this.state.likeCnt+1})
+        // }
+        // console.log(this.state)
+        this.forceUpdate();
     }
 
     onDeletePost=()=>{
@@ -16,10 +30,30 @@ export default class Freeboarddetailview extends Component {
         this.props.onDeletePost(pwd, confirmed_pwd, postId);
     }
 
+
+
+    static getDerivedStateFromProps(nextProps, prevState) {
+        let likes_props = nextProps.detail.likes
+        if(likes_props!==prevState.likeCnt){
+            return { likeCnt : likes_props}
+        }
+        // console.log(likes_props!==prevState.likeCnt)
+        return null
+    }
+
+
     render() { 
+
         const post =this.props.detail;
         const comments =this.props.comments;
         const done = this.props.like ? "like_done" : "like_yet";
+
+        console.log("postContent  : ")
+        console.log(post.content)
+        // let last_post_ind = this.props.last_post_ind
+        // let next_post_ind = this.props.next_post_ind
+
+        // console.log(last_post_ind, next_post_ind)
 
         return (
             <div>
@@ -52,8 +86,11 @@ export default class Freeboarddetailview extends Component {
                         </div>  
 
                         <div className="freeboard_detail_content_body">
-                        <p> {post.content}</p>
+                            <div> 
+                                {/* <FreeboardPostContent content = {post.content !== undefined? post.content : "no"} /> </div> */}
+                        {/* <p dangerouslySetInnerHTML={post.content}> {post.content}</p> */}
                 
+                        </div>
                         </div>
                
                         <div className="freeboard_detail_like-report">
@@ -62,7 +99,7 @@ export default class Freeboarddetailview extends Component {
                                 <div className="freeboard_detail_like_sec_icon"  >  
                                     <h5>추천<img className = "freeboard_detail_like_img" src="../../logo/logo_green_blank.png" alt="freeboardDetail_logo" /></h5>
                                     </div>
-                                    <h6>{post.likes}</h6>
+                                    <h6>{ post.likes + this.props.likeCnt}</h6>
                                 </div>
                           
 

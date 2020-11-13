@@ -75,7 +75,7 @@ import Freeboardsubcommcontainer from './FreeboardSubcommContainer'
                         </div>
                     
                         <div className="freeboard_detail_comment_responsive">
-                            <h4 className= "freeboard_detail_comment_btn_responsive" onClick={()=>this.onShowComm(com.id)}><i class="fas fa-ellipsis-v"></i></h4>
+                            <h4 className= "freeboard_detail_comment_btn_responsive" onClick={()=>this.onShowComm(com.id)}><i className="fas fa-ellipsis-v"></i></h4>
                            
 
                             <div className={"freeboard_detail_comment_rep_btn_container " + ((select_comm === com.id) && (this.state.showBar)? "showBar": "hideBar")}>
