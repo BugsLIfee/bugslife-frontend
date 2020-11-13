@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import "./scss/FreeBoardPost.scss"
 import { Icon } from 'semantic-ui-react'
-import { Link, Route } from 'react-router-dom';
-import Freeboarddetailcontainer from '../../container/FreeBoardDetailContainer';
-
+import { Link } from 'react-router-dom';
 
 export default class Freeboardpost extends Component {
 
@@ -42,8 +40,7 @@ export default class Freeboardpost extends Component {
 
     render() {
         const post = this.props.post;
-        // const onSelectPost =this.props.onSelectPost
-        const comments = this.props.comments
+
     
         return (
            <div className="post_container">

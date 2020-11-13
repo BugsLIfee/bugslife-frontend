@@ -13,7 +13,7 @@ export default class CommentView extends Component {
                     <Card.Body>
                         <Card.Text>
                         <div className="comment_info">
-                            <a href="#">{comment.writer}</a> 
+                            <a href="/">{comment.writer}</a> 
                             <span class="comment_date">{comment.regist_date}</span>
                             <div className="report"> <ReportModalContainer bt_text = {<div>신고</div>} /> </div>
                         </div>

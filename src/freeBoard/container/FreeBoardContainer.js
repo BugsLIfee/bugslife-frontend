@@ -22,8 +22,6 @@ class FreeBoardContainer extends Component {
         const {freeboard_list}= this.props.Store.freeboard
         const {freeboard_cate} = this.props.Store.freeboard
         const {freeboard_select_posts} =this.props.Store.freeboard
-        const match = this.props.match;
-
 
         return(
             <div className="freeboard_container_wrap"> 

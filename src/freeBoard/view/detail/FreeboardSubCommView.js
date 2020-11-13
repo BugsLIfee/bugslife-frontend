@@ -13,7 +13,6 @@ export default class Freeboardsubcommview extends Component {
     this.setState({visible: false});
     this.setState({comment_id: id});
 
-    console.log(this.state)
     }
 
     onSubCommDelete=(pwd)=>{
@@ -21,7 +20,9 @@ export default class Freeboardsubcommview extends Component {
         let subCommId = subcomment.id
         let commentId = subcomment.commentId;
 
-        this.props.onDeleteSubComment(commentId, subCommId, pwd)
+        this.props.onDeleteSubComment(commentId, subCommId, pwd);
+
+        window.location.reload();
     }
 
     onShowComm =(id)=>{
@@ -33,8 +34,7 @@ export default class Freeboardsubcommview extends Component {
         let {subcomment} = this.props;
         const select_comm = this.state.select_comm;
 
-        console.log(subcomment)
-        console.log("selected comm " + select_comm)
+
         return (
             <div class="freeboard_subcomm_con">
 

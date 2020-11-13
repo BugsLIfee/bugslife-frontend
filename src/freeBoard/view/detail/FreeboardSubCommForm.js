@@ -15,12 +15,12 @@ export default class Freeboardsubcommform extends Component {
     })
     
     onWriteSubComment=()=>{
-        let today =  new Date();
-        let Y =today.getFullYear()
-        let M = today.getMonth();
-        let D = today.getDate();
+        // let today =  new Date();
+        // let Y =today.getFullYear()
+        // let M = today.getMonth();
+        // let D = today.getDate();
 
-        this.setState({...this.state, registerDate : `${Y}-${M}-${D}`})
+        // this.setState({...this.state, registerDate : `${Y}-${M}-${D}`})
 
         let comment = this.state
 
@@ -38,6 +38,7 @@ export default class Freeboardsubcommform extends Component {
         console.log(this.state)
 
         this.props.onCreateSubComment(comment)
+        window.location.reload();
         console.log("====view 전달 완료=====")
     }
 
@@ -45,12 +46,18 @@ export default class Freeboardsubcommform extends Component {
     render() {
         const {visible, cur_id, select_id} = this.props;
 
+        let today =  new Date();
+        let Y =today.getFullYear()
+        let M = today.getMonth();
+        let D = today.getDate();
+        let date_ = `${Y}-${M}-${D}`
+
         return (
             <div>
             { visible && (cur_id === select_id) ?  
                 <div className="freeboard_comment_form">
                     <div className="freeboard_comment_userInfo">
-                        <input className= "comment_userinfo_input comment_userInfo_id" type="text" placeholder="닉네임" onChange={(e)=>this.setState({...this.setState, writer:e.target.value})}/>
+                        <input className= "comment_userinfo_input comment_userInfo_id" type="text" placeholder="닉네임" onChange={(e)=>this.setState({...this.setState, writer:e.target.value, registerDate:date_})}/>
                         <input className= "comment_userinfo_input comment_userInfo_pwd"  type="password" placeholder="비밀번호" onChange={(e)=>this.setState({...this.setState, pwd:e.target.value, commentId: this.props.select_id})}/>
                     </div>   
 

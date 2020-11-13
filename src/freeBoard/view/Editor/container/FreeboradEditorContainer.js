@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
-import {Redirect, withRouter} from "react-router-dom";
+import {Redirect} from "react-router-dom";
 import FreeboardEditorView from "../view/FreeboradEditorView"
 
 // @withRouter
@@ -17,6 +17,9 @@ class FreeboardEditorContainer extends Component {
             this.setState({done:true, postId:post.id})
             console.log(this.state.postId)
             alert("게시글 작성이 완료되었습니다.")
+
+            
+            window.location.reload();
         }
         return (
             // <div>
@@ -26,7 +29,7 @@ class FreeboardEditorContainer extends Component {
         
 
             <div>{
-                this.state.done ==false ? 
+                this.state.done === false ? 
                 <FreeboardEditorView onCreatePost={onCreatePost} category={freeboard_cate}/>
                   : <Redirect to={`/freeboard`} />   }
             </div>

@@ -65,7 +65,7 @@ import 'react-toastify/dist/ReactToastify.css';
             <div className="attn_wrap">
                
                 <div className="attn_img">
-                    <img src="../../banner/attendance_banner.001.png" />
+                    <img src="../../banner/attendance_banner.001.png" alt="attantance_banner_img" />
                     <div className="attn_img_txt">
                         <h5>
                             벅스라이프에 <strong>매일매일 </strong>출석체크하면

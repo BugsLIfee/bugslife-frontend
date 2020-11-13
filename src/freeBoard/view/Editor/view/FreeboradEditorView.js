@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import _ from 'lodash'
 import { Dropdown } from 'semantic-ui-react'
 import 'codemirror/lib/codemirror.css';
 import '@toast-ui/editor/dist/toastui-editor.css';
@@ -75,7 +74,7 @@ export default class FreeboardEditorView extends Component {
 
     render() {
         const category = this.props.category;
-        const onCreatePost = this.props.onCreatePost
+        // const onCreatePost = this.props.onCreatePost
         const categoryOptions = category.map((category, ind) => {
             
             // category.onClick
@@ -89,7 +88,7 @@ export default class FreeboardEditorView extends Component {
 
         console.log(this.state)
         return(
-            <div className="posting">
+            <form className="posting">
                 <div className="posting_header">
                     <h2 className ="posting_title">자유게시판 글쓰기</h2>
                     <div className="posting_header_title_container">
@@ -131,7 +130,7 @@ export default class FreeboardEditorView extends Component {
 
                     </div>
 
-            </div>
+            </form>
         )
     }
 }

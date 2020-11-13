@@ -1,8 +1,6 @@
 import { observable,  action, computed } from "mobx"
 import FreeboardApi from "../api/FreeboardApi";
 import FreeboardPostAddModel from "../api/model/post/FreeboardPostAddModel";
-// import FreeboardPostModel from "../api/model/post/FreeboardPostModel";
-import  { Redirect } from 'react-router-dom'
 import FreeboardCommentAddModel from "../api/model/comment/FreeboardCommentAddModel";
 
 class FreeboardStore{
@@ -42,8 +40,8 @@ class FreeboardStore{
       let result = await this.freeApi.freeboardList()
 
       if(result !==null){
-        this.freeboard_list =result.map(val=>  { return{...val} });
-
+        this.freeboard_list =result.map(val=>  { return{...val} }).sort((a,b)=> {return b.id - a.id});
+        console.log(this.freeboard_list);
       } else{
         console.log("freeboard nulllllllll");
       }
@@ -53,7 +51,6 @@ class FreeboardStore{
     async freeboardPostSelect(postId){
       let post = await this.freeApi.freeboardPostSelect(postId);
       this.freeboard_detail = post;
-      // console.log("스토어 안임",this.freeboard_detail);
     }
 
     @action
@@ -92,6 +89,7 @@ class FreeboardStore{
       let result = await this.freeApi.freeboardCreateComment(postId, newComment);
 
       console.log("====store 전달 완료=====")
+      console.log(result)
       if(result==null){
         return "댓글 등록 에러"
       }else{
@@ -177,11 +175,13 @@ class FreeboardStore{
         let filtered= this.freeboard_list.filter((val)=> {
              return val = (val.cate === cate)  
         })
-        
+        console.log("filtered : "+ filtered)
+
         if(filtered.length > 0){
-             select_post.push(filtered[0]) 
+          filtered.map(val=> select_post.push(val))
+            //  select_post.push(filtered[0]) 
             }
-          }) ;
+        }) ;
  
        this.freeboard_select_posts = select_post
        

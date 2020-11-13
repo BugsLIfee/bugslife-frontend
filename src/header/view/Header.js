@@ -43,6 +43,7 @@ class Header extends Component {
                 }
                 src="/logo/logo_st.png"
                 href="/"
+                alt="logo"
               />
               <h1
                 className={

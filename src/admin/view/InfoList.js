@@ -22,12 +22,7 @@ class InfoList extends Component {
    const handleLink = (id) => {
     this.props.history.push("/admin/info-detail?id=" + id);
    };
-    // const MakeTypeName = (data) => {
-    //   let typeObj = TypeData.find((obj) => obj.categoryId === data.categoryId);
-    //   let typeName = typeObj.categoryname;
-    //   console.log("typeName==", typeName);
-    //   return typeName;
-    // };
+
 
     let listPageOne = ListData.slice(
       (this.state.page - 1) * 10,
