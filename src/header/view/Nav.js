@@ -39,12 +39,7 @@ onLogout=()=>{
         {oauth.isLogin?
         (
           <>
-          <div>
-            {" "}
-            <a href="/profile">
-              <h4>마이페이지샘플</h4>
-            </a>
-          </div>
+       
             <div>
             {" "}
           <h4 onClick={()=>this.onLogout()}>로그아웃</h4>
@@ -81,9 +76,7 @@ onLogout=()=>{
 
           <div>
         
-            <a href="/myPage">
-              <h4>마이페이지</h4>
-            </a>
+         
           </div>
 
           {oauth.isAdmin?(
@@ -108,12 +101,7 @@ onLogout=()=>{
         {oauth.isLogin?
       (
         <>
-                  <div>
-            {" "}
-            <a href="/profile">
-              <h4>마이페이지샘플</h4>
-            </a>
-          </div>
+
             <div>
             {" "}
           <h4 onClick={()=>this.onLogout()}>로그아웃</h4>
@@ -148,12 +136,6 @@ onLogout=()=>{
             </a>
           </div>
 
-          <div>
-            {" "}
-            <a href="/myPage">
-              <h4>마이페이지</h4>
-            </a>
-          </div>
       {oauth.getIsAdmin?(
           <div>
             <a href="/admin/member">
