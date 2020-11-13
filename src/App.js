@@ -71,7 +71,7 @@ class App extends Component {
           <Route exact path="/" component={MainContainer}  />
           <Route path="/list" component={ListContainer} exact={true} />
           <Route path="/detail" component={DetailPage} exact={true} />
-          <PrivateRoute path="/admin" authenticated={this.props.Store.oauth.getCurrentUser} component={AdminContainer}  />
+          <PrivateRoute path="/admin" authenticated={this.props.Store.oauth.getCurrentUser} component={AdminContainer} exact={true} />
           <Route path="/contact" component={ContactContainer} />
           <Route path="/mypage" component={Mypagecontainer} exact={true} />
           <Route path="/posting" component={PostingContainer} exact={true} />
@@ -97,7 +97,7 @@ class App extends Component {
 
         </Switch>
       </Router>
-      < ChatBotView/>
+      < ChatbotContainer />
 
       <div className="footer_place" >
         {" "}

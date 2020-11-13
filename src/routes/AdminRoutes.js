@@ -15,6 +15,7 @@ const AdminRoutes = ({ match }) => {
 
   return (
     <>
+      <Route exact path={`${match.url}`} component={MemberMngContainer} />
       <Route exact path={`${match.url}/member`} component={MemberMngContainer} />
       <Route exact path={`${match.url}/board`} component={BoardMngContainer} />
       <Route exact path={`${match.url}/qna-all`} component={QuestionAllListContainer} />

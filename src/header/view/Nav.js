@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./scss/nav.scss";
 import {observer,inject} from "mobx-react";
+import swal from 'sweetalert';
 
 @inject("Store")
 @observer
@@ -22,12 +23,29 @@ class Nav extends Component {
 onLogout=()=>{
   this.props.Store.oauth.onLogout();
   
-  //this.props.history.push("/");
+    swal({
+        title: "로그아웃하시겠습니까?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    })
+    .then((willLogout) => {
+        if (willLogout) {
+          window.location.href="/";
+          return swal("로그아웃되셨습니다!!", {
+            icon: "success",
+          });
+        } else {
+          swal("일시적인 장애로 로그아웃 실패! ");
+        }
+        
+    });
+  
 }
 
   render() {
     const oauth = this.props.Store.oauth;
-    console.log("props",this.props);
+   // console.log("header-nave-props",this.props);
     return (
       <nav>
          <div className="responsive_nav">

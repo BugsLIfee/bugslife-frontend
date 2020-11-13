@@ -3,12 +3,13 @@ import './Signup.css';
 import { Link, Redirect } from 'react-router-dom'
 import { GOOGLE_AUTH_URL, FACEBOOK_AUTH_URL, GITHUB_AUTH_URL } from '../constants/index';
 import { signup } from '../api/APIUtils';
-import fbLogo from '../img/fb-logo.png';
+//import fbLogo from '../img/fb-logo.png';
 import googleLogo from '../img/google-logo.png';
 import githubLogo from '../img/github-logo.png';
 //import Alert from 'react-s-alert';
 import { Icon } from 'semantic-ui-react';
 import { inject, observer } from "mobx-react";
+import swal from 'sweetalert';
 @inject("Store")
 @observer
 class Signup extends Component {
@@ -81,12 +82,11 @@ class SignupForm extends Component {
         event.preventDefault();   
 
         const signUpRequest = Object.assign({}, this.state);
-
         signup(signUpRequest)
         .then(response => {
             //Alert.success("성공적으로 가입이 되셨습니다!! 로그인 해주세요^^");
-            alert("성공적으로 가입이 되셨습니다!! 로그인 해주세요");
-            Window.open("/login");
+            window.open("/login");
+            return swal("성공적으로 가입이 되셨습니다!! 로그인 해주세요", "success");
         }).catch(error => {
             //Alert.error((error && error.message) || '가입 중 에러가 발생하였습니다. 다시 시도해주세요!!');            
             alert((error && error.message) || '가입 중 에러가 발생하였습니다. 다시 시도해주세요..!');            
