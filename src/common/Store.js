@@ -20,6 +20,7 @@ import ReportCategoryStore from "../report/store/ReportStore";
 import EduStore from "../edu/store/EduStore";
 import OtherUserStore from "../otherUser/store/OtherUserStore"
 import BugBoardPosting from "../bugBoardPosting/store/bugBoardPostingStore"
+import PaymentStore from "../payment/store/PaymentStore"
 
 
 export default class Store {
@@ -44,5 +45,6 @@ export default class Store {
     this.attendance = new AttendanceStore(this);
     this.otherUser = new OtherUserStore(this);
     this.bugBoardPosting = new BugBoardPosting(this);
+    this.payment = new PaymentStore(this);
   }
 }

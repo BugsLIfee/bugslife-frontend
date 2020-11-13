@@ -13,6 +13,12 @@
         margin-top: 2rem;
         display: grid;
         grid-template-columns: auto auto;
+
+        .field {
+            label {
+                width: 100%;
+            }
+        }
     }
 
     .payment_type {
@@ -30,6 +36,10 @@
             border-radius: 5px;
             background-color: #e8e8e8;
             font-size: 1rem !important;
+
+            label {
+                width: fit-content;
+            }
 
         }
     }
@@ -91,4 +101,9 @@
 
 .info_agree {
     margin-top: 1.3rem;
+    .ui  {
+        label {
+            width: 100% !important;
+        }
+    }
 }
