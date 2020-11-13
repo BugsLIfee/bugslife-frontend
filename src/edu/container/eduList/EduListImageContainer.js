@@ -3,10 +3,11 @@ import EduListImageView from '../../view/list/EduListImageView'
 
 export class EduListImageContainer extends Component {
     render() {
-        const {eduImg} = this.props
+        // const {eduImg} = this.props
         return (
             <div>
-                <EduListImageView eduImg={eduImg}/>
+                {/* <EduListImageView eduImg={eduImg}/> */}
+                <EduListImageView/>
             </div>
         )
     }
