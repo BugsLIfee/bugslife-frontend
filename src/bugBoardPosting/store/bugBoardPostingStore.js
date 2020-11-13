@@ -5,6 +5,7 @@ import PostingApiModel from "../api/model/PostingApiModel"
 class PostingStore {
 
     postingApi = new PostingApi();
+    post = {};
 
     @action
     async onAddPost(postObj) {

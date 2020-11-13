@@ -11,22 +11,23 @@ export default class QuestionBodyView extends Component {
         console.log("바디찍히니?")
         const { question }= this.props;
 
-        const md_text = marked( question.body );
+        const md_text = marked( question.content );
 
         const createMarkup = function() {
             return { __html: md_text};
         }
 
-        const tags = question.tags.map(tag => {
-            return (
-                <span>
-                    <Label color='teal' size="big">
-                        {tag}
-                    </Label>
-                    {' '}
-                </span>
-            );
-        })
+        // const tags = question.tags.map(tag => {
+        //     return (
+        //         <span>
+        //             <Label color='teal' size="big">
+        //                 {tag}
+        //             </Label>
+        //             {' '}
+        //         </span>
+        //     );
+        // })
+        const tags= (<span>Test</span>)
 
         return(
             <div>
