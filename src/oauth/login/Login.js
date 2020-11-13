@@ -97,26 +97,28 @@ class LoginForm extends Component {
 
     handleSubmit(event) {
         event.preventDefault();   
-
+        alert("???",this.state);
         const loginRequest = Object.assign({}, this.state);
+
+        alert("___loginrequest______",loginRequest);
 
         login(loginRequest)
         .then(response => {
-            localStorage.setItem(ACCESS_TOKEN, response.accessToken);
-            alert("로긴성공!");
-            //  swal("로그인되셨습니다!!", {
-            // icon: "success",
-            // });
-            // swal("로그인 성공!", "환영합니다! ", "success");
-            //this.props.history.push("/");
-
-       
-
-        }).catch(error => {
-           // Alert.error((error && error.message) || '아이디 또는 비밀번호가 일치하지 않습니다!');
-            swal("로그인 실패","아이디 또는 비밀번호가 일치하지 않습니다!","error");
-            console.log("로그인오류:",error, "로그인메세지:",error.message);
-        });
+           // alert("로긴성공!", response);
+           localStorage.setItem(ACCESS_TOKEN, response.accessToken);
+             // swal("로그인되셨습니다!!", response, {
+                // icon: "success",
+                // });
+                
+                window.location.href="/";
+                return swal("로그인 성공!", "환영합니다! ", "success");
+                
+                
+            }).catch(error => {
+                // Alert.error((error && error.message) || '아이디 또는 비밀번호가 일치하지 않습니다!');
+                swal("로그인 실패","아이디 또는 비밀번호가 일치하지 않습니다!","error");
+                console.log("로그인오류:",error, "로그인메세지:",error.message);
+            });
     }
     
     render() {
