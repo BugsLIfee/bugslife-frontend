@@ -40,7 +40,7 @@ class ListViewContainer extends Component {
               <ListViewLabel listView={listView} />
             </Grid.Column>
             <Grid.Column width={12}>
-              <ListViewMain listView={listView} tags={listView.tags} />
+              <ListViewMain listView={listView} />
             </Grid.Column>
             <Grid.Column width={2}>
               <ListViewFooter listView={listView} />

@@ -11,7 +11,7 @@ class ListViewFooter extends Component {
       
           <div class="box-like">
             <img src="../../detail/empty_bookmark.png" alt="img"></img>
-            <span class="number">{listView.addPoints}</span>
+            <span class="number">{listView.likes}</span>
             </div>
 
             <span class="point">
