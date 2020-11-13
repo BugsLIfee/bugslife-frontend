@@ -3,7 +3,6 @@ import { inject, observer } from "mobx-react"
 import FreeboardcateContainer from './FreeBoardCateContainer'
 import "../view/List/scss/FreeBoard.scss"
 import Freeboardlistcontainer from './FreeBoardListContainer'
-import FreeboardRoutes from '../../routes/FreeboardRoutes'
 
 @inject("Store")
 @observer
@@ -23,8 +22,6 @@ class FreeBoardContainer extends Component {
         const {freeboard_list}= this.props.Store.freeboard
         const {freeboard_cate} = this.props.Store.freeboard
         const {freeboard_select_posts} =this.props.Store.freeboard
-        const match = this.props.match;
-
 
         return(
             <div className="freeboard_container_wrap"> 

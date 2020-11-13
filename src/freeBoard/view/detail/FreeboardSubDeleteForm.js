@@ -25,14 +25,19 @@ export default class Freeboardsubdeleteform extends Component {
         let {confirm_pwd} = this.state;
         let correct_pwd;
 
-        if( (pwd == confirm_pwd)){
+        if( (pwd === confirm_pwd)){
          alert("댓글을 삭제하시겠습니까?")
          correct_pwd = pwd
+         
         }else{
             alert("비밀번호가 일치하지 않습니다.")
         }
 
         this.props.onSubCommDelete(correct_pwd);
+
+        console.log("delete subcomment")
+        window.location.reload();
+        
      
     }
 
@@ -45,7 +50,7 @@ export default class Freeboardsubdeleteform extends Component {
                 <div className="freeboard_delete_userInfo">
                     <input className= "delete_userinfo" onChange={this.handlePwdChange}  type="password" placeholder="비밀번호"/>
                     <input className= "delete_userinfo" onChange={this.handleConfirmPwdChange}  type="password" placeholder="비밀번호 확인"/>
-                    <button onClick={this.onCommentDelete} className="delete_userinfo_btn">삭제</button>
+                    <button type="submit" onClick={this.onCommentDelete} className="delete_userinfo_btn">삭제</button>
                 </div> : ""
             } 
         </div>

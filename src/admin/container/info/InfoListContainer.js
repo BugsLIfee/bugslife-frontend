@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import InfoList from "../../view/InfoList";
 import { inject, observer } from "mobx-react";
-import infotype from "../../../contact/data/category";
 
 @inject("Store")
 @observer

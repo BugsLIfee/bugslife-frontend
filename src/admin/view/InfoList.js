@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Link, NavLink } from "react-router-dom";
-import { Container, Table, Pagination, Button, Icon } from "semantic-ui-react";
+import { Container, Table, Pagination,  Icon } from "semantic-ui-react";
 import "./scss/infoList.scss";
 class InfoList extends Component {
   constructor(props) {
@@ -23,12 +22,7 @@ class InfoList extends Component {
    const handleLink = (id) => {
     this.props.history.push("/admin/info-detail?id=" + id);
    };
-    // const MakeTypeName = (data) => {
-    //   let typeObj = TypeData.find((obj) => obj.categoryId === data.categoryId);
-    //   let typeName = typeObj.categoryname;
-    //   console.log("typeName==", typeName);
-    //   return typeName;
-    // };
+
 
     let listPageOne = ListData.slice(
       (this.state.page - 1) * 10,
@@ -60,7 +54,11 @@ class InfoList extends Component {
         <div className="info-header">
           <span className="info-header-span" role="img" aria-label="aria">
             <div className="info-title">
-            <h3>📢 공지사항 목록</h3>
+            <h3>
+          <span role="img" aria-label="aria">
+              📢 공지사항 목록
+          </span>
+              </h3>
             </div>
             <a href="/admin/info-write">
             <div className="write_btn_box">

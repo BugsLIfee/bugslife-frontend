@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { observer, inject } from 'mobx-react';
 import InsertAnswerView from "../../view/answer/AddAnswerView";
 import AddAnswerView from "../../view/answer/InsertAnswerView";
 import "../../view/scss/answerList.scss";

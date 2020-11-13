@@ -33,9 +33,7 @@ import {
  } from "./Routes";
 
 import Signup from "./oauth/signup/Signup";
-import AdminRedirectHandler from "./oauth/oauth2/AdminRedirectHandler";
 import { inject, Observer } from "mobx-react";
-import FreeboardRoutes from "./routes/FreeboardRoutes";
 
 
 
@@ -67,11 +65,11 @@ class App extends Component {
       </div>
       <Router>
         <Switch>
-          <Route exact path="/" component={MainContainer} exact={true} />
+          <Route exact path="/" component={MainContainer}  />
           <Route path="/list" component={ListContainer} exact={true} />
           <Route path="/detail" component={DetailPage} exact={true} />
           <PrivateRoute path="/admin" authenticated={this.props.Store.oauth.getCurrentUser} component={AdminContainer}  />
-          <Route path="/contact/:menu" component={ContactContainer} />
+          <Route path="/contact" component={ContactContainer} />
           <Route path="/mypage" component={Mypagecontainer} exact={true} />
           <Route path="/posting" component={PostingContainer} exact={true} />
           <Route path="/attendance" component={Attendancecontainer} exact={true} />

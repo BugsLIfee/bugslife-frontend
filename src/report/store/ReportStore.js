@@ -1,5 +1,4 @@
-import { observable, computed, action } from "mobx";
-import ReportApi from "../api/ReportApi";
+import { observable, computed } from "mobx";
 import testDate from "../testData";
 
 

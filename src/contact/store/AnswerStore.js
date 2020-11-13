@@ -1,5 +1,4 @@
 import { observable, computed, action } from "mobx";
-import AnswerApiModel from "../api/Model/AnswerApiModel";
 import AnswerApi from "../api/AnswerApi.js";
 
 export default class AnswerStore {

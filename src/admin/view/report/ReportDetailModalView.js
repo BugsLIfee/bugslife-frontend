@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Header, Icon, Modal, Radio, Form, TextArea, Checkbox } from 'semantic-ui-react'
+import { Button, Header, Icon, Modal, Checkbox } from 'semantic-ui-react'
 import "../scss/reportDetailModal.scss"
 export default function ReportDetailModalView(props) {
     const [open, setOpen] = useState(false);
@@ -32,7 +32,7 @@ export default function ReportDetailModalView(props) {
                 <p>
                     <span> 신고자: {report.sender}</span>
                     <span> 신고날짜: {report.date}</span>
-                    <span> <a href=''>게시글로 이동 </a></span>
+                    <span> <a href='/'>게시글로 이동 </a></span>
                 </p>
             </p>
             <hr />

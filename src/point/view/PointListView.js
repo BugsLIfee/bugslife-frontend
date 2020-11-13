@@ -125,13 +125,11 @@ const EnhancedTableToolbar = (props) => {
 
     return (
     <Toolbar
-        className={clsx(classes.root, {
+        className={`${clsx(classes.root, {
             [classes.highlight]: numSelected > 0,
-        })}
-
-        className="point_list_title"
+        })} point_list_title`}
     >
-        <Typography className={classes.title} className="point_list_title" variant="h6" id="tableTitle" component="div">
+        <Typography className={`${classes.title} point_list_title`} variant="h6" id="tableTitle" component="div">
             Point 변동 내역
         </Typography>
     </Toolbar>
@@ -173,7 +171,7 @@ export default function EnhancedTable(props) {
     const [orderBy, setOrderBy] = React.useState('gain_point');
     const [selected, setSelected] = React.useState([]);
     const [page, setPage] = React.useState(0);
-    const [dense, setDense] = React.useState(false);
+    const [dense] = React.useState(false);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
     const handleRequestSort = (event, property) => {
@@ -238,7 +236,7 @@ export default function EnhancedTable(props) {
                                 {index + 1}    
                             </TableCell>
                             <TableCell className="content_body" align="center">{point.regist_date}</TableCell>
-                            <TableCell className="content_body" className={point.isGain ? "plus" : "minus"} align="center">
+                            <TableCell className={`${point.isGain ? "plus" : "minus"} content_body`} align="center">
                                 {point.isGain && "+"}
                                 {point.gain_point}P
                             </TableCell>

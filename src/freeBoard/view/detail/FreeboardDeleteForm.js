@@ -25,13 +25,14 @@ export default class Freeboarddeleteform extends Component {
         let {confirm_pwd} = this.state;
         let commentId = this.props.select_id;
        
-        if( (pwd == confirm_pwd)){
+        if( (pwd === confirm_pwd)){
          alert("댓글을 삭제하시겠습니까?")
         }else{
             alert("비밀번호가 일치하지 않습니다.")
         }
         this.props.onDeleteComment(commentId ,pwd)
      
+        window.location.reload();
     }
 
 

@@ -3,6 +3,7 @@ import "./scss/ListItem.scss"
 
 class ListViewLabel extends Component {
   render() {
+
     const { listView } = this.props
     return (
       <div class="list_item_label">

@@ -85,11 +85,11 @@ class SignupForm extends Component {
         signup(signUpRequest)
         .then(response => {
             //Alert.success("성공적으로 가입이 되셨습니다!! 로그인 해주세요^^");
-            alert("성공적으로 가입이 되셨습니다!! 로그인 해주세요^^");
-            this.props.history.push("/login");
+            alert("성공적으로 가입이 되셨습니다!! 로그인 해주세요");
+            Window.open("/login");
         }).catch(error => {
             //Alert.error((error && error.message) || '가입 중 에러가 발생하였습니다. 다시 시도해주세요!!');            
-            alert((error && error.message) || '가입 중 에러가 발생하였습니다. 다시 시도해주세요!!');            
+            alert((error && error.message) || '가입 중 에러가 발생하였습니다. 다시 시도해주세요..!');            
         });
     }
 

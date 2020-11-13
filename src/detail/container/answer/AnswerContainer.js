@@ -15,9 +15,6 @@ class AnswerContainer extends Component {
 
         const { answer, login } = this.props;
 
-        const onAddAndswerComment = () => {
-        }
-
         return (
             <div class="answer post">
                 <Card>
@@ -26,7 +23,7 @@ class AnswerContainer extends Component {
                         <AnswerLikesContainer answer = { answer } /> 
                     </Card.Header>
                     <Card.Body>
-                        <Card.Text class="post_body">
+                        <Card.Text className="post_body">
                             <AnswerBodyView answer = {answer} />
                         </Card.Text>
                         <hr />

@@ -21,11 +21,13 @@ function ReportBoardContainer(props) {
                 } else if(report_status === 0)
                 {
                     return visibles[category.indexOf(report.type)] && report.is_done===true;
-                } else if(report_status === 1)
+                } else 
                 {
                     return visibles[category.indexOf(report.type)] && report.is_done===false;
                 }
-        }))}
+            }
+        )
+        )}
         else {
             setFilterList(report_list.filter(report => {
                 if(report_status === 2)
@@ -34,7 +36,7 @@ function ReportBoardContainer(props) {
                 } else if(report_status === 0)
                 {
                     return report.is_done===true;
-                } else if(report_status === 1)
+                } else
                 {
                     return report.is_done===false;
                 }
