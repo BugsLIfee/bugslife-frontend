@@ -3,7 +3,7 @@ class PaymentApiModel {
     pg = "";
     payMethod = "";
     merchantUid = "";
-    amount = 0;
+    amount;
     buyerEmail = "";
 
     constructor(paymentObj){

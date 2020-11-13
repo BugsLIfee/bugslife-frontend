@@ -1,4 +1,4 @@
-import {action } from "mobx";
+import { action } from "mobx";
 import PostingApi from "../api/PostingApi";
 import PostingApiModel from "../api/model/PostingApiModel"
 
@@ -10,7 +10,13 @@ class PostingStore {
     @action
     async onAddPost(postObj) {
         postObj = new PostingApiModel(postObj);
-        await this.postingApi.postCreate(postObj);
+        console.log("제이슨?", JSON.stringify(postObj))
+        let result = await this.postingApi.postCreate(postObj);
+        if (result === null) {
+            console.log(`${this.InfoApiModel.id}:info CREATE ERROR!`);
+        }else{
+            console.log(result,": 입력 성공 ! ! ");
+        }
     }
 }
 

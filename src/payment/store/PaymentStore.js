@@ -10,7 +10,7 @@ class PaymentStore {
     @action
     async onAddPayment(paymentObj) {
         paymentObj = new PaymentApiModel(paymentObj);
-        await this.paymentApi.paymentCreate(paymentObj);
+        let result = await this.paymentApi.paymentCreate(paymentObj);
     }
 
 }

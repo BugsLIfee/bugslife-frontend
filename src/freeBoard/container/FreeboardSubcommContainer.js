@@ -3,11 +3,13 @@ import React, { Component } from 'react'
 import Freeboardsubcommview from '../view/detail/FreeboardSubCommView';
 
 
-@observer
+
 @inject("Store")
+@observer
 class Freeboardsubcommcontainer extends Component {
 
     onDeleteSubComment=(commentId, subcommId, pwd)=>{
+        console.log(commentId, pwd)
         this.props.Store.freeboard.onDeleteSubComment( commentId, subcommId, pwd);
     }
 
@@ -20,7 +22,7 @@ class Freeboardsubcommcontainer extends Component {
                    {
                        subComm.map(comm=>{ 
                            return(
-                           <Freeboardsubcommview onDeleteSubComment={this.onDeleteSubComment} subcomment = {comm} />
+                           <Freeboardsubcommview key={comm.id} onDeleteSubComment={this.onDeleteSubComment} subcomment = {comm} />
                        )})
                    }
             </div>

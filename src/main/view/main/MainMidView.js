@@ -17,6 +17,7 @@ export default class Mainmidview extends Component {
                 <h1>
                   <img
                   src="../logo/logo_green_blank.png"
+                  alt="main_background_img"
                   style={{ width: "43px" }}
                 /> 일반 질문</h1>
               </div>
@@ -36,7 +37,7 @@ export default class Mainmidview extends Component {
 
             <div className="Mainmid_plan_column plan_premium">
        
-                <div className="plan_title_ plan_premium_title" ><h1> <img src="../logo/logo_st.png" style={{ width: "45px" }} /> 프리미엄 질문 </h1></div>
+                <div className="plan_title_ plan_premium_title" ><h1> <img src="../logo/logo_st.png" style={{ width: "45px" } } alt="main_background_logo" /> 프리미엄 질문 </h1></div>
 
 
               <div className="plan_premium_contents">

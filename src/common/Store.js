@@ -9,7 +9,6 @@ import QuestionStore from "../contact/store/QuestionStore";
 import ContactStore from "../contact/store/ContactStore";
 import CategoryStore from "../contact/store/CategoryStore";
 import InfoStore from "../admin/store/InfoStore";
-import SignupUserStore from "../user/store/SignupUserStore"
 import TagStore from "../tag/store/TagStore"
 import FreeboardStore from "../freeBoard/store/FreeboardStore";
 import OauthStore from "../oauth/OauthStore";
@@ -34,7 +33,6 @@ export default class Store {
     this.question = new QuestionStore(this);
     this.answer = new AnswerStore(this);
     this.category = new CategoryStore(this);
-    this.signupUser = new SignupUserStore(this);
     this.tag = new TagStore(this); 
     this.oauth = new OauthStore(this);
     this.freeboard = new FreeboardStore(this);

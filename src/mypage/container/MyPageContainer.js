@@ -10,6 +10,7 @@ import PointPage from "../../point/PointPage";
 
 @inject("Store")
 @observer
+
 class Mypagecontainer extends Component {
   constructor(props) {
     super(props);
@@ -28,7 +29,7 @@ class Mypagecontainer extends Component {
     console.log("container on submit form : "+userObj)
     user.updateUser(userObj)
 
-    if(validationCheck==true){
+    if(validationCheck===true){
         this.onValidationCheck(validationCheck)
     }
 }

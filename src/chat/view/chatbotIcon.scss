@@ -1,0 +1,21 @@
+#chatbot_box{
+ position:fixed;
+ z-index: 1000;
+ width:175px;
+ display:inline-block;
+ right:-50px;
+ /* 창에서 오른쪽 길이 */
+ top:85%;
+ /* 창에서 위에서 부터의 높이 */
+ background-color: transparent;
+ margin:0;
+
+
+    #chatbot_icon{
+       width: 70px;
+       height: 70px;
+       
+    }
+
+ 
+}

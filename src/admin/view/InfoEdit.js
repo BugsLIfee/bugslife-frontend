@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-//import "./scss/infoEdit.scss";
 import { Form, Button } from "semantic-ui-react";
 import CKEditor from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
@@ -9,7 +8,8 @@ export default class InfoEdit extends Component {
 
   constructor(props){
     super(props)
-    const {info,currentUser} = this.props;
+    var info = this.props;
+    var currentUser = this.props;
     console.log("뭐넘겨주니..?",this.props);
     this.state={
       user:{...currentUser},
@@ -61,9 +61,11 @@ export default class InfoEdit extends Component {
 
     return (
       <div>
+        <h2>
             <span role="img" aria-label="aria">
-        <h2>📢공지사항 작성 페이지 </h2>
+          📢공지사항 작성 페이지 
           </span>
+          </h2>
         <Form>
             
             <Form.Input

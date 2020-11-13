@@ -33,26 +33,27 @@ onLogout=()=>{
          <div className="responsive_nav">
    
             {" "}
-            <h2 onClick={this.onShowNav}> <i class="fas fa-bars"></i></h2>
+            <h2 onClick={this.onShowNav}> <i className="fas fa-bars"></i></h2>
        
-            <div className={this.state.show == true? "responsive_nav_content" : "noShow"}>
+            <div className={this.state.show === true? "responsive_nav_content" : "noShow"}>
         {oauth.isLogin?
         (
           <>
-          <div>
-            {" "}
-            <a href="/profile">
-              <h4>마이페이지샘플</h4>
-            </a>
-          </div>
+       
             <div>
             {" "}
           <h4 onClick={()=>this.onLogout()}>로그아웃</h4>
           </div>
+          <div>
+            <a href="/myPage">
+              {" "}
+              <h4>마이페이지</h4>
+            </a>
+          </div>
           </>
         )  
         :(
-                    <div>
+        <div>
             <a href="/login">
               {" "}
               <h4>로그인</h4>
@@ -79,13 +80,6 @@ onLogout=()=>{
             </a>
           </div>
 
-          <div>
-        
-            <a href="/myPage">
-              <h4>마이페이지</h4>
-            </a>
-          </div>
-
           {oauth.isAdmin?(
           <div>
             <a href="/admin/member">
@@ -93,7 +87,7 @@ onLogout=()=>{
               <h4>관리자</h4>
             </a>
           </div>
-        ):(<></>)}
+        ):(<section></section>)}
 
           <div>
             <a href="/contact/my">
@@ -108,15 +102,16 @@ onLogout=()=>{
         {oauth.isLogin?
       (
         <>
-                  <div>
-            {" "}
-            <a href="/profile">
-              <h4>마이페이지샘플</h4>
-            </a>
-          </div>
+
             <div>
             {" "}
           <h4 onClick={()=>this.onLogout()}>로그아웃</h4>
+          </div>
+          <div>
+            <a href="/myPage">
+              {" "}
+              <h4>마이페이지</h4>
+            </a>
           </div>
           </>
       )  
@@ -148,12 +143,6 @@ onLogout=()=>{
             </a>
           </div>
 
-          <div>
-            {" "}
-            <a href="/myPage">
-              <h4>마이페이지</h4>
-            </a>
-          </div>
       {oauth.getIsAdmin?(
           <div>
             <a href="/admin/member">

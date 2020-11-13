@@ -18,12 +18,12 @@ export default class MypageHome extends Component {
 
     console.log("user? " +user)
 
-
+    // console.log(user.imageUrl)
     return (
       <>
         <div className="MyPage_content">
           <div className="MyPage_profile">
-           {(user.imageUrl === null)? (<i id="MyPage_profile_icon" class="far fa-grin"></i>): ( <img className= "MyPage_profile_img" src={user.imageUrl} />)}
+           {(user.imageUrl === undefined)? (<i id="MyPage_profile_icon" class="far fa-grin"></i>): ( <img className= "MyPage_profile_img" src={user.imageUrl} alt="default_profile" />)}
             {/* <img className= "MyPage_profile_img" src={user.imageUrl} />
             <i id="MyPage_profile_icon" class="far fa-grin"></i> */}
             <br></br>
@@ -148,10 +148,10 @@ export default class MypageHome extends Component {
                     질문 내용 블라블라
                   </List.Content>
                   <div className="MyPage_detail_post_icon">
-                    <a>
+                    <a href="/">
                       <Icon name="edit"></Icon>
                     </a>
-                    <a>
+                    <a href="/">
                       <Icon name="delete"></Icon>
                     </a>
                   </div>

@@ -8,6 +8,7 @@ import PrivateRoute from './oauth/common/PrivateRoute';
 //import Alert from 'react-s-alert';
 // import 'react-s-alert/dist/s-alert-default.css';
 // import 'react-s-alert/dist/s-alert-css-effects/slide.css';
+import "./chat/view/chatbotIcon.scss";
 
 import { 
   HeaderContainer, 
@@ -34,6 +35,8 @@ import {
 
 import Signup from "./oauth/signup/Signup";
 import { inject, Observer } from "mobx-react";
+import ChatbotContainer from "./chat/container/ChatbotContainer";
+import ChatBotView from "./chat/view/ChatBotView";
 
 
 
@@ -65,7 +68,7 @@ class App extends Component {
       </div>
       <Router>
         <Switch>
-          <Route exact path="/" component={MainContainer} exact={true} />
+          <Route exact path="/" component={MainContainer}  />
           <Route path="/list" component={ListContainer} exact={true} />
           <Route path="/detail" component={DetailPage} exact={true} />
           <PrivateRoute path="/admin" authenticated={this.props.Store.oauth.getCurrentUser} component={AdminContainer}  />
@@ -86,14 +89,17 @@ class App extends Component {
           <Route path="/freeboard" component={FreeBoardContainer} exact={true} />
           <Route path="/freeboard/detail/:post_id" component={Freeboarddetailcontainer} exact={true} />
           <Route path="/point" component={PointPage} />
-          <Route path="/posting_fr" component={FreeboardEditorContainer} />
+          <Route path="/posting_fr" component={FreeboardEditorContainer} />np
           <Route path="/edu" component={EduListContainer} exact={true} />
           <Route path="/edu/detail/:id" component={EduDetailContainer}/>
           <Route path="/otherUser" component={OtherUserContainer}/>
+          <Route path="/chat-bot" component={ChatbotContainer}/>
 
         </Switch>
       </Router>
-      <div className="footer_place">
+      < ChatBotView/>
+
+      <div className="footer_place" >
         {" "}
         <Footer />
       </div>

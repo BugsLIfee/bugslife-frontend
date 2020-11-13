@@ -11,6 +11,7 @@ export default class Mainsearchview extends Component {
           <img
             className="MainSearch_img"
             src="../main/main_imgs/main_laptop.png"
+            alt="main_background_laptop_img"
           />
           <div className="MainSearch_content">
             <h1 className="MainSearch_title">

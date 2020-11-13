@@ -11,7 +11,7 @@ export default class AnswerHeaderView extends Component {
             <div class="post_meta">
                 <div class="writer_info"> 
                     <i class="fas fa-font answer_mark"></i>
-                    <img src="../logo/logo_st.png" class="writer_icon" /> 
+                    <img src="../logo/logo_st.png" class="writer_icon" alt="img" /> 
                     <div class="writer_info_text">
                         <div class="writer_id"> {answer.writer} </div>
                         <div class="writer_level"> {answer.writer_lv} </div>

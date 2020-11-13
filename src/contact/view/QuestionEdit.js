@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 //import "./scss/questionEdit.scss";
 import { Form, Button } from "semantic-ui-react";
-import CKEditor from "@ckeditor/ckeditor5-react";
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import moment from "moment";
 
 export default class QuestionEdit extends Component {
@@ -59,7 +57,7 @@ export default class QuestionEdit extends Component {
 
     return (
       <div>
-        <h2>👀1:1 문의 작성 페이지 </h2>
+        <h2>   <span role="img" aria-label="aria">👀1:1 문의 작성 페이지 </span></h2>
         <Form>
             
             <Form.Input

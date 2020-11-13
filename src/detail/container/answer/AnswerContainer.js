@@ -15,9 +15,6 @@ class AnswerContainer extends Component {
 
         const { answer, login } = this.props;
 
-        const onAddAndswerComment = () => {
-        }
-
         return (
             <div class="answer post">
                 <Card>

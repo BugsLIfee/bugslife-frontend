@@ -1,9 +1,8 @@
 import { observable,  action, computed } from "mobx"
 import FreeboardApi from "../api/FreeboardApi";
 import FreeboardPostAddModel from "../api/model/post/FreeboardPostAddModel";
-// import FreeboardPostModel from "../api/model/post/FreeboardPostModel";
-import  { Redirect } from 'react-router-dom'
 import FreeboardCommentAddModel from "../api/model/comment/FreeboardCommentAddModel";
+import { observer } from "mobx-react";
 
 class FreeboardStore{
 
@@ -14,6 +13,14 @@ class FreeboardStore{
 
     @observable
     freeboard_detail = {}
+
+    // @action
+    // onLike(){
+    //   this.freeboard_detail.likes +=1
+    // }
+
+    @observable
+    freePost_likes = this.freeboard_detail.likes;
 
     @observable
     freeboard_cate = ["자유", "취업", "연애", "학업", "유머", "스포츠", "회사"];
@@ -42,8 +49,8 @@ class FreeboardStore{
       let result = await this.freeApi.freeboardList()
 
       if(result !==null){
-        this.freeboard_list =result.map(val=>  { return{...val} });
-
+        this.freeboard_list =result.map(val=>  { return{...val} }).sort((a,b)=> {return b.id - a.id});
+        console.log(this.freeboard_list);
       } else{
         console.log("freeboard nulllllllll");
       }
@@ -51,9 +58,14 @@ class FreeboardStore{
 
     @action
     async freeboardPostSelect(postId){
-      let post = await this.freeApi.freeboardPostSelect(postId);
-      this.freeboard_detail = post;
-      // console.log("스토어 안임",this.freeboard_detail);
+      // let post = await this.freeApi.freeboardPostSelect(postId);
+      this.freeboardList();
+       this.freeboard_detail = await this.freeApi.freeboardPostSelect(postId);
+       this.increaseViewCnt(postId);
+    }
+
+    @action increaseViewCnt(postId){
+      this.freeApi.freeboardIncreView(postId);
     }
 
     @action
@@ -91,7 +103,6 @@ class FreeboardStore{
       console.log(newComment)
       let result = await this.freeApi.freeboardCreateComment(postId, newComment);
 
-      console.log("====store 전달 완료=====")
       if(result==null){
         return "댓글 등록 에러"
       }else{
@@ -145,10 +156,17 @@ class FreeboardStore{
 
     @action
     onLikePost =(like)=>{
+      console.log("store" + like)
+      let postId = this.freeboard_detail.id;
+
       if(like ===false){
-        this.freeboard_detail.likes+=1
+        let result = this.freeApi.freeboardPostLike(postId);
+
+        console.log(result);
+        console.log(this.freeboard_detail)
       }else{
-        this.freeboard_detail.likes-=1
+        this.freeApi.freeboardPostDislike(postId);
+        console.log("dislike post store;")
       }
     }
 
@@ -174,14 +192,15 @@ class FreeboardStore{
           
       }else{
         cate_list.map((cate)=> {
+
         let filtered= this.freeboard_list.filter((val)=> {
              return val = (val.cate === cate)  
         })
-        
+
         if(filtered.length > 0){
-             select_post.push(filtered[0]) 
-            }
-          }) ;
+          filtered.map(val=> select_post.push(val))
+          }
+        }) ;
  
        this.freeboard_select_posts = select_post
        
@@ -208,6 +227,8 @@ class FreeboardStore{
         case "d":
           // this.freeboard_list = FreeboardListData;
           break
+        default :
+          return "End";
       }
     }
 }

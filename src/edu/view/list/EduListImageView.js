@@ -5,7 +5,7 @@ export class EduListImageView extends Component {
         const {eduImg} = this.props
         return (
             <div>
-                <img src={eduImg} alt=""/>
+                <img src={eduImg} alt="eduimg"/>
             </div>
         )
     }

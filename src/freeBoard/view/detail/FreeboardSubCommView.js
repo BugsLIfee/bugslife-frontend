@@ -13,7 +13,6 @@ export default class Freeboardsubcommview extends Component {
     this.setState({visible: false});
     this.setState({comment_id: id});
 
-    console.log(this.state)
     }
 
     onSubCommDelete=(pwd)=>{
@@ -21,7 +20,9 @@ export default class Freeboardsubcommview extends Component {
         let subCommId = subcomment.id
         let commentId = subcomment.commentId;
 
-        this.props.onDeleteSubComment(commentId, subCommId, pwd)
+        this.props.onDeleteSubComment(commentId, subCommId, pwd);
+
+        window.location.reload();
     }
 
     onShowComm =(id)=>{
@@ -33,10 +34,9 @@ export default class Freeboardsubcommview extends Component {
         let {subcomment} = this.props;
         const select_comm = this.state.select_comm;
 
-        console.log(subcomment)
-        console.log("selected comm " + select_comm)
+
         return (
-            <div class="freeboard_subcomm_con">
+            <div className="freeboard_subcomm_con">
 
                 <div className="freeboard_subcomm_up">
                 <h5 className="freeboard_subcomm_sec_icon">⎿</h5>
@@ -55,7 +55,7 @@ export default class Freeboardsubcommview extends Component {
                    
                     <div className="freeboard_detail_comment_responsive">
                         <h4 className= "freeboard_detail_comment_btn_responsive" onClick={()=>this.onShowComm(subcomment.id)}>
-                            <i class="fas fa-ellipsis-v"></i>
+                            <i className="fas fa-ellipsis-v"></i>
                         </h4>
 
                         <div className={"freeboard_detail_comment_rep_btn_container " + ((select_comm === subcomment.id) && (this.state.showBar)? "showBar": "hideBar")}>
