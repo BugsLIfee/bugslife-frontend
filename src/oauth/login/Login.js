@@ -8,6 +8,7 @@ import googleLogo from '../img/google-logo.png';
 import githubLogo from '../img/github-logo.png';
 //import Alert from 'react-s-alert';
 import { Icon } from 'semantic-ui-react';
+import swal from 'sweetalert';
 
 class Login extends Component {
     componentDidMount() {
@@ -43,7 +44,7 @@ class Login extends Component {
         return (
             <div className="login-container">
                 <div className="login-content">
-                    <h1 className="login-title"><Icon name="sign in"/>로그인하기</h1>
+                    <h1 className="login-title"><Icon name="sign in"/>　로그인하기</h1>
                     <SocialLogin />
                     <div className="or-separator">
                         <span className="or-text">OR</span>
@@ -63,8 +64,8 @@ class SocialLogin extends Component {
             <div className="social-login">
                 <a className="btn btn-block social-btn google" href={GOOGLE_AUTH_URL}>
                     <img src={googleLogo} alt="Google" /> Google 로그인하기</a>
-                <a className="btn btn-block social-btn facebook" href={FACEBOOK_AUTH_URL}>
-                    <img src={fbLogo} alt="Facebook" /> Facebook 로그인하기</a>
+                {/* <a className="btn btn-block social-btn facebook" href={FACEBOOK_AUTH_URL}>
+                    <img src={fbLogo} alt="Facebook" /> Facebook 로그인하기</a> */}
                 <a className="btn btn-block social-btn github" href={GITHUB_AUTH_URL}>
                     <img src={githubLogo} alt="Github" /> Github 로그인하기</a>
             </div>
@@ -102,13 +103,19 @@ class LoginForm extends Component {
         login(loginRequest)
         .then(response => {
             localStorage.setItem(ACCESS_TOKEN, response.accessToken);
-            //Alert.success(" 로그인 되었습니다 ! ");
-            alert(" 로그인 되었습니다 ! ");
-            
-            this.props.history.push("/");
+            alert("로긴성공!");
+            //  swal("로그인되셨습니다!!", {
+            // icon: "success",
+            // });
+            // swal("로그인 성공!", "환영합니다! ", "success");
+            //this.props.history.push("/");
+
+       
+
         }).catch(error => {
            // Alert.error((error && error.message) || '아이디 또는 비밀번호가 일치하지 않습니다!');
-            alert((error && error.message) || '아이디 또는 비밀번호가 일치하지 않습니다!');
+            swal("로그인 실패","아이디 또는 비밀번호가 일치하지 않습니다!","error");
+            console.log("로그인오류:",error, "로그인메세지:",error.message);
         });
     }
     
