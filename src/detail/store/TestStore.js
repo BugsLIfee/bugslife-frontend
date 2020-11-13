@@ -1,19 +1,35 @@
 import { observable, computed, action } from "mobx";
-import DetailApi from "../testData";
+import DetailApi from "../api/DetailApi.js";
+import POST from "../testData.js";
+import { act } from "react-dom/test-utils";
+import AnswerApiModel from "../api/model/AnswerApiModel.js";
+
 
 class DetailStore {
 
-  @observable question = DetailApi;
-  @observable question_likes = DetailApi.question.likes;
-  @observable question_clicked_like = DetailApi.question.clicked_like;
-  @observable question_comments = DetailApi.question.comments;
-  @observable answers = DetailApi.question.answers;
+  @observable postApi = new DetailApi();
+  @observable post;
+  @observable question = {};
+  @observable answers = [];
+  @observable question_likes = POST.question.likes;
+  @observable question_clicked_like = POST.question.clicked_like;
+  @observable question_comments = POST.question.comments;
+  // @observable answers = POST.question.answers;
   @observable answers_comments = [];
   answer_id;
 
+  @action
+  async selectPost(id) {
+    this.post = await this.postApi.postDetail(id);
+    this.question = this.post.question ? { ...this.post.question } : {};
+    this.answers = this.post.answers ? this.post.answers : [];
+    this.question_likes = this.question.likes;
+    this.question_comments = this.question.comments;
+  } 
+
   @computed get _question() {
       console.log({...this.question});
-      return this.question ? {...this.question.question} : {};
+      return this.question ? {...this.question} : {};
   }
 
   @computed get _answers() {
@@ -71,6 +87,11 @@ class DetailStore {
   @action setAnswerId(id) {
     this.answer_id = id;
   }
-}
 
+  @action 
+  async onAddAnswer(answerObj) {
+    answerObj = new AnswerApiModel(answerObj);
+    await this.DetailApi.answerCreate(answerObj);
+  }
+}
 export default DetailStore

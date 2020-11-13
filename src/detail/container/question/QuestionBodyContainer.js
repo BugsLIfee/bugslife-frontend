@@ -6,7 +6,7 @@ import QuestionBodyView from "../../view/question/QuestionBodyView"
 @observer
 class QuestionBodyContainer extends Component {
     componentDidMount() {
-        // this.props.Store.detail.selectQuestion(1);
+        this.props.Store.detail.selectPost(6);
     }
     render() {
         const question = this.props.Store.detail._question;

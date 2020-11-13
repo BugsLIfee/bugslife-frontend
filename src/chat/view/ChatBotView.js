@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import "./chatbotIcon.scss";
 import ChatBot from 'react-simple-chatbot';
-//import styled from 'styled-components'
-class ChatbotContainer extends Component {
+import { Modal } from 'semantic-ui-react';
+class ChatBotView extends Component {
+
     render() {
-        
-        const steps = [
+         const steps = [
           {
             id: '0',
             message: '벅스라이프에 오신것을 환영합니다. ',
@@ -21,14 +22,20 @@ class ChatbotContainer extends Component {
             end: true,
           },
         ];
-        console.log("chatbot")
+        const openChatbot=()=>{
+            console.log("chatbot open");
+           return ( 
+               <Modal>
+                   <ChatBot steps={steps}/>
+               </Modal>
+           );
+        }
         return (
-            <div>
-                chatcontainer
-                <ChatBot steps={steps}/>
+            <div onClick={()=>openChatbot()} id="chatbot_box" >
+                <img id="chatbot_icon" src="../../chat/chatBotButton.png" alt="chatboticon"/>
             </div>
         );
     }
 }
 
-export default ChatbotContainer;
+export default ChatBotView;

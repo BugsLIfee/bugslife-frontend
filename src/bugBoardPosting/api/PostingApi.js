@@ -4,14 +4,22 @@ export default class PostingApi {
 
   url = "http://localhost:8088/api/bugboard/posting/";
 
-  postCreate(postingApiModel) {
-    
+  postCreate(postingApiModel) {  
     return request({
       url: this.url,
       method: 'POST',
       body: JSON.stringify(postingApiModel)
     });
   }
+
+  postDetail(id) {
+    return requestAnimationFrame({
+      url: this.url + id,
+      method: 'GET',
+    });
+  }
+
+
 
   // detailDetail(id) {
   //   console.log(id);

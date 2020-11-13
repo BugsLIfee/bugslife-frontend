@@ -12,7 +12,6 @@ export default class AnswerLikesView extends Component {
     }
 
     render() {
-
         const { answer, onAnswerLike } = this.props;
         const { likes } = this.state;
         const { clicked_like } = this.state;

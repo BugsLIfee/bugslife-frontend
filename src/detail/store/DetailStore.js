@@ -107,6 +107,12 @@ class DetailStore {
   @action setAnswerId(id) {
       this.answer_id = id;
   }
+
+  
+  @action
+  async selectPost(id) {
+      // this.post = await this.
+  }
 }
 
 export default DetailStore
