@@ -47,6 +47,9 @@ class Freeboarddetailcontainer extends Component {
         const {freeboard_detail} = this.props.Store.freeboard;
         const {comments} = this.props.Store.freeboard;
         const {post_likes} = this.props.Store.freeboard;
+        const {freeboard_list} = this.props.Stroe.freeboard;
+
+        
         return (
             <div className="freeboard_detail_wrap">
                     <div className="free_borad_title"><h1>자유게시판</h1></div>
