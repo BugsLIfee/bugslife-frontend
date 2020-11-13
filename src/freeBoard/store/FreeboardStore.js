@@ -59,6 +59,7 @@ class FreeboardStore{
     @action
     async freeboardPostSelect(postId){
       // let post = await this.freeApi.freeboardPostSelect(postId);
+      this.freeboardList();
        this.freeboard_detail = await this.freeApi.freeboardPostSelect(postId);
        this.increaseViewCnt(postId);
     }

@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { Label, Input, Button } from 'semantic-ui-react'
+import { Label, Input, Button, Radio } from 'semantic-ui-react'
 import 'codemirror/lib/codemirror.css';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import { Editor } from '@toast-ui/react-editor';
 import "./scss/posting.scss"
+
 
 export default class PostingView extends Component {
     
@@ -16,6 +17,8 @@ export default class PostingView extends Component {
             content: "", 
             isPublic: true,
             writer: props.user,
+            isPremium:false,
+            point:0,
             tags : []
         }
     }
@@ -61,6 +64,18 @@ export default class PostingView extends Component {
                         onChange = {(e) => {this.setState({
                             ...this.state,
                             title: e.target.value})}}/>
+                    
+                    <div className="posting_premium">
+                        <div className="premium_sel_container">
+                        <h4 className="premium_sel_txt">✨ 프리미엄</h4><Radio toggle />
+                        </div>
+                        <div className="premium_point_container">
+                        <h4 className="premium_point_txt"> 버그 현상금</h4> 
+                            <input className="premium_point" type="number" placeholder="현상금 입력"></input>
+                        <button className="premium_point_btn">입력</button>
+                        </div>
+                    </div>
+
                 </div>
                 <br />
                 <br />

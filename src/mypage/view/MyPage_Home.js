@@ -18,7 +18,7 @@ export default class MypageHome extends Component {
 
     console.log("user? " +user)
 
-    console.log(user.imageUrl)
+    // console.log(user.imageUrl)
     return (
       <>
         <div className="MyPage_content">
