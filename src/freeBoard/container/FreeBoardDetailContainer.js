@@ -4,19 +4,23 @@ import Freeboarddetailview from '../view/detail/FreeboardDetailView'
 import "../view/detail/scss/FreeboardDetailiCon.scss"
 
 
-
-
-
-
 @inject("Store")
 @observer
 
 class Freeboarddetailcontainer extends Component {
-    state=({like:false})
+    state=({like:false, likeCnt:0})
 
      onLikePost= async(like)=>{
         this.setState({like:like})
+        
+        if(this.state.like){
+            this.setState({likeCnt:this.state.likeCnt-1})
+        }else{
+            this.setState({likeCnt:this.state.likeCnt+1})
+        }
+
         await this.props.Store.freeboard.onLikePost(!like)
+        console.log(this.state)
     }
 
     onDeletePost=(pwd, confirmed_pwd, postId)=>{
@@ -39,18 +43,19 @@ class Freeboarddetailcontainer extends Component {
     }
 
 
-
-
     render() {
         const {freeboard_detail} = this.props.Store.freeboard;
         const {comments} = this.props.Store.freeboard;
+        const {post_likes} = this.props.Store.freeboard;
+        const {freeboard_list} = this.props.Stroe.freeboard;
 
+        
         return (
             <div className="freeboard_detail_wrap">
                     <div className="free_borad_title"><h1>자유게시판</h1></div>
   
                 <div className="freeboard_detail_postcontainer">
-                    <Freeboarddetailview onDeletePost={this.onDeletePost} detail = {freeboard_detail} comments={comments} like={this.state.like} onLikePost={this.onLikePost} />
+                    <Freeboarddetailview post_likes={post_likes} onDeletePost={this.onDeletePost} detail = {freeboard_detail} comments={comments} like={this.state.like} likeCnt={this.state.likeCnt} onLikePost={this.onLikePost} />
                 </div>
 
             </div>

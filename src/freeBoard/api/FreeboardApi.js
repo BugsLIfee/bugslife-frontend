@@ -17,6 +17,7 @@ export default class FreeboardApi{
         let post = axios.get(this.FREE_API_URL+ postNum).then(
             (response)=>(response && response.data) || null
         )
+
         return post;
     }
 
@@ -80,11 +81,34 @@ export default class FreeboardApi{
         }).then(
             (response)=>(response && response.data) || null
         )
-
         return result;
     }
 
+    freeboardPostLike(postId){
+        let result = axios.put(this.FREE_API_URL+postId).then(
+            (response)=>(response && response.data) || null
+        )
+        console.log("api ==== >"+result);
 
+        this.freeboardPostSelect(postId)
+        return result; 
+    }
+
+    freeboardPostDislike(postId){
+        let result = axios.put(this.FREE_API_URL+postId+"/dislike").then(
+            (response)=>(response && response.data) || null
+        )
+        console.log("api dislike ====> ")
+        console.log(result);
+        return result;
+    }
+
+    freeboardIncreView(postId){
+        let result = axios.put(this.FREE_API_URL+postId+"/view").then(
+            (response)=>(response && response.data) || null
+        )
+        return result;
+    }
     // freeboardCommentList(){
     //     let commentList = axios
     // }

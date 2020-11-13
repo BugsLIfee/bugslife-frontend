@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Login.css';
+import './Login.scss';
 import { GOOGLE_AUTH_URL, FACEBOOK_AUTH_URL, GITHUB_AUTH_URL, ACCESS_TOKEN } from '../constants/index';
 import { login } from '../api/APIUtils';
 import { Link, Redirect } from 'react-router-dom'
@@ -62,12 +62,16 @@ class SocialLogin extends Component {
     render() {
         return (
             <div className="social-login">
-                <a className="btn btn-block social-btn google" href={GOOGLE_AUTH_URL}>
-                    <img src={googleLogo} alt="Google" /> Google 로그인하기</a>
+
+                <div className="social-login_sec"> 
+                    <a className="login_btn btn-block social-btn google" href={GOOGLE_AUTH_URL}>
+                    <img src={googleLogo} alt="Google" className="login_btn_img img_google"/> Google 로그인하기</a>
                 {/* <a className="btn btn-block social-btn facebook" href={FACEBOOK_AUTH_URL}>
-                    <img src={fbLogo} alt="Facebook" /> Facebook 로그인하기</a> */}
-                <a className="btn btn-block social-btn github" href={GITHUB_AUTH_URL}>
-                    <img src={githubLogo} alt="Github" /> Github 로그인하기</a>
+                    <img src={fbLogo} alt="Facebook" /> Facebook 로그인하기</a> */}</div>
+                <div className="social-login_sec"> 
+                    <a className="login_btn btn-block social-btn github" href={GITHUB_AUTH_URL}>
+                    <img src={githubLogo} alt="Github" className="login_btn_img img_github" /> Github 로그인하기</a>
+                </div>
             </div>
         );
     }
