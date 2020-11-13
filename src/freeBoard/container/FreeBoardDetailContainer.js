@@ -47,15 +47,36 @@ class Freeboarddetailcontainer extends Component {
         const {freeboard_detail} = this.props.Store.freeboard;
         const {comments} = this.props.Store.freeboard;
         const {post_likes} = this.props.Store.freeboard;
-        const {freeboard_list} = this.props.Stroe.freeboard;
+        const {freeboard_list} = this.props.Store.freeboard;
 
+
+        //다음글 // 이전글 구현을 위한 index모음
+        let freeboard_list_index = freeboard_list.map(val=> {return val.id});
+        let curr_index = freeboard_detail.id;
+
+        let curr_location = freeboard_list_index.indexOf(curr_index)
+
+       
+
+        let next_post_ind = curr_location === 0 ? "last post" : curr_location - 1;
+        let last_post_ind = curr_location === freeboard_list_index.length-1 ? "first post" : curr_location + 1;
+
+    
+        // console.log("curr_location : "+curr_location);
+        // console.log("next : "+next_post_ind);
+        // console.log("last : " + last_post_ind)
+        
+
+        // console.log("index : " + freeboard_list.indexOf(freeboard_detail))
+        // console.log(freeboard_detail)
+        // console.log(freeboard_list)
         
         return (
             <div className="freeboard_detail_wrap">
                     <div className="free_borad_title"><h1>자유게시판</h1></div>
   
                 <div className="freeboard_detail_postcontainer">
-                    <Freeboarddetailview post_likes={post_likes} onDeletePost={this.onDeletePost} detail = {freeboard_detail} comments={comments} like={this.state.like} likeCnt={this.state.likeCnt} onLikePost={this.onLikePost} />
+                    <Freeboarddetailview next_post_ind={next_post_ind} last_post_ind={last_post_ind} post_likes={post_likes} onDeletePost={this.onDeletePost} detail = {freeboard_detail} comments={comments} like={this.state.like} likeCnt={this.state.likeCnt} onLikePost={this.onLikePost} />
                 </div>
 
             </div>

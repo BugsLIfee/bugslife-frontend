@@ -44,10 +44,16 @@ onLogout=()=>{
             {" "}
           <h4 onClick={()=>this.onLogout()}>로그아웃</h4>
           </div>
+          <div>
+            <a href="/myPage">
+              {" "}
+              <h4>마이페이지</h4>
+            </a>
+          </div>
           </>
         )  
         :(
-                    <div>
+        <div>
             <a href="/login">
               {" "}
               <h4>로그인</h4>
@@ -74,11 +80,6 @@ onLogout=()=>{
             </a>
           </div>
 
-          <div>
-        
-         
-          </div>
-
           {oauth.isAdmin?(
           <div>
             <a href="/admin/member">
@@ -86,7 +87,7 @@ onLogout=()=>{
               <h4>관리자</h4>
             </a>
           </div>
-        ):(<></>)}
+        ):(<section></section>)}
 
           <div>
             <a href="/contact/my">
@@ -105,6 +106,12 @@ onLogout=()=>{
             <div>
             {" "}
           <h4 onClick={()=>this.onLogout()}>로그아웃</h4>
+          </div>
+          <div>
+            <a href="/myPage">
+              {" "}
+              <h4>마이페이지</h4>
+            </a>
           </div>
           </>
       )  
