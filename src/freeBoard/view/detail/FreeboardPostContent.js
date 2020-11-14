@@ -1,22 +1,25 @@
-import React, { useEffect } from "react";
+import React, { Component } from 'react'
+import "./scss/FreeboardPostContent.scss"
+
+class FreeboardPostContent extends Component {
+ 
+    
+    render() {
+
+        let content =this.props.content;
+
+        const createMarkup = function(){
+            return {__html:content}
+        }
 
 
-const text = (content)=>{
-    console.log()
-    return(
-        {_html:content}
-    )
-}
 
-
-function FreeboardPostContent(content){
-    console.log(content)
-    let txt = content
-    // let txt = {_html:content}
-    console.log(txt)
-    return ( 
-        <div dangerouslySetInnerHTML={text(content)} />
-    )
+        return (
+            <div className="postContent_container">
+                <div dangerouslySetInnerHTML= {createMarkup()} />
+            </div>
+        )
+    }
 }
 
 
