@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "../scss/post.scss"
 import marked from "marked";
 import { Card } from "react-bootstrap";
-
+import { Label } from "semantic-ui-react";
 export default class QuestionBodyView extends Component {
 
     render() {
@@ -13,9 +13,16 @@ export default class QuestionBodyView extends Component {
         const md_text = marked( question.content );
 
         const createMarkup = function() {
-            return { __html: md_text};
+            return { __html: question.content };
         }
 
+        const tags = (
+        <span> 
+            <Label color='teal' size="big">
+                C++
+            </Label>
+            {' '}
+        </span>)
         // const tags = question.tags.map(tag => {
         //     return (
         //         <span>
@@ -26,7 +33,7 @@ export default class QuestionBodyView extends Component {
         //         </span>
         //     );
         // })
-        const tags= (<span>Test</span>)
+        // const tags= (<span>Test</span>)
 
         return(
             <div>

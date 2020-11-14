@@ -22,7 +22,7 @@ function PaymentModal(props) {
   const [data, setData] = useState(
     {
       pg: 'html5_inicis',
-      pay_method: 'card',
+      pay_method: '',
       merchant_uid: '3',   // 주문번호
       amount: 0,                                 // 결제금액
       name: '벅스라이프 포인트 결제',                  // 주문명
