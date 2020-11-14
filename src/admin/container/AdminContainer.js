@@ -3,8 +3,8 @@ import { Grid } from "semantic-ui-react";
 import { inject, observer } from "mobx-react";
 import AdminRoutes from "../../routes/AdminRoutes";
 import AdminSideMenu from "../view/AdminSideMenu";
-import swal from "sweetalert";
 import { Redirect } from "react-router-dom";
+import swal from "sweetalert";
 
 @inject("Store")
 @observer
@@ -21,6 +21,14 @@ class AdminContainer extends Component {
 // }
   render() {
     const match = this.props.match;
+  //     if(!this.props.Store.oauth.isAdmin) {
+  //   swal("접근 거부 !","관리자만 접근 허용된 페이지입니다.", "warning");
+  //   return <Redirect
+  //       to={{
+  //       pathname: "/login",
+  //       state: { from: this.props.location }
+  //   }}/>;   
+  // }
     return (
      
       <div class="admincontainer">

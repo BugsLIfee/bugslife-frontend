@@ -18,14 +18,14 @@ class OAuth2RedirectHandler extends Component {
 
         if(token) {
             localStorage.setItem(ACCESS_TOKEN, token);
-            swal("로그인 성공 !"," BUGSLIFE 에 오신 것을 환영합니다 ", "success");
+            swal("WELCOME🙋‍♀️‍","BUGSLIFE 에 오신 것을 환영합니다 ", "success");
             
             return <Redirect to={{
                 pathname: "/",
                 state: { from: this.props.location }
             }}/>; 
         }else {
-            swal("로그인 실패 !","다시 시도해주세요! ", "warning");
+            swal("실패 !","다시 시도해주세요! ", "warning");
             return <Redirect to={{
                 pathname: "/login",
                 state: { 

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export class EduListMainView extends Component {
     render() {
-        const {eduList, onSelect} = this.props
+        const {eduList} = this.props
         return (
             <div className="eduItemMainContent">
                 {/* <a href={`/edu/detail/${eduList.id}/${eduList.academyId}`} className="eduItemETitle">{eduList.title}</a> */}

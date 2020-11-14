@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Signup.css';
 import { Link, Redirect } from 'react-router-dom'
-import { GOOGLE_AUTH_URL, FACEBOOK_AUTH_URL, GITHUB_AUTH_URL } from '../constants/index';
+import { GOOGLE_AUTH_URL, GITHUB_AUTH_URL } from '../constants/index';
 import { signup } from '../api/APIUtils';
 //import fbLogo from '../img/fb-logo.png';
 import googleLogo from '../img/google-logo.png';
@@ -85,10 +85,11 @@ class SignupForm extends Component {
         signup(signUpRequest)
         .then(response => {
             //Alert.success("성공적으로 가입이 되셨습니다!! 로그인 해주세요^^");
-            window.open("/login");
-            return swal("성공적으로 가입이 되셨습니다!! 로그인 해주세요", "success");
+            this.props.history.push("/login");
+            return swal("✨가입성공✨","로그인 해주세요😊","success");
         }).catch(error => {
             //Alert.error((error && error.message) || '가입 중 에러가 발생하였습니다. 다시 시도해주세요!!');            
+            this.props.history.push("/login");
             alert((error && error.message) || '가입 중 에러가 발생하였습니다. 다시 시도해주세요..!');            
         });
     }

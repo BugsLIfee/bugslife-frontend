@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './Login.scss';
-import { GOOGLE_AUTH_URL, FACEBOOK_AUTH_URL, GITHUB_AUTH_URL, ACCESS_TOKEN } from '../constants/index';
+import { GOOGLE_AUTH_URL, GITHUB_AUTH_URL, ACCESS_TOKEN } from '../constants/index';
 import { login } from '../api/APIUtils';
 import { Link, Redirect } from 'react-router-dom'
-import fbLogo from '../img/fb-logo.png';
+// import fbLogo from '../img/fb-logo.png';
 import googleLogo from '../img/google-logo.png';
 import githubLogo from '../img/github-logo.png';
 //import Alert from 'react-s-alert';
@@ -101,19 +101,11 @@ class LoginForm extends Component {
 
     handleSubmit(event) {
         event.preventDefault();   
-        alert("???",this.state);
         const loginRequest = Object.assign({}, this.state);
-
-        alert("___loginrequest______",loginRequest);
 
         login(loginRequest)
         .then(response => {
-           // alert("로긴성공!", response);
            localStorage.setItem(ACCESS_TOKEN, response.accessToken);
-             // swal("로그인되셨습니다!!", response, {
-                // icon: "success",
-                // });
-                
                 window.location.href="/";
                 return swal("로그인 성공!", "환영합니다! ", "success");
                 

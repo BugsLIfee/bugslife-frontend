@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "../scss/post.scss"
 import marked from "marked";
 import { Card } from "react-bootstrap";
-import { Label } from "semantic-ui-react";
 
 export default class QuestionBodyView extends Component {
 

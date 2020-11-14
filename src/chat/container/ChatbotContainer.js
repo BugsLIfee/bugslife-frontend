@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ChatBot from 'react-simple-chatbot';
 import { Button, Modal } from 'semantic-ui-react';
+
 //import styled from 'styled-components'
 function ChatbotContainer () {
         
