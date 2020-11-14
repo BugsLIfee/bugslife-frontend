@@ -44,10 +44,12 @@
 
 @media (max-width: 1000px) {
   .freeboard_cate_container {
-    // width: 15rem;
-
+    width: fit-content;
+    margin: auto;
+    padding: 2rem;
     .freeboard_cate_list {
       padding-top: 0.5rem;
+      width: fit-content;
       display: grid;
       grid-template: 2rem / auto auto auto;
     }
