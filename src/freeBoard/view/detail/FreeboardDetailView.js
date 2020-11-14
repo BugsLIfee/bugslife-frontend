@@ -24,7 +24,10 @@ export default class Freeboarddetailview extends Component {
     }
 
     onDeletePost=()=>{
-        let pwd =  prompt("게시글 비밀번호")
+        let pwd =
+
+
+        prompt("게시글 비밀번호")
         let confirmed_pwd = prompt("비밀번호 확인")
         let postId = this.props.detail.id;
         this.props.onDeletePost(pwd, confirmed_pwd, postId);

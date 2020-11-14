@@ -14,7 +14,7 @@ function FreeboardPostContent(content){
     let txt = content
     // let txt = {_html:content}
     console.log(txt)
-    return (
+    return ( 
         <div dangerouslySetInnerHTML={text(content)} />
     )
 }
