@@ -9,30 +9,35 @@ const img = {
 class ListViewMain extends Component {
   render() {
     const { listView } = this.props
-    const tags = listView.tags.map((tag) => {
-      return (
-        <span className="tagFont">
-          <Badge variant="primary" >{tag}</Badge>{" "}
-        </span>
-      )
-    })
+    // const tags = listView.tags.map((tag) => {
+    //   return (
+        // <span className="tagFont">
+        //   <Badge variant="primary" >{tag}</Badge>{" "}
+        // </span>
+    //   )
+    // })
     return (
       <div class="item-center">
         <div class="inner">
           <a href="/detail" class="title">
             {listView.title}
           </a>
-          <span class="date">{listView.date}</span>
+          <span class="date">{listView.registDate}</span>
           <div class="tab-box">
-            <div class="tag-box">{tags}</div>
-
+            <div class="tag-box">
+              <span className="tagFont">
+                <Badge variant="primary" >test</Badge>{" "}
+              </span>
+            </div>
             <div class="box-grade">
               <span class="btn-grade img">
-                <img style={img} src={listView.userIcon} alt="img"></img>
+                {/* <img style={img} src={listView.userIcon} alt=""></img> */}
+                <img style={img} src="../logo/userIcon.png" alt=""></img>
               </span>
               <span class="value">
-                <span class="name">{listView.writer_id}</span>
-                <span class="grade">{listView.writer_lv}</span>
+                <span class="name">{listView.writer}</span>
+                {/* <span class="grade">{listView.writer_lv}</span> */}
+                <span class="grade">test level</span>
               </span>
             </div>
           </div>

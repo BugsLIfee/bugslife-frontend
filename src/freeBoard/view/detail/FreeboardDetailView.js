@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import ReportModalContainer from '../../../report/container/ReportContainer'
 import Freeboarddetailcommentcontainer from '../../container/FreeboardDetailCommentContainer';
-import PostContent from './FreeboardPostContent';
-import FreeboardPostContent from './FreeboardPostContent';
+// import PostContent from './FreeboardPostContent';
+// import FreeboardPostContent from './FreeboardPostContent';
 import "./scss/FreeboardDetailpost.scss"
 
 export default class Freeboarddetailview extends Component {

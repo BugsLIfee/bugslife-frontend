@@ -2,7 +2,6 @@ import { observable,  action, computed } from "mobx"
 import FreeboardApi from "../api/FreeboardApi";
 import FreeboardPostAddModel from "../api/model/post/FreeboardPostAddModel";
 import FreeboardCommentAddModel from "../api/model/comment/FreeboardCommentAddModel";
-import { observer } from "mobx-react";
 
 class FreeboardStore{
 

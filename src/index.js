@@ -33,7 +33,7 @@ ReactDOM.render(
           "/point",
           "/attendance",
           "/edu",
-          "/edu/detail/:id",
+          "/edu/detail/:eid/:aid",
           "/test",
           "/otherUser",
         ]}

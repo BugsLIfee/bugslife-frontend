@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './Login.scss';
-import { GOOGLE_AUTH_URL, FACEBOOK_AUTH_URL, GITHUB_AUTH_URL, ACCESS_TOKEN } from '../constants/index';
+import { GOOGLE_AUTH_URL, GITHUB_AUTH_URL, ACCESS_TOKEN } from '../constants/index';
 import { login } from '../api/APIUtils';
 import { Link, Redirect } from 'react-router-dom'
-import fbLogo from '../img/fb-logo.png';
+// import fbLogo from '../img/fb-logo.png';
 import googleLogo from '../img/google-logo.png';
 import githubLogo from '../img/github-logo.png';
 //import Alert from 'react-s-alert';
@@ -101,26 +101,20 @@ class LoginForm extends Component {
 
     handleSubmit(event) {
         event.preventDefault();   
-
         const loginRequest = Object.assign({}, this.state);
 
         login(loginRequest)
         .then(response => {
-            localStorage.setItem(ACCESS_TOKEN, response.accessToken);
-            alert("로긴성공!");
-            //  swal("로그인되셨습니다!!", {
-            // icon: "success",
-            // });
-            // swal("로그인 성공!", "환영합니다! ", "success");
-            //this.props.history.push("/");
-
-       
-
-        }).catch(error => {
-           // Alert.error((error && error.message) || '아이디 또는 비밀번호가 일치하지 않습니다!');
-            swal("로그인 실패","아이디 또는 비밀번호가 일치하지 않습니다!","error");
-            console.log("로그인오류:",error, "로그인메세지:",error.message);
-        });
+           localStorage.setItem(ACCESS_TOKEN, response.accessToken);
+                window.location.href="/";
+                return swal("로그인 성공!", "환영합니다! ", "success");
+                
+                
+            }).catch(error => {
+                // Alert.error((error && error.message) || '아이디 또는 비밀번호가 일치하지 않습니다!');
+                swal("로그인 실패","아이디 또는 비밀번호가 일치하지 않습니다!","error");
+                console.log("로그인오류:",error, "로그인메세지:",error.message);
+            });
     }
     
     render() {
