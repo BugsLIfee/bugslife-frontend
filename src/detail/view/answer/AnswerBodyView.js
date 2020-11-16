@@ -5,10 +5,10 @@ export default class AnswerBodyView extends Component {
 
     render() {
         const { answer } = this.props;
-
+        const answer_body = { __html: answer.content };
         return(
             <div>
-                { answer.body }
+                <div dangerouslySetInnerHTML = {answer_body} />
             </div>
         )
     }

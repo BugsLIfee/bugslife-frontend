@@ -67,6 +67,7 @@ class App extends Component {
           <Route exact path="/" component={MainContainer}  />
           <Route path="/list" component={ListContainer} exact={true} />
           <Route path="/detail" component={DetailPage} exact={true} />
+          <Route path="/detail/:post_id" component={DetailPage} exact={true} />
           <PrivateRoute path="/admin" authenticated={this.props.Store.oauth.getCurrentUser} component={AdminContainer} exact={true} />
           <Route path="/contact" component={ContactContainer} />
           <Route path="/mypage" component={Mypagecontainer} exact={true} />
@@ -85,7 +86,7 @@ class App extends Component {
           <Route path="/freeboard" component={FreeBoardContainer} exact={true} />
           <Route path="/freeboard/detail/:post_id" component={Freeboarddetailcontainer} exact={true} />
           <Route path="/point" component={PointPage} />
-          <Route path="/posting_fr" component={FreeboardEditorContainer} />np
+          <Route path="/posting_fr" component={FreeboardEditorContainer} />
           <Route path="/edu" component={EduListContainer} exact={true} />
           <Route path="/edu/detail/:eid/:aid" component={EduDetailContainer}/>
           <Route path="/otherUser" component={OtherUserContainer}/>
