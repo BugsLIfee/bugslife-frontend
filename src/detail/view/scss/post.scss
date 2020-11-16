@@ -3,6 +3,10 @@
     margin: 20px auto;
     border: 1px solid #e2e2e2;
     border-radius: 10px;
+
+    hr {
+        margin-bottom: 0;
+    }
 }
 
 .question {
@@ -180,7 +184,4 @@
 
 .input_comment {
     font-size: 3rem;
-}
-
-.comment_bt {
 }

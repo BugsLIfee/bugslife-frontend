@@ -24,7 +24,7 @@ export default class AnswerLikesView extends Component {
                         this.setState({clicked_like : !clicked_like});
                     }
                 }}>
-                    <div className="up" onClick={() => {onAnswerLike(answer.id, "up")}} > <i class="fas fa-sort-up"></i> </div>
+                    <div className="up" onClick={() => {onAnswerLike(answer.id, "up")}} > <i className="fas fa-sort-up"></i> </div>
                 </div>
                 <div className="likes">
                     {likes}
@@ -35,7 +35,7 @@ export default class AnswerLikesView extends Component {
                         this.setState({clicked_like : !clicked_like});
                     }
                 }}>
-                    <div className="down" onClick={() => {onAnswerLike(answer.id, "down")}}> <i class="fas fa-sort-down"></i> </div>
+                    <div className="down" onClick={() => {onAnswerLike(answer.id, "down")}}> <i className="fas fa-sort-down"></i> </div>
                 </div>
             </div>
         );

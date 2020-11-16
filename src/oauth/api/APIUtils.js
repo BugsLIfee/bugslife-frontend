@@ -14,7 +14,8 @@ export function  request  (options)  {
     options = Object.assign({}, defaults, options);
 
     return fetch(options.url, options)
-    .then(response => 
+    .then(
+        response => 
         response.json().then(json => {
             if(!response.ok) {
                 return Promise.reject(json);
@@ -36,8 +37,6 @@ export function getCurrentUser() {
 }
 
 export function login(loginRequest) {
-    console.log("로그인리퀘스트",loginRequest);
-    console.log("로그인리퀘스트제이슨",JSON.stringify(loginRequest));
     return request({
         url: API_BASE_URL + "/auth/login",
         method: 'POST',

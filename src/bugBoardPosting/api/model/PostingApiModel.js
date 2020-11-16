@@ -10,7 +10,7 @@ class PostingApiModel{
         this.title = postObj.title;
         this.content = postObj.content;
         this.publicPost = postObj.isPublic;
-        this.writer = "리자몽워터";
+        this.writer = postObj.writer;
         this.point = 2000;
         // this.writer = writer;
         // this.tags = tags;
