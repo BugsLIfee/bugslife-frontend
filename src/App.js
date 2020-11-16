@@ -5,9 +5,6 @@ import "./footer/footer.scss";
 import OAuth2RedirectHandler from './oauth/oauth2/OAuth2RedirectHandler';
 import LoadingIndicator from './oauth/common/LoadingIndicator';
 import PrivateRoute from './oauth/common/PrivateRoute';
-//import Alert from 'react-s-alert';
-// import 'react-s-alert/dist/s-alert-default.css';
-// import 'react-s-alert/dist/s-alert-css-effects/slide.css';
 import "./chat/view/chatbotIcon.scss";
 
 import { 
@@ -36,7 +33,6 @@ import {
 import Signup from "./oauth/signup/Signup";
 import { inject, Observer } from "mobx-react";
 import ChatbotContainer from "./chat/container/ChatbotContainer";
-import ChatBotView from "./chat/view/ChatBotView";
 
 
 
@@ -71,7 +67,7 @@ class App extends Component {
           <Route exact path="/" component={MainContainer}  />
           <Route path="/list" component={ListContainer} exact={true} />
           <Route path="/detail" component={DetailPage} exact={true} />
-          <PrivateRoute path="/admin" authenticated={this.props.Store.oauth.getCurrentUser} component={AdminContainer}  />
+          <PrivateRoute path="/admin" authenticated={this.props.Store.oauth.getCurrentUser} component={AdminContainer} exact={true} />
           <Route path="/contact" component={ContactContainer} />
           <Route path="/mypage" component={Mypagecontainer} exact={true} />
           <Route path="/posting" component={PostingContainer} exact={true} />
@@ -97,15 +93,12 @@ class App extends Component {
 
         </Switch>
       </Router>
-      < ChatBotView/>
+      < ChatbotContainer />
 
       <div className="footer_place" >
         {" "}
         <Footer />
-      </div>
-      {/* <Alert stack={{limit: 3}} 
-          timeout = {3000}
-          position='center' effect='slide' offset={65} /> */}
+      </div>    
     </>
   )
   }

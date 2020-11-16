@@ -18,12 +18,11 @@ export default class MypageHome extends Component {
 
     console.log("user? " +user)
 
-    // console.log(user.imageUrl)
     return (
       <>
         <div className="MyPage_content">
           <div className="MyPage_profile">
-           {(user.imageUrl === undefined)? (<i id="MyPage_profile_icon" class="far fa-grin"></i>): ( <img className= "MyPage_profile_img" src={user.imageUrl} alt="default_profile" />)}
+           {(user === undefined || user.imageUrl===null)? (<i id="MyPage_profile_icon" class="far fa-grin"></i>): ( <img className= "MyPage_profile_img" src={user.imageUrl} alt="default_profile" />)}
             {/* <img className= "MyPage_profile_img" src={user.imageUrl} />
             <i id="MyPage_profile_icon" class="far fa-grin"></i> */}
             <br></br>

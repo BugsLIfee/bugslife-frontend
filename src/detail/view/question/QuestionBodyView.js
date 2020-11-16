@@ -13,8 +13,11 @@ export default class QuestionBodyView extends Component {
         const md_text = marked( question.content );
 
         const createMarkup = function() {
+            console.log(typeof(question.content))
             return { __html: question.content };
         }
+        console.log(createMarkup())
+
 
         const tags = (
         <span> 
