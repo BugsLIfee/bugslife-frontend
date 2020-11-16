@@ -47,6 +47,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
         };
 
+        window.location.reload();
+
     }
 
 
@@ -66,7 +68,6 @@ import 'react-toastify/dist/ReactToastify.css';
         let filterList;
 
         if(uid!==undefined){
-    
             filterList = allList.filter(val=> {return(val.uid=== uid)})
             // console.log("필터 리스트" , filterList)
         }
