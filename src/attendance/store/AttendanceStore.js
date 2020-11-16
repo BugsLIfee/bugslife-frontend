@@ -1,25 +1,54 @@
 import { observable, action } from "mobx"
+import AttendanceApi from "../api/AttendanceApi";
+import AttendanceModel from "../api/Model/AttendanceModel";
 
 class AttendanceStore{
 
+    attend_api = new AttendanceApi();
 
     @observable 
-    attendance =  ['2020-10-20' ,'2020-10-21'];
+    attendanceList = [];
 
     @observable
-    error =""
+    error = ""
+    
+    @observable
+    allList = [];
+
+    @observable
+    isAttend = false;
+
 
     @action
-    addAttn=(newDate)=>{
-
-        if(this.attendance.includes(newDate)){
-            this.error = "이미 출석체크가 완료되었습니다."
-            
-        }else{
-            this.attendance = [...this.attendance, newDate]
-            //console.log(this.attendance)
-        }
+    async getAllList(){
+        this.allList = await this.attend_api.attendAllList();
     }
+
+    @action
+    async getAttendList(uid){
+
+        let result = await this.attend_api.attendAllList();
+        let result2 = result.map(val=> {return {...val}});
+
+        this.attendanceList = result2
+
+        console.log("스토어 리스트 ? ==== ", this.attendanceList)
+    }
+
+    @action
+    async addAttn(uid, newDate){
+
+        if(this.attendanceList.includes(newDate)){
+            this.error = "이미 출석체크가 완료되었습니다."
+        }else{
+            this.isAttend = !this.isAttend;
+            let model = new AttendanceModel(uid, newDate);
+            console.log(model)
+            await this.attend_api.createAttend(model);
+            // this.attendance = [...this.attendance, newDate]
+            // //console.log(this.attendance)
+        }
+    };
 
 }
 
