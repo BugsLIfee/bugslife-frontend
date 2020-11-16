@@ -42,6 +42,21 @@
     border: none;
     outline: none;
   }
+
+  .attn_btn_disabled {
+    border: none;
+    outline: none;
+
+    h2 {
+      background-color: rgb(143, 143, 143);
+      &:hover {
+        transition: 0.3s;
+        background-color: rgb(85, 86, 87);
+        box-shadow: black 3px 3px;
+      }
+    }
+  }
+
   h2 {
     width: fit-content;
     border: none;
