@@ -13,7 +13,6 @@ class QuestionHeaderContainer extends Component {
     render() {
 
         const question = this.props.Store.detail._question;
-        console.log("퀘스찬입니당나귀:", question)
         const questionHeaderView = Object.keys(question).length !== 0 ? <QuestionHeaderView question={ question } /> : "" 
         return (
             <div>

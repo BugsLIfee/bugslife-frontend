@@ -5,16 +5,19 @@ export default class CommentListView extends Component {
     render() {
         
         const { comments } = this.props; 
-        const commentList = comments.map(comment => {
+        const commentList = comments.map((comment) => {
             return (
                 <CommentView 
                     comment={comment}   
+                    key={comment.id}
                 /> 
             )
         });
         
         return (
-            commentList
+            <div className="bugboard_commentList">
+                {commentList}
+            </div>
         );
     }
 }

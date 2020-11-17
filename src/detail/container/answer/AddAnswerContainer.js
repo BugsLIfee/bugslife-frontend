@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import InsertAnswerView from "../../view/answer/AddAnswerView";
 import AddAnswerView from "../../view/answer/InsertAnswerView";
 import "../../view/scss/answerList.scss";
+import { inject, observer } from "mobx-react";
 
+@inject('Store')
+@observer
 class AddAnswerContainer extends Component {
     
     constructor(props){
@@ -14,16 +17,30 @@ class AddAnswerContainer extends Component {
 
     render() {
 
+        const {oauth} = this.props.Store;
+
         const onInsertForm = () => {
             this.setState({insertForm : !insertForm});
         }
 
-        const { login } = this.props;
+        const onAddAnswer = (answerObj) => {
+            answerObj.writerId = oauth.getCurrentUserInfo.id;
+            answerObj.writerName = oauth.getCurrentUserInfo.name;
+            answerObj.writerLevel = oauth.getCurrentUserInfo.level;
+        
+            this.props.Store.detail.onAddAnswer(answerObj);
+        }
+
         const { insertForm } = this.state;
+        const questionId = this.props.questionId;
         
         return (
             <div className="detail_answer_list">
-                {login==="true" && (!insertForm ? <InsertAnswerView onInsertForm={onInsertForm} /> : <AddAnswerView onInsertForm={onInsertForm} />)}
+                {!insertForm ? 
+                    <InsertAnswerView onInsertForm={onInsertForm} /> 
+                    : <AddAnswerView onInsertForm={onInsertForm} 
+                                    onAddAnswer={onAddAnswer} 
+                                    questionId = {questionId} />}
             </div>
         );
     }

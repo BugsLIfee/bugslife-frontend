@@ -1,18 +1,26 @@
 import { action, computed, observable } from "mobx";
-import EduInfoListAPi from "../api/EduInfoApi"
+import EduInfoAPi from "../api/EduInfoApi"
 
 
 class EduStore {
 
-    eduInfoListAPi = new EduInfoListAPi();
+    eduInfoAPi = new EduInfoAPi();
 
     @observable eduList = [];
 
-    @observable eduDetail = [];
+    @observable eduDetail = {};
 
-    @observable active = "";
+    @observable eduInfo = {}
 
-    @observable inline = "";
+    @observable eduRivew = [];
+
+    @observable loadingBtn = "";
+
+    @observable disableBtn = "";
+
+   
+
+
 
     eId;
     //@observable eduReview = EduDetailTestData.review;
@@ -22,36 +30,37 @@ class EduStore {
     }
 
     @computed get getEduDetail() {
-        return this.eduDetail ? this.eduDetail.slice() : []
+        return this.eduDetail ? {...this.eduDetail} : {}
     }
 
-    get getEduId() {
-        console.log(this.eId)
-        return this.eId
-    
-    }
 
-    // get getEduReview() {
-    //     return this.eduDetail.find(review => {
-    //         return review.eId === this.eId
-    //     }).review.slice();
-    // }
-
-    @action 
-    setEduId(id) {
-        this.eId=id;
-        console.log("gdgd",this.eId)
-    }
+    @computed get getEduReviews() {
+        return this.eduDetail ? this.eduDetail.eduReviews.slice() : []
+    }  
 
     @action
     async allList() {
-        let result = await this.eduInfoListAPi.eduInfoList()
+        let result = await this.eduInfoAPi.eduInfoList()
         this.eduList = result
-    } 
+    }
 
     @action
-    syncEduInfo() {
-        this.eduInfoListAPi.eduInfoListAdd()
+    async eduReviewList(eid) {
+        let result = await this.eduInfoAPi.eduReviewList(eid)
+        this.eduDetail = result
+        console.log(this.eduDetail)
+    }
+
+    @action
+    async syncEduInfo() {
+        this.loadingBtn = "true"
+        this.disableBtn = "true"
+        await this.eduInfoAPi.eduInfoListAdd()
+        this.loadingBtn = ""
+        this.disableBtn = ""
+        alert("동기화가 완료되었습니다.")
+        window.location.reload(false);
+        return 1;
     }
 
 }

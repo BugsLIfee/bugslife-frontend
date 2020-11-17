@@ -40,6 +40,7 @@ export {default as PostingContainer} from "./bugBoardPosting/container/PostingCo
 export {default as Attendancecontainer} from "./attendance/container/AttendanceContainer";
 export {default as EduListContainer} from "./edu/container/eduList/EduListContainer"
 export {default as EduDetailContainer} from "./edu/container/eduDetail/EduDetailContainer";
+export {default as AcademyDetailContainer} from "./edu/container/academyDetail/AcademyDetailContainer";
 export {default as OtherUserContainer} from "./otherUser/container/OtherUserContainer";
 
 

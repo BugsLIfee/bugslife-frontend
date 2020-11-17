@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { observer, inject } from 'mobx-react';
-import { Card } from "react-bootstrap";
 import AnswerCommentListContainer from "../comment/AnswerCommentListContainer";
 import AnswerInsertCommentContainer from "../comment/AnswerInsertCommentContainer";
 import AnswerHeaderView from "../../view/answer/AnswerHeaderView";
 import AnswerBodyView from "../../view/answer/AnswerBodyView";
 import AnswerLikesContainer from "./AnswerLikesContainer";
+import { Card } from "react-bootstrap";
 
 @inject("Store")
 @observer
@@ -13,24 +13,26 @@ class AnswerContainer extends Component {
 
     render() {
 
-        const { answer, login } = this.props;
+        const { answer } = this.props;
 
         return (
-            <div class="answer post">
+            <div className="answer post">
                 <Card>
-                    <Card.Header className="post_header">
+                    <div className="post_header">
                         <AnswerHeaderView answer = {answer} />
                         <AnswerLikesContainer answer = { answer } /> 
-                    </Card.Header>
+                    </div>
+                    <hr />
                     <Card.Body>
-                        <Card.Text className="post_body">
+                        <div className="post_body">
                             <AnswerBodyView answer = {answer} />
-                        </Card.Text>
-                        <hr />
-                        <AnswerCommentListContainer answer = {answer} />
+                        </div>
                     </Card.Body>
+                    <hr />
+
+                    <AnswerCommentListContainer answer = {answer} />
                     <Card.Footer className="text-muted text-center post_footer">
-                        <AnswerInsertCommentContainer login = {login} answer = {answer} />
+                        <AnswerInsertCommentContainer answer = {answer} />
                     </Card.Footer>
                 </Card>
             </div>

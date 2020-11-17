@@ -2,15 +2,16 @@ class PostingApiModel{
 
     title = "";
     content = "";
-    isPublic = "";
-    // writer = "";
-    // tags = "";
+    publicPost = "";
+    writerId = ""
+    point = 0;
 
     constructor(postObj){
         this.title = postObj.title;
         this.content = postObj.content;
-        this.isPublic = postObj.isPublic;
-        // this.writer = writer;
+        this.publicPost = postObj.isPublic;
+        this.writerId = postObj.writer;
+        this.point = 2000;
         // this.tags = tags;
     }
 }

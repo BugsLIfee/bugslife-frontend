@@ -6,8 +6,8 @@ import "../scss/myPageContainer.scss";
 import {inject, observer} from "mobx-react"
 import MypageUser from "../view/MyPage_user";
 import PointPage from "../../point/PointPage";
-import { Redirect } from "react-router-dom";
-import swal from "sweetalert";
+// import { Redirect } from "react-router-dom";
+// import swal from "sweetalert";
 
 
 @inject("Store")
@@ -38,15 +38,14 @@ class Mypagecontainer extends Component {
 
 
   componentDidMount(){
-    const curr_user = this.props.Store.oauth.currentUser;
-    console.log(curr_user)
-    
-
+    // const curr_user = this.props.Store.oauth.currentUser;
+    this.props.Store.attendance.getAllList()
   }
 
   render() {
     const state = this.state.curr_component;
     const user = this.props.Store.oauth.currentUser;
+    let {allList} = this.props.Store.attendance;
 
     const goToPoint = () => {
       this.setState({curr_component: "point"});
@@ -90,13 +89,13 @@ class Mypagecontainer extends Component {
               <Icon name="book" />
               게시글
             </Menu.Item>
-            <Menu.Item
+            {/* <Menu.Item
               as="a"
               onClick={() => this.onClickEvent("user")}
             >
                <Icon name="male" />
               회원정보
-            </Menu.Item>
+            </Menu.Item> */}
             <Menu.Item
               as="a"
               onClick={() => this.onClickEvent("point")}
@@ -107,7 +106,7 @@ class Mypagecontainer extends Component {
           </Sidebar>
           <div className="MyPage_curr">
             {this.user}
-            {state === "home" && <MypageHome user ={user} onClickPoint={goToPoint}/>}
+            {state === "home" && <MypageHome user ={user} allList={allList} onClickPoint={goToPoint}/>}
             {state === "post" && <MypagePost />}
             {state === "user" && <MypageUser user={user} onSubmitForm={this.onSubmitForm}/>}
             {state === "point" && <PointPage user={user} />}

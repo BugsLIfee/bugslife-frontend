@@ -1,6 +1,11 @@
 .comment{
-    background-color: #2fcccc;
 
+    border-bottom: solid 0.5px #c8c8c8;
+    // border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    // margin: 0.5rem 1rem;
+
+    
     a:hover{text-decoration: none; color:black;}
     a:link{text-decoration: none; color:black;}
     a:visited{text-decoration: none; color:black;}
@@ -11,6 +16,7 @@
     font-size: 1.3rem;
     font-weight: bold;
     display: flex;
+    padding-left: 1rem;
 
     .comment_date {
         color: #a2a2a2;
@@ -29,6 +35,10 @@
 
 
 .comment_body {
-    margin: 20px 0px 10px 10px;
+    margin: 10px 0px 10px 10px;
     font-size: 1.3rem;
+}
+
+.bugboard_commentList {
+    background-color: #F0FFFF;
 }

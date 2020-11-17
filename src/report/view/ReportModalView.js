@@ -18,7 +18,7 @@ export default function ReportModalView(props) {
             className="report_modal"
             >
             <Header>
-                <i class="fas fa-concierge-bell"></i>
+                <i className="fas fa-concierge-bell"></i>
                 &nbsp; 
                 벅스라이프 게시물 신고
             </Header> 
@@ -32,8 +32,8 @@ export default function ReportModalView(props) {
                     신고사유 <span>여러 사유에 해당하는 경우 대표적인 사유 1개를 선택해주세요.</span>    
                 </div>
                 <Form className="category">
-                    {category.map((type) => (
-                        <Form.Field className="item">
+                    {category.map((type, index) => (
+                        <Form.Field className="item" key = { index }>
                             <Radio
                             label={type}
                             name='radioGroup'

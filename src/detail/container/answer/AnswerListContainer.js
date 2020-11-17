@@ -13,7 +13,7 @@ class AnswerListContainer extends Component {
 
         const answerList = answers.map(answer => {
             return (
-                <AnswerContainer answer = { answer } login = { login } />
+                <AnswerContainer answer = { answer } login = { login } key= { answer.id } />
             )
         })
 

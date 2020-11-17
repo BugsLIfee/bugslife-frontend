@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import { Badge } from "react-bootstrap"
+import { Link } from "react-router-dom"
 import "./scss/ListItem.scss"
 
 const img = {
@@ -11,33 +12,33 @@ class ListViewMain extends Component {
     const { listView } = this.props
     // const tags = listView.tags.map((tag) => {
     //   return (
-        // <span className="tagFont">
+        // <span classNameName="tagFont">
         //   <Badge variant="primary" >{tag}</Badge>{" "}
         // </span>
     //   )
     // })
     return (
-      <div class="item-center">
-        <div class="inner">
-          <a href="/detail" class="title">
-            {listView.title}
-          </a>
-          <span class="date">{listView.registDate}</span>
-          <div class="tab-box">
-            <div class="tag-box">
-              <span className="tagFont">
+      <div className="item-center">
+        <div className="inner">
+          <Link to={`/detail/${listView.id}`} className="title">
+            {listView.title} 
+          </Link>
+          <span className="date">{listView.registDate}</span>
+          <div className="tab-box">
+            <div className="tag-box">
+              <span classNameName="tagFont">
                 <Badge variant="primary" >test</Badge>{" "}
-              </span>
+              </span>                                 
             </div>
-            <div class="box-grade">
-              <span class="btn-grade img">
+            <div className="box-grade">
+              <span className="btn-grade img">
                 {/* <img style={img} src={listView.userIcon} alt=""></img> */}
                 <img style={img} src="../logo/userIcon.png" alt=""></img>
               </span>
-              <span class="value">
-                <span class="name">{listView.writer}</span>
-                {/* <span class="grade">{listView.writer_lv}</span> */}
-                <span class="grade">test level</span>
+              <span className="value">
+                <span className="name">{listView.writerName}</span>
+                {/* <span className="grade">{listView.writer_lv}</span> */}
+                <span className="grade">Level {listView.writerLevel } </span>
               </span>
             </div>
           </div>

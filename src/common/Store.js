@@ -1,8 +1,5 @@
 import ListStore from "../list/store/ListStore";
-// import UserStore from "../user/store/UserStore";
-import UserStore from "../mypage/store/UserStore"
-// import DetailStore from "../detail/store/DetailStore";
-import DetailStore from "../detail/store/TestStore";
+import DetailStore from "../detail/store/DetailStore";
 import AdminStore from "../admin/store/AdminStore";
 import AnswerStore from "../contact/store/AnswerStore";
 import QuestionStore from "../contact/store/QuestionStore";
@@ -19,11 +16,11 @@ import ReportCategoryStore from "../report/store/ReportStore";
 import EduStore from "../edu/store/EduStore";
 import OtherUserStore from "../otherUser/store/OtherUserStore"
 import BugBoardPosting from "../bugBoardPosting/store/bugBoardPostingStore"
+import PaymentStore from "../payment/store/PaymentStore"
 
 
 export default class Store {
   constructor() {
-    this.user = new UserStore(this);
     this.list = new ListStore(this);
     this.detail = new DetailStore(this);
     this.admin = new AdminStore(this);
@@ -42,5 +39,6 @@ export default class Store {
     this.attendance = new AttendanceStore(this);
     this.otherUser = new OtherUserStore(this);
     this.bugBoardPosting = new BugBoardPosting(this);
+    this.payment = new PaymentStore(this);
   }
 }

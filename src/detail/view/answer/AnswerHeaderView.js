@@ -8,18 +8,18 @@ export default class AnswerHeaderView extends Component {
         const { answer } = this.props;
         console.log("ANSWERView");
         return(
-            <div class="post_meta">
-                <div class="writer_info"> 
-                    <i class="fas fa-font answer_mark"></i>
-                    <img src="../logo/logo_st.png" class="writer_icon" alt="img" /> 
-                    <div class="writer_info_text">
-                        <div class="writer_id"> {answer.writer} </div>
-                        <div class="writer_level"> {answer.writer_lv} </div>
+            <div className="post_meta">
+                <div className="writer_info"> 
+                    <i className="fas fa-font answer_mark"></i>
+                    <img src="../logo/logo_st.png" className="writer_icon" alt="img" /> 
+                    <div className="writer_info_text">
+                        <div className="writer_id"> {answer.writerName} </div>
+                        <div className="writer_level"> Level {answer.writerLevel} </div>
                     </div>
                 </div>
                 <div className="_info">
-                        <div class="upload_date"> {answer.regist_date} &nbsp; | &nbsp; </div>
-                        <div className="report"> <ReportModalContainer bt_text = {<div><i class="fas fa-ban"></i> 신고</div>} /> </div>
+                        <div className="upload_date"> {answer.registDate.substring(0,10)} &nbsp; | &nbsp; </div>
+                        <div className="report"> <ReportModalContainer bt_text = {<div><i className="fas fa-ban"></i> 신고</div>} /> </div>
                 </div>
             </div>
         )
