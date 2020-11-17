@@ -17,7 +17,7 @@ class TagStore {
 
   @computed
   get getTagAll() {
-    console.log("getTagALl 오나요")
+    console.log("getTagALl 오나요", this.tagAll)
     return this.tagAll ? this.tagAll.map((tag) => ({ ...tag })).slice() : []
   }
 

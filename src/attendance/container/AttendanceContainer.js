@@ -1,23 +1,17 @@
-import React, { Component } from 'react'
+import React, {  PureComponent } from 'react'
 import Attendancecalender from '../view/AttendanceCalender'
 import "../view/scss/calendar.scss"
 import { inject, observer } from "mobx-react"
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast, collapseToast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 
 @inject("Store")
 @observer
+ class Attendancecontainer extends PureComponent {
 
- class Attendancecontainer extends Component {
-    
-
-    onClickBtn=()=>{
-
+    onClickBtn=(user_id)=>{
         let {error} = this.props.Store.attendance;
-        console.log(error)
-
-
+        console.log("error : " + error)
         let today = new Date();   
 
         let year = today.getFullYear(); // 년도
@@ -25,8 +19,10 @@ import 'react-toastify/dist/ReactToastify.css';
         let date = today.getDate();  // 날짜
         
         let newDate = `${year}-${month}-${date}`
-        this.props.Store.attendance.addAttn(newDate)
 
+        // console.log(newDate, user_id)
+        // console.log(this.state)
+        this.props.Store.attendance.addAttn(user_id,newDate)
 
         if(error.length!==0){
             toast.error(error, {
@@ -51,15 +47,31 @@ import 'react-toastify/dist/ReactToastify.css';
 
         };
 
+        window.location.reload();
+
+    }
+
+
+    componentDidMount=()=>{
+        this.props.Store.attendance.getAllList()
     }
    
     render() {
-        let {attendance} = this.props.Store.attendance
-       
+        let {allList} = this.props.Store.attendance;
+
+        let userInfo = this.props.Store.oauth.currentUser;
+        let uid = userInfo.id;
+        let done = userInfo.isAttend;
 
 
-        let attn_event = attendance.map(val=> {return {title : "출석완료" , date : val}})
-        //console.log(attn_event)
+        console.log("isDone = ? " ,done)
+        let filterList;
+
+        if(uid!==undefined){
+            filterList = allList.filter(val=> {return(val.uid=== uid)})
+            // console.log("필터 리스트" , filterList)
+        }
+
 
         return (
             <div className="attn_wrap">
@@ -71,7 +83,7 @@ import 'react-toastify/dist/ReactToastify.css';
                             벅스라이프에 <strong>매일매일 </strong>출석체크하면
                         </h5>
                         <h5>
-                            <i id="coin" class="fas fa-coins"></i>포인트가 차곡차곡!
+                            <i id="coin" className="fas fa-coins"></i>포인트가 차곡차곡!
                         </h5>
                     </div>
 
@@ -82,20 +94,20 @@ import 'react-toastify/dist/ReactToastify.css';
                         <h2> [ 출석체크 혜택 ] </h2>
                         <div className="attn_info_content">
 
-                            <div class="attn_goal">
-                                <h3> <span>1주일</span> 출석달성</h3>
-                                <h1> <i class="fas fa-check"></i> </h1>
-                                <h5> +10 포인트 추가지급</h5>
-                            </div>
-                            <div class="attn_goal">
-                                <h3><span>1개월</span> 출석달성</h3>
-                                <h1> <i class="fas fa-check"></i> </h1>
+                            <div className="attn_goal">
+                                <h3> <span>3일</span> 출석달성</h3>
+                                <h1> <i className="fas fa-check"></i> </h1>
                                 <h5> +100 포인트 추가지급</h5>
                             </div>
-                            <div class="attn_goal">
-                                <h3><span>3개월</span> 출석달성</h3>
+                            <div className="attn_goal">
+                                <h3><span>1주일</span> 출석달성</h3>
                                 <h1> <i class="fas fa-check"></i> </h1>
                                 <h5> +500 포인트 추가지급</h5>
+                            </div>
+                            <div className="attn_goal">
+                                <h3><span>1개월</span> 출석달성</h3>
+                                <h1> <i class="fas fa-check"></i> </h1>
+                                <h5> +1000 포인트 추가지급</h5>
                             </div>
                             
                         </div>
@@ -103,7 +115,17 @@ import 'react-toastify/dist/ReactToastify.css';
                 </div>
 
                 <div className="attn_btn">
-                    <button className = "attn_btn_" onClick={this.onClickBtn}> <h2> 출석체크! </h2></button>
+                    {done===true? 
+                    (<button className="attn_btn_disabled" disabled="true">
+                        <h2>출첵완료!</h2>
+                    </button>)
+                    
+                    : 
+                    (<button className = "attn_btn_" onClick={()=>this.onClickBtn(uid)} disabled={done===true? true: false}> 
+                         <h2> 출석체크! </h2>
+                    </button>)
+                    }
+               
                      
                      <ToastContainer 
                         position="top-center"
@@ -118,9 +140,9 @@ import 'react-toastify/dist/ReactToastify.css';
                 </div>
                 <hr />
 
-                <div className="attn_cal"><Attendancecalender attendance = {attn_event}/></div>
-            
-            </div>
+                <div className="attn_cal">
+                    <Attendancecalender attendance={filterList}/></div>
+                </div>
         )
     }
 }

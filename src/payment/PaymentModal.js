@@ -1,47 +1,33 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Form, Button, Header, Modal, Radio, Checkbox} from 'semantic-ui-react'
+import { observer, inject } from 'mobx-react';
 import { PGS } from './constants';
 import "./scss/payment_modal.scss";
 
-export default function PaymentModal(props) {
-  // let data = {
-  //   pg: 'kakaopay',                           // PG사
-  //   pay_method: 'card',                           // 결제수단
-  //   merchant_uid: `mid_${new Date().getTime()}`,   // 주문번호
-  //   amount: 1000,                                 // 결제금액
-  //   name: '아임포트 결제 데이터 분석',                  // 주문명
-  //   buyer_name: '홍길동',                           // 구매자 이름
-  //   buyer_tel: '01012341234',                     // 구매자 전화번호
-  //   buyer_email: 'example@example',               // 구매자 이메일
-  //   buyer_addr: '신사동 661-16',                    // 구매자 주소
-  //   buyer_postcode: '06018',                      // 구매자 우편번호
-  // };
+function PaymentModal(props) {
 
   const point_list = [
     1000, 3000, 5000, 10000, 50000  
   ]
 
+  const { payment } = props.Store;
   const [open, setOpen] = React.useState(false);
   const { bt_text } = props
   const [pg_type, setPgType] = useState();
   const [point_type, setPointType] = useState();
   const [payment_type, setPaymentType] = useState('normal');
   const [visible, setVisible] = useState();
-  const [allAgree, setAllAgree] = useState();
   const [agree1, setAgree1] = useState();
   const [agree2, setAgree2] = useState();
   const [data, setData] = useState(
     {
       pg: 'html5_inicis',
-      pay_method: 'card',
-      merchant_uid: '1',   // 주문번호
+      pay_method: '',
+      merchant_uid: '3',   // 주문번호
       amount: 0,                                 // 결제금액
       name: '벅스라이프 포인트 결제',                  // 주문명
       buyer_name: '심재욱',                           // 구매자 이름
-      buyer_tel: '01024029829',                     // 구매자 전화번호
       buyer_email: 'test@gmail.com',               // 구매자 이메일
-      buyer_addr: '서울 송파구',                    // 구매자 주소
-      buyer_postcode: '05501',                      // 구매자 우편번호
     }
   )
 
@@ -61,12 +47,6 @@ export default function PaymentModal(props) {
         setVisible(false);
       else 
         setVisible(!visible);
-  }
-
-  const onClickAllAgree = (e, {value}) => {
-    setAllAgree(!allAgree)
-    setAgree1(!allAgree);
-    setAgree2(!allAgree);
   }
 
   function onClickPayment() {
@@ -103,6 +83,7 @@ export default function PaymentModal(props) {
 
     if (success) {
       alert('결제 성공');
+      payment.onAddPayment(data);
     } else {
       alert(`결제 실패: ${error_msg}`);
     }
@@ -179,9 +160,8 @@ export default function PaymentModal(props) {
               <p>기타결제({PGS.find(pg => {return pg.value === data.pg}).label})</p>}
             </div>
             <div className="info_agree">
-              <Checkbox label='전체 동의' onChange={onClickAllAgree} className="item"/>
-              <Checkbox label='위 구매 조건 확인 및 결제진행 동의 (필수)' checked={agree1 === true} onChange={()=>setAgree1(!agree1)} className="item"/>
-              <Checkbox label='벅스라이프에 거래정보 제공 동의 (필수)' checked={agree2 === true} onChange={()=>setAgree2(!agree2)} className="item"/>
+              <Checkbox label='위 구매 조건 확인 및 결제진행 동의 (필수)' checked={agree1 === true} onChange={ () => {setAgree1(!agree1)}} className="item"/>
+              <Checkbox label='벅스라이프에 거래정보 제공 동의 (필수)' checked={agree2 === true} onChange={ () => {setAgree2(!agree2)}} className="item"/>
             </div>
             </Modal.Content>
             <Modal.Actions>
@@ -194,3 +174,5 @@ export default function PaymentModal(props) {
 
     );
 }
+
+export default inject('Store')(observer(PaymentModal))

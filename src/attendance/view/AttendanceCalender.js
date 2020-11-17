@@ -9,14 +9,17 @@ export default class Attendancecalender extends Component {
     render() {
 
         let attendance = this.props.attendance;
-    //    console.log(attendance)
+        let attn_event;
 
+        if(attendance!==undefined){
+          attn_event = attendance.map(val=> {return {title : "출석완료" , date : val.attendDate}})
+        }
         return (
             <div className="attendance_calendar_container">
                 <FullCalendar 
                 defaultView="dayGridMonth" 
                 plugins={[dayGridPlugin]}
-                events={attendance}/>
+                events={attn_event}/>
             </div>
         )
     }

@@ -4,10 +4,19 @@ export default class DetailApi {
   url = "http://localhost:8088/api/bugboard/detail/";
 
   answerCreate(answerApiModel) {
+    console.log(answerApiModel);
     return request({
       url: this.url + "add-answer",
       method: 'POST',
       body: JSON.stringify(answerApiModel)
+    })
+  }
+
+  commentCreate(commentApiModel) {
+    return request({
+      url: this.url + "add-comment",
+      method: 'POST',
+      body: JSON.stringify(commentApiModel)
     })
   }
 

@@ -8,37 +8,42 @@ import QuestionCommentListContainer from "./container/comment/QuestionCommentLis
 import QuestionInsertCommentContainer from "./container/comment/QuestionInsertCommentContainer";
 import AnswerListContainer from "./container/answer/AnswerListContainer";
 import AddAnswerContainer from "./container/answer/AddAnswerContainer";
-import qs from "qs";
+import { inject } from "mobx-react";
 
+@inject('Store')
 class DetailPage extends Component {
 
-    render() {
-        const searchObj = qs.parse(this.props.location.search, {
-            ignoreQueryPrefix: true,
-        });
+    id;
 
-        const login = searchObj.login;
+    componentDidMount () {
+        this.props.Store.detail.selectPost(this.id);
+        window.scrollTo(0,0);
+    }
+
+    render() {
+
+        this.id = this.props.match.params.post_id; 
 
         return(
             <div>
-                <div class="question post">
+                <div className="question post">
                     <Card>
                         <Card.Header className="post_header">
                             <QuestionHeaderContainer />
                         </Card.Header>
                         <hr />
-                        <QuestionLikesContainer login = { login } />
+                        <QuestionLikesContainer/>
                         <Card.Body>
                             <QuestionBodyContainer />
-                            <QuestionCommentListContainer login = { login } />
                         </Card.Body>
                         <Card.Footer className="text-muted text-center post_footer">
-                            <QuestionInsertCommentContainer login = { login } />
+                            <QuestionCommentListContainer  />
+                            <QuestionInsertCommentContainer questionId = {this.id} />
                         </Card.Footer>
                     </Card>
                 </div>
-                <AnswerListContainer login={ login } />
-                <AddAnswerContainer login={ login } />
+                <AnswerListContainer questionId = { this.id } />
+                <AddAnswerContainer questionId = { this.id }/>
             </div>
         )
     }

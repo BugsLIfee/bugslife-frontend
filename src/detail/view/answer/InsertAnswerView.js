@@ -7,9 +7,24 @@ import { Editor } from '@toast-ui/react-editor';
 
 export default class AddAnswerView extends Component {
 
+    editorRef = React.createRef();
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            questionId : props.questionId,
+            content : "",
+            writer: ""
+        }
+    }
+
     render() {
 
-        const { onInsertForm } = this.props;
+        const { onInsertForm, onAddAnswer } = this.props;
+        const onClickSubmit = (answerObj) => {
+            onInsertForm();
+            onAddAnswer(answerObj);
+        }
 
         return(
             <div className="detail_answer_editor">
@@ -19,13 +34,20 @@ export default class AddAnswerView extends Component {
                     height="400px"
                     initialEditType="markdown"
                     useCommandShortcut={true}
+                    ref={this.editorRef}
+                    onChange = {() => {
+                        this.setState({
+                            content: this.editorRef.current.getInstance().getHtml()
+                        })
+                    }}
                 />
     
                 <div className="posting_answer">
                     <Button basic color='white' className="bt" size='huge' onClick={()=> {onInsertForm()}}> 
                         뒤로가기
                     </Button>
-                    <Button basic color='gray' className="bt" size='huge'> 
+                    <Button basic color='gray' className="bt" size='huge'
+                        onClick={() => {onClickSubmit(this.state)}}> 
                         완료
                     </Button>
                 </div>

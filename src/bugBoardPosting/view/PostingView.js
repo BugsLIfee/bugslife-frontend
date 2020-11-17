@@ -105,10 +105,12 @@ export default class PostingView extends Component {
                     </Button>
                 </div>
                 <div className="upload">
-                    <Button basic color='black' className="bt" size='huge' 
-                        onClick={() => onAddPost(this.state)}> 
-                        완료
-                    </Button>
+                    <a href="/list">
+                        <Button basic color='black' className="bt" size='huge' 
+                            onClick={() => onAddPost(this.state)}> 
+                            완료
+                        </Button>
+                    </a>
                 </div>
             </div>
         )
