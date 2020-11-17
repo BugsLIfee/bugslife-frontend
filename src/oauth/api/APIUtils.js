@@ -1,3 +1,4 @@
+import axios from "axios"
 import { API_BASE_URL, ACCESS_TOKEN } from '../constants/index';
 
 export function  request  (options)  {
@@ -6,7 +7,7 @@ export function  request  (options)  {
     })
     
     if(localStorage.getItem(ACCESS_TOKEN)) {
-        headers.append('Authorization', 'Bearer ' + localStorage.getItem(ACCESS_TOKEN))
+        headers.append('Authorization', 'Bearer ' +localStorage.getItem(ACCESS_TOKEN))
     }
     
 
@@ -22,8 +23,25 @@ export function  request  (options)  {
             }
             return json;
         })
-    );
+    )
+    .catch(function (error) {
+        console.log("오나요?? => ")
+        console.log(error)
+            //토큰인증에 실패한 경우 로그인화면으로 이동
+            if (error.response) {
+                if(errorTypeCheck(error.response.data.error)) window.location.href="/signup";  
+                }
+            });
+    ;
 };
+
+// 인증 에러 체크
+const errorTypeCheck=(error)=>{
+    if(error ==="unauthorized") return true;
+    if(error ==="invalid_token") return true;
+
+    return false;
+}
 
 export function getCurrentUser() {
     if(!localStorage.getItem(ACCESS_TOKEN)) {
