@@ -1,6 +1,6 @@
 import { inject, observer } from 'mobx-react'
 import React, { Component } from 'react'
-import { Grid, Pagination} from 'semantic-ui-react'
+import { Grid, Pagination } from 'semantic-ui-react'
 import EduListHeaderView from '../../view/list/EduListHeaderView'
 import "../../view/scss/EduList.scss"
 import EduListImageContainer from './EduListImageContainer'
@@ -15,11 +15,6 @@ class EduListContainer extends Component {
         this.state = {
           page: 1,
         }
-    }
-
-    onSelect = (Id) => {
-        this.props.Store.edu.setEduId(Id)
-        
     }
 
     syncEdu = () => {
@@ -40,12 +35,12 @@ class EduListContainer extends Component {
     render() {
         
         const eduLists = this.props.Store.edu.getEduList
-        const {active,inline} = this.props.Store.edu
+        const {loadingBtn, disableBtn} = this.props.Store.edu
         
-        let eduItemOne = eduLists.slice((this.state.page -1) * 5, this.state.page *5)
-        let totalPage = Math.floor(eduLists.length / 5)
+        let eduItemOne = eduLists.slice((this.state.page -1) * 10, this.state.page *10)
+        let totalPage = Math.floor(eduLists.length / 10)
         
-        if (eduLists.length % 5) {
+        if (eduLists.length % 10) {
             totalPage += 1
           }
 
@@ -70,7 +65,7 @@ class EduListContainer extends Component {
         })
         return (
             <div className="eduList">
-                <EduListHeaderView eduLists={eduLists.length} syncEdu={this.syncEdu} active={active} inline={inline}/>
+                <EduListHeaderView eduLists={eduLists.length} syncEdu={this.syncEdu} loadingBtn={loadingBtn} disableBtn={disableBtn}/>
                 {edu}
                 <Pagination
                     boundaryRange={0}

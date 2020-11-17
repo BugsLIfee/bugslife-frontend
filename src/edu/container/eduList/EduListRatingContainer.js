@@ -1,4 +1,3 @@
-import { inject, observer } from 'mobx-react'
 import React, { Component } from 'react'
 import EduListRatingView from '../../view/list/EduListRatingView'
 import "../../view/scss/EduList.scss"
@@ -7,7 +6,7 @@ import "../../view/scss/EduList.scss"
 // @observer
 class EduListRatingContainer extends Component {
     render() {
-        const {eduList,eduId} = this.props
+        const {eduList} = this.props
         // this.props.Store.edu.setEduId(eduId)
 
         // const reviewLists = this.props.Store.edu.getEduReview

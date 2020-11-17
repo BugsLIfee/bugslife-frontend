@@ -9,23 +9,24 @@ import EduAddReviewContainer from './EduAddReviewContainer'
 @observer
 class EduDetailContainer extends Component {
 
+    componentDidMount() {
+        let match = this.props.match;
+        this.props.Store.edu.eduReviewList(`${match.params.eid}`)
+    }
+
     render() {
-        const eduId = this.props.match.params.id;
-        this.props.Store.edu.setEduId(eduId)
 
-        const eduDetails = this.props.Store.edu.getEduDetail
-        const Id = this.props.Store.edu.getEduId
+        const eduDetail = this.props.Store.edu.getEduDetail
 
-        console.log(Id)
-        
-        console.log(eduDetails)
+        console.log(eduDetail)
+        console.log(eduDetail.eduInfo)
+        console.log(eduDetail.eduReviews)
 
-        const eduDetail = eduDetails[Id-1]
         return (
             <div className="eduDetailLayout">
-                <EduInfoContainer eduDetail={eduDetail}/>
+                {/* <EduInfoContainer eduDetail={eduDetail}/>
                 <EduAddReviewContainer/>
-                <EduReviewContainer eduDetail={eduDetail}/>
+                <EduReviewContainer eduDetail={eduDetail}/> */}
             </div>
         )
     }

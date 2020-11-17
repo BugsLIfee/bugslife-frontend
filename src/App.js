@@ -27,6 +27,7 @@ import {
   Attendancecontainer, 
   EduListContainer,
   EduDetailContainer,
+  AcademyDetailContainer,
   OtherUserContainer,
  } from "./Routes";
 
@@ -78,7 +79,7 @@ class App extends Component {
             {/* <Route path="/signup"
               render={(props) => <Signup authenticated={this.state.authenticated}
                {...props} />}/> */}
-         
+
           <Route path="/oauth2/redirect" component={OAuth2RedirectHandler}/>  
           <Route path="/login" component={LoginContainer} exact={true}/> 
           {/* <Route component={NotFound}></Route> */}
@@ -87,7 +88,8 @@ class App extends Component {
           <Route path="/point" component={PointPage} />
           <Route path="/posting_fr" component={FreeboardEditorContainer} />np
           <Route path="/edu" component={EduListContainer} exact={true} />
-          <Route path="/edu/detail/:eid/:aid" component={EduDetailContainer}/>
+          <Route path="/edu/academy/:aid" component={AcademyDetailContainer}/>
+          <Route path="/edu/info/:eid" component={EduDetailContainer}/>
           <Route path="/otherUser" component={OtherUserContainer}/>
           <Route path="/chat-bot" component={ChatbotContainer}/>
 

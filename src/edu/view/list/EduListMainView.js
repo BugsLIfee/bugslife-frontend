@@ -7,10 +7,10 @@ export class EduListMainView extends Component {
         return (
             <div className="eduItemMainContent">
                 {/* <a href={`/edu/detail/${eduList.id}/${eduList.academyId}`} className="eduItemETitle">{eduList.title}</a> */}
-                <Link to={`/edu/detail/${eduList.id}/${eduList.academyId}`} className="eduItemETitle">{eduList.title}</Link>
+                <Link to={`/edu/info/${eduList.id}`} className="eduItemETitle">{eduList.title}</Link>
                 <div>
                     {/* <a href={`/edu/detail/${eduList.id}/${eduList.academyId}`} className="eduItemATitle" onClick={()=>onSelect(eduList.id)}>{eduList.academyTitle}</a> */}
-                    <Link to={`/edu/detail/${eduList.id}/${eduList.academyId}`} className="eduItemATitle">{eduList.academyTitle}</Link>
+                    <Link to={`/edu/academy/${eduList.academyId}`} className="eduItemATitle">{eduList.academyTitle}</Link>
                     <span>&nbsp;&nbsp;({eduList.simpleAddr}&nbsp;{eduList.telNo})</span>
                 </div>
                 <div className="eduItemDate">
