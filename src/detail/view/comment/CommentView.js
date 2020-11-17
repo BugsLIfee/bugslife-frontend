@@ -10,7 +10,7 @@ export default class CommentView extends Component {
             <div>
                 <div className="comment">
                     <div className="comment_info">
-                        <a href="/">{comment.writer}</a> 
+                        <a href="/">{comment.writerName}</a> 
                         <span className="comment_date">{comment.registDate.substring(0,10)}</span>
                         <div className="report"> <ReportModalContainer bt_text = {<div>신고</div>} /> </div>
                     </div>

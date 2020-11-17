@@ -14,7 +14,9 @@ export default class AddAnswerView extends Component {
         this.state = {
             questionId : props.questionId,
             content : "",
-            writer: ""
+            writerId: "",
+            writerName: "",
+            writerLevel: "",
         }
     }
 

@@ -6,6 +6,7 @@ export default class PostingApi {
 
   postCreate(postingApiModel) {  
     // postingApiModel = Object.assign({}, postingApiModel);
+    console.log(postingApiModel)
     return request({
       url: this.url,
       method: 'POST',
