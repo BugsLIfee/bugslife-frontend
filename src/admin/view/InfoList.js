@@ -60,12 +60,11 @@ class InfoList extends Component {
           </span>
               </h3>
             </div>
-            <a href="/admin/info-write">
+        
             <div className="write_btn_box">
-            <Icon name="pencil"/>공지사항 작성
+            <a href="/admin/info-write"> <Icon name="pencil"/>공지사항 작성 </a>
             </div>
-            </a>
-            <br/><br/>
+    
           </span>
         </div>
         <Table celled>

@@ -36,6 +36,7 @@ export function getCurrentUser() {
     });
 }
 
+
 export function login(loginRequest) {
     return request({
         url: API_BASE_URL + "/auth/login",
