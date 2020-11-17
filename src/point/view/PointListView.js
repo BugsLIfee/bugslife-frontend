@@ -130,7 +130,7 @@ const EnhancedTableToolbar = (props) => {
         })} point_list_title`}
     >
         <Typography className={`${classes.title} point_list_title`} variant="h6" id="tableTitle" component="div">
-            Point 변동 내역
+            포인트 변동 내역
         </Typography>
     </Toolbar>
     );
