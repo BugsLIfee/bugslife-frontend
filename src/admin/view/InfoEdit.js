@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form, Button } from "semantic-ui-react";
+import { Form, Button, Dropdown } from "semantic-ui-react";
 import CKEditor from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import moment from "moment";
@@ -9,12 +9,12 @@ export default class InfoEdit extends Component {
   constructor(props){
     super(props)
     var info = this.props;
-    var currentUser = this.props;
+
     console.log("뭐넘겨주니..?",this.props);
     this.state={
-      user:{...currentUser},
-      username: info&&info.user? info.user.name :currentUser.name,
-      adminCategory:info&&info.adminCategory ? info.adminCategory :"",
+      user:"",
+      username: info&&info.user? info.user.name :this.props.currentUser.name,
+      category:info&&info.category ? info.category :"",
       registDate:info&&info.registDate ? info.registDate : "",
       editDate:info&&info.editDate ? info.editDate : "",
       title: info&&info.title ? info.title : "",
@@ -34,14 +34,16 @@ export default class InfoEdit extends Component {
     });
     console.log("------statechange:",this.state);
   }
-  
+  selectCategory=()=>{
+
+  }
   onsubmit=()=>{
-    const {info, user} = this.props;
+    const {info, currentUser} = this.props;
       this.setState({
         ...this.state,
         registDate: info.registDate? info.registDate:this.nowDate(),
         editDate:info.registDate? this.nowDate() : "",
-        user:{...user}
+        user:{...currentUser.id}
       })
       console.log("onSubmitstate----", {...this.state});
     return {...this.state}
@@ -50,16 +52,16 @@ export default class InfoEdit extends Component {
   render() {
     const {
       info,
+      infoCategory ,
+      currentUser,
       //onSetInfoProp,
       onAddInfo,
       onRemoveInfo,
       onModifyInfo,
     } = this.props;
-    
-
-    const {username, registDate,editDate,content, title,adminCategory} =this.state;
-
-    return (
+    console.log(infoCategory);
+    const { registDate,editDate,content, title} =this.state;
+   return (
       <div>
         <h2>
             <span role="img" aria-label="aria">
@@ -73,17 +75,15 @@ export default class InfoEdit extends Component {
             readOnly
                fluid
             label="운영팀"
-              name="username"
-              value={username}
+              name="name"
+              value={currentUser.name}
             />
-            <Form.Input
-            width={3}
-            readOnly
-               fluid
-            label="카테고리"
-              name="adminCategory"
-              value={adminCategory}
-            />
+            <Dropdown 
+            placeholder='카테고리' 
+            small
+            selection 
+            options={infoCategory}
+            onChange={this.selectCategory} />
          
             {registDate
            ? <Form.Input

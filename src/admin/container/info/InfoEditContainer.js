@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import InfoEdit from "../../view/InfoEdit";
 import { observer, inject } from "mobx-react";
-
+import swal from "sweetalert";
+import adminCategory from "../../data/category";
 @inject("Store")
 @observer
 class InfoEditContainer extends Component {
@@ -15,13 +16,14 @@ class InfoEditContainer extends Component {
 
     console.log("addInfo함수 호출", infoObj);
     this.info.onAddInfo(infoObj);
-    alert("성공");
+    swal("작성완료!","공지사항이 등록되었습니다!","success");
   };
-
+  
   onRemoveInfo = () => {
     let infoData = this.info.getInfo;
     console.log("remvoe----", infoData.id);
     this.info.removeInfo(infoData.id);
+    swal("삭제완료!","공지사항이 삭제되었습니다!","success");
   };
 
   onModifyInfo = () => {
@@ -30,16 +32,20 @@ class InfoEditContainer extends Component {
   };
   render() {
    const oauth = this.props.Store.oauth;
-   console.log(oauth.getCurrentUserInfo);
+   const adminInfo = {...oauth.getCurrentUserInfo};
+   const infoCategory = adminCategory.filter((obj)=>(obj.type==='info'))
+   console.log("infoCategory",infoCategory);
+   console.log("infoeditcontainer:userinfo",adminInfo);
     return (
       <div>
         <InfoEdit
           info={this.info.getInfo}
-          currentUser={oauth.getCurrentUserInfo}
+          currentUser={adminInfo}
           onSetInfoProp={this.onSetInfoProp}
           onAddInfo={this.onAddInfo}
           onRemoveInfo={this.onRemoveInfo}
           onModifyInfo={this.onModifyInfo}
+          infoCategory={infoCategory}
         />
       </div>
     );
