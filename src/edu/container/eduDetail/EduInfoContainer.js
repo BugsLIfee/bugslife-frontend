@@ -3,10 +3,10 @@ import EduDetailInfoView from '../../view/detail/EduDetailInfoView'
 
 export class EduInfoContainer extends Component {
     render() {
-        const {eduDetail} = this.props
+        const {eduInfo} = this.props
         return (
             <div>
-                <EduDetailInfoView eduDetail={eduDetail}/>
+                <EduDetailInfoView eduInfo={eduInfo}/>
             </div>
         )
     }

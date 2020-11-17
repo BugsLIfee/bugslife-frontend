@@ -3,13 +3,8 @@ import Rating from '@material-ui/lab/Rating';
 import { Form, Button, TextArea, Dropdown} from 'semantic-ui-react'
 import "../../view/scss/EduDetail.scss"
 
-const options = [
-    { key: 'mul101', text: '학원ID와 교육ID 조인필터 교육과정', value: 'mul101' },
-    { key: 'mul102', text: '학원ID와 교육ID 조인필터 교육과정2', value: 'mul102' },
-  ]
 
 export class EduInsertReviewView extends Component {
-    state = { options }
 
     // handleAddition = (e, { value }) => {
     // this.setState((prevState) => ({
@@ -38,14 +33,6 @@ export class EduInsertReviewView extends Component {
                             </div>
                         </div>
                         <div className="addEduReviewBodyR">
-                            <Dropdown
-                                className="eduSelector"
-                                options={this.state.options}
-                                placeholder='교육과정명'
-                                fluid
-                                search
-                                selection
-                            />
                             <div className="addEduReviewTitle"><Form.Input fluid id="InputReviewTitle" placeholder='제목' size="tiny"/></div>
                             <div className="addEduReviewRecommand">
                                     <span className="reviewRecommand">장점</span>
