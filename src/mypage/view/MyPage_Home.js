@@ -6,6 +6,8 @@ import CountUp from "react-countup";
 
 export default class MypageHome extends Component {
 
+  
+
   render() {
     const image = "../main/pink_sqaure.png";
     const date = "3 days ago";
@@ -16,8 +18,19 @@ export default class MypageHome extends Component {
     const user = this.props.user;
     const {onClickPoint} = this.props;
 
-    console.log("user? " +user)
+    console.log("user? " , user)
 
+
+    //출석률 계산하기
+    let timeNow= new Date().getTime();
+    let enrollTime = new Date(user.enrollDate).getTime()
+    let allList = this.props.allList;
+    const attendList = allList.filter(val=> {return(val.uid=== user.id)})
+
+    let timeDiff = (timeNow-enrollTime)/1000/60/60/24;
+    let attendanceRate= parseInt(attendList.length/timeDiff * 100)
+
+    // console.log(typeof attendanceRate)
     return (
       <>
         <div className="MyPage_content">
@@ -53,7 +66,8 @@ export default class MypageHome extends Component {
               <h3>출석률</h3>
               <h2 className="action_detail_rate">
                 <b className="att_rate">
-                  <CountUp end={100} duration={5} />
+                  {console.log(typeof attendanceRate, attendanceRate)}
+                  <CountUp end={64} duration={5} />
                 </b>{" "}
                 %
               </h2>
