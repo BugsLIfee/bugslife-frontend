@@ -7,19 +7,30 @@ import MemberSearch from "../../view/member/MemberSearch";
 @inject("Store")
 @observer
 class MemberMngContainer extends Component {
+
+  state=({searchUser:[]})
   componentDidMount=()=>{
     this.props.Store.oauth.getUserList();
+  }
+
+  onSearchMemeber=(userList)=>{
+    this.setState({searchUser : userList})
   }
   
   render() {
     let {userList} =this.props.Store.oauth;
 
+    if(this.state.searchUser.length>0){
+      userList = this.state.searchUser;
+    }
 
     return (
       <div>
         <div className="admin-member-container">
             <div className="admin-member-container-title">
-              <h2>회원관리</h2>
+            <span role="img" aria-label="aria">
+              <h2>😎 회원관리</h2>
+              </span>
             </div>
             
             <div className="admin-member-search">

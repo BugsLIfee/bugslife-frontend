@@ -1,92 +1,79 @@
 import _ from 'lodash'
-import faker from 'faker'
-import React from 'react'
-import { Search,  Label } from 'semantic-ui-react'
+import { Search  } from 'semantic-ui-react'
+import "./scss/MemberSearch.scss"
+import React, { Component } from "react";
 import "./scss/MemberSearch.scss"
 
-const source =()=>{
-    // let {userList} =this.props.Store.oauth;
-    userList.map(val=> {return {
-        title: val.email,
-        id: val.id,
-        name : val.name
-    }});
-}
- 
-  const initialState = {
-    loading: false,
-    results: [],
-    value: '',
-  }
-  
-  function exampleReducer(state, action) {
+class MemberSearch extends Component  {
 
-    // console.log("action", action)
-    switch (action.type) {
-      case 'CLEAN_QUERY':
-        return initialState
-      case 'START_SEARCH':
-        return { ...state, loading: true, value: action.query }
-      case 'FINISH_SEARCH':
-        return { ...state, loading: false, results: action.results }
-      case 'UPDATE_SELECTION':
-        return { ...state, value: action.selection }
-  
-      default:
-        throw new Error()
+    state=({isLoading : false, value : "", results :[]})
+   
+    componentWillMount() {
+        this.resetComponent()
     }
-  }
 
-const resultRenderer = ({ email }) => <Label content={email} />
-
-const MemberSearch=()=>{
-    const [state, dispatch] = React.useReducer(exampleReducer, initialState)
-    const { loading, results, value } = state
-
-    const timeoutRef = React.useRef()
-  
-    const handleSearchChange = React.useCallback((e, data) => {
-
-        clearTimeout(timeoutRef.current)
-      dispatch({ type: 'START_SEARCH', query: data.value })
-      
-      timeoutRef.current = setTimeout(() => {
-        if (data.value.length === 0) {
-          dispatch({ type: 'CLEAN_QUERY' })
-          return
-        }
-  
-        const re = new RegExp(_.escapeRegExp(data.value), 'i')
-        const isMatch = (result) => re.test(result.title)
-
-
-        dispatch({
-          type: 'FINISH_SEARCH',
-          results: _.filter(source,isMatch)
-        })
-      }, 300)
-    }, [])
-
-    React.useEffect(() => {
-      return () => {
-        clearTimeout(timeoutRef.current)
-      }
-    }, [])
-  
-    return (
-      <div className="member_search_container">
-          <Search
-            loading={loading}
-            onResultSelect={(e, data) =>
-              dispatch({ type: 'UPDATE_SELECTION', selection: data.result })
+    source(){
+        let {userList} = this.props;
+        return userList.map(val=>{
+            return {
+                title: val.email,
+                name : val.name,
+                id : val.id
             }
-            onSearchChange={handleSearchChange}
-            resultRenderer={resultRenderer}
-            results={results}
-            value={value}
-          />
-      </div>
-    )
+        })
+    }
+
+    goToDetailsPageDiv(e, result) {
+        {console.log(result)}
+        return (
+        
+                <ui>
+                    <li>{result.title}</li>
+                </ui>
+  
+        );
+    }
+
+    resetComponent = () => this.setState({ isLoading: false, results: [], value: '' })
+
+    handleResultSelect = (e, { result }) => this.goToDetailsPageDiv(e, result);
+
+    handleSearchChange = (e, { value }) => {
+        this.setState({ isLoading: true, value })
+
+        setTimeout(() => {
+            if (this.state.value.length < 1) {
+                return this.resetComponent() }
+
+            const re = new RegExp(_.escapeRegExp(this.state.value), 'i')
+
+
+            // const isMatch = (result) => re.test(result.title);
+
+            this.setState({
+                isLoading: false,
+                results:this.source().slice(0).filter(val=> {
+                    return re.test(val.title)})
+            })
+        }, 300)
+    }
+
+
+    render() {
+        const { isLoading, value, results } = this.state
+        return (
+            <Search
+                onResultSelect={this.handleResultSelect}
+                onSearchChange={_.debounce(this.handleSearchChange, 500, { leading: true })}
+                loading={isLoading}
+                results={results}
+                value={value}
+                input={{placeholder: "Search..."}}
+                noResultsMessage={"Nothing found"}
+                {...this.props}
+            />
+        )
+    }
 }
 
-export default MemberSearch
+export default MemberSearch;
