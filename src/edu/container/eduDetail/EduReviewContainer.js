@@ -11,9 +11,9 @@ const options = [
 export class EduReviewContainer extends Component {
     state = { options }
     render() {
-        const {eduDetail} = this.props
+        const {eduReviews} = this.props
 
-        const review = eduDetail.review.map((review) => {
+        const review = eduReviews.map((review) => {
             return (
                 <EduDetailReviewView review={review}/>
             )

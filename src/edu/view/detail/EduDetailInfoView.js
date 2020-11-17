@@ -4,11 +4,11 @@ import "../../view/scss/EduDetail.scss"
 
 export class EduDetailInfoView extends Component {
     render() {
-        const {eduDetail} = this.props
+        const {eduInfo} = this.props
         return (
                <Grid className="eduInfoTable">
                     <Grid.Column width={3} className="eduInfoImg">
-                        <Image src={eduDetail.imgUrl} />
+                        <Image src="https://via.placeholder.com/190x90.png" alt="eduimg"/>
                     </Grid.Column>
 
                     <Grid.Column width={13} className="eduInfoColumn">
@@ -17,7 +17,7 @@ export class EduDetailInfoView extends Component {
                             교육과정명
                             </Grid.Column>
                             <Grid.Column className="eduCellBody">
-                            {eduDetail.eTitle}
+                            {eduInfo.title}
                             </Grid.Column>
                         </Grid.Row>
                         <Grid.Row className="eduInfoRow">
@@ -25,7 +25,7 @@ export class EduDetailInfoView extends Component {
                             교육기간
                             </Grid.Column>
                             <Grid.Column className="eduCellBody">
-                            {eduDetail.startDate} ~ {eduDetail.endDate}
+                            [{eduInfo.startDate}]&nbsp;&nbsp;~&nbsp;&nbsp;[{eduInfo.endDate}]
                             </Grid.Column>
                         </Grid.Row>
                         <Grid.Row className="eduInfoRow">
@@ -33,28 +33,9 @@ export class EduDetailInfoView extends Component {
                             기관명
                             </Grid.Column>
                             <Grid.Column className="eduCellBody">
-                            {eduDetail.aTitle}
+                            {eduInfo.academyTitle}&nbsp;({eduInfo.simpleAddr})
                             </Grid.Column>
                         </Grid.Row>
-                        <Grid.Row className="eduInfoRow">
-                            <Grid.Column className="eduCellTitle">
-                            주소
-                            </Grid.Column>
-                            <Grid.Column className="eduCellBody">
-                            {eduDetail.addrDetail}
-                            </Grid.Column>
-                        </Grid.Row>
-                        
-                           
-                                
-                        <Grid.Column className="eduInfoRow">
-                        <div className="eduCellTitle">전화번호</div >
-                        <div className="eduCellSBody">{eduDetail.telephone}</div>
-                        <div className="eduCellTitle">홈페이지</div>
-                        <div className="eduCellSBody"><a href={`http://${eduDetail.homepage}`} target="_blank" rel="noopener noreferrer">{eduDetail.homepage}</a></div>
-                        </Grid.Column>
-                            
-                        
                     </Grid.Column>
                 </Grid> 
         )

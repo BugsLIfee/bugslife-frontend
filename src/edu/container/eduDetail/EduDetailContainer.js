@@ -11,22 +11,19 @@ class EduDetailContainer extends Component {
 
     componentDidMount() {
         let match = this.props.match;
-        this.props.Store.edu.eduReviewList(`${match.params.eid}`)
+        this.props.Store.edu.eduDetailInfo(`${match.params.eid}`)
     }
 
     render() {
 
-        const eduDetail = this.props.Store.edu.getEduDetail
-
-        console.log(eduDetail)
-        console.log(eduDetail.eduInfo)
-        console.log(eduDetail.eduReviews)
+        const eduReviews = this.props.Store.edu.getEduReviews
+        const eduInfo = this.props.Store.edu.getEduInfo
 
         return (
             <div className="eduDetailLayout">
-                {/* <EduInfoContainer eduDetail={eduDetail}/>
+                <EduInfoContainer eduInfo={eduInfo}/>
                 <EduAddReviewContainer/>
-                <EduReviewContainer eduDetail={eduDetail}/> */}
+                {/* <EduReviewContainer eduReviews={eduReviews}/> */}
             </div>
         )
     }

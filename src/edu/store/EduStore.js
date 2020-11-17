@@ -10,9 +10,9 @@ class EduStore {
 
     @observable eduDetail = {};
 
-    @observable eduInfo = {}
+    @observable eduInfo = {};
 
-    @observable eduRivew = [];
+    @observable eduRivews = [];
 
     @observable loadingBtn = "";
 
@@ -29,14 +29,19 @@ class EduStore {
         return this.eduList ? this.eduList.slice() : []
     }
 
-    @computed get getEduDetail() {
-        return this.eduDetail ? {...this.eduDetail} : {}
-    }
+    // @computed get getEduDetail() {
+    //     return this.eduDetail ? {...this.eduDetail} : {}
+    // }
 
+    @computed get getEduInfo() {
+        return this.eduInfo ? {...this.eduInfo} : {}
+    }  
 
     @computed get getEduReviews() {
-        return this.eduDetail ? this.eduDetail.eduReviews.slice() : []
+        return this.eduRivews ? this.eduRivews.slice() : []
     }  
+
+
 
     @action
     async allList() {
@@ -44,11 +49,11 @@ class EduStore {
         this.eduList = result
     }
 
-    @action
-    async eduReviewList(eid) {
-        let result = await this.eduInfoAPi.eduReviewList(eid)
-        this.eduDetail = result
-        console.log(this.eduDetail)
+    @action 
+    async eduDetailInfo(eid) {
+        this.eduDetail = await this.eduInfoAPi.eduReviewList(eid)
+        this.eduInfo = this.eduDetail.eduInfo ? {...this.eduDetail.eduInfo} : {}
+        this.eduReview = this.eduDetail.eduReviews ? this.eduDetail.eduReviews : [];
     }
 
     @action
