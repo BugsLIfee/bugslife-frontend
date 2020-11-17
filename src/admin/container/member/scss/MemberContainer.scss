@@ -1,0 +1,32 @@
+.admin-member-container-title {
+  margin-bottom: 1rem;
+  h2 {
+    margin: 1rem;
+    padding-left: 2rem;
+  }
+}
+
+.admin-member-search {
+  margin-bottom: 3rem;
+}
+
+.admin-member-list-container {
+  margin-bottom: 5rem;
+}
+
+.admin-member-list-header {
+  width: 90%;
+  display: grid;
+  grid-template: 3rem / 5% 10% 15% 30% 20% 10% 10%;
+  text-align: center;
+  background-color: black;
+  color: white;
+  border-radius: 10px 10px 0 0;
+  margin: auto;
+
+  .amin-member-header-sec {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

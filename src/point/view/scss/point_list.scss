@@ -1,43 +1,47 @@
 .point_list {
-    margin-top: 5%;
-    width: 75%;
-    margin-left: 10%;
-    
-    a:visited {
-        color: black;
-    }
-    
-    .content_body {
-        font-size: 1.3rem;
-    }
-    
-    .plus {
-        font-size: 1.3rem;
-        color: blue;
-    }
+  margin-top: 5%;
+  width: 75%;
+  margin-left: 10%;
 
-    .minus {
-        font-size: 1.3rem;
-        color: red;
-    }
+  a:visited {
+    color: black;
+  }
 
+  .content_body {
+    font-size: 1.2rem;
+
+    a {
+      text-decoration: none;
+      color: gray;
+      font-weight: bolder;
+    }
+  }
+
+  .plus {
+    font-size: 1.2rem;
+    color: rgb(204, 77, 38);
+  }
+
+  .minus {
+    font-size: 1.2rem;
+    color: rgb(49, 103, 218);
+  }
 }
 
 .point_list_title {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    padding: 5px;
-    color: white;
-    background-color: black;
-    font-size: 2.3rem !important;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 0.5rem;
+  color: white;
+  background-color: black;
+  font-size: 1.8rem !important;
 }
 
 .point_list_head {
-
-    .content {
-        background-color: #c8c8c8;
-        color: white !important;
-        font-weight: bold;
-        font-size: 1.3rem;
-    }
+  .content {
+    background-color: #c8c8c8;
+    color: white !important;
+    font-weight: bold;
+    font-size: 1.3rem;
+  }
 }

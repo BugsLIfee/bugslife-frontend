@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import { Grid } from "semantic-ui-react";
 import { inject, observer } from "mobx-react";
 import AdminRoutes from "../../routes/AdminRoutes";
 import AdminSideMenu from "../view/AdminSideMenu";
-import { Redirect } from "react-router-dom";
-import swal from "sweetalert";
+// import { Redirect } from "react-router-dom";
+// import swal from "sweetalert";
 
 @inject("Store")
 @observer
@@ -33,22 +32,22 @@ class AdminContainer extends Component {
      
       <div class="admincontainer">
         <div className="admin-header">
-          <span role="img" aria-label="aria">
-            👀 관리자 페이지
-          </span>
+          
+            <h2 className="amdin-header-title">
+            <span role="img" aria-label="aria">👀 관리자 페이지</span>
+            </h2>
+     
         </div>
+       
         <div className="admin-main">
-        <Grid>
-          <Grid.Row>
-          <Grid.Column width={2} >
+          <div className="admin-main-side">
             <AdminSideMenu/>
-          </Grid.Column>
-          <Grid.Column width={11} style={{margin:" 0 0 0 50px"}} >
+          </div>
+          <div className="admin-main-page">
             <AdminRoutes match={match}/>
-          </Grid.Column>
-          </Grid.Row>
-        </Grid>
+          </div>
         </div>
+
       </div>
  
     );
