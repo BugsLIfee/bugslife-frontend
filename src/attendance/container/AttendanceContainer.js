@@ -2,7 +2,7 @@ import React, {  PureComponent } from 'react'
 import Attendancecalender from '../view/AttendanceCalender'
 import "../view/scss/calendar.scss"
 import { inject, observer } from "mobx-react"
-import { ToastContainer, toast, collapseToast } from 'react-toastify';
+import { ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 @inject("Store")

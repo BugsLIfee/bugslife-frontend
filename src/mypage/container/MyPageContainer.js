@@ -6,8 +6,8 @@ import "../scss/myPageContainer.scss";
 import {inject, observer} from "mobx-react"
 import MypageUser from "../view/MyPage_user";
 import PointPage from "../../point/PointPage";
-import { Redirect } from "react-router-dom";
-import swal from "sweetalert";
+// import { Redirect } from "react-router-dom";
+// import swal from "sweetalert";
 
 
 @inject("Store")
@@ -38,7 +38,7 @@ class Mypagecontainer extends Component {
 
 
   componentDidMount(){
-    const curr_user = this.props.Store.oauth.currentUser;
+    // const curr_user = this.props.Store.oauth.currentUser;
     this.props.Store.attendance.getAllList()
   }
 

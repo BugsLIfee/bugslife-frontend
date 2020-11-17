@@ -8,33 +8,43 @@ import MemberSearch from "../../view/member/MemberSearch";
 @observer
 class MemberMngContainer extends Component {
 
-  state=({searchUser:[]})
+  state=({ searchUser: "" })
+
   componentDidMount=()=>{
     this.props.Store.oauth.getUserList();
   }
 
-  onSearchMemeber=(userList)=>{
-    this.setState({searchUser : userList})
+  onSearchMemeber=(userEmail)=>{
+    // console.log({...userList})
+    this.setState({searchUser : userEmail })
+    // console.log(this.state)
+  }
+
+  onReset=()=>{
+    console.log("reset")
+    return this.setState({ searchUser: "" })
   }
   
   render() {
     let {userList} =this.props.Store.oauth;
 
-    if(this.state.searchUser.length>0){
-      userList = this.state.searchUser;
-    }
+    // if(this.state.searchUser.length>0){
+    //   userList = this.state.searchUser;
+    // }
 
+   let selectUser = userList.filter(val=> {return val.email ===this.state.searchUser})[0]
+  
     return (
       <div>
         <div className="admin-member-container">
             <div className="admin-member-container-title">
-            <span role="img" aria-label="aria">
-              <h2>😎 회원관리</h2>
-              </span>
+            
+              <h2><span role="img" aria-label="aria">😎 회원관리 </span></h2>
+             
             </div>
             
             <div className="admin-member-search">
-                <MemberSearch userList={userList}/>
+                <MemberSearch userList={userList} onReset={this.onReset} onSearchMemeber={this.onSearchMemeber}/>
             </div>
 
             <div className="admin-member-list-container">
@@ -62,9 +72,14 @@ class MemberMngContainer extends Component {
                 </div>
               </div>
 
-                {userList.map((user, ind) =>{
-                  return <Memberlistview key={ind} user={user} />
-                })}
+                {
+                  this.state.searchUser.length === 0
+                ? (userList.map((user, ind) =>{
+                  return <Memberlistview key={ind} user={user}  />
+                }))
+               :          
+              ( <Memberlistview user= {selectUser}/>)
+              }
             </div>
 
         </div>

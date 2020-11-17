@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { inject, observer } from "mobx-react";
 import AdminRoutes from "../../routes/AdminRoutes";
 import AdminSideMenu from "../view/AdminSideMenu";
-import { Redirect } from "react-router-dom";
-import swal from "sweetalert";
+// import { Redirect } from "react-router-dom";
+// import swal from "sweetalert";
 
 @inject("Store")
 @observer
@@ -32,9 +32,11 @@ class AdminContainer extends Component {
      
       <div class="admincontainer">
         <div className="admin-header">
-          <span role="img" aria-label="aria">
-            <h2 className="amdin-header-title">👀 관리자 페이지</h2>
-          </span>
+          
+            <h2 className="amdin-header-title">
+            <span role="img" aria-label="aria">👀 관리자 페이지</span>
+            </h2>
+     
         </div>
        
         <div className="admin-main">

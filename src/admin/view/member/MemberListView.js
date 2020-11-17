@@ -5,7 +5,8 @@ export default class Memberlistview extends Component {
 
     
     render() {
-        let user = this.props.user;
+        let user = this.props.user
+        
         return (
             <div className="admin-member-list-detail">
                 <div className="admin-member-detail-sec">

@@ -24,17 +24,15 @@ class MemberSearch extends Component  {
     }
 
     goToDetailsPageDiv(e, result) {
-        {console.log(result)}
-        return (
-        
-                <ui>
-                    <li>{result.title}</li>
-                </ui>
-  
-        );
+        // let {userList} = this.props;
+        // let original = userList.filter(val=> {return val.email === result.title})
+        this.props.onSearchMemeber(result.title);
     }
 
-    resetComponent = () => this.setState({ isLoading: false, results: [], value: '' })
+    resetComponent = () => {
+        this.props.onReset();
+        this.setState({ isLoading: false, results: [], value: '' })
+    }
 
     handleResultSelect = (e, { result }) => this.goToDetailsPageDiv(e, result);
 
