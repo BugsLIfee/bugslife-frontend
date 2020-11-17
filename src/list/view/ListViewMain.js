@@ -36,9 +36,9 @@ class ListViewMain extends Component {
                 <img style={img} src="../logo/userIcon.png" alt=""></img>
               </span>
               <span className="value">
-                <span className="name">{listView.writer}</span>
+                <span className="name">{listView.writerName}</span>
                 {/* <span className="grade">{listView.writer_lv}</span> */}
-                <span className="grade">test level</span>
+                <span className="grade">Level {listView.writerLevel } </span>
               </span>
             </div>
           </div>

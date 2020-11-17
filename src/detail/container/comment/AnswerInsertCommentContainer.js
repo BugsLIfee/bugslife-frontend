@@ -8,14 +8,18 @@ class AnswerInsertCommentContainer extends Component {
 
     render() {
 
-        const {  answer } = this.props;
+        const { answer } = this.props;
+        const { oauth } = this.props.Store;
 
         const onAddComment = (comment_body) => {
-            // let comment = this.props.Store.detail.question_comment;
+
+
             let comment = { 
                 content: comment_body,
                 answerId: answer.id,
-                writer: "임시사용자",
+                writerId: oauth.getCurrentUserInfo.id,
+                writerName: oauth.getCurrentUserInfo.name,
+                writerLevel: oauth.getCurrentUserInfo.level
             }
             this.props.Store.detail.addAnswerComment(comment);
         }

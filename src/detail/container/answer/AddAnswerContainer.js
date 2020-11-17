@@ -17,11 +17,17 @@ class AddAnswerContainer extends Component {
 
     render() {
 
+        const {oauth} = this.props.Store;
+
         const onInsertForm = () => {
             this.setState({insertForm : !insertForm});
         }
 
         const onAddAnswer = (answerObj) => {
+            answerObj.writerId = oauth.getCurrentUserInfo.id;
+            answerObj.writerName = oauth.getCurrentUserInfo.name;
+            answerObj.writerLevel = oauth.getCurrentUserInfo.level;
+        
             this.props.Store.detail.onAddAnswer(answerObj);
         }
 

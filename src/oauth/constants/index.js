@@ -1,3 +1,5 @@
+export const AUTH_API_URL = 'http://localhost:8081';
+export const BUGBOARD_API_URL = 'http://localhost:8082';
 export const API_BASE_URL = 'http://localhost:8088';
 export const ACCESS_TOKEN = 'accessToken';
 

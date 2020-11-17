@@ -13,8 +13,8 @@ export default class AnswerHeaderView extends Component {
                     <i className="fas fa-font answer_mark"></i>
                     <img src="../logo/logo_st.png" className="writer_icon" alt="img" /> 
                     <div className="writer_info_text">
-                        <div className="writer_id"> {answer.writer} </div>
-                        <div className="writer_level"> {answer.writer_lv} </div>
+                        <div className="writer_id"> {answer.writerName} </div>
+                        <div className="writer_level"> Level {answer.writerLevel} </div>
                     </div>
                 </div>
                 <div className="_info">

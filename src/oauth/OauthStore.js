@@ -1,10 +1,12 @@
 import { observable , computed, action} from "mobx";
+import UserApi from "../admin/api/UserApi";
 import { getCurrentUser } from './api/APIUtils';
 import { ACCESS_TOKEN } from './constants/index';
 
 //import Alert from 'react-s-alert';
 class OauthStore {
 
+userApi = new UserApi();
 
 @observable
 authenticated=false ;
@@ -15,6 +17,8 @@ loading=false ;
 @observable
 isAdmin=false ;
 
+@observable
+userList = []
 
 @computed
 get isLogin(){
@@ -62,8 +66,11 @@ loadCurrentlyLoggedInUser() {
     this.authenticated= false;
     this.currentUser= null;
     this.isAdmin = false;
-   
+ }
 
+ @action
+ async getUserList(){
+    this.userList = await this.userApi.getUserList();
  }
 
 

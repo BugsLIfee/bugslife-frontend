@@ -1,0 +1,12 @@
+export default[{"id":1,"writerId":1004,"category":201,"title":"1주년이벤트안내","content":"2주년이벤트안내","registDate":"2020-02-14","editDate":"2020-01-28","viewCnt":1},
+{"id":2,"writerId":1004,"category":200,"title":"추석연휴 잘보내세요","content":"추석연휴 동안은 고객센터를 운영하지않습니다.","registDate":"2020-01-17","editDate":"2020-03-23","viewCnt":1},
+{"id":3,"writerId":1004,"category":200,"title":"최근들어 채팅신고가 많아지고있습니다.","content":"욕설시 포인트0가 됩니다. 주의하세요.","registDate":"2020-04-15","editDate":"2020-07-07","viewCnt":1},
+{"id":4,"writerId":1004,"category":200,"title":"회원여러분들 안녕하세요 ","content":"회원여러분들 안녕하세요 벅스라이프입니다 ! ","registDate":"2020-01-20","editDate":"2020-01-08","viewCnt":1},
+{"id":5,"writerId":1004,"category":200,"title":"회원건의사항은 고객센터에서 ! ","content":"회원건의사항은 고객센터에서 ! ","registDate":"2020-07-11","editDate":"2020-01-13","viewCnt":1},
+{"id":6,"writerId":1004,"category":201,"title":"랭킹왕 top5에게 에어팟을 ! ","content":"에어팟을 드려요","registDate":"2020-10-03","editDate":"2020-02-04","viewCnt":1},
+{"id":7,"writerId":1004,"category":201,"title":"1주년이벤트안내","content":"2주년이벤트안내","registDate":"2020-03-25","editDate":"2020-08-22","viewCnt":1},
+{"id":8,"writerId":1004,"category":200,"title":"추석연휴 잘보내세요","content":"추석연휴 동안은 고객센터를 운영하지않습니다.","registDate":"2020-10-15","editDate":"2020-10-24","viewCnt":1},
+{"id":9,"writerId":1004,"category":200,"title":"최근들어 채팅신고가 많아지고있습니다.","content":"욕설시 포인트0가 됩니다. 주의하세요.","registDate":"2020-05-25","editDate":"2020-03-17","viewCnt":1},
+{"id":10,"writerId":1004,"category":200,"title":"회원여러분들 안녕하세요 ","content":"회원여러분들 안녕하세요 벅스라이프입니다 ! ","registDate":"2020-06-23","editDate":"","viewCnt":0},
+{"id":11,"writerId":1004,"category":200,"title":"회원건의사항은 고객센터에서 ! ","content":"회원건의사항은 고객센터에서 ! ","registDate":"2020-09-24","editDate":"","viewCnt":0},
+{"id":12,"writerId":1004,"category":201,"title":"랭킹왕 top5에게 에어팟을 ! ","content":"에어팟을 드려요","registDate":"2020-01-04","editDate":"","viewCnt":0}]

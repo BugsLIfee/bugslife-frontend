@@ -61,6 +61,7 @@ class Freeboardlistcontainer extends Component {
                     
                 <div className="freeboard_list_head">
                     <div className="freeboard_list_head_title">
+<<<<<<< HEAD
                     <div className="freeboard_list_post_num freeboard_list_col">NO</div>
                     <div className="freeboard_list_post_cate freeboard_list_col">카테고리</div>
                     <div className="freeboard_list_post_title freeboard_list_col">제목</div>
@@ -68,6 +69,15 @@ class Freeboardlistcontainer extends Component {
                     <div className="freeboard_list_post_view freeboard_list_col">조회수</div>
                 </div>
               
+=======
+                      <div className="freeboard_list_post_num freeboard_list_col">NO</div>
+                      <div className="freeboard_list_post_cate freeboard_list_col">카테고리</div>
+                      <div className="freeboard_list_post_title freeboard_list_col">제목</div>
+                      <div className="freeboard_list_post_date freeboard_list_col">등록일</div>
+                      <div className="freeboard_list_post_view freeboard_list_col">조회수</div>
+                   </div>
+                    
+>>>>>>> 637cffe092014bed18702043e53b902c7125792e
                 </div>
                 <Freeboardlistview id="free_list" freeboardCommentSelect= {freeboardCommentSelect} freeboard_list={freeboard_select_posts.length ===0 ? freeboard_list : freeboard_select_posts} />
                 <div className="free_list_pagination">

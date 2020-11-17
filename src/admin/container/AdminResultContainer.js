@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import { Grid } from "semantic-ui-react";
-import MemberMngContainer from "./MemberMngContainer";
 import BoardMngContainer from "./BoardMngContainer";
 import QuestionAllListContainer from "../../contact/container/QuestionAllListContainer";
 import InfoListContainer from "./InfoListContainer";
@@ -9,6 +7,7 @@ import InfoEditContainer from "./InfoEditContainer";
 import ReportBoardContainer from "./report/ReportBoardContainer"
 import qs from "qs";
 import { withRouter } from "react-router-dom";
+import MemberMngContainer from "./member/MemberMngContainer";
 
 @withRouter
 class AdminResultContainer extends Component {

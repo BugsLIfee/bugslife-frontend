@@ -19,10 +19,8 @@ export default class QuestionHeaderView extends Component {
                         <div className="writer_info">
                             <img src="../logo/logo_st.png" className="writer_icon" alt="writer_icon" /> 
                             <div className="writer_info_text">
-                                {/* <div className="writer_id">{question.writer_id}</div> */}
-                                <div className="writer_id">리자몽워터</div>
-                                {/* <div className="writer_level">{question.writer_lv} </div> */}
-                                <div className="writer_level"> level. 37 </div>
+                                <div className="writer_id">{question.writerName}</div>
+                                <div className="writer_level">Level {question.writerLevel} </div>
                             </div>
                         </div>
                         <div className="_info">

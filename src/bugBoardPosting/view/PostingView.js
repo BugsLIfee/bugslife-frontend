@@ -16,7 +16,7 @@ export default class PostingView extends Component {
             title: "",
             content: "", 
             isPublic: true,
-            writer: props.user,
+            writer: "",
             isPremium:false,
             point:0,
             tags : []
@@ -105,12 +105,12 @@ export default class PostingView extends Component {
                     </Button>
                 </div>
                 <div className="upload">
-                    <a href="/list">
+                    {/* <a href="/list"> */}
                         <Button basic color='black' className="bt" size='huge' 
                             onClick={() => onAddPost(this.state)}> 
                             완료
                         </Button>
-                    </a>
+                    {/* </a> */}
                 </div>
             </div>
         )
