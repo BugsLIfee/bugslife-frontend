@@ -11,14 +11,15 @@ class PostingContainer extends Component {
     render() {
 
         const { bugBoardPosting } = this.props.Store;
-        const { user } = this.props.Store;
+        const { oauth } = this.props.Store;
         const onAddPost = (postObj) => {
+            postObj.writer = oauth.getCurrentUserInfo.id;
             bugBoardPosting.onAddPost(postObj);
         }
 
         return (
             <div>
-                <PostingView onAddPost={onAddPost} user={user}/>
+                <PostingView onAddPost={onAddPost} />
             </div>
         );
     }

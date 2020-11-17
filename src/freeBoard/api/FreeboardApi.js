@@ -6,10 +6,10 @@ export default class FreeboardApi{
 
 
     freeboardList(){
-       let result = axios.get(this.FREE_API_URL).then(
-           (response)=>(response && response.data) || null
-       )
-       return result;
+        let result = axios.get(this.FREE_API_URL).then(
+            (response)=>(response && response.data) || null
+        )
+        return result;
 
     }
 

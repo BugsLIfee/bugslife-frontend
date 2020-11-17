@@ -1,11 +1,11 @@
 class AnswerApiModel {
     questionId = "";
-    writer = "";
+    writerId = "";
     content = "";
 
     constructor(obj) {
         this.questionId = obj.questionId;
-        this.writer = obj.writer;
+        this.writerId = obj.writerId;
         this.content = obj.content;
     }
 }
