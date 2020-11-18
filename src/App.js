@@ -5,7 +5,7 @@ import "./footer/footer.scss";
 import OAuth2RedirectHandler from './oauth/oauth2/OAuth2RedirectHandler';
 import LoadingIndicator from './oauth/common/LoadingIndicator';
 import PrivateRoute from './oauth/common/PrivateRoute';
-import "./chat/view/chatbotIcon.scss";
+import "./chatbot/view/chatbotIcon.scss";
 
 import { 
   HeaderContainer, 
@@ -33,8 +33,7 @@ import {
 
 import Signup from "./oauth/signup/Signup";
 import { inject, Observer } from "mobx-react";
-import ChatbotContainer from "./chat/container/ChatbotContainer";
-
+import ChatbotContainer from "./chatbot/container/ChatbotContainer";
 
 
 @inject("Store")

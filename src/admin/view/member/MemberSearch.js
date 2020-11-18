@@ -66,7 +66,7 @@ class MemberSearch extends Component  {
                 loading={isLoading}
                 results={results}
                 value={value}
-                input={{placeholder: "Search..."}}
+                input={{placeholder: "회원 검색"}}
                 noResultsMessage={"Nothing found"}
                 {...this.props}
             />
