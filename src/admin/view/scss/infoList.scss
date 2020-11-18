@@ -12,6 +12,23 @@
   }
 }
 
+.infoList_header {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 5rem 15rem 25rem 10rem 13rem 8rem;
+  color: white;
+  background-color: black;
+  align-items: center;
+  border-radius: 10px 10px 0 0;
+
+  p {
+    display: flex;
+    margin: 0;
+    padding: 0.7rem 0;
+    justify-content: center;
+  }
+}
+
 .write_btn_box {
   text-decoration: none;
   font-size: 20px;

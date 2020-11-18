@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import { inject, observer } from "mobx-react"
 import Freeboardlistview from '../view/List/FreeBoardListView'
 import "../view/List/scss/FreeBoardListCon.scss"
-import { Pagination } from 'semantic-ui-react'
-import { Input, Menu, Button } from "semantic-ui-react"
+import { Input, Menu } from "semantic-ui-react"
 
 
 @inject("Store")
@@ -21,7 +20,6 @@ class Freeboardlistcontainer extends Component {
     render() {
         const freeboard_list =this.props.freeboard_list;
         const freeboard_select_posts = this.props.freeboard_select_posts;
-        let totalPage = Math.floor(freeboard_select_posts.length / 5) === 0? 1:  Math.floor(freeboard_select_posts.length / 5) //60건이라면 totalPage
         const { onSetOrderBy } = this.props
         const { activeItem } = this.state
       
@@ -70,23 +68,6 @@ class Freeboardlistcontainer extends Component {
               
                 </div>
                 <Freeboardlistview id="free_list" freeboardCommentSelect= {freeboardCommentSelect} freeboard_list={freeboard_select_posts.length ===0 ? freeboard_list : freeboard_select_posts} />
-                <div className="free_list_pagination">
-
-                <Pagination
-                    boundaryRange={0}
-                    defaultActivePage={1}
-                    ellipsisItem={null}
-                    firstItem={null}
-                    lastItem={null}
-                    siblingRange={1}
-                    onPageChange={this.setNextPage}
-                    totalPages={totalPage}
-                />
-
-              <Button secondary as="a" href="/posting_fr">글쓰기</Button>
-            
-                </div>
-
               
                 </div>
             </div>

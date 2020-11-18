@@ -1,5 +1,6 @@
 import axios from "axios";
 
+
 export default class FreeboardApi{
 
     FREE_API_URL="http://localhost:8088/api/freeboard/"

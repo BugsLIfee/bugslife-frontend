@@ -40,25 +40,39 @@ class Mypagecontainer extends Component {
   componentDidMount(){
     // const curr_user = this.props.Store.oauth.currentUser;
     this.props.Store.attendance.getAllList()
-  }
+    const user = this.props.Store.oauth.currentUser
+    if(user.id !==undefined){
+        this.props.Store.list.getlistById(user.id)
+      }
+    }
 
   render() {
     const state = this.state.curr_component;
     const user = this.props.Store.oauth.currentUser;
     let {allList} = this.props.Store.attendance;
+    let {listById} =this.props.Store.list;
 
     const goToPoint = () => {
       this.setState({curr_component: "point"});
     };
 
-        if(!this.props.Store.oauth.isLogin) {
-      swal("접근 거부 !","로그인 후 사용가능합니다 !", "warning");
-      return <Redirect
-          to={{
-          pathname: "/login",
-          state: { from: this.props.location }
-      }}/>;            
-  }
+    const isLogin = this.props.Store.oauth.isLogin;
+
+    if(isLogin!==undefined){
+      // console.log("isLogin : ", isLogin)
+      // this.props.Store.list.getlistById(user.id);
+    }
+
+    console.log(listById)
+
+  //       if(!this.props.Store.oauth.isLogin) {
+  //     swal("접근 거부 !","로그인 후 사용가능합니다 !", "warning");
+  //     return <Redirect
+  //         to={{
+  //         pathname: "/login",
+  //         state: { from: this.props.location }
+  //     }}/>;            
+  // }
 
     return (
       
@@ -106,7 +120,7 @@ class Mypagecontainer extends Component {
           </Sidebar>
           <div className="MyPage_curr">
             {this.user}
-            {state === "home" && <MypageHome user ={user} allList={allList} onClickPoint={goToPoint}/>}
+            {state === "home" && <MypageHome isLogin={isLogin} user ={user} allList={allList} onClickPoint={goToPoint}/>}
             {state === "post" && <MypagePost />}
             {state === "user" && <MypageUser user={user} onSubmitForm={this.onSubmitForm}/>}
             {state === "point" && <PointPage user={user} />}
