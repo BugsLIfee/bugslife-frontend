@@ -1,5 +1,5 @@
 import axios from "axios"
-import { API_BASE_URL, ACCESS_TOKEN } from '../constants/index';
+import { AUTH_API_URL , ACCESS_TOKEN } from '../constants/index';
 
 export function  request  (options)  {
     const headers = new Headers({
@@ -49,7 +49,7 @@ export function getCurrentUser() {
     }
 
     return request({
-        url: API_BASE_URL + "/user/me",
+        url: AUTH_API_URL + "/user/me",
         method: 'GET'
     });
 }
@@ -57,7 +57,7 @@ export function getCurrentUser() {
 
 export function login(loginRequest) {
     return request({
-        url: API_BASE_URL + "/auth/login",
+        url: AUTH_API_URL + "/auth/login",
         method: 'POST',
         body: JSON.stringify(loginRequest)
     });
@@ -65,7 +65,7 @@ export function login(loginRequest) {
 
 export function signup(signupRequest) {
     return request({
-        url: API_BASE_URL + "/auth/signup",
+        url: AUTH_API_URL + "/auth/signup",
         method: 'POST',
         body: JSON.stringify(signupRequest)
     });

@@ -30,18 +30,18 @@ class InfoList extends Component {
     );
 
     let CreateTableRowList = listPageOne.map((obj,key) => (
-      <Table.Row key={key} onClick={()=>handleLink(`${obj.id}`)}>
-        <Table.Cell >{obj.id}</Table.Cell>
-        <Table.Cell >{obj.user.name}</Table.Cell>
-        <Table.Cell > {obj.adminCategory}</Table.Cell>
-        <Table.Cell >{obj.title}</Table.Cell>
-        <Table.Cell >
+      <div key={key} onClick={()=>handleLink(`${obj.id}`)}>
+        <div className="info_postId" >{obj.id}</div>
+        <div className="info_writer" >{obj.user.name}</div>
+        <div className="info_postCate" > {obj.adminCategory}</div>
+        <div className="info_postTitle" >{obj.title}</div>
+        <div className="info_date" >
           {obj.editDate==="" 
            ? `작성일:${obj.registDate}`
            : `작성일:${obj.registDate}-수정일:${obj.editDate}`}
-          </Table.Cell>
-          <Table.Cell>{obj.viewCnt}</Table.Cell>
-      </Table.Row>
+          </div>
+        <div className="info_view">{obj.viewCnt}</div>
+      </div>
     ));
 
     let totalPage = Math.floor(ListData.length / 10); //60건이라면 totalPage
@@ -67,7 +67,20 @@ class InfoList extends Component {
     
           </span>
         </div>
-        <Table celled>
+        <div className="infoList-container">
+            <div className="infoList_header">
+              <p>번호</p>
+              <p>작성자</p>
+              <p>문의종류</p>
+              <p>제목</p>
+              <p>날짜</p>
+              <p>조회수</p>
+            </div>
+            <div className="infoList_content">
+               {CreateTableRowList}
+            </div>
+        </div>
+        {/* <Table celled>
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell >번호</Table.HeaderCell>
@@ -80,7 +93,7 @@ class InfoList extends Component {
           </Table.Header>
 
           <Table.Body>{CreateTableRowList}</Table.Body>
-      </Table>
+      </Table> */}
         <Pagination
           boundaryRange={0}
           defaultActivePage={1}

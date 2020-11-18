@@ -27,6 +27,7 @@ ReactDOM.render(
           "/api/mypage",
           "/freeboard",
           "/freeboard/detail/:id",
+          "/freeboard/edit/:id",
           "/oauth2/redirect",
           "/profile",
           "/posting_fr",

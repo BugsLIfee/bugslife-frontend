@@ -57,8 +57,8 @@ export default class Freeboarddetailview extends Component {
                         </div>
 
                         <div className="freeboard_nav_right">
-                            <a href="/"><h4>수정</h4></a>
-                            <a href="/" onClick={this.onDeletePost}><h4>삭제</h4></a>
+                            <a href={`/freeboard/edit/${post.id}`}><h4>수정</h4></a>
+                            <a href="/freeboard" onClick={this.onDeletePost}><h4>삭제</h4></a>
                         </div>
 
                     </div>

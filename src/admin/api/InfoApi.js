@@ -1,8 +1,9 @@
 import { request }from "../../oauth/api/APIUtils";
+import { ADMIN_API_URL , ACCESS_TOKEN } from '../../oauth/constants/index';
 
 export default class InfoApi {
   
-  NOTICE_API_URL = "http://localhost:8088/api/admin/notice/";
+  NOTICE_API_URL = ADMIN_API_URL+"/api/admin/notice/";
 
   infoCreate(infoApiModel) {
          return request({

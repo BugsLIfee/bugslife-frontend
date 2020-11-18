@@ -49,7 +49,7 @@ class FreeboardStore{
 
       if(result !==null){
         this.freeboard_list =result.map(val=>  { return{...val} }).sort((a,b)=> {return b.id - a.id});
-        console.log(this.freeboard_list);
+        // console.log(this.freeboard_list);
       } else{
         console.log("freeboard nulllllllll");
       }
