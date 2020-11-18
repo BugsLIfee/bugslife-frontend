@@ -23,11 +23,15 @@ class ListStore {
     this.list = result.sort((a, b) =>  Date.parse(b["registDate"]) -  Date.parse(a["registDate"]))
   }
 
-  // @action
-  // async listById(uid){
-  //   let result = await this.bugBoardListApi.bugBoardListById(uid);
-  //   this.listById = result;
-  // }
+  @action
+  async getlistById(uid){
+    let result = await this.bugBoardListApi.bugBoardListById(uid);
+    if(result !==null){
+      return this.listById = result;
+    }
+    
+    console.log("store listbyId : ", this.listById)
+  }
 
   @action
   setListOrderBy(e) {

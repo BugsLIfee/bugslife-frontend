@@ -21,7 +21,7 @@ export default class MypageHome extends Component {
 
     let isLogin = this.props.isLogin;
 
-    console.log("user? " , user)
+    // console.log("user? " , user)
 
 
     //출석률 계산하기

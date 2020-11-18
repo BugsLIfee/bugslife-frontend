@@ -12,8 +12,10 @@ export default class BugBoardListApi {
     }
 
     bugBoardListById(uid){
+        console.log(this.BUGBOARD_LIST_API_URL+"list/"+uid , "API")
+        
         return request({
-            url: this.BUGBOARD_LIST_API_URL+uid,
+            url: this.BUGBOARD_LIST_API_URL+"list/"+uid,
             method: "GET"
         })
     }

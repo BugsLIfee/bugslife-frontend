@@ -34,6 +34,7 @@ import {
 import Signup from "./oauth/signup/Signup";
 import { inject, Observer } from "mobx-react";
 import ChatbotContainer from "./chatbot/container/ChatbotContainer";
+import FreeboardModifyContainer from "./freeBoard/view/Editor/container/FreeboardModifyContainer";
 
 
 @inject("Store")
@@ -85,6 +86,7 @@ class App extends Component {
           {/* <Route component={NotFound}></Route> */}
           <Route path="/freeboard" component={FreeBoardContainer} exact={true} />
           <Route path="/freeboard/detail/:post_id" component={Freeboarddetailcontainer} exact={true} />
+          <Route path="/freeboard/edit/:post_id" component={FreeboardModifyContainer} exact={true} />
           <Route path="/point" component={PointPage} />
           <Route path="/posting_fr" component={FreeboardEditorContainer} />
           <Route path="/edu" component={EduListContainer} exact={true} />
