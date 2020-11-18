@@ -177,12 +177,16 @@
         flex-direction: column;
 
         .allRate {
-          margin-bottom: 20px;
+          margin-bottom: 30px;
+          margin-top: 10px;
           font-weight: bold;
-          margin-left: 5px;
-          align-items: center;
+          font-size: 1.2rem;
+          align-items: flex-start;
           display: flex;
-          flex-direction: row;
+          flex-direction: column;
+          p {
+            margin: 0px 3px;
+          }
           .allRateValue {
             margin-left: 15px;
             font-size: 2rem;
@@ -202,6 +206,7 @@
 
           .reviewRatingBar {
             margin-top: -5px;
+            color: #2281da;
           }
         }
       }

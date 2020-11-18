@@ -23,7 +23,7 @@ class EduDetailContainer extends Component {
             <div className="eduDetailLayout">
                 <EduInfoContainer eduInfo={eduInfo}/>
                 <EduAddReviewContainer/>
-                {/* <EduReviewContainer eduReviews={eduReviews}/> */}
+                {<EduReviewContainer eduReviews={eduReviews}/>}
             </div>
         )
     }
