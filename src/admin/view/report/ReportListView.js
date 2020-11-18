@@ -35,17 +35,24 @@ export default function ReportListView(props) {
 
     return (
         <>
-            <p className="report_board_title">신고게시판</p>
+            <h1 className="report_board_title">신고게시판</h1>
             <div className="report_board">
                 <div className="filter">
+                 
+                    <div className="item list-cate">
                     <p className="title">카테고리</p>
-                    <div className="item">
-                        {category.map((category, index)=>{
+                    <div className="list-cate-items">
+                      {category.map((category, index)=>{
                             return <Checkbox onClick={()=>reRenderingPage(index)} label={{ children: category }} className="check_box" />
                         })}
                     </div>
+                  
+                    </div>
+                        
+        
+
+                    <div className="item list-process">
                     <p className="title">처리여부</p>
-                    <div className="item">
                         <Radio label='모두보기' 
                             value= {2}
                             checked = { report_status === 2}

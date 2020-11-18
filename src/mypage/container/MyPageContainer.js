@@ -52,12 +52,12 @@ class Mypagecontainer extends Component {
     };
 
         if(!this.props.Store.oauth.isLogin) {
-      swal("접근 거부 !","로그인 후 사용가능합니다 !", "warning");
-      return <Redirect
-          to={{
-          pathname: "/login",
-          state: { from: this.props.location }
-      }}/>;            
+      // swal("접근 거부 !","로그인 후 사용가능합니다 !", "warning");
+      // return <Redirect
+      //     to={{
+      //     pathname: "/login",
+      //     state: { from: this.props.location }
+      // }}/>;            
   }
 
     return (

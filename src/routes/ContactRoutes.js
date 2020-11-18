@@ -4,7 +4,7 @@ import InfoListContainer from '../admin/container/info/InfoListContainer';
 import QuestionMyListContainer from '../contact/container/QuestionMyListContainer';
 import { Route } from 'react-router-dom';
 import QuestionManyContainer from '../contact/container/QuestionManyContainer';
-import ChatbotContainer from '../chat/container/ChatbotContainer';
+import ChatbotContainer from '../chatbot/container/ChatbotContainer';
 
 
 const ContactRoutes = ({ match }) => {
