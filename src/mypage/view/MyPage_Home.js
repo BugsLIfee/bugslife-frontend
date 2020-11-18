@@ -3,7 +3,8 @@ import { List, Feed, Icon, Segment } from "semantic-ui-react";
 import PaymentModal from "../../payment/PaymentModal";
 import "./scss/myPage.scss";
 import CountUp from "react-countup";
-
+import { Redirect } from "react-router-dom";
+import swal from "sweetalert";
 export default class MypageHome extends Component {
 
   
@@ -18,6 +19,8 @@ export default class MypageHome extends Component {
     const user = this.props.user;
     const {onClickPoint} = this.props;
 
+    let isLogin = this.props.isLogin;
+
     console.log("user? " , user)
 
 
@@ -30,7 +33,16 @@ export default class MypageHome extends Component {
     let timeDiff = (timeNow-enrollTime)/1000/60/60/24;
     let attendanceRate= parseInt(attendList.length/timeDiff * 100)
 
-    // console.log(typeof attendanceRate)
+      if(isLogin===false) {
+      swal("접근 거부 !","로그인 후 사용가능합니다 !", "warning");
+      return <Redirect
+          to={{
+          pathname: "/login",
+          state: { from: this.props.location }
+      }}/>;            
+  }
+
+
     return (
       <>
         <div className="MyPage_content">
@@ -66,8 +78,9 @@ export default class MypageHome extends Component {
               <h3>출석률</h3>
               <h2 className="action_detail_rate">
                 <b className="att_rate">
-                  {console.log(typeof attendanceRate, attendanceRate)}
-                  <CountUp end={64} duration={5} />
+                  {attendanceRate}
+                  {/* {console.log(typeof attendanceRate, attendanceRate)} */}
+                  {/* <CountUp end={64} duration={5} /> */}
                 </b>{" "}
                 %
               </h2>

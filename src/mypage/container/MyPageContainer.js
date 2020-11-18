@@ -51,14 +51,20 @@ class Mypagecontainer extends Component {
       this.setState({curr_component: "point"});
     };
 
-        if(!this.props.Store.oauth.isLogin) {
-      swal("접근 거부 !","로그인 후 사용가능합니다 !", "warning");
-      return <Redirect
-          to={{
-          pathname: "/login",
-          state: { from: this.props.location }
-      }}/>;            
-  }
+    const isLogin = this.props.Store.oauth.isLogin;
+
+    if(isLogin!==undefined){
+      console.log("isLogin : ", isLogin)
+    }
+
+  //       if(!this.props.Store.oauth.isLogin) {
+  //     swal("접근 거부 !","로그인 후 사용가능합니다 !", "warning");
+  //     return <Redirect
+  //         to={{
+  //         pathname: "/login",
+  //         state: { from: this.props.location }
+  //     }}/>;            
+  // }
 
     return (
       
@@ -106,7 +112,7 @@ class Mypagecontainer extends Component {
           </Sidebar>
           <div className="MyPage_curr">
             {this.user}
-            {state === "home" && <MypageHome user ={user} allList={allList} onClickPoint={goToPoint}/>}
+            {state === "home" && <MypageHome isLogin={isLogin} user ={user} allList={allList} onClickPoint={goToPoint}/>}
             {state === "post" && <MypagePost />}
             {state === "user" && <MypageUser user={user} onSubmitForm={this.onSubmitForm}/>}
             {state === "point" && <PointPage user={user} />}

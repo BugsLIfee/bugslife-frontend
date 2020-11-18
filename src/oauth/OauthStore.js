@@ -23,7 +23,7 @@ userList = []
 @computed
 get isLogin(){
     console.log("인증됐니?",this.authenticated)
-    return this.authenticated? this.authenticated: false;
+    return this.authenticated? this.authenticated: undefined;
 }
 @computed
 get isLoading(){

@@ -31,15 +31,17 @@ onLogout=()=>{
     })
     .then((willLogout) => {
         if (willLogout) {
-          window.location.href="/";
+          
           return swal("로그아웃되셨습니다!!", {
             icon: "success",
           });
+
         } else {
           swal("일시적인 장애로 로그아웃 실패! ");
         }
-        
+        window.location.href="/";
     });
+  
   
 }
 

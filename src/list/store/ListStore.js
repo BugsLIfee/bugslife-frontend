@@ -6,9 +6,14 @@ class ListStore {
 
   bugBoardListApi = new BugBoardListApi();
 
+  @observable listById = [];
+
   @observable list = [];
 
-  @computed get getList() {
+
+
+  @computed 
+  get getList() {
     return this.list ? this.list.slice() : []
   }
 
@@ -17,6 +22,12 @@ class ListStore {
     let result = await this.bugBoardListApi.bugBoardList()
     this.list = result.sort((a, b) =>  Date.parse(b["registDate"]) -  Date.parse(a["registDate"]))
   }
+
+  // @action
+  // async listById(uid){
+  //   let result = await this.bugBoardListApi.bugBoardListById(uid);
+  //   this.listById = result;
+  // }
 
   @action
   setListOrderBy(e) {
