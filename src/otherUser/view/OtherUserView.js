@@ -138,7 +138,7 @@ export default class OtherUserView extends Component {
                 </div>
             </div>
             <div className="otherUser_detail_column">
-                <h1 className="column_title">리자몽워터님의 질문</h1>
+                <h1 className="column_title">{user.name}님의 질문</h1>
                 <div className="column_body">
                     <Segment inverted>
                         <List divided inverted relaxed>
@@ -149,7 +149,7 @@ export default class OtherUserView extends Component {
             </div>
 
             <div className="otherUser_detail_column">
-                <h1 className="column_title">리자몽워터님의 답변</h1>
+                <h1 className="column_title">{user.name}의 답변</h1>
                 <div className="column_body">
                 <Segment inverted>
                     <List divided inverted relaxed>

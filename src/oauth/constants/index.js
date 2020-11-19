@@ -7,7 +7,7 @@ export const API_BASE_URL=LOCAL_URL;
 export const AUTH_API_PORT = '8088';
 export const BUGBOARD_API_PORT = '8081';
 export const EDUCATION_API_PORT = '8082';
-export const FREEBOARD_API_PORT = '8083';
+export const FREEBOARD_API_PORT = '8088';
 export const ADMIN_API_PORT = '8084';
 export const CHAT_API_PORT = '8085';
 //url
