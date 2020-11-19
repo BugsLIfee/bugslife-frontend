@@ -10,13 +10,14 @@ const img = {
 class ListViewMain extends Component {
   render() {
     const { listView } = this.props
-    // const tags = listView.tags.map((tag) => {
-    //   return (
-        // <span classNameName="tagFont">
-        //   <Badge variant="primary" >{tag}</Badge>{" "}
-        // </span>
-    //   )
-    // })
+    console.log("리스트븁니당나귀",listView.tags);
+    const tags = listView.tags.map((tag) => {
+      return (
+        <span classNameName="tagFont">
+          <Badge variant="primary" >{tag}</Badge>{" "}
+        </span>
+      )
+    })
     return (
       <div className="item-center">
         <div className="inner">
@@ -27,7 +28,7 @@ class ListViewMain extends Component {
           <div className="tab-box">
             <div className="tag-box">
               <span classNameName="tagFont">
-                <Badge variant="primary" >test</Badge>{" "}
+                {tags}
               </span>                                 
             </div>
             <div className="box-grade">
