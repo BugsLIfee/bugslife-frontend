@@ -6,6 +6,11 @@ import { inject, observer } from 'mobx-react'
 @observer
 class OtherUserContainer extends Component {
 
+    componentDidMount=()=>{
+        let match = this.props.match;
+        this.props.Store.otherUser.getOtherUser(`${match.params.uid}`)
+        
+    }
     
     render() {
         const user = this.props.Store.otherUser._user

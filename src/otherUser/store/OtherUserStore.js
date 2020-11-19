@@ -1,12 +1,16 @@
 import { Component } from 'react'
-import { observable, computed } from 'mobx'
+import { observable, computed, action } from 'mobx'
 import User from "./testData"
+import OtherUserApi from '../api/OtherUserApi'
 
 export default class Otheruserstore extends Component {
 
-    @observable user
-    @observable questions 
-    @observable answers
+
+    otherApi = new OtherUserApi();
+
+    @observable user = {};
+    @observable questions ;
+    @observable answers;
 
     constructor()
     {
@@ -67,5 +71,11 @@ export default class Otheruserstore extends Component {
             }
         }
         return top5.slice();
+    }
+
+    @action
+    async getOtherUser(uid){
+        let result =  await this.otherApi.postDetail(uid);
+        this.user  = result;
     }
 }
