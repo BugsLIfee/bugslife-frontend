@@ -20,7 +20,8 @@ class ListStore {
   @action
   async allList() {
     let result = await this.bugBoardListApi.bugBoardList()
-    this.list = result.sort((a, b) =>  Date.parse(b["registDate"]) -  Date.parse(a["registDate"]))
+    this.list = result ? result.sort((a, b) =>  Date.parse(b["registDate"]) -  Date.parse(a["registDate"]))
+      : [];
   }
 
   @action
