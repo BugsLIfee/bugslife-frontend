@@ -12,7 +12,7 @@ class EduStore {
 
     @observable eduInfo = {};
 
-    @observable eduRivews = [];
+    @observable eduReviews = [];
 
     @observable loadingBtn = "";
 
@@ -38,7 +38,7 @@ class EduStore {
     }  
 
     @computed get getEduReviews() {
-        return this.eduRivews ? this.eduRivews.slice() : []
+        return this.eduReviews ? this.eduReviews.slice() : []
     }  
 
 
@@ -51,9 +51,10 @@ class EduStore {
 
     @action 
     async eduDetailInfo(eid) {
-        this.eduDetail = await this.eduInfoAPi.eduReviewList(eid)
-        this.eduInfo = this.eduDetail.eduInfo ? {...this.eduDetail.eduInfo} : {}
-        this.eduReview = this.eduDetail.eduReviews ? this.eduDetail.eduReviews : [];
+        this.eduDetail = await this.eduInfoAPi.eduDetailList(eid)
+        this.eduInfo = this.eduDetail ? {...this.eduDetail} : {}
+        this.eduReviews = this.eduDetail.reviews ? this.eduDetail.reviews : [];
+        console.log(this.eduReviews)
     }
 
     @action

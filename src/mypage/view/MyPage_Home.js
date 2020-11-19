@@ -3,7 +3,8 @@ import { List, Feed, Icon, Segment } from "semantic-ui-react";
 import PaymentModal from "../../payment/PaymentModal";
 import "./scss/myPage.scss";
 import CountUp from "react-countup";
-
+import { Redirect } from "react-router-dom";
+import swal from "sweetalert";
 export default class MypageHome extends Component {
 
   
@@ -17,9 +18,11 @@ export default class MypageHome extends Component {
 
     const user = this.props.user;
     const {onClickPoint} = this.props;
+    let questionListByuser= this.props.questionListByuser;
 
-    console.log("user? " , user)
+    let isLogin = this.props.isLogin;
 
+    // console.log("user? " , user)
 
     //출석률 계산하기
     let timeNow= new Date().getTime();
@@ -30,7 +33,16 @@ export default class MypageHome extends Component {
     let timeDiff = (timeNow-enrollTime)/1000/60/60/24;
     let attendanceRate= parseInt(attendList.length/timeDiff * 100)
 
-    // console.log(typeof attendanceRate)
+      if(isLogin===false) {
+      swal("접근 거부 !","로그인 후 사용가능합니다 !", "warning");
+      return <Redirect
+          to={{
+          pathname: "/login",
+          state: { from: this.props.location }
+      }}/>;            
+  }
+
+
     return (
       <>
         <div className="MyPage_content">
@@ -43,13 +55,13 @@ export default class MypageHome extends Component {
             <h2>{user.name}</h2>
 
               <span className="MyPage_level">
-              <i id="MyPage_level_icon" class="fas fa-check-circle"></i>
+              <i id="MyPage_level_icon" className="fas fa-check-circle"></i>
               <h3>
                 <strong>Level </strong>: {user.level}
               </h3>
             </span>
             <span className="MyPage_coin">
-              <i id="MyPage_coin_icon" class="fas fa-coins"></i>
+              <i id="MyPage_coin_icon" className="fas fa-coins"></i>
               <h3>
                   <strong>Point </strong>: {user.point}p
               </h3>
@@ -66,8 +78,9 @@ export default class MypageHome extends Component {
               <h3>출석률</h3>
               <h2 className="action_detail_rate">
                 <b className="att_rate">
-                  {console.log(typeof attendanceRate, attendanceRate)}
-                  <CountUp end={64} duration={5} />
+                  {attendanceRate}
+                  {/* {console.log(typeof attendanceRate, attendanceRate)} */}
+                  {/* <CountUp end={64} duration={5} /> */}
                 </b>{" "}
                 %
               </h2>
@@ -76,7 +89,7 @@ export default class MypageHome extends Component {
               <h3>질문 수</h3>
               <h2 className="action_detail_rate">
                 <b className="post_rate">
-                  <CountUp end={14} duration={5} />
+                 {questionListByuser.length}
                 </b>{" "}
                 개
               </h2>
@@ -117,7 +130,7 @@ export default class MypageHome extends Component {
         <div className="MyPage_detail">
           <div className="MyPage_detail_column">
             <a href="/">
-              <i id="MyPage_detail_icon" class="fas fa-plus"></i>
+              <i id="MyPage_detail_icon" className="fas fa-plus"></i>
             </a>
             <h1 className="column_title">최근 활동</h1>
             <Feed>
@@ -150,7 +163,7 @@ export default class MypageHome extends Component {
 
           <div className="MyPage_detail_column">
             <a href="/">
-              <i id="MyPage_detail_icon" class="fas fa-plus"></i>
+              <i id="MyPage_detail_icon" className="fas fa-plus"></i>
             </a>
             <h1 className="column_title">게시글 관리</h1>
             <Segment inverted>
@@ -175,14 +188,14 @@ export default class MypageHome extends Component {
 
           <div className="MyPage_detail_column">
             <a href="/">
-              <i id="MyPage_detail_icon" class="fas fa-plus"></i>
+              <i id="MyPage_detail_icon" className="fas fa-plus"></i>
             </a>
             <h1 className="column_title">포인트 관리</h1>
 
             <div className="MyPage_detail_columm_point">
               <div className="MyPage_detail_columm_point_card curr_point">
                 <h3>
-                  <i id="MyPage_detail_coin" class="fas fa-coins"></i>
+                  <i id="MyPage_detail_coin" className="fas fa-coins"></i>
                   <b>Point</b> : 10p
                 </h3>
               </div>

@@ -17,9 +17,16 @@ export default class EduInfoApi {
         });
     }
 
-    eduReviewList(eid) {
+    eduDetailList(eid) {
         return request({
             url: this.EDU_INFO_API_URL + "info/" + eid,
+            method: 'GET'
+        })
+    }
+
+    academyDetail(aid) {
+        return request({
+            url: this.EDU_INFO_API_URL + "academy/" + aid,
             method: 'GET'
         })
     }

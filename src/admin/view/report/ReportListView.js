@@ -35,7 +35,8 @@ export default function ReportListView(props) {
 
     return (
         <>
-            <h1 className="report_board_title">신고게시판</h1>
+            <h1 className="report_board_title">
+                신고게시판</h1>
             <div className="report_board">
                 <div className="filter">
                  
@@ -88,7 +89,7 @@ export default function ReportListView(props) {
                             onPageChange={setNextPage}
                             totalPages={totalPage}
                         />
-                    </div>
+                </div>
                 </div>                
             </div>
         </>

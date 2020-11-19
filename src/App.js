@@ -34,6 +34,7 @@ import {
 import Signup from "./oauth/signup/Signup";
 import { inject, Observer } from "mobx-react";
 import ChatbotContainer from "./chatbot/container/ChatbotContainer";
+import FreeboardModifyContainer from "./freeBoard/view/Editor/container/FreeboardModifyContainer";
 
 
 @inject("Store")
@@ -70,7 +71,7 @@ class App extends Component {
           <Route path="/detail/:post_id" component={DetailPage} exact={true} />
           <PrivateRoute path="/admin" authenticated={this.props.Store.oauth.getCurrentUser} component={AdminContainer} />
           <Route path="/contact" component={ContactContainer} />
-          <Route path="/mypage" component={Mypagecontainer} exact={true} />
+          <PrivateRoute path="/mypage" component={Mypagecontainer} exact={true} />
           <Route path="/posting" component={PostingContainer} exact={true} />
           <Route path="/attendance" component={Attendancecontainer} exact={true} />
           <Route path="/profile"  component={ProfileContainer} exact={true} />
@@ -85,12 +86,13 @@ class App extends Component {
           {/* <Route component={NotFound}></Route> */}
           <Route path="/freeboard" component={FreeBoardContainer} exact={true} />
           <Route path="/freeboard/detail/:post_id" component={Freeboarddetailcontainer} exact={true} />
+          <Route path="/freeboard/edit/:post_id" component={FreeboardModifyContainer} exact={true} />
           <Route path="/point" component={PointPage} />
           <Route path="/posting_fr" component={FreeboardEditorContainer} />
           <Route path="/edu" component={EduListContainer} exact={true} />
           <Route path="/edu/academy/:aid" component={AcademyDetailContainer}/>
           <Route path="/edu/info/:eid" component={EduDetailContainer}/>
-          <Route path="/otherUser" component={OtherUserContainer}/>
+          <Route path="/otherUser/:uid" component={OtherUserContainer}/>
           <Route path="/chat-bot" component={ChatbotContainer}/>
 
         </Switch>
