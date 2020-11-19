@@ -2,7 +2,7 @@ import { request }from "../../oauth/api/APIUtils";
 
 export default class BugBoardListApi {
     
-    BUGBOARD_LIST_API_URL = "http://localhost:8088/api/bugboard/"
+    BUGBOARD_LIST_API_URL = "http://localhost:8081/api/bugboard/"
     
     bugBoardList() {
         return request({
