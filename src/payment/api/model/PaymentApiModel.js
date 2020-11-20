@@ -13,7 +13,7 @@ class PaymentApiModel {
         this.merchantUid = paymentObj.merchant_uid;
         this.amount = paymentObj.amount;
         this.buyerEmail = paymentObj.buyer_email;
-        this.paymentObj = paymentObj.userId;
+        this.userId = paymentObj.userId;
     }
 }
 

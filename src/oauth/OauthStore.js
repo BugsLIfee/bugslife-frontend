@@ -55,9 +55,7 @@ loadCurrentlyLoggedInUser() {
         this.loading=false;
     });    
     
-   
-
-  }
+}
     
   @action
   onLogout() {

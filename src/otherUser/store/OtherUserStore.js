@@ -75,7 +75,8 @@ export default class Otheruserstore extends Component {
 
     @action
     async getOtherUser(uid){
-        let result =  await this.otherApi.postDetail(uid);
+        let result =  await this.otherApi.getOtherUser(uid);
+        console.log("리졸트", result)
         this.user  = result;
     }
 }
