@@ -2,7 +2,6 @@
   "name": "bugslifee_front",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:8088",
   "dependencies": {
     "@babel/core": "7.9.0",
     "@ckeditor/ckeditor5-basic-styles": "^23.0.0",
@@ -94,7 +93,7 @@
     "ts-pnp": "1.1.6",
     "url-loader": "2.3.0",
     "webpack": "4.42.0",
-    "webpack-dev-server": "3.11.0",
+    "webpack-dev-server": "^3.11.0",
     "webpack-manifest-plugin": "2.2.0",
     "workbox-webpack-plugin": "4.3.1"
   },

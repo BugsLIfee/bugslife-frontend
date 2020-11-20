@@ -5,12 +5,20 @@ module.exports = function (app) {
 
   // user-service;
   app.use(
-    "/api/auth", "/user/me",
+    "/api/auth",
     createProxyMiddleware({
       target: "http://localhost:8088",
       changeOrigin: true,
     })
   );
+//   // user-service;
+//   app.use(
+//     "/user/me",
+//     createProxyMiddleware({
+//       target: "http://localhost:8088",
+//       changeOrigin: true,
+//     })
+//   );
 
   // bugboard-service
   app.use(
@@ -41,7 +49,7 @@ module.exports = function (app) {
 
   // admin-service
   app.use(
-    "/api/admin",
+    "/api/admin/notice",
     createProxyMiddleware({
       target: "http://localhost:8084",
       changeOrigin: true,
@@ -59,3 +67,18 @@ module.exports = function (app) {
 
 
 };
+
+// module.exports = {
+//   devServer: {
+//     proxy: {
+//       '/api/auth': {
+//         target: 'https://localhost:8088',
+//         changeOrigin: true,
+//       },
+//       '/api/admin': {
+//         target: 'https://localhost:8084',
+//         changeOrigin: true,
+//       },
+//     }
+//   }
+// }
