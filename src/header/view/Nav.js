@@ -20,7 +20,7 @@ class Nav extends Component {
     this.props.Store.oauth.loadCurrentlyLoggedInUser();
   }
 
-onLogout=()=>{
+  onLogout=()=>{
   this.props.Store.oauth.onLogout();
   
     swal({

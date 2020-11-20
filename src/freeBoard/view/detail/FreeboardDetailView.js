@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import ReportModalContainer from '../../../report/container/ReportContainer'
 import Freeboarddetailcommentcontainer from '../../container/FreeboardDetailCommentContainer';
+import Freeboardlistcontainer from '../../container/FreeBoardListContainer';
+import Freeboardlistview from '../List/FreeBoardListView';
 // import PostContent from './FreeboardPostContent';
 import FreeboardPostContent from './FreeboardPostContent';
 import "./scss/FreeboardDetailpost.scss"
@@ -108,6 +110,7 @@ export default class Freeboarddetailview extends Component {
                             <Freeboarddetailcommentcontainer postId={post.id} comments ={comments} />
                        </div>    
                 
+
                 </div>
             </div>
         )

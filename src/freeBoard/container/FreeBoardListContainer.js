@@ -67,7 +67,7 @@ class Freeboardlistcontainer extends Component {
                 </div>
               
                 </div>
-                <Freeboardlistview id="free_list" freeboardCommentSelect= {freeboardCommentSelect} freeboard_list={freeboard_select_posts.length ===0 ? freeboard_list : freeboard_select_posts} />
+                  <Freeboardlistview id="free_list" freeboardCommentSelect= {freeboardCommentSelect} freeboard_list={freeboard_select_posts.length ===0 ? freeboard_list : freeboard_select_posts} />
               
                 </div>
             </div>
