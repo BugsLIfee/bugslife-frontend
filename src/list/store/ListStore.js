@@ -10,11 +10,17 @@ class ListStore {
 
   @observable list = [];
 
+  @observable commentList =[];
 
 
   @computed 
   get getList() {
     return this.list ? this.list.slice() : []
+  }
+
+  @computed
+  get getQlistById(){
+    return this.listById ? this.listById.slice() : []
   }
 
   @action
@@ -26,12 +32,26 @@ class ListStore {
 
   @action
   async getlistById(uid){
+
     let result = await this.bugBoardListApi.bugBoardListById(uid);
+    console.log("getlistById")
+    console.log(result)
     if(result !==null){
-      return this.listById = result;
+       this.listById = result;
     }
     
     console.log("store listbyId : ", this.listById)
+
+  }
+
+
+  @action
+  async getCommentList(uid){
+    let result = await this.bugBoardListApi.bugboradCommentList(uid);
+    if(result!==null){
+      this.commentList = result;
+    }
+
   }
 
   @action

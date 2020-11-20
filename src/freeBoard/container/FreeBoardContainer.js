@@ -17,7 +17,6 @@ class FreeBoardContainer extends Component {
       }
 
     render() {
-        console.log("here is freeboardContainer")
         // const {freeboard_list}= this.props.Store.postList();
         const {freeboard_list}= this.props.Store.freeboard
         const {freeboard_cate} = this.props.Store.freeboard
