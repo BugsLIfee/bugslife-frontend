@@ -20,8 +20,37 @@
     display: flex !important;
     height: 100% !important;
     align-items: center !important;
+    justify-content: space-around !important;
+    flex-direction: column !important;
     // border-left: 1px solid #cccccc !important;
     border-bottom: 1px solid #cccccc !important;
+    .eduRate {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      p {
+        font-weight: bold;
+        font-size: 1.2rem;
+        margin: 0px;
+      }
+      div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-size: 1.2rem;
+        font-weight: bold;
+        .eduRateVallue {
+          color: #2f9cd5;
+          font-size: 2rem;
+        }
+        .eduRateMax {
+          font-size: 1.6rem;
+          color: #ffb400;
+        }
+      }
+    }
   }
   .eduInfoColumn {
     padding: 0px !important;
@@ -68,6 +97,7 @@
   display: flex;
   justify-content: center;
   margin: 20px 0;
+  margin-top: 35px;
 }
 
 .blue_btn {
@@ -190,7 +220,7 @@
           .allRateValue {
             margin-left: 15px;
             font-size: 2rem;
-            color: #2281da;
+            color: #1da4e2;
           }
         }
 
@@ -206,7 +236,7 @@
 
           .reviewRatingBar {
             margin-top: -5px;
-            color: #2281da;
+            color: #1da4e2;
           }
         }
       }
