@@ -5,16 +5,15 @@ import '@toast-ui/editor/dist/toastui-editor.css';
 import { Editor } from '@toast-ui/react-editor';
 import "./scss/posting.scss"
 
-
- class FreeboardModifyClassViews extends Component{
-     constructor(props){
-         super(props)
-         console.log(this.props.post)
-         this.state={
-            title:null,
-            content:this.props.post.content
-         }
-     }
+class FreeboardModifyClassViews extends Component{
+    constructor(props){
+        super(props)
+        console.log(this.props.post)
+        this.state={
+        title:null,
+        content:this.props.post.content
+        }
+    }
 
     editorRef = React.createRef();
 

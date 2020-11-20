@@ -8,7 +8,7 @@ class PointContainer extends Component {
 
     render() {
 
-        const points = this.props.Store.point._points;
+        const points = this.props.Store.oauth.getCurrentUserInfo.pointList;
 
         return (
             <div>

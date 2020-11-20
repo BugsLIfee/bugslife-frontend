@@ -4,7 +4,7 @@ import { observer, inject } from 'mobx-react';
 import { PGS } from './constants';
 import "./scss/payment_modal.scss";
 
-function PaymentModal(props) {
+function PaymentModal (props) {
 
   const point_list = [
     1000, 3000, 5000, 10000, 50000  
@@ -19,33 +19,23 @@ function PaymentModal(props) {
   const [visible, setVisible] = useState();
   const [agree1, setAgree1] = useState();
   const [agree2, setAgree2] = useState();
-  const [data, setData] = useState(
-    {
-      pg: 'html5_inicis',
-      pay_method: '',
-      amount: 0,                                 // 결제금액
-      name: '벅스라이프 포인트 결제',                  // 주문명
-      // merchant_uid: `mid_${new Date().getTime()}`,
-      // buyer_email: oauth.getCurrentUserInfo.email,
-      // buyer_name: oauth.getCurrentUserInfo.name,
-      // userId : oauth.getCurrentUserInfo.id,
-    }
-  )
+  const [data, setData] = useState({amount:0});
 
   useEffect (() => {
     setData({
       ...this,
+      pg: 'html5_inicis',
+      pay_method: '',
+      amount: 0,                                 // 결제금액
+      name: '벅스라이프 포인트 결제',                  // 주문명
       merchant_uid: `mid_${new Date().getTime()}`,
       buyer_email: props.Store.oauth.getCurrentUserInfo.email,
       buyer_name: props.Store.oauth.getCurrentUserInfo.name,
       userId : props.Store.oauth.getCurrentUserInfo.id,
     })
-  }, [props.Store.oauth])
+  }, [props])
 
   const onClickPoint = (e, {value}) => {
-      // console.log("프롭스 잘 받니?", oauth.getCurrentUserInfo.email)
-      console.log("셋은?", data.buyer_email)
-      console.log("셋은??", data.userId)
       setPointType(value);
       setData({...data, amount:value});
   }
@@ -84,20 +74,12 @@ function PaymentModal(props) {
       buyer_email: oauth.getCurrentUserInfo.email,
       buyer_name: oauth.getCurrentUserInfo.name,
       userId : oauth.getCurrentUserInfo.id,
-    }, IMP.request_pay(data, callback))
+    })
 
     /* 4. 결제 창 호출하기 */
     // console.log(payment_data)
-    // IMP.request_pay(payment_data, callback);
+    IMP.request_pay(data, callback);
   }
-
-  // useEffect( () => {
-  //   const { IMP } = window;
-  //   const userCode = 'imp19424728';
-  //   IMP.init(userCode);    
-
-  //   IMP.request_pay(data, callback);
-  // })
 
   /* 3. 콜백 함수 정의하기 */
   function callback(response) {

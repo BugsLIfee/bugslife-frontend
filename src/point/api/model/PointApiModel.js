@@ -1,9 +1,13 @@
-class DetailApiModel{
-    post_id="";
-    title="";
-    constructor(post_id, title){
-        this.post_id= post_id;
-        this.title = title;
+class PointApiModel{
+
+    amount = 0;
+    detail = "";
+    userId = "";
+
+    constructor(pointObj){
+        this.amount = pointObj.amout;
+        this.detail = pointObj.detail;
+        this.userId = pointObj.userId;
     }
 }
-export default  DetailApiModel;
+export default PointApiModel;
