@@ -77,16 +77,6 @@ class Mypagecontainer extends Component {
       this.setState({curr_component: "point"});
     };
 
-<<<<<<< HEAD
-        if(!this.props.Store.oauth.isLogin) {
-      // swal("접근 거부 !","로그인 후 사용가능합니다 !", "warning");
-      // return <Redirect
-      //     to={{
-      //     pathname: "/login",
-      //     state: { from: this.props.location }
-      // }}/>;            
-  }
-=======
     const isLogin = this.props.Store.oauth.isLogin;
 
     if(isLogin!==undefined){
@@ -102,7 +92,6 @@ class Mypagecontainer extends Component {
   //         state: { from: this.props.location }
   //     }}/>;            
   // }
->>>>>>> d4fd4e1f26a095bfa39e4ef761882f71d86bcb19
 
     return (
       

@@ -12,8 +12,6 @@ class AnswerInsertCommentContainer extends Component {
         const { oauth } = this.props.Store;
 
         const onAddComment = (comment_body) => {
-
-
             let comment = { 
                 content: comment_body,
                 answerId: answer.id,
