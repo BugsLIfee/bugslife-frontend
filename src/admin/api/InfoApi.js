@@ -1,5 +1,4 @@
 import { request }from "../../oauth/api/APIUtils";
-import { ADMIN_API_URL , ACCESS_TOKEN } from '../../oauth/constants/index';
 
 export default class InfoApi {
   

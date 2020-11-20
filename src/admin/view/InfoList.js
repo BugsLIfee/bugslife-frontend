@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Table, Pagination,  Icon } from "semantic-ui-react";
+import { Container, Pagination,  Icon } from "semantic-ui-react";
 import "./scss/infoList.scss";
 class InfoList extends Component {
   constructor(props) {
@@ -32,7 +32,7 @@ class InfoList extends Component {
     let CreateTableRowList = listPageOne.map((obj,key) => (
       <div key={key} onClick={()=>handleLink(`${obj.id}`)}>
         <div className="info_postId" >{obj.id}</div>
-        <div className="info_writer" >{obj.user.name}</div>
+        <div className="info_writer" >{obj.writerId}</div>
         <div className="info_postCate" > {obj.adminCategory}</div>
         <div className="info_postTitle" >{obj.title}</div>
         <div className="info_date" >
@@ -106,7 +106,6 @@ class InfoList extends Component {
           style={{float: 'right'}}
           />
          
-    
       </Container>
     );
   }

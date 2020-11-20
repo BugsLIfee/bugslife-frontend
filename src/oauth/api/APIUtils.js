@@ -30,7 +30,7 @@ export function  request  (options)  {
                 if(errorTypeCheck(error.response.data.error)) window.location.href="/signup";  
                 }
             });
--
+
 };
 
 // 인증 에러 체크
