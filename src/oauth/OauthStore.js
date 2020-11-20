@@ -38,11 +38,12 @@ get getIsAdmin(){
     return this.isAdmin? this.isAdmin: false;
 }
 
+
 @action
-loadCurrentlyLoggedInUser() {
+async loadCurrentlyLoggedInUser() {
     this.loading= true;
     
-    getCurrentUser()
+    await getCurrentUser()
     .then(response => {
         console.log("로그인 유저 잘받아오나요?", response);
         this.currentUser= response;
@@ -55,9 +56,7 @@ loadCurrentlyLoggedInUser() {
         this.loading=false;
     });    
     
-   
-
-  }
+}
     
   @action
   onLogout() {

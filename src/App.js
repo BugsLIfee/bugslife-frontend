@@ -92,7 +92,7 @@ class App extends Component {
           <Route path="/edu" component={EduListContainer} exact={true} />
           <Route path="/edu/academy/:aid" component={AcademyDetailContainer}/>
           <Route path="/edu/info/:eid" component={EduDetailContainer}/>
-          <Route path="/otherUser" component={OtherUserContainer}/>
+          <Route path="/otherUser/:uid" component={OtherUserContainer}/>
           <Route path="/chat-bot" component={ChatbotContainer}/>
 
         </Switch>

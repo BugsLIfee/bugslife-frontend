@@ -10,6 +10,7 @@ class ListStore {
 
   @observable list = [];
 
+  @observable commentList =[];
 
 
   @computed 
@@ -17,20 +18,40 @@ class ListStore {
     return this.list ? this.list.slice() : []
   }
 
+  @computed
+  get getQlistById(){
+    return this.listById ? this.listById.slice() : []
+  }
+
   @action
   async allList() {
     let result = await this.bugBoardListApi.bugBoardList()
-    this.list = result.sort((a, b) =>  Date.parse(b["registDate"]) -  Date.parse(a["registDate"]))
+    this.list = result ? result.sort((a, b) =>  Date.parse(b["registDate"]) -  Date.parse(a["registDate"]))
+      : [];
   }
 
   @action
   async getlistById(uid){
+
     let result = await this.bugBoardListApi.bugBoardListById(uid);
+    console.log("getlistById")
+    console.log(result)
     if(result !==null){
-      return this.listById = result;
+       this.listById = result;
     }
     
     console.log("store listbyId : ", this.listById)
+
+  }
+
+
+  @action
+  async getCommentList(uid){
+    let result = await this.bugBoardListApi.bugboradCommentList(uid);
+    if(result!==null){
+      this.commentList = result;
+    }
+
   }
 
   @action

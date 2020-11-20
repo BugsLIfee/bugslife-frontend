@@ -7,7 +7,7 @@ export const API_BASE_URL=LOCAL_URL;
 export const AUTH_API_PORT = '8088';
 export const BUGBOARD_API_PORT = '8081';
 export const EDUCATION_API_PORT = '8082';
-export const FREEBOARD_API_PORT = '8083';
+export const FREEBOARD_API_PORT = '8088';
 export const ADMIN_API_PORT = '8084';
 export const CHAT_API_PORT = '8085';
 //url
@@ -25,6 +25,6 @@ export const CHAT_API_URL = API_BASE_URL+CHAT_API_PORT;
 export const ACCESS_TOKEN = 'accessToken';
 export const OAUTH2_REDIRECT_URI = 'http://localhost:3000/oauth2/redirect'
 
-export const GOOGLE_AUTH_URL = API_BASE_URL + '/oauth2/authorize/google?redirect_uri=' + OAUTH2_REDIRECT_URI;
-export const FACEBOOK_AUTH_URL = API_BASE_URL + '/oauth2/authorize/facebook?redirect_uri=' + OAUTH2_REDIRECT_URI;
-export const GITHUB_AUTH_URL = API_BASE_URL + '/oauth2/authorize/github?redirect_uri=' + OAUTH2_REDIRECT_URI;
+export const GOOGLE_AUTH_URL = AUTH_API_URL+ '/oauth2/authorize/google?redirect_uri=' + OAUTH2_REDIRECT_URI;
+export const FACEBOOK_AUTH_URL = AUTH_API_URL + '/oauth2/authorize/facebook?redirect_uri=' + OAUTH2_REDIRECT_URI;
+export const GITHUB_AUTH_URL = AUTH_API_URL + '/oauth2/authorize/github?redirect_uri=' + OAUTH2_REDIRECT_URI;

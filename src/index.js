@@ -37,7 +37,7 @@ ReactDOM.render(
           "/edu/academy/:aid",
           "/edu/info/:eid",
           "/test",
-          "/otherUser",
+          "/otherUser/:uid",
         ]}
         component={App}
         exact={true}

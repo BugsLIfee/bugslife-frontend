@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Form, Button, Header, Modal, Radio, Checkbox} from 'semantic-ui-react'
 import { observer, inject } from 'mobx-react';
 import { PGS } from './constants';
@@ -10,7 +10,7 @@ function PaymentModal(props) {
     1000, 3000, 5000, 10000, 50000  
   ]
 
-  const { payment } = props.Store;
+  const { payment, oauth } = props.Store;
   const [open, setOpen] = React.useState(false);
   const { bt_text } = props
   const [pg_type, setPgType] = useState();
@@ -23,15 +23,29 @@ function PaymentModal(props) {
     {
       pg: 'html5_inicis',
       pay_method: '',
-      merchant_uid: '3',   // 주문번호
       amount: 0,                                 // 결제금액
       name: '벅스라이프 포인트 결제',                  // 주문명
-      buyer_name: '심재욱',                           // 구매자 이름
-      buyer_email: 'test@gmail.com',               // 구매자 이메일
+      // merchant_uid: `mid_${new Date().getTime()}`,
+      // buyer_email: oauth.getCurrentUserInfo.email,
+      // buyer_name: oauth.getCurrentUserInfo.name,
+      // userId : oauth.getCurrentUserInfo.id,
     }
   )
 
+  useEffect (() => {
+    setData({
+      ...this,
+      merchant_uid: `mid_${new Date().getTime()}`,
+      buyer_email: props.Store.oauth.getCurrentUserInfo.email,
+      buyer_name: props.Store.oauth.getCurrentUserInfo.name,
+      userId : props.Store.oauth.getCurrentUserInfo.id,
+    })
+  }, [props.Store.oauth])
+
   const onClickPoint = (e, {value}) => {
+      // console.log("프롭스 잘 받니?", oauth.getCurrentUserInfo.email)
+      console.log("셋은?", data.buyer_email)
+      console.log("셋은??", data.userId)
       setPointType(value);
       setData({...data, amount:value});
   }
@@ -63,16 +77,27 @@ function PaymentModal(props) {
     // const userCode = 'imp59927608';
     IMP.init(userCode);
 
+
     setData({
       ...data,
       merchant_uid: `mid_${new Date().getTime()}`,
-      name: "test"  
-    })
+      buyer_email: oauth.getCurrentUserInfo.email,
+      buyer_name: oauth.getCurrentUserInfo.name,
+      userId : oauth.getCurrentUserInfo.id,
+    }, IMP.request_pay(data, callback))
 
-    console.log(data);
     /* 4. 결제 창 호출하기 */
-    IMP.request_pay(data, callback);
+    // console.log(payment_data)
+    // IMP.request_pay(payment_data, callback);
   }
+
+  // useEffect( () => {
+  //   const { IMP } = window;
+  //   const userCode = 'imp19424728';
+  //   IMP.init(userCode);    
+
+  //   IMP.request_pay(data, callback);
+  // })
 
   /* 3. 콜백 함수 정의하기 */
   function callback(response) {

@@ -7,24 +7,16 @@ export default class QuestionBodyView extends Component {
         
         const { question }= this.props;
 
-        const tags = (
-        <span> 
-            <Label color='teal' size="big">
-                C++
-            </Label>
-            {' '}
-        </span>)
-        // const tags = question.tags.map(tag => {
-        //     return (
-        //         <span>
-        //             <Label color='teal' size="big">
-        //                 {tag}
-        //             </Label>
-        //             {' '}
-        //         </span>
-        //     );
-        // })
-        // const tags= (<span>Test</span>)
+        const tags = question.tags.map(tag => {
+            return (
+                <span>
+                    <Label color='teal' size="big">
+                        {tag}
+                    </Label>
+                    {' '}
+                </span>
+            );
+        })
 
         return(
             <div>
