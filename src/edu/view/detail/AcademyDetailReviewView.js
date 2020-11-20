@@ -1,18 +1,19 @@
 import React, { Component } from 'react'
 import Rating from '@material-ui/lab/Rating';
-import "../scss/EduDetail.scss"
+import "../scss/AcademyDetail.scss"
 import ReportContainer from "../../../report/container/ReportContainer"
 
-export class EduDetailReviewView extends Component {
+export class AcademyDetailReviewView extends Component {
     render() {
         const {review} = this.props
+        console.log("리뷰나누기전",review.userIcon)
         return (
             <div>
 
                 <div className="eduReviewLayout">
                     <div className="eduReviewTitle">
                         <div className="eduReviewTitleInfo">
-                            <img src="public\logo\userIcon.png" alt=""></img>
+                            <img src="public/logo/userIcon.png" alt="userLogo"></img>
                             <div className="eduReviewTitleValue eduReviewClick">연결안된 유저</div>
                             {/* <div className="eduReviewTitleValue">{review.title}</div> */}
                             <div className="eduReviewTitleValue">{review.registDate}</div>
@@ -65,4 +66,4 @@ export class EduDetailReviewView extends Component {
     }
 }
 
-export default EduDetailReviewView
+export default AcademyDetailReviewView

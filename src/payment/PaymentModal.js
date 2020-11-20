@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Form, Button, Header, Modal, Radio, Checkbox} from 'semantic-ui-react'
 import { observer, inject } from 'mobx-react';
 import { PGS } from './constants';
 import "./scss/payment_modal.scss";
 
-function PaymentModal(props) {
+function PaymentModal (props) {
 
   const point_list = [
     1000, 3000, 5000, 10000, 50000  
   ]
 
-  const { payment } = props.Store;
+  const { payment, oauth } = props.Store;
   const [open, setOpen] = React.useState(false);
   const { bt_text } = props
   const [pg_type, setPgType] = useState();
@@ -19,17 +19,21 @@ function PaymentModal(props) {
   const [visible, setVisible] = useState();
   const [agree1, setAgree1] = useState();
   const [agree2, setAgree2] = useState();
-  const [data, setData] = useState(
-    {
+  const [data, setData] = useState({amount:0});
+
+  useEffect (() => {
+    setData({
+      ...this,
       pg: 'html5_inicis',
       pay_method: '',
-      merchant_uid: '3',   // 주문번호
       amount: 0,                                 // 결제금액
       name: '벅스라이프 포인트 결제',                  // 주문명
-      buyer_name: '심재욱',                           // 구매자 이름
-      buyer_email: 'test@gmail.com',               // 구매자 이메일
-    }
-  )
+      merchant_uid: `mid_${new Date().getTime()}`,
+      buyer_email: props.Store.oauth.getCurrentUserInfo.email,
+      buyer_name: props.Store.oauth.getCurrentUserInfo.name,
+      userId : props.Store.oauth.getCurrentUserInfo.id,
+    })
+  }, [props])
 
   const onClickPoint = (e, {value}) => {
       setPointType(value);
@@ -63,14 +67,17 @@ function PaymentModal(props) {
     // const userCode = 'imp59927608';
     IMP.init(userCode);
 
+
     setData({
       ...data,
       merchant_uid: `mid_${new Date().getTime()}`,
-      name: "test"  
+      buyer_email: oauth.getCurrentUserInfo.email,
+      buyer_name: oauth.getCurrentUserInfo.name,
+      userId : oauth.getCurrentUserInfo.id,
     })
 
-    console.log(data);
     /* 4. 결제 창 호출하기 */
+    // console.log(payment_data)
     IMP.request_pay(data, callback);
   }
 

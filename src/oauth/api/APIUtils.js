@@ -1,4 +1,3 @@
-import axios from "axios"
 import { AUTH_API_URL , ACCESS_TOKEN } from '../constants/index';
 
 export function  request  (options)  {
@@ -25,15 +24,13 @@ export function  request  (options)  {
         })
     )
     .catch(function (error) {
-        console.log("오나요?? => ")
-        console.log(error)
+
             //토큰인증에 실패한 경우 로그인화면으로 이동
             if (error.response) {
                 if(errorTypeCheck(error.response.data.error)) window.location.href="/signup";  
                 }
             });
-    ;
-    
+-
 };
 
 // 인증 에러 체크

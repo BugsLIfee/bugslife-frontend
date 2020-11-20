@@ -235,12 +235,12 @@ export default function EnhancedTable(props) {
                             <TableCell className="content_body" component="th" align="center" id={labelId} scope="row" padding="none">
                                 {index + 1}    
                             </TableCell>
-                            <TableCell className="content_body" align="center">{point.regist_date}</TableCell>
-                            <TableCell className={`${point.isGain ? "plus" : "minus"} content_body`} align="center">
-                                {point.isGain && "+"}
-                                {point.gain_point}P
+                            <TableCell className="content_body" align="center">{point.registDate.substring(0,10)}</TableCell>
+                            <TableCell className={`${point.gain ? "plus" : "minus"} content_body`} align="center">
+                                {point.gain && "+"}
+                                {point.amount}P
                             </TableCell>
-                            <TableCell className="content_body" align="center">{point.log_detail}</TableCell>
+                            <TableCell className="content_body" align="center">{point.detail}</TableCell>
                             <TableCell className="content_body" align="center"> <a href={point.gain_point}> 상세보기</a></TableCell>
                         </TableRow>
                         );

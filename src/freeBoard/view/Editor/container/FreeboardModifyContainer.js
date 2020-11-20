@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
-import FreeboardModifyView from '../view/FreeboardModifyView';
+import FreeboardModifyClassViews from '../view/FreeboardModifyClassView';
 
 @inject('Store')
 @observer
@@ -16,13 +16,16 @@ class FreeboardModifyContainer extends Component {
     onUpdate=(newPost)=>{  
         console.log("⏳ update on Container : ", newPost)
         this.setState({post: newPost})
-
     }
 
     render() {
         const { freeboard_cate } = this.props.Store.freeboard;
         const { freeboard_detail } = this.props.Store.freeboard
 
+        let freeboardPost = {...freeboard_detail}
+
+        console.log("freeboard_detail" , freeboard_detail)
+    
         // console.log(this.state.post)
         // let detail;
         //  this.state.post !== {} ? (detail = freeboard_detail) : (detail =this.state.post)
@@ -46,11 +49,17 @@ class FreeboardModifyContainer extends Component {
             window.location.reload();
         }
 
+        const test ={
+            title: "this.title",
+            content: "this.content"
+        }
 
         return (
             <div>
-                <FreeboardModifyView onModifyPost={onModifyPost} post={freeboard_detail} category={freeboard_cate} onUpdate={this.onUpdate}/>
-            
+                {/* <FreeboardModifyView onModifyPost={onModifyPost} post={freeboardPost} category={freeboard_cate} onUpdate={this.onUpdate}/> */}
+                {
+                   <FreeboardModifyClassViews onModifyPost={onModifyPost} post={freeboardPost} category={freeboard_cate} onUpdate={this.onUpdate}/>
+                }
             </div>
         
         );
