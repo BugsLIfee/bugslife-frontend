@@ -8,22 +8,24 @@ import { inject, observer } from 'mobx-react'
 @observer
 class AcademyDetailContainer extends Component {
 
+    componentDidMount() {
+        let match = this.props.match;
+        this.props.Store.edu.academyDetailInfo(`${match.params.aid}`)
+    }
+
     render() {
-        const eduId = this.props.match.params.id;
-        this.props.Store.edu.setEduId(eduId)
+        const academyInfo = this.props.Store.edu.getAcademyInfo
+        const academyEduList = this.props.Store.edu.getAcademyEduList
+        const academyReviews = this.props.Store.edu.getAcademyReviews
 
-        const eduDetails = this.props.Store.edu.getEduDetail
-        const Id = this.props.Store.edu.getEduId
+        console.log("아카데미 인포 하나를 가져옵니다",academyInfo)
+        console.log("에듀리스트를 가져옵니다", academyEduList)
+        console.log("학원 리뷰들을 모두 가져옵니다", academyReviews)
 
-        console.log(Id)
-        
-        console.log(eduDetails)
-
-        const eduDetail = eduDetails[Id-1]
         return (
-            <div className="eduDetailLayout">
-                <AcademyInfoContainer eduDetail={eduDetail}/>
-                <AcademyReviewContainer eduDetail={eduDetail}/>
+            <div className="academyDetailLayout">
+                <AcademyInfoContainer academyInfo={academyInfo}/>
+                <AcademyReviewContainer academyEduList={academyEduList} academyReviews={academyReviews}/>
             </div>
         )
     }

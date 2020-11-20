@@ -1,288 +1,241 @@
-// @import "../../../common/customScss";
+@import "../../../common/customScss";
 
-// .eduDetailLayout {
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-// }
+.academyDetailLayout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-// .eduInfoTable {
-//   display: flex;
-//   margin-top: 15px !important;
-//   margin-bottom: 0px !important;
+.academyInfoTable {
+  display: flex;
+  margin-top: 15px !important;
+  margin-bottom: 20px !important;
 
-//   width: 1000px !important;
-//   border-top: 4px solid #2f9cd5 !important;
-//   height: 300px !important;
+  width: 1000px !important;
+  border-top: 4px solid #2f9cd5 !important;
+  height: 200px !important;
 
-//   .eduInfoImg {
-//     display: flex !important;
-//     height: 100% !important;
-//     align-items: center !important;
-//     // border-left: 1px solid #cccccc !important;
-//     border-bottom: 1px solid #cccccc !important;
-//   }
-//   .eduInfoColumn {
-//     padding: 0px !important;
+  .academyInfoImg {
+    display: flex !important;
+    height: 100% !important;
+    align-items: center !important;
+    justify-content: space-around !important;
+    flex-direction: column !important;
+    // border-left: 1px solid #cccccc !important;
+    border-bottom: 1px solid #cccccc !important;
+    .academyRate {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
 
-//     // border-right: 1px solid #cccccc !important;
-//   }
-//   .eduInfoRow {
-//     display: flex !important;
-//     justify-content: flex-start !important;
-//     border-bottom: 1px solid #cccccc !important;
-//     margin: 0px !important;
-//     padding: 0px !important;
-//     height: 20% !important;
+      p {
+        font-weight: bold;
+        font-size: 1.2rem;
+        margin: 0px;
+      }
+      div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-size: 1.2rem;
+        font-weight: bold;
+        .academyRateVallue {
+          color: #2f9cd5;
+          font-size: 2rem;
+        }
+        .academyRateMax {
+          font-size: 1.6rem;
+          color: #ffb400;
+        }
+      }
+    }
+  }
+  .academyInfoColumn {
+    padding: 0px !important;
 
-//     .eduCellTitle {
-//       display: flex;
-//       width: 15% !important;
-//       border-right: 1px solid #cccccc !important;
-//       border-left: 1px solid #cccccc !important;
-//       padding: 10px !important;
-//       font-size: 1.1rem;
-//       font-weight: 600;
-//       align-items: center;
-//       color: #444444;
-//       background-color: #eaeaea;
-//     }
-//     .eduCellBody {
-//       display: flex;
-//       align-items: center;
-//       width: 85% !important;
-//       padding: 10px !important;
-//       font-size: 1.1rem;
-//     }
-//     .eduCellSBody {
-//       display: flex;
-//       align-items: center;
-//       width: 35% !important;
-//       padding: 10px !important;
-//       font-size: 1.1rem;
-//     }
-//   }
-// }
-// .addReview {
-//   display: flex;
-//   justify-content: center;
-//   margin: 20px 0;
-// }
+    // border-right: 1px solid #cccccc !important;
+  }
+  .academyInfoRow {
+    display: flex !important;
+    justify-content: flex-start !important;
+    border-bottom: 1px solid #cccccc !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    height: 33.33% !important;
 
-// .blue_btn {
-//   .blue_btn_ {
-//     width: fit-content;
-//     border: none;
-//     padding: 1rem 6rem;
-//     border-radius: 10px;
-//     background-color: $blue;
+    .academyCellTitle {
+      display: flex;
+      width: 15% !important;
+      border-right: 1px solid #cccccc !important;
+      border-left: 1px solid #cccccc !important;
+      padding: 10px !important;
+      font-size: 1.1rem;
+      font-weight: 600;
+      align-items: center;
+      color: #444444;
+      background-color: #eaeaea;
+    }
+    .academyCellBody {
+      display: flex;
+      align-items: center;
+      width: 85% !important;
+      padding: 10px !important;
+      font-size: 1.1rem;
+    }
+    .academyCellSBody {
+      display: flex;
+      align-items: center;
+      width: 35% !important;
+      padding: 10px !important;
+      font-size: 1.1rem;
+    }
+  }
+}
 
-//     &:hover {
-//       transition: 0.3s;
-//       background-color: rgb(49, 115, 160);
-//       box-shadow: black 3px 3px;
-//     }
+.academyReviewHeader {
+  width: 1000px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center !important;
+  padding-left: 10px;
+  margin-bottom: 15px;
+  .academyReviewSelector {
+    margin-left: 20px;
+    width: 50% !important;
+    display: flex !important;
 
-//     &:focus {
-//       outline: none;
-//     }
-//   }
-//   h2 {
-//     color: white;
-//     font-size: 1.8rem;
-//   }
-// }
+    .menu .selected.item {
+      width: 100% !important;
+    }
+  }
+  .reviewHeaderTitle {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #333333;
+  }
+}
 
-// .eduReviewHeader {
-//   width: 1000px;
-//   display: flex;
-//   justify-content: flex-start;
-//   align-items: center !important;
-//   padding-left: 10px;
-//   margin-bottom: 15px;
-//   .eduReviewSelector {
-//     margin-left: 20px;
-//     width: 35% !important;
-//     display: flex !important;
+.academyReviewLayout {
+  margin-bottom: 30px;
+  padding: 15px;
 
-//     .menu .selected.item {
-//       width: 100% !important;
-//     }
-//   }
-//   .reviewHeaderTitle {
-//     font-size: 1.6rem;
-//     font-weight: bold;
-//     color: #333333;
-//   }
-// }
+  border: 1px solid #cccccc;
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
 
-// .eduReviewLayout {
-//   margin-bottom: 30px;
-//   padding: 15px;
+  .academyReviewTitle {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 10px;
+    justify-content: space-between;
 
-//   border: 1px solid #cccccc;
-//   width: 1000px;
-//   display: flex;
-//   flex-direction: column;
+    .academyReviewTitleInfo {
+      display: flex;
+    }
 
-//   .eduReviewTitle {
-//     width: 100%;
-//     display: flex;
-//     flex-direction: row;
-//     align-items: center;
-//     margin-left: 10px;
-//     justify-content: space-between;
+    .academyReviewClick {
+      cursor: pointer;
+    }
 
-//     .eduReviewTitleInfo {
-//       display: flex;
-//     }
+    .reviewHate {
+      display: flex;
+      justify-content: flex-end;
+      margin-right: 30px;
+      font-size: 1.1rem;
+      color: #555555;
+      font-weight: bold;
+      .reviewHateValue {
+        font-weight: 500;
+        color: orangered;
+      }
+    }
 
-//     .eduReviewClick {
-//       cursor: pointer;
-//     }
+    .academyReviewTitleValue {
+      font-size: 1rem;
+      font-weight: bold;
+      color: #555555;
+      padding: 0px 7px;
+      border-right: 1px solid #eaeaea;
+    }
+  }
+  .academyReviewBody {
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
 
-//     .reviewHate {
-//       display: flex;
-//       justify-content: flex-end;
-//       margin-right: 30px;
-//       font-size: 1.1rem;
-//       color: #555555;
-//       font-weight: bold;
-//       .reviewHateValue {
-//         font-weight: 500;
-//         color: orangered;
-//       }
-//     }
+    .academyReviewBodyL {
+      width: 20%;
 
-//     .eduReviewTitleValue {
-//       font-size: 1rem;
-//       font-weight: bold;
-//       color: #555555;
-//       padding: 0px 7px;
-//       border-right: 1px solid #eaeaea;
-//     }
-//   }
-//   .eduReviewBody {
-//     width: 100%;
-//     margin-top: 10px;
-//     display: flex;
-//     flex-direction: row;
+      .reviewRating {
+        display: flex;
+        flex-direction: column;
 
-//     .eduReviewBodyL {
-//       width: 20%;
+        .allRate {
+          margin-bottom: 20px;
+          font-weight: bold;
+          margin-left: 5px;
+          align-items: center;
+          display: flex;
+          flex-direction: row;
+          .allRateValue {
+            margin-left: 15px;
+            font-size: 2rem;
+            color: #2281da;
+          }
+        }
 
-//       .reviewRating {
-//         display: flex;
-//         flex-direction: column;
+        .reviewRatingItem {
+          margin-bottom: 15px;
+          display: flex;
+          flex-direction: column;
+          font-weight: bold;
 
-//         .allRate {
-//           margin-bottom: 20px;
-//           font-weight: bold;
-//           margin-left: 5px;
-//           align-items: center;
-//           display: flex;
-//           flex-direction: row;
-//           .allRateValue {
-//             margin-left: 15px;
-//             font-size: 2rem;
-//             color: #2281da;
-//           }
-//         }
+          label {
+            display: flex !important;
+          }
 
-//         .reviewRatingItem {
-//           margin-bottom: 15px;
-//           display: flex;
-//           flex-direction: column;
-//           font-weight: bold;
+          .reviewRatingBar {
+            margin-top: -5px;
+          }
+        }
+      }
+    }
+    .academyReviewBodyR {
+      width: 70%;
+      margin-top: 10px;
+      .reviewTitle {
+        font-size: 1.6rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+      .academyReviewContent {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        margin-top: 8px;
+        min-height: 100px;
+      }
+      .reviewRecommand {
+        color: blue;
+      }
+      .reviewUnrecommand {
+        color: red;
+      }
+    }
+  }
+}
 
-//           label {
-//             display: flex !important;
-//           }
+.academySelector {
+  width: 70% !important;
+  display: flex !important;
+  margin-bottom: 15px;
 
-//           .reviewRatingBar {
-//             margin-top: -5px;
-//           }
-//         }
-//       }
-//     }
-//     .eduReviewBodyR {
-//       width: 70%;
-//       margin-top: 10px;
-//       .reviewTitle {
-//         font-size: 1.6rem;
-//         font-weight: bold;
-//         margin-bottom: 20px;
-//       }
-//       .eduReviewContent {
-//         font-size: 1.2rem;
-//         margin-bottom: 20px;
-//         margin-top: 8px;
-//         min-height: 100px;
-//       }
-//       .reviewRecommand {
-//         color: blue;
-//       }
-//       .reviewUnrecommand {
-//         color: red;
-//       }
-//     }
-//   }
-// }
-
-// .addEduReviewHeader {
-//   width: 50%;
-//   display: flex;
-//   flex-direction: row;
-//   align-items: center;
-//   margin: auto;
-// }
-
-// .addEduReviewTitle {
-//   display: flex !important;
-//   align-items: flex-start !important;
-//   width: 100% !important;
-//   .field {
-//     width: 100% !important;
-//     .ui {
-//       width: 100% !important;
-//       margin: 0px !important;
-//     }
-//   }
-// }
-
-// .addEduReviewBodyR {
-//   width: 70%;
-//   .eduReviewTitle {
-//     font-size: 1.6rem;
-//     font-weight: bold;
-//   }
-//   .addEduReviewRecommand {
-//     font-size: 1rem;
-//     margin-top: 20px !important;
-//     .recommandTextArea {
-//       margin-bottom: 20px;
-//       margin-top: 8px;
-//     }
-//     .reviewRecommand {
-//       color: blue;
-//     }
-//     .reviewUnrecommand {
-//       color: red;
-//     }
-//   }
-//   .addReviewButton {
-//     display: flex;
-//     justify-content: flex-end;
-//   }
-// }
-
-// .eduSelector {
-//   width: 70% !important;
-//   display: flex !important;
-//   margin-bottom: 15px;
-
-//   .menu .selected.item {
-//     width: 100% !important;
-//   }
-// }
+  .menu .selected.item {
+    width: 100% !important;
+  }
+}
