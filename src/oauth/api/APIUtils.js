@@ -1,4 +1,3 @@
-import axios from "axios"
 import { AUTH_API_URL , ACCESS_TOKEN } from '../constants/index';
 
 export function  request  (options)  {

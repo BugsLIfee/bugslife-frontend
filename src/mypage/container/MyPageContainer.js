@@ -8,11 +8,11 @@ import MypageUser from "../view/MyPage_user";
 import PointPage from "../../point/PointPage";
 import { Redirect } from "react-router-dom";
 import swal from "sweetalert";
+import { getCurrentUser } from "../../oauth/api/APIUtils"
 
 
 @inject("Store")
 @observer
-
 class Mypagecontainer extends Component {
   constructor(props) {
     super(props);
@@ -41,37 +41,38 @@ class Mypagecontainer extends Component {
 
 
   componentDidMount(){
-    // const curr_user = this.props.Store.oauth.currentUser;
+
     this.props.Store.attendance.getAllList()
     // this.props.Store.list.allList();
 
-      const user = this.props.Store.oauth.currentUser;
-
-      console.log(user.id)
-     if(user.id !==undefined){
-       console.log("여기 언디파인드야 ")
-      this.props.Store.list.getlistById(this.props.Store.oauth.getCurrentUserInfo.id);
-      let {listById} = this.props.Store.list;
-      this.setState({...this.state, qlistById : listById} )
-    }
+     getCurrentUser().then((res)=>{
+      const accountId = res.id;
+      this.props.Store.list.getlistById(accountId);
+      this.props.Store.list.getCommentList(accountId)
+     })
 
     }
+
 
   render() {
+    // this.test()
     const state = this.state.curr_component;
     const user = this.props.Store.oauth.currentUser;
     let {allList} = this.props.Store.attendance;
+    let {commentList} = this.props.Store.list;
 
-    // let {listById} = this.props.Store.list;
-    // console.log(listById);
+    console.log("CommentList ========")
+    console.log(commentList);
+    // let testList = 
+
     // this.props.Store.list.getlistById(user.id)
 
-    let questionList =this.props.Store.list.list;
-    let questionListByuser = questionList.filter(val=> val.writerId === user.id);
+    let questionListByuser =this.props.Store.list.getQlistById
+    // let questionListByuser = questionList.filter(val=> val.writerId === user.id);
 
 
-    console.log("list========>")
-    console.log(this.state.qlistById)
+    // console.log("list========>")
+    // console.log(this.state.qlistById)
     
     const goToPoint = () => {
       this.setState({curr_component: "point"});
@@ -79,10 +80,6 @@ class Mypagecontainer extends Component {
 
     const isLogin = this.props.Store.oauth.isLogin;
 
-    if(isLogin!==undefined){
-      console.log("isLogin : ", isLogin)
-      this.props.Store.list.getlistById(user.id);
-    }
 
   //       if(!this.props.Store.oauth.isLogin) {
   //     swal("접근 거부 !","로그인 후 사용가능합니다 !", "warning");
@@ -92,6 +89,9 @@ class Mypagecontainer extends Component {
   //         state: { from: this.props.location }
   //     }}/>;            
   // }
+
+
+  
 
     return (
       
@@ -140,7 +140,7 @@ class Mypagecontainer extends Component {
           <div className="MyPage_curr">
             {this.user}
             {state === "home" && <MypageHome questionListByuser={questionListByuser} isLogin={isLogin} user ={user} allList={allList} onClickPoint={goToPoint}/>}
-            {state === "post" && <MypagePost questionListByuser={questionListByuser}  />}
+            {state === "post" && <MypagePost commentList={commentList} questionListByuser={questionListByuser}  />}
             {state === "user" && <MypageUser user={user} onSubmitForm={this.onSubmitForm}/>}
             {state === "point" && <PointPage user={user} />}
           </div>

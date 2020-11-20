@@ -1,43 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import { Dropdown, StepTitle } from 'semantic-ui-react'
+import React,{Component, useState} from 'react';
+import { Dropdown } from 'semantic-ui-react'
 import 'codemirror/lib/codemirror.css';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import { Editor } from '@toast-ui/react-editor';
 import "./scss/posting.scss"
 
 
- const FreeboardModifyView=({
-        post, category
-    })=> {
-        console.log(post)
+ class FreeboardModifyClassViews extends Component{
+     constructor(props){
+         super(props)
+         console.log(this.props.post)
+         this.state={
+            title:null,
+            content:this.props.post.content
+         }
+     }
 
-        console.log(post.title)
-    const [title, setTitle] = useState(post.title);
-    const [content, setContent] = useState("");
-    const [cate, setCate] = useState("");
-    const [updateDate, setUpdateDate] = useState("")
-    
-    // let title = post.title;
+    editorRef = React.createRef();
 
-    // console.log(title)
-
-    // let content = post.content;
-
-    // let cate = post.cate
-    
-
-    // useEffect(() => {
-    //     setTitle(post.title);
-    // }, []);
-    
-    
-    const editorRef = React.createRef();
-//  console.log(title);
-//     console.log(post.title)
-    // console.log("title? " , title,"content? ", content, "cate ?", cate, updateDate)
-    const onSubmitForm=()=>{
+    onSubmitForm=()=>{
         let post = this.state;
-    
         if(post.pwd === "" || post.pwd === undefined || post.pwd === null){
             return alert("유효하지 않은 비밀번호입니다.")
         }
@@ -54,51 +36,54 @@ import "./scss/posting.scss"
 
     }
 
-   const selectCate=(e, data)=>{
-        onSetDate()
-        // setCate(data.value)
+    selectCate=(e, data)=>{
+        this.onSetDate()
+        this.setState({cate : data.value})
     }
 
-    const onSetDate=()=>{
+    onSetDate=()=>{
         let today =  new Date();
         let Y =today.getFullYear()
         let M = today.getMonth();
         let D = today.getDate();
-        // return setUpdateDate(`${Y}-${M}-${D}`)
+        return this.setState({...this.state, updateDate:`${Y}-${M}-${D}` })
     }
 
-    const onValidationCheck=(event)=>{
+    onValidationCheck=(event)=>{
         let confirmed_pwd = event.target.value;
 
         console.log(confirmed_pwd);
+
         if(confirmed_pwd === this.state.pwd){
             this.setState({...this.state, isValid : true})
         }
     }
 
 
-    const onWrting=(e)=>{
-         console.log("=====onWriting====")
-        // this.setState({...this.state, title : e.target.value})
-        // console.log(this.state)
-        // // this.props.onUpdate(this.state)
+    onWrting=(e)=>{
+        console.log("=====onWriting====")
+        this.setState({...this.state, title : e.target.value})
+        console.log(this.state)
+        this.props.onUpdate(this.state)
       
-        // console.log("state value change!!!!!plzzzz")
-        // console.log(this.state)
-        let test= document.getElementById("inputText");
-        console.log(test)
-
-        console.log("///////", e.target.value)
-        test.setAttribute("value", e.target.value)
-
-
+        console.log("state value change!!!!!plzzzz")
+        console.log(this.state)
     }
 
-        // const category = this.props.category;
-        // let originalPost = this.props.post;
+
+    onChangeTitle = (e) =>{
+        this.setState({...this.state, title: e.target.value} )
+    } 
+
+
+    render() {
+        console.log(this.state)
+
+        const category = this.props.category;
+        let originalPost = this.props.post;
         
-        // const onUpdate = this.props.onUpdate
-        // console.log("originalPost : ",originalPost)
+        const onUpdate = this.props.onUpdate
+        console.log("originalPost : ",originalPost)
 
         const categoryOptions = category.map((category, ind) => {
             // category.onClick
@@ -110,27 +95,19 @@ import "./scss/posting.scss"
             )
         })
 
-      
-        console.log("render?")
-   
-        // document.getElementById("inputText").setAttribute("value", post.title);
+        console.log(this.state)
+        // const v = this.state.title ? this.state.title : this.props.post.title;
 
         return(
-
             <form className="posting">
                 <div className="posting_header">
                     <h2 className ="posting_title">자유게시판 글쓰기</h2>
                     <div className="posting_header_title_container">
-                    <Dropdown placeholder='카테고리' search selection options={categoryOptions} onChange={selectCate} />
+                    <Dropdown placeholder='카테고리' search selection options={categoryOptions} onChange={this.selectCate} />
                     <input className="posting_header_title" 
-                    type="text"
-                    id="inputText"
-                    value={title}
-                    
-                    // onFocus = {this.value='여기에입력'}
-                    onChange={(e) => {setTitle(e.target.value)}}
-                    // onChange={(e)=>setTitle(e.target.value)}
-                      />
+                        type="data"
+                        value = { this.state.title ? this.state.title : this.props.post.title}
+                        onChange={this.onChangeTitle} />
                     </div>
 
                    
@@ -142,12 +119,12 @@ import "./scss/posting.scss"
                     height="50rem"
                     initialEditType="wysiwyg"
                     previewStyle="vertical"
-                    ref={editorRef}
-                    // onChange = {() => {
-                    //     setContent(
-                    //     editorRef.current.getInstance().getHtml()
-                    //     )
-                    // }}
+                    ref={this.editorRef}
+                    onChange = {() => {
+                        this.setState({
+                            content: this.editorRef.current.getInstance().getHtml()
+                        })
+                    }}
                 />
           
 
@@ -169,7 +146,6 @@ import "./scss/posting.scss"
 
             </form>
         )
-                   
-};
-
-export default FreeboardModifyView
+    }
+}
+export default FreeboardModifyClassViews
