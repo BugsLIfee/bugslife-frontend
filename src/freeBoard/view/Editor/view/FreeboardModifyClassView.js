@@ -5,22 +5,32 @@ import '@toast-ui/editor/dist/toastui-editor.css';
 import { Editor } from '@toast-ui/react-editor';
 import "./scss/posting.scss"
 
-class FreeboardModifyClassViews extends Component{
-    constructor(props){
-        super(props)
-        console.log(this.props.post)
-        this.state={
-        title:null,
-        content:this.props.post.content
-        }
-    }
+
+ class FreeboardModifyClassViews extends Component{
+     constructor(props){
+         super(props)
+         console.log(this.props.post)
+         this.state={
+            title: this.props.post.title,
+            content: this.props.post.content,
+            cate:  this.props.post.cate,
+            updateDate: this.props.post.updateDate,
+            pwd:""
+         }
+     }
+
 
     editorRef = React.createRef();
 
     onSubmitForm=()=>{
         let post = this.state;
+
+
+        if(post.title=== ""){
+            alert("제목을 입력해주세요.")
+        }
         if(post.pwd === "" || post.pwd === undefined || post.pwd === null){
-            return alert("유효하지 않은 비밀번호입니다.")
+             return alert("유효하지 않은 비밀번호입니다.")
         }
 
         console.log(this.state.isValid);
@@ -32,6 +42,8 @@ class FreeboardModifyClassViews extends Component{
         }else{
             alert("비밀번호가 일치하지 않습니다.")
         }
+
+        this.props.onUpdate(this.state)
 
     }
 
@@ -59,17 +71,6 @@ class FreeboardModifyClassViews extends Component{
     }
 
 
-    onWrting=(e)=>{
-        console.log("=====onWriting====")
-        this.setState({...this.state, title : e.target.value})
-        console.log(this.state)
-        this.props.onUpdate(this.state)
-      
-        console.log("state value change!!!!!plzzzz")
-        console.log(this.state)
-    }
-
-
     onChangeTitle = (e) =>{
         this.setState({...this.state, title: e.target.value} )
     } 
@@ -79,10 +80,9 @@ class FreeboardModifyClassViews extends Component{
         console.log(this.state)
 
         const category = this.props.category;
-        let originalPost = this.props.post;
+        // let originalPost = this.props.post;
         
         const onUpdate = this.props.onUpdate
-        console.log("originalPost : ",originalPost)
 
         const categoryOptions = category.map((category, ind) => {
             // category.onClick
@@ -94,7 +94,14 @@ class FreeboardModifyClassViews extends Component{
             )
         })
 
-        console.log(this.state)
+        // if(this.state.title === undefined){
+        //     console.log("title is undifined")
+        //     console.log(this.state.title)
+        //     console.log(this.props.post.title)
+        //     // this.setState({...this.state, title:this.props.post.title})
+        // }
+
+        // console.log(this.state)
         // const v = this.state.title ? this.state.title : this.props.post.title;
 
         return(
@@ -105,7 +112,7 @@ class FreeboardModifyClassViews extends Component{
                     <Dropdown placeholder='카테고리' search selection options={categoryOptions} onChange={this.selectCate} />
                     <input className="posting_header_title" 
                         type="data"
-                        value = { this.state.title ? this.state.title : this.props.post.title}
+                        value = {this.state.title ? this.state.title : this.state.title === "" ? "" : this.props.post.title}
                         onChange={this.onChangeTitle} />
                     </div>
 
@@ -119,6 +126,8 @@ class FreeboardModifyClassViews extends Component{
                     initialEditType="wysiwyg"
                     previewStyle="vertical"
                     ref={this.editorRef}
+                    placeholder={ "수정사항을 입력해주세요."}
+                    value ={ this.state.content ? this.state.content : this.props.post.content}
                     onChange = {() => {
                         this.setState({
                             content: this.editorRef.current.getInstance().getHtml()
@@ -136,7 +145,7 @@ class FreeboardModifyClassViews extends Component{
                     </div>
 
                     <div className="upload">
-                    <button className="upload_btn" type="submit" onClick={()=>this.onSubmitForm()}> 
+                    <button className="upload_btn"  type="submit" onClick={()=>this.onSubmitForm()}> 
                         <h5>작성 완료</h5>
                     </button>
                 </div>

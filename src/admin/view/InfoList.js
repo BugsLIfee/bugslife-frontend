@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Table, Pagination,  Icon } from "semantic-ui-react";
+import { Container, Pagination,  Icon } from "semantic-ui-react";
 import "./scss/infoList.scss";
 class InfoList extends Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class InfoList extends Component {
 
   render() {
     const { ListData } = this.props;
-    console.log("listdata", ListData);
+    // console.log("listdata", ListData);
 
    const handleLink = (id) => {
     this.props.history.push("/admin/info-detail?id=" + id);
@@ -30,13 +30,13 @@ class InfoList extends Component {
     );
 
     let CreateTableRowList = listPageOne.map((obj,key) => (
-      <div key={key} onClick={()=>handleLink(`${obj.id}`)}>
+      <div className="info_table_list_sec" key={key} onClick={()=>handleLink(`${obj.id}`)}>
         <div className="info_postId" >{obj.id}</div>
-        <div className="info_writer" >{obj.user.name}</div>
+        <div className="info_writer" >{obj.name}</div>
         <div className="info_postCate" > {obj.adminCategory}</div>
         <div className="info_postTitle" >{obj.title}</div>
         <div className="info_date" >
-          {obj.editDate==="" 
+          {obj.editDate===null 
            ? `작성일:${obj.registDate}`
            : `작성일:${obj.registDate}-수정일:${obj.editDate}`}
           </div>
@@ -80,20 +80,7 @@ class InfoList extends Component {
                {CreateTableRowList}
             </div>
         </div>
-        {/* <Table celled>
-          <Table.Header>
-            <Table.Row>
-              <Table.HeaderCell >번호</Table.HeaderCell>
-              <Table.HeaderCell >작성자</Table.HeaderCell>
-              <Table.HeaderCell >문의종류</Table.HeaderCell>
-              <Table.HeaderCell >제목</Table.HeaderCell>
-              <Table.HeaderCell >날짜</Table.HeaderCell>
-              <Table.HeaderCell >조회수</Table.HeaderCell>
-            </Table.Row>
-          </Table.Header>
 
-          <Table.Body>{CreateTableRowList}</Table.Body>
-      </Table> */}
         <Pagination
           boundaryRange={0}
           defaultActivePage={1}
@@ -106,7 +93,6 @@ class InfoList extends Component {
           style={{float: 'right'}}
           />
          
-    
       </Container>
     );
   }

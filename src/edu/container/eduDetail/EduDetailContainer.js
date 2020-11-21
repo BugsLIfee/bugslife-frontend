@@ -25,12 +25,12 @@ class EduDetailContainer extends Component {
             reviewObj.academyId = eduInfo.academyId
             this.props.Store.edu.addReview(reviewObj)
         }
-        console.log(eduInfo.eduRate)
+        console.log(oauth.getCurrentUserInfo.id)
 
         return (
             <div className="eduDetailLayout">
                 <EduInfoContainer eduInfo={eduInfo}/>
-                <EduAddReviewContainer onAddReview={onAddReview}/>
+                <EduAddReviewContainer onAddReview={onAddReview} oauth={oauth}/>
                 <EduReviewContainer eduReviews={eduReviews}/>
             </div>
         )

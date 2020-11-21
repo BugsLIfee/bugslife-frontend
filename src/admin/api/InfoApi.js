@@ -1,9 +1,8 @@
 import { request }from "../../oauth/api/APIUtils";
-import { ADMIN_API_URL , ACCESS_TOKEN } from '../../oauth/constants/index';
 
 export default class InfoApi {
   
-  NOTICE_API_URL = ADMIN_API_URL+"/api/admin/notice/";
+  NOTICE_API_URL = "/api/admin/notice";
 
   infoCreate(infoApiModel) {
          return request({
@@ -15,12 +14,13 @@ export default class InfoApi {
 
   infoDetail(id) {
        return request({
-          url: this.NOTICE_API_URL + id,
+          url: this.NOTICE_API_URL + "/"+id,
           method: 'GET',
       });
   }
   //todoList(todoApiModel):url get  return todo
   infoList() {
+    console.log(this.NOTICE_API_URL,"infolist api 메서드 오나요");
     return request({
       url: this.NOTICE_API_URL,
       method:'GET'

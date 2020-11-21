@@ -3,7 +3,7 @@ import { request }from "../../oauth/api/APIUtils";
 export default class BugBoardListApi {
     
     BUGBOARD_API_URL = "/api/bugboard/"
-    
+
     bugBoardList() {
         return request({
             url: this.BUGBOARD_API_URL,
