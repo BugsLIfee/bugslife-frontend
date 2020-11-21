@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { Form, Button, Dropdown } from "semantic-ui-react";
-import CKEditor from "@ckeditor/ckeditor5-react";
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import moment from "moment";
+import 'codemirror/lib/codemirror.css';
+import '@toast-ui/editor/dist/toastui-editor.css';
+import { Editor } from '@toast-ui/react-editor';
+
 
 export default class InfoEdit extends Component {
 
@@ -22,21 +24,26 @@ export default class InfoEdit extends Component {
     }
   }
   
+  editorRef = React.createRef();
+
+
   nowDate =()=>{
     let now = new Date();
     now = moment(now).format('YYYY-MM-DD HH:mm:ss')
     return now;
   }
 
-    handleChange = (e) => {
+  handleChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value
     });
     console.log("------statechange:",this.state);
   }
+
   selectCategory=()=>{
 
   }
+
   onsubmit=()=>{
     const {info, currentUser} = this.props;
       this.setState({
@@ -52,14 +59,17 @@ export default class InfoEdit extends Component {
   render() {
     const {
       info,
-      infoCategory ,
+      infoCategory,
       currentUser,
       //onSetInfoProp,
       onAddInfo,
       onRemoveInfo,
       onModifyInfo,
     } = this.props;
-    console.log(infoCategory);
+
+
+    // console.log(infoCategory);
+
     const { registDate,editDate,content, title} =this.state;
    return (
       <div>
@@ -73,8 +83,8 @@ export default class InfoEdit extends Component {
             <Form.Input
             width={3}
             readOnly
-               fluid
-            label="운영팀"
+              fluid
+              label="운영팀"
               name="name"
               value={currentUser.name}
             />
@@ -111,38 +121,26 @@ export default class InfoEdit extends Component {
             label="제목"
             placeholder="제목을 입력하세요"
             name="title"
-           value= {title}
+            value= {title}
              onChange={(e) => this.handleChange(e)}
            // onChange={(e) => onSetInfoProp("title", e.target.value)}
           />
-          <Form.Input
-            width={6}
-            fluid
-            label="본문"
-            placeholder="본문을 입력하세요"
-            name="content"
-           value= {content}
-       onChange={(e) => this.handleChange(e)}
-          />
+
         </Form>
 
-        <CKEditor
-          className="ckEditor"
-          editor={ClassicEditor}
-          onInit={(editor) => {
-            console.log("Editor is ready to use!", editor);
+         <Editor
+          height="50rem"
+          initialEditType="wysiwyg"
+          previewStyle="vertical"
+          ref={this.editorRef}
+          placeholder={ "공지사항을 입력해주세요."}
+          
+         onChange = {() => {
+          this.setState({
+           content: this.editorRef.current.getInstance().getHtml()
+            })
           }}
-          onChange={(event, editor) => {
-            const data = editor.getData();
-            console.log({ event, editor, data });
-          }}
-          onBlur={(event, editor) => {
-            console.log("Blur.", editor);
-          }}
-          onFocus={(event, editor) => {
-            console.log("Focus.", editor);
-          }}
-        />
+          />
         <Button primary onClick={()=>onAddInfo(this.onsubmit())}>
           작성완료
         </Button>

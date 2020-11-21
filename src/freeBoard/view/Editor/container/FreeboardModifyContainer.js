@@ -5,8 +5,6 @@ import FreeboardModifyClassViews from '../view/FreeboardModifyClassView';
 @inject('Store')
 @observer
 class FreeboardModifyContainer extends Component {
-    state=({post: {}})
-
 
     componentDidMount=()=>{
         let match = this.props.match;
@@ -14,8 +12,39 @@ class FreeboardModifyContainer extends Component {
     }
 
     onUpdate=(newPost)=>{  
+        const post = this.props.Store.freeboard.freeboard_detail
+        newPost["id"] = post.id
+
+        if(newPost.title === undefined){
+            newPost.title = post.title
+        }
+
+         if(newPost.content === undefined){
+            newPost.content = post.content
+        }
+        
+        if(newPost.cate === undefined){
+            let today =  new Date();
+            let Y =today.getFullYear()
+            let M = today.getMonth();
+            let D = today.getDate();
+       
+
+            newPost.cate = post.cate
+            newPost.updateDate =  `${Y}-${M}-${D}` 
+        }
+
         console.log("⏳ update on Container : ", newPost)
-        this.setState({post: newPost})
+        this.props.Store.freeboard.freeboardModifyPost(newPost);
+
+
+
+        this.props.history.push({
+            pathname: `/freeboard/detail/${newPost.id}`
+        })
+        
+        window.location.reload();
+
     }
 
     render() {
@@ -25,41 +54,12 @@ class FreeboardModifyContainer extends Component {
         let freeboardPost = {...freeboard_detail}
 
         console.log("freeboard_detail" , freeboard_detail)
-    
-        // console.log(this.state.post)
-        // let detail;
-        //  this.state.post !== {} ? (detail = freeboard_detail) : (detail =this.state.post)
 
-        //console.log(detail)
-        // console.log("=====freeboard::")
-        // console.log(JSON.stringify(freeboard_detail))
 
-        const onModifyPost =(post)=>{
-            // this.props.Store.freeboard.onCreatePost(post)
-
-            this.setState({done:true, postId:post.id})
-         
-            console.log(this.state.postId)
-            alert("게시글 수정이 완료되었습니다.")
-
-            this.props.history.push({
-                pathname: `/freeboard`
-            });
-            
-            window.location.reload();
-        }
-
-        const test ={
-            title: "this.title",
-            content: "this.content"
-        }
 
         return (
             <div>
-                {/* <FreeboardModifyView onModifyPost={onModifyPost} post={freeboardPost} category={freeboard_cate} onUpdate={this.onUpdate}/> */}
-                {
-                   <FreeboardModifyClassViews onModifyPost={onModifyPost} post={freeboardPost} category={freeboard_cate} onUpdate={this.onUpdate}/>
-                }
+                 <FreeboardModifyClassViews  post={freeboardPost} category={freeboard_cate} onUpdate={this.onUpdate}/>              
             </div>
         
         );

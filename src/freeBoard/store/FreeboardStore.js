@@ -2,6 +2,7 @@ import { observable,  action, computed } from "mobx"
 import FreeboardApi from "../api/FreeboardApi";
 import FreeboardPostAddModel from "../api/model/post/FreeboardPostAddModel";
 import FreeboardCommentAddModel from "../api/model/comment/FreeboardCommentAddModel";
+import FreeboardPostModifyModel from "../api/model/post/FreeboardPostModifyModel";
 
 class FreeboardStore{
 
@@ -72,6 +73,12 @@ class FreeboardStore{
       let post_comments = await this.freeApi.freeboardComments(postId);
       this.comments = post_comments;
       return post_comments;
+    }
+
+    @action
+    async freeboardModifyPost(post){
+      let modifiedPost = new FreeboardPostModifyModel(post);
+       await this.freeApi.freeboardModifyPost(post.id, modifiedPost)
     }
 
     @action

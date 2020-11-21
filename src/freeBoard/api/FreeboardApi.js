@@ -29,6 +29,13 @@ export default class FreeboardApi{
         return newPost;
     }
 
+    freeboardModifyPost(postId, post){
+        let newPost = axios.put(FREEBOARD_API_URL+"/api/freeboard/edit/"+postId, post).then(
+            (response)=>(response && response.data) || null
+        )
+        return newPost;
+    }
+
     freeboardComments(postId){
         let comments = axios.get(`${FREEBOARD_API_URL+"/api/freeboard/"}${postId}/comment`).then(
             (response)=>(response && response.data) || null
