@@ -90,6 +90,7 @@ class Mypagecontainer extends Component {
   //         state: { from: this.props.location }
   //     }}/>;            
   // }
+
     return (
       
       <div className="MyPage_container">

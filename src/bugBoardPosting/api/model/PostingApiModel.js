@@ -3,6 +3,7 @@ class PostingApiModel{
     title = "";
     content = "";
     publicPost = "";
+    dueDate = "";
     writerId = "";
     point = 0;
     tags = [];
@@ -10,8 +11,9 @@ class PostingApiModel{
     constructor(postObj){
         this.title = postObj.title;
         this.content = postObj.content;
-        this.publicPost = postObj.isPublic;
+        this.publicPost = postObj.publicPost;
         this.writerId = postObj.writer;
+        this.dueDate = postObj.dueDate;
         this.point = postObj.point;
         this.tags = postObj.tags;
     }

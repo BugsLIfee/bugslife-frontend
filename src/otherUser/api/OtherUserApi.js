@@ -1,7 +1,7 @@
 import { request } from "../../oauth/api/APIUtils";
 
 export default class OtherUserApi {
-    url = "http://localhost:8088/user/other/";
+    url = "/user/other/";
 
     getOtherUser(id) {
     return request({
