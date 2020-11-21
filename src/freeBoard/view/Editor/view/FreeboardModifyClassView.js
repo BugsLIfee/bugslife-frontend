@@ -1,4 +1,4 @@
-import React,{Component, useState} from 'react';
+import React,{Component} from 'react';
 import { Dropdown } from 'semantic-ui-react'
 import 'codemirror/lib/codemirror.css';
 import '@toast-ui/editor/dist/toastui-editor.css';
@@ -82,7 +82,7 @@ import "./scss/posting.scss"
         const category = this.props.category;
         // let originalPost = this.props.post;
         
-        const onUpdate = this.props.onUpdate
+        //const onUpdate = this.props.onUpdate
 
         const categoryOptions = category.map((category, ind) => {
             // category.onClick
