@@ -29,9 +29,11 @@ export default class MypagePost extends Component {
             <h3 className="MyPage_post_title">내 댓글 관리</h3>
             <div>
                 {
-                  commentList.map(val=>{
+                  commentList===  undefined?
+                  (<div></div>) :
+                  (commentList.map(val=>{
                     return <Mycommentview comment = {val} />
-                  })
+                  }))
                 }
             </div>
           </div>

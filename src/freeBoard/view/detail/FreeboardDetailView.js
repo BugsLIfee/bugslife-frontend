@@ -110,7 +110,6 @@ export default class Freeboarddetailview extends Component {
                             <Freeboarddetailcommentcontainer postId={post.id} comments ={comments} />
                        </div>    
                 
-
                 </div>
             </div>
         )
