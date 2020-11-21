@@ -2,7 +2,7 @@ import { request } from "../../oauth/api/APIUtils";
 
 export default class paymentApiModel {
 
-    url = "http://localhost:8088/api/payment/";
+    url = "/api/payment/";
 
     paymentCreate(paymentApiModel) {  
         return request({

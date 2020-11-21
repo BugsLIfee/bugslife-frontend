@@ -1,13 +1,12 @@
 import { request }from "../../oauth/api/APIUtils";
-import {BUGBOARD_API_URL} from "../../oauth/constants/index"
 
 export default class BugBoardListApi {
     
-    //BUGBOARD_API_URL = "http://localhost:8088/api/bugboard/"
+    BUGBOARD_API_URL = "/api/bugboard/"
     
     bugBoardList() {
         return request({
-            url: BUGBOARD_API_URL +'/api/bugboard/',
+            url: this.BUGBOARD_API_URL,
             method: 'GET'
         });
     }
@@ -15,7 +14,7 @@ export default class BugBoardListApi {
     bugBoardListById(uid){
         
         return request({
-            url: BUGBOARD_API_URL + '/api/bugboard/' + "list/" + uid,
+            url: this.BUGBOARD_API_URL + "list/" + uid,
             method: "GET"
         })
     }

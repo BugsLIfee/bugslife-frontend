@@ -15,9 +15,10 @@ export default class PostingView extends Component {
         this.state = {
             title: "",
             content: "", 
-            isPublic: true,
+            publicPost : true,
             writer: "",
-            isPremium:false,
+            isPremium: false,
+            dueDate: "",
             point:0,
             tags : []
         }

@@ -4,9 +4,10 @@ import { observer, inject } from 'mobx-react'
 
 function ReportBoardContainer(props) {
     
-    const category = ['영리목적/홍보성','개인정보노출', '불법정보', '음란성/선정성', '욕설/인신공격',  '같은내용반복(도배)', '기타']
-    const [report_status, setReportStatus] = useState(2)
+    props.Store.report.getAllList();
+    const category = props.Store.report._category;
     const report_list = props.Store.report._report_list;
+    const [report_status, setReportStatus] = useState(2)
     const [visibles, setVisibles] = useState([false, false, false, false, false, false, false, false])
     const [filter_list, setFilterList] = useState(report_list);
     
@@ -42,7 +43,7 @@ function ReportBoardContainer(props) {
                 }
             }))
         }
-    }, [visibles, report_status])
+    }, [visibles, report_status, props])
 
     const onSelectCategory = (type) => {
         setVisibles(

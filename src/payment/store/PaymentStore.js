@@ -10,7 +10,6 @@ class PaymentStore {
     @action
     async onAddPayment(paymentObj) {
         paymentObj = new PaymentApiModel(paymentObj);
-        console.log("여기가 중간", paymentObj);
         await this.paymentApi.paymentCreate(paymentObj);
     }
 

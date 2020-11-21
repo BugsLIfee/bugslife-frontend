@@ -10,7 +10,7 @@ import TagStore from "../tag/store/TagStore"
 import FreeboardStore from "../freeBoard/store/FreeboardStore";
 import OauthStore from "../oauth/OauthStore";
 import PointStore from "../point/store/PointStore";
-import ReportStore from "../admin/store/ReportStore";
+import ReportStore from "../report/store/ReportStore";
 import AttendanceStore from "../attendance/store/AttendanceStore";
 import ReportCategoryStore from "../report/store/ReportStore";
 import EduStore from "../edu/store/EduStore";
