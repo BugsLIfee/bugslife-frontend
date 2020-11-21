@@ -16,7 +16,6 @@ class PostingContainer extends Component {
             postObj.writer = oauth.getCurrentUserInfo.id;
             bugBoardPosting.onAddPost(postObj);
         }
-
         return (
             <div>
                 <PostingView onAddPost={onAddPost} />

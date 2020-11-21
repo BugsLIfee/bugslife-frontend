@@ -14,7 +14,7 @@ export class EduDetailInfoView extends Component {
                         <Image src="https://via.placeholder.com/190x90.png" alt="eduimg"/>
                         <div className="eduRate">
                             <p>교육과정 총평</p> 
-                            <div><span className="eduRateVallue">{isNaN(eduInfo.eduRate) ? 0 : Math.ceil(eduInfo.eduRate*4)/2}</span>
+                            <div><span className="eduRateVallue">{isNaN(eduInfo.eduRate) ? 0 : parseInt(eduInfo.eduRate*4)/2}</span>
                             &nbsp;&nbsp; / &nbsp;
                             <span className="eduRateMax">10</span></div>
                         </div>
