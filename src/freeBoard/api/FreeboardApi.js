@@ -7,7 +7,7 @@ export default class FreeboardApi{
 
 
     freeboardList(){
-        let result = axios.get(FREEBOARD_API_URL+"/api/freeboard/").then(
+        let result = axios.get("/api/freeboard/").then(
             (response)=>(response && response.data) || null
         )
         return result;
@@ -15,7 +15,7 @@ export default class FreeboardApi{
     }
 
     freeboardPostSelect(postNum){
-        let post = axios.get(FREEBOARD_API_URL+"/api/freeboard/"+postNum).then(
+        let post = axios.get("/api/freeboard/"+postNum).then(
             (response)=>(response && response.data) || null
         )
 
@@ -23,21 +23,21 @@ export default class FreeboardApi{
     }
 
     freeboardCreatePost(post){
-        let newPost = axios.post(FREEBOARD_API_URL+"/api/freeboard/", post).then(
+        let newPost = axios.post("/api/freeboard/", post).then(
             (response)=>(response && response.data) || null
         )
         return newPost;
     }
 
     freeboardModifyPost(postId, post){
-        let newPost = axios.put(FREEBOARD_API_URL+"/api/freeboard/edit/"+postId, post).then(
+        let newPost = axios.put("/api/freeboard/edit/"+postId, post).then(
             (response)=>(response && response.data) || null
         )
         return newPost;
     }
 
     freeboardComments(postId){
-        let comments = axios.get(`${FREEBOARD_API_URL+"/api/freeboard/"}${postId}/comment`).then(
+        let comments = axios.get(`/api/freeboard/${postId}/comment`).then(
             (response)=>(response && response.data) || null
         )
         return comments;
@@ -45,7 +45,7 @@ export default class FreeboardApi{
 
     freeboardCreateComment(postId, comment){
         console.log(postId, comment)
-        let new_comment = axios.post(`${FREEBOARD_API_URL+"/api/freeboard/"}${postId}/comment`, comment).then(
+        let new_comment = axios.post(`/api/freeboard/${postId}/comment`, comment).then(
             (response)=>(response && response.data) || null
         )
             return new_comment;
@@ -54,7 +54,7 @@ export default class FreeboardApi{
 
     freeboardCommentDelete(postId, commentId, pwd){
         console.log(postId, commentId, pwd);
-        let result = axios.delete(FREEBOARD_API_URL+"/api/freeboard/"+postId +`/comment/${commentId}`, {
+        let result = axios.delete("/api/freeboard/"+postId +`/comment/${commentId}`, {
             params : {pwd:pwd}
         }).then(
             (response)=>(response && response.data) || null
@@ -63,7 +63,7 @@ export default class FreeboardApi{
     }
 
     freeboardsubCommCreate(postId, commentId, comment){
-        let new_comment = axios.post(`${FREEBOARD_API_URL+"/api/freeboard/"}${postId}/comment/${commentId}/subcomment`, comment).then(
+        let new_comment = axios.post(`/api/freeboard/${postId}/comment/${commentId}/subcomment`, comment).then(
             (response)=>(response && response.data) || null
         )
             return new_comment;
@@ -71,7 +71,7 @@ export default class FreeboardApi{
 
     freeboardsubCommDelete(postId, commentId, subCommId, pwd){
         // DELETE /api/freeboard/{postId}/comment/{commentId}/{subcommId}
-        let url = FREEBOARD_API_URL+"/api/freeboard/"+postId+`/comment/${commentId}/${subCommId}`
+        let url = "/api/freeboard/"+postId+`/comment/${commentId}/${subCommId}`
         let result = axios.delete(url, {
             params : {pwd : pwd}
         }).then(
@@ -84,7 +84,7 @@ export default class FreeboardApi{
 
     freeboardPostDelete(postId, pwd){
     
-        let result = axios.delete(FREEBOARD_API_URL+"/api/freeboard/" + postId ,{
+        let result = axios.delete("/api/freeboard/" + postId ,{
             params : {pwd: pwd}
         }).then(
             (response)=>(response && response.data) || null
@@ -93,7 +93,7 @@ export default class FreeboardApi{
     }
 
     freeboardPostLike(postId){
-        let result = axios.put(FREEBOARD_API_URL+"/api/freeboard/"+postId).then(
+        let result = axios.put("/api/freeboard/"+postId).then(
             (response)=>(response && response.data) || null
         )
         console.log("api ==== >"+result);
@@ -103,7 +103,7 @@ export default class FreeboardApi{
     }
 
     freeboardPostDislike(postId){
-        let result = axios.put(FREEBOARD_API_URL+"/api/freeboard/"+postId+"/dislike").then(
+        let result = axios.put("/api/freeboard/"+postId+"/dislike").then(
             (response)=>(response && response.data) || null
         )
         console.log("api dislike ====> ")
@@ -112,7 +112,7 @@ export default class FreeboardApi{
     }
 
     freeboardIncreView(postId){
-        let result = axios.put(FREEBOARD_API_URL+"/api/freeboard/"+postId+"/view").then(
+        let result = axios.put("/api/freeboard/"+postId+"/view").then(
             (response)=>(response && response.data) || null
         )
         return result;
