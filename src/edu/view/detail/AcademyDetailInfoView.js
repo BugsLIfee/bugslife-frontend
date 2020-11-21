@@ -1,4 +1,3 @@
-import { stringify } from 'qs';
 import React, { Component } from 'react'
 import { Grid, Image } from "semantic-ui-react";
 import "../scss/AcademyDetail.scss"

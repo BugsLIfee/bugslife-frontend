@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Grid, Image } from "semantic-ui-react";
-import Rating from '@material-ui/lab/Rating';
 import { Link } from 'react-router-dom'
 import "../scss/EduDetail.scss"
 

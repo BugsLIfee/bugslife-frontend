@@ -6,8 +6,8 @@ import "../scss/myPageContainer.scss";
 import {inject, observer} from "mobx-react"
 import MypageUser from "../view/MyPage_user";
 import PointPage from "../../point/PointPage";
-import { Redirect } from "react-router-dom";
-import swal from "sweetalert";
+// import { Redirect } from "react-router-dom";
+// import swal from "sweetalert";
 import { getCurrentUser } from "../../oauth/api/APIUtils"
 
 

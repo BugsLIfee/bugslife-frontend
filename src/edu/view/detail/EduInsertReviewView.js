@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Rating from '@material-ui/lab/Rating';
-import { Form, Button, TextArea, Dropdown} from 'semantic-ui-react'
+import { Form, Button, TextArea } from 'semantic-ui-react'
 import "../scss/EduDetail.scss"
 
 
