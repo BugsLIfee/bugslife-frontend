@@ -67,12 +67,15 @@ export default class PostingView extends Component {
                     
                     <div className="posting_premium">
                         <div className="premium_sel_container">
-                        <h4 className="premium_sel_txt">✨ 프리미엄</h4><Radio toggle />
+                        <h4 className="premium_sel_txt">✨ 프리미엄</h4><Radio toggle onChange={() => {this.setState({isPremium: !this.state.isPremium})}}/>
                         </div>
                         <div className="premium_point_container">
                         <h4 className="premium_point_txt"> 버그 현상금</h4> 
-                            <input className="premium_point" type="number" placeholder="현상금 입력"></input>
-                        <button className="premium_point_btn">입력</button>
+                            <input 
+                                className="premium_point" 
+                                type="number" 
+                                placeholder="현상금 입력"
+                                onChange={(e) => {this.setState({point: e.target.value})}} />
                         </div>
                     </div>
 

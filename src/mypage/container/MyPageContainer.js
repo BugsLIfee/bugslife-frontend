@@ -78,6 +78,7 @@ class Mypagecontainer extends Component {
       this.setState({curr_component: "point"});
     };
 
+
     const isLogin = this.props.Store.oauth.isLogin;
 
 

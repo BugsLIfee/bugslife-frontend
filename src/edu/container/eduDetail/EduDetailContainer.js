@@ -30,7 +30,7 @@ class EduDetailContainer extends Component {
         return (
             <div className="eduDetailLayout">
                 <EduInfoContainer eduInfo={eduInfo}/>
-                <EduAddReviewContainer onAddReview={onAddReview}/>
+                <EduAddReviewContainer onAddReview={onAddReview} oauth={oauth}/>
                 <EduReviewContainer eduReviews={eduReviews}/>
             </div>
         )

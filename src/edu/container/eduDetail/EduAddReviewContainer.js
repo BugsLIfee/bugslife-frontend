@@ -15,11 +15,11 @@ export class EduAddReviewContainer extends Component {
             this.setState({insertForm : !insertForm});
         }
         const { insertForm } = this.state;
-        const {onAddReview} = this.props;
+        const {onAddReview,oauth} = this.props;
         
         return (
             <div className="addReview">
-                {insertForm ? <EduInsertReviewView onAddReview={onAddReview} onInsertForm={onInsertForm} /> : <EduAddReviewView onInsertForm={onInsertForm} />}
+                {insertForm ? <EduInsertReviewView onAddReview={onAddReview} onInsertForm={onInsertForm} /> : <EduAddReviewView onInsertForm={onInsertForm} oauth={oauth} />}
             </div>
         );
     }
