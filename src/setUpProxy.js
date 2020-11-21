@@ -31,7 +31,7 @@ module.exports = function (app) {
 
   // education-service
   app.use(
-    "/api/education",
+    "/api/edu",
     createProxyMiddleware({
       target: "http://localhost:8082",
       changeOrigin: true,

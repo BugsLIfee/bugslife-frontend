@@ -20,7 +20,7 @@ class EduInfoApiModel{
         this.lecRate = reviewObj.lecRate
         this.eduId = reviewObj.eduId
         this.academyId = reviewObj.academyId
-        this.writerId = reviewObj.writerId
+        this.writerId = reviewObj.writer
     }
 }
 

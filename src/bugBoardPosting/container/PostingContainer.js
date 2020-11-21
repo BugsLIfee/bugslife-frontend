@@ -23,7 +23,6 @@ class PostingContainer extends Component {
             }
             point.onAddPoint(pointObj)
         }
-
         return (
             <div>
                 <PostingView onAddPost={onAddPost} />

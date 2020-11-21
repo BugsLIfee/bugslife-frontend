@@ -6,28 +6,27 @@ import ReportContainer from "../../../report/container/ReportContainer"
 export class AcademyDetailReviewView extends Component {
     render() {
         const {review} = this.props
-        console.log("리뷰나누기전",review.userIcon)
         return (
             <div>
 
-                <div className="eduReviewLayout">
-                    <div className="eduReviewTitle">
-                        <div className="eduReviewTitleInfo">
+                <div className="academyReviewLayout">
+                    <div className="academyReviewTitle">
+                        <div className="academyReviewTitleInfo">
                             <img src="public/logo/userIcon.png" alt="userLogo"></img>
-                            <div className="eduReviewTitleValue eduReviewClick">연결안된 유저</div>
+                            <div className="academyReviewTitleValue academyReviewClick">연결안된 유저</div>
                             {/* <div className="eduReviewTitleValue">{review.title}</div> */}
-                            <div className="eduReviewTitleValue">{review.registDate}</div>
-                            <div className="eduReviewTitleValue eduReviewClick">
+                            <div className="academyReviewTitleValue">{review.registDate}</div>
+                            <div className="academyReviewTitleValue academyReviewClick">
                                 <ReportContainer bt_text = {<div>신고</div>} />
                             </div>
                         </div>
                         <div className="reviewHate">
-                            <div className="eduReviewClick">광고 의심</div>
+                            <div className="academyReviewClick">광고 의심</div>
                             <div className="reviewHateValue">&nbsp;&nbsp;{review.adReport}</div>
                         </div>
                     </div>
-                    <div className="eduReviewBody">
-                        <div className="eduReviewBodyL">
+                    <div className="academyReviewBody">
+                        <div className="academyReviewBodyL">
                             <div className="reviewRating">
                                 <div className="allRate">
                                     <p>총점</p> 
