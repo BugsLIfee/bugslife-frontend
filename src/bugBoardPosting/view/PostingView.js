@@ -3,6 +3,7 @@ import { Label, Input, Button, Radio } from 'semantic-ui-react'
 import 'codemirror/lib/codemirror.css';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import { Editor } from '@toast-ui/react-editor';
+import Calendar from 'react-calendar';
 import "./scss/posting.scss"
 
 
@@ -43,6 +44,13 @@ export default class PostingView extends Component {
                 })
             })
         }
+
+        const selectDueDate = (value) => {
+            this.setState({
+                ...this.state,
+                dueDate: value
+            })
+        }
         
         let input_tag;
 
@@ -77,6 +85,9 @@ export default class PostingView extends Component {
                                 type="number" 
                                 placeholder="현상금 입력"
                                 onChange={(e) => {this.setState({point: e.target.value})}} />
+                        </div>
+                        <div className="premium_sel_container">
+                            <h4 className="premium_sel_txt"> ⏱ 마감일</h4><Radio toggle onChange={() => {this.setState({isPremium: !this.state.isPremium})}}/>
                         </div>
                     </div>
 
