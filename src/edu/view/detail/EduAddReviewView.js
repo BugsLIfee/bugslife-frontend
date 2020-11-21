@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import "../../view/scss/EduDetail.scss"
+import "../scss/EduDetail.scss"
 
 export class EduAddReviewView extends Component {
     render() {

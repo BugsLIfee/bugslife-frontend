@@ -43,7 +43,7 @@ class EduListContainer extends Component {
         if (eduLists.length % 10) {
             totalPage += 1
           }
-
+        
         const edu = eduItemOne.map((eduList) => {
             return (
                 <div className="eduListItem">

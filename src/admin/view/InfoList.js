@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Table, Pagination,  Icon } from "semantic-ui-react";
+import { Container, Pagination,  Icon } from "semantic-ui-react";
 import "./scss/infoList.scss";
 class InfoList extends Component {
   constructor(props) {
@@ -93,7 +93,6 @@ class InfoList extends Component {
           style={{float: 'right'}}
           />
          
-    
       </Container>
     );
   }

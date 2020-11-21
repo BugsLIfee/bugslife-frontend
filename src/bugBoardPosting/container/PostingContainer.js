@@ -11,10 +11,17 @@ class PostingContainer extends Component {
     render() {
 
         const { bugBoardPosting } = this.props.Store;
-        const { oauth } = this.props.Store;
+        const { oauth, point } = this.props.Store;
         const onAddPost = (postObj) => {
             postObj.writer = oauth.getCurrentUserInfo.id;
             bugBoardPosting.onAddPost(postObj);
+            
+            const pointObj = {
+                userId: oauth.getCurrentUserInfo.id,
+                amout: -postObj.point,
+                detail: "질문등록"
+            }
+            point.onAddPoint(pointObj)
         }
 
         return (

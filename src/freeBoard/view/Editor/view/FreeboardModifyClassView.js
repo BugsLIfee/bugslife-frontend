@@ -19,6 +19,7 @@ import "./scss/posting.scss"
          }
      }
 
+
     editorRef = React.createRef();
 
     onSubmitForm=()=>{

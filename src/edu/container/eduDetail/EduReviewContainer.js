@@ -12,7 +12,6 @@ export class EduReviewContainer extends Component {
     // state = { options }
     render() {
         const {eduReviews} = this.props
-        console.log(eduReviews)
 
         const review = eduReviews.map((review) => {
             return (
