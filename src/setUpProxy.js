@@ -11,7 +11,9 @@ module.exports = function (app) {
       changeOrigin: true,
     })
   );
+
   // user-service;
+
   app.use(
     "/user/me",
     createProxyMiddleware({

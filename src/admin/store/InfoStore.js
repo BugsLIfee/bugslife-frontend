@@ -55,6 +55,7 @@ export default class InfoStore {
   @action
   async selectInfo(id) {
     this.info = await this.infoApi.infoDetail(id);
+    console.log(await this.infoApi.infoDetail(id))
     console.log("info in infoStore ::", this.info);
   }
 }
