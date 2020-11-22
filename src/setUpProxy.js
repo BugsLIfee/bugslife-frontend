@@ -12,13 +12,13 @@ module.exports = function (app) {
     })
   );
 //   // user-service;
-//   app.use(
-//     "/user/me",
-//     createProxyMiddleware({
-//       target: "http://localhost:8088",
-//       changeOrigin: true,
-//     })
-//   );
+  app.use(
+    "/user/me",
+    createProxyMiddleware({
+      target: "http://localhost:8088",
+      changeOrigin: true,
+    })
+  );
 
   // bugboard-service
   app.use(

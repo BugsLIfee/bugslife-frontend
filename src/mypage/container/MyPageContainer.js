@@ -61,9 +61,7 @@ class Mypagecontainer extends Component {
     let {allList} = this.props.Store.attendance;
     let {commentList} = this.props.Store.list;
 
-    console.log("CommentList ========")
-    console.log(commentList);
-    // let testList = 
+
 
     // this.props.Store.list.getlistById(user.id)
 
