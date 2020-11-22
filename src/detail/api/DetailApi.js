@@ -1,9 +1,8 @@
 import { request } from "../../oauth/api/APIUtils";
-import { BUGBOARD_API_URL } from '../../oauth/constants/index';
 
 export default class DetailApi {
-  // url = "http://localhost:8088/api/bugboard/detail/";
-  url = BUGBOARD_API_URL + "/api/bugboard/detail/";
+  
+  url = "/api/bugboard/detail/";
 
   answerCreate(answerApiModel) {
     console.log(answerApiModel);

@@ -30,7 +30,7 @@ export class EduDetailReviewView extends Component {
                             <div className="reviewRating">
                                 <div className="allRate">
                                     <p>총점</p> 
-                                    <Rating name="half-rating-read" className="reviewRatingBar" value={review.reivewsRate} precision={0.5} readOnly size="large"/>
+                                    <Rating name="half-rating-read" className="reviewRatingBar" value={parseInt(review.reivewsRate*2)/2} precision={0.5} readOnly size="large"/>
                                     {/* {review.reivewsRate} */}
                                 </div>
                                 <div className="reviewRatingItem">&nbsp;교육 수준

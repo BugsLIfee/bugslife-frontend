@@ -1,9 +1,13 @@
-class DetailApiModel{
-    post_id="";
-    title="";
-    constructor(post_id, title){
-        this.post_id= post_id;
-        this.title = title;
+class ReportApiModel{
+
+    boardType = "";
+    reportDetail = "";
+    reportType = "";
+
+    constructor(reportObj){
+        this.boardType = reportObj.boardType;
+        this.reportDetail = reportObj.reportDetail;
+        this.reportType = reportObj.reportType;
     }
 }
-export default  DetailApiModel;
+export default ReportApiModel;

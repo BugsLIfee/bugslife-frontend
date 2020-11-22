@@ -1,6 +1,5 @@
 import axios from "axios"
 import { request }from "../../oauth/api/APIUtils";
-import { API_BASE_URL } from '../../oauth/constants/index';
 
 
 class TagApi {
@@ -15,7 +14,7 @@ class TagApi {
   //todoList(todoApiModel):url get  return todo
   tagListAll() {
     return request({
-      url:API_BASE_URL + "/api/tag/",
+      url: this.url,
       method:'GET'
     });
     // return axios.get(this.URL).then((response) => (response && response.data) || null)

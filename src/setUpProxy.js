@@ -11,7 +11,9 @@ module.exports = function (app) {
       changeOrigin: true,
     })
   );
-//   // user-service;
+
+  // user-service;
+
   app.use(
     "/user/me",
     createProxyMiddleware({
@@ -31,7 +33,7 @@ module.exports = function (app) {
 
   // education-service
   app.use(
-    "/api/education",
+    "/api/edu",
     createProxyMiddleware({
       target: "http://localhost:8082",
       changeOrigin: true,
@@ -40,7 +42,7 @@ module.exports = function (app) {
 
   // freeboard-service
   app.use(
-    "/api/freeboard",
+   "/api/freeboard/",
     createProxyMiddleware({
       target: "http://localhost:8083",
       changeOrigin: true,

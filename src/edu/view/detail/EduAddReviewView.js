@@ -4,7 +4,8 @@ import "../scss/EduDetail.scss"
 export class EduAddReviewView extends Component {
     render() {
 
-        const {onInsertForm} = this.props;
+        const {onInsertForm,oauth} = this.props;
+        console.log(oauth.getCurrentUserInfo.id)
 
         return (
 

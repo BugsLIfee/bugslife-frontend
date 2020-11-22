@@ -70,7 +70,7 @@ export default class InfoEdit extends Component {
 
     // console.log(infoCategory);
 
-    const { registDate,editDate,content, title} =this.state;
+    const { registDate,editDate,title} =this.state;
    return (
       <div>
         <h2>

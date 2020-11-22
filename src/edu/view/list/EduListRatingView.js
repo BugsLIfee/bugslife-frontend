@@ -7,12 +7,10 @@ export class EduListRatingView extends Component {
     render() {
 
         const {eduList} = this.props
-        //console.log(eduList.rating)
         return (
 
             <div className="eduItemRatingContent">
-                <Rating className="eduRatingBar" name="half-rating-read" value={eduList.eduRate} precision={0.5} readOnly size="large"/>
-                {/* <div>{eduList.eduRate}</div> */}
+                <Rating className="eduRatingBar" name="half-rating-read" value={parseInt(eduList.eduRate*2)/2} precision={0.5} readOnly size="large"/>
                 <h3>후기&nbsp;&nbsp;<span>{eduList.reviewCnt}</span>건</h3>
             </div>
         

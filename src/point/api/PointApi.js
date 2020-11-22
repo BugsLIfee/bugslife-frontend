@@ -2,7 +2,7 @@ import { request } from "../../oauth/api/APIUtils";
 
 export default class PointApi {
 
-    url = "http://localhost:8088/api/point/";
+    url = "/api/point/";
 
     pointList() {
       return request({
@@ -12,7 +12,6 @@ export default class PointApi {
     }
 
     pointCreate(pointApiModel) {
-      console.log(pointApiModel, "포인트에피아모델")
       return request({
         url: this.url + "add/",
         method: 'POST',
