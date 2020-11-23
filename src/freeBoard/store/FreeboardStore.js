@@ -86,10 +86,7 @@ class FreeboardStore{
       if(post.pwd === "" || post.pwd === undefined || post.pwd ===null){
         return alert("비밀번호를 입력해주세요.")
       }
-      if(post.cate ===""){
-        alert("카테고리는 필수 선택사항입니다.")
-        return;
-      }
+
 
       post = new FreeboardPostAddModel(post);
       let result = await this.freeApi.freeboardCreatePost(post);

@@ -36,7 +36,9 @@ export default class InfoStore {
     console.log("before:",infoObj);
     infoObj = new InfoApiModel(infoObj);
     console.log("after:",infoObj);
-    let result = await this.infoApi.infoCreate(InfoApiModel);
+    let result = await this.infoApi.infoCreate(infoObj);
+
+
     if (result === null) {
       console.log(`${this.InfoApiModel.id}:info CREATE ERROR!`);
     }else{
@@ -45,17 +47,30 @@ export default class InfoStore {
   }
 
   @action
-  async selectAllinfo(CurrentUser) {
-    let result = await this.infoApi.infoList(CurrentUser);
+  async selectAllinfo() {
+    let result = await this.infoApi.infoList();
     this.infos = result;
     console.log("infoList in infoStore ::", this.infos);
 
   }
 
   @action
+  async deleteInfo(infoId){
+    await this.infoApi.infoDelete(infoId);
+  } 
+
+  @action
   async selectInfo(id) {
     this.info = await this.infoApi.infoDetail(id);
-    console.log(await this.infoApi.infoDetail(id))
     console.log("info in infoStore ::", this.info);
+  }
+
+  @action
+  async modifyInfo(infoObj){
+    console.log("before:",infoObj);
+    infoObj = new InfoApiModel(infoObj);
+    console.log("after:",infoObj);
+
+    await this.infoApi.infoModify(infoObj);
   }
 }

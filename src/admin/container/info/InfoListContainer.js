@@ -7,7 +7,7 @@ import { inject, observer } from "mobx-react";
 class InfoListContainer extends Component {
 
   componentDidMount=()=>{
-     this.props.Store.info.selectAllinfo(this.props.Store.oauth.getCurrentUserInfo);
+    this.props.Store.info.selectAllinfo(this.props.Store.oauth.getCurrentUserInfo);
     let test= this.props.Store.oauth.getCurrentUserInfo
     console.log("TEST : ", test)
     

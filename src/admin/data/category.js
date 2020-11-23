@@ -6,6 +6,6 @@ export default[
 {"key":104,"text":"게시물신고","value":"qna"},
 {"key":105,"text":"버그신고","value":"qna"},
 {"key":106,"text":"건의사항","value":"qna"},
-{"key":200,"text":"공지","value":"info"},
-{"key":201,"text":"이벤트","value":"info"}
+{"key":200,"text":"공지","value":"INFO"},
+{"key":201,"text":"이벤트","value":"INFO"}
 ]
