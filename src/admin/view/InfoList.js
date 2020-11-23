@@ -32,13 +32,13 @@ class InfoList extends Component {
     let CreateTableRowList = listPageOne.map((obj,key) => (
       <div className="info_table_list_sec" key={key} onClick={()=>handleLink(`${obj.id}`)}>
         <div className="info_postId" >{obj.id}</div>
-        <div className="info_writer" >{obj.name}</div>
+        {/* <div className="info_writer" >{obj.name}</div> */}
         <div className="info_postCate" > {obj.adminCategory}</div>
         <div className="info_postTitle" >{obj.title}</div>
         <div className="info_date" >
           {obj.editDate===null 
-           ? `작성일:${obj.registDate}`
-           : `작성일:${obj.registDate}-수정일:${obj.editDate}`}
+           ? `${obj.registDate}`
+           : `${obj.editDate}`}
           </div>
         <div className="info_view">{obj.viewCnt}</div>
       </div>
@@ -70,7 +70,7 @@ class InfoList extends Component {
         <div className="infoList-container">
             <div className="infoList_header">
               <p>번호</p>
-              <p>작성자</p>
+              {/* <p>작성자</p> */}
               <p>문의종류</p>
               <p>제목</p>
               <p>날짜</p>
@@ -81,7 +81,9 @@ class InfoList extends Component {
             </div>
         </div>
 
-        <Pagination
+      <div className="infoList-pagination">
+
+      <Pagination
           boundaryRange={0}
           defaultActivePage={1}
           ellipsisItem={null}
@@ -93,6 +95,9 @@ class InfoList extends Component {
           style={{float: 'right'}}
           />
          
+
+      </div>
+
       </Container>
     );
   }

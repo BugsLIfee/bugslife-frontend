@@ -1,5 +1,5 @@
 import { request }from "../../oauth/api/APIUtils";
-
+// import {ADMIN_API_URL} 
 export default class InfoApi {
   
   NOTICE_API_URL = "/api/admin/notice";
