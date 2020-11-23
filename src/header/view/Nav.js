@@ -47,6 +47,7 @@ class Nav extends Component {
 
   render() {
     const oauth = this.props.Store.oauth;
+    console.log("어드민? ?" , oauth.getIsAdmin)
    // console.log("header-nave-props",this.props);
     return (
       <nav>
@@ -110,9 +111,9 @@ class Nav extends Component {
         ):(<section></section>)}
 
           <div>
-            <a href="/contact/my">
+            <a href="/contact/info">
               {" "}
-              <h4>문의하기</h4>
+              <h4>공지 & 문의</h4>
             </a>
           </div>
         </div>
@@ -175,9 +176,9 @@ class Nav extends Component {
           <></>
           )}
           <div>
-            <a href="/contact/my">
+            <a href="/contact/info">
               {" "}
-              <h4>문의하기</h4>
+              <h4>공지 & 문의</h4>
             </a>
           </div>
         </div>

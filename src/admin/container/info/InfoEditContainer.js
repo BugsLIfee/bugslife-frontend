@@ -92,6 +92,8 @@ class InfoEditContainer extends Component {
   };
 
   componentDidMount=()=>{
+
+    console.log(this.props.match.url)
     const searchObj = qs.parse(this.props.location.search, {
       ignoreQueryPrefix: true,
     });
@@ -105,8 +107,12 @@ class InfoEditContainer extends Component {
   render() {
    const oauth = this.props.Store.oauth;
    const adminInfo = {...oauth.getCurrentUserInfo};
-   const infoCategory = adminCategory.filter((obj)=>(obj.value==='INFO'))
+   let url = this.props.match.url;
+   let cateByUrl = url ==="/contact/qna-write" ? "QNA" : 'INFO';
+   const infoCategory = adminCategory.filter((obj)=>(obj.value=== cateByUrl))
    
+
+   console.log("INFO CATEGORY OPTION : ", infoCategory)
 
 
    console.log("INfo container : ", this.props.Store.info.info);
@@ -114,6 +120,7 @@ class InfoEditContainer extends Component {
     return (
       <div>
         <InfoEdit
+          selectUrl ={url}
           info={this.props.Store.info.info}
           currentUser={adminInfo}
           onSetInfoProp={this.onSetInfoProp}

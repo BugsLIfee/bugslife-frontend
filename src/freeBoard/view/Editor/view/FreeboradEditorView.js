@@ -97,6 +97,8 @@ export default class FreeboardEditorView extends Component {
             )
         })
 
+        console.log("CATEGORY OPTION : ", categoryOptions)
+
         console.log(this.state)
         return(
             <form className="posting">

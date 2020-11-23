@@ -65,7 +65,7 @@ export default class InfoEdit extends Component {
     }
   }
 
-  onsubmit=()=>{
+  onSubmitQna=()=>{
     const {info, currentUser} = this.props;
     let today = new Date();
     let date = `${today.getFullYear()}-${today.getMonth()}-${today.getDate()}`
@@ -84,11 +84,33 @@ export default class InfoEdit extends Component {
       
       console.log("onSubmitstate----", {...this.state});
       // return {...this.state}
+      // this.props.onAddInfo({...this.state})
+
+    }
+  }
+
+  onsubmit=()=>{
+    const {info, currentUser} = this.props;
+    let today = new Date();
+    let date = `${today.getFullYear()}-${today.getMonth()}-${today.getDate()}`
+    console.log(date)
+
+    if(this.state.category===undefined || this.state.category===""){
+      return alert("카테고리를 선택해주세요.")
+    }else{
+      this.setState({
+        ...this.state,
+        // registDate: info.registDate? info.registDate: date,
+        editDate: date,
+        user: this.props.currentUser.id,
+      })
+      
+      console.log("onSubmitstate----", {...this.state});
       this.props.onAddInfo({...this.state})
 
     }
+  }
 
-    }
   // this.setState({});
   render() {
     const {
@@ -99,18 +121,29 @@ export default class InfoEdit extends Component {
       onAddInfo,
       onRemoveInfo,
       onModifyInfo,
+      selectUrl
     } = this.props;
 
 
     const { registDate, editDate,title} =this.state;
    return (
       <div className="infoEdit_container">
-        <h2>
-            <span role="img" aria-label="aria">
-          📢공지사항 작성 페이지 
+        {selectUrl==="/contact/qna-write" ? (<h2>
+          <span role="img" aria-label="aria">
+          1:1 문의 작성
+          </span>
+          </h2>
+        ) :
+          (
+          <h2>
+          <span role="img" aria-label="aria">
+            📢공지사항 작성 페이지 
           </span>
           </h2>
         
+          )
+        }
+  
         <Form>
           <div className="infoEdit-info">
           <Form.Input
@@ -186,10 +219,18 @@ export default class InfoEdit extends Component {
             </Button>
           </>
         ) : (
-          <Button primary onClick={()=>this.onsubmit()}>
+
+          selectUrl ==="/contact/qna-write" ? 
+          (<Button primary onClick={this.onSubmitQna}>
+            작성완료
+          </Button>
+         )
+
+          :
+         (<Button primary onClick={()=>this.onsubmit()}>
           작성완료
           </Button>
-       
+         )
         )}
       </div>
     );
