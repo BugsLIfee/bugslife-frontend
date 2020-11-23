@@ -33,17 +33,13 @@ class InfoEditContainer extends Component {
     if(infoObj["editDate"] === undefined || infoObj["editDate"] ==="" ){
       infoObj["editDate"] = date
     } 
-
-
     console.log("addInfo함수 호출", infoObj);
-
-    
     this.props.Store.info.onAddInfo(infoObj);
     swal("작성완료!","공지사항이 등록되었습니다!","success");
 
     this.props.history.push({
       pathname: `/admin/info-list`
-  });
+    });
   
   window.location.reload();
   };
