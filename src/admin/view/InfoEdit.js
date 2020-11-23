@@ -4,22 +4,23 @@ import moment from "moment";
 import 'codemirror/lib/codemirror.css';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import { Editor } from '@toast-ui/react-editor';
+import "./scss/infoEdit.scss"
 
 
 export default class InfoEdit extends Component {
 
   constructor(props){
     super(props)
-    var info = this.props;
+    var info = this.props.info;
 
-    console.log("뭐넘겨주니..?",this.props);
+    console.log("뭐넘겨주니..?",info);
     this.state={
-      user:"",
+      user: this.props.currentUser.id,
       username: info&&info.user? info.user.name :this.props.currentUser.name,
       category:info&&info.category ? info.category :"",
       registDate:info&&info.registDate ? info.registDate : "",
-      editDate:info&&info.editDate ? info.editDate : "",
-      title: info&&info.title ? info.title : "",
+      editDate:info&& info.editDate ? info.editDate : "",
+      title: info && info.title ? info.title : "",
       content:info&&info.title ? info.title : "",
     }
   }
@@ -35,56 +36,113 @@ export default class InfoEdit extends Component {
 
   handleChange = (e) => {
     this.setState({
+      ...this.state,
       [e.target.name]: e.target.value
     });
     console.log("------statechange:",this.state);
   }
 
-  selectCategory=()=>{
+  selectCategory=(e, data)=>{
+    console.log("categoray!!!!! ", data.value)
+    this.setState({...this.state, category : data.value})
 
   }
 
-  onsubmit=()=>{
-    const {info, currentUser} = this.props;
+  onModifyInfo=()=>{
+    const {info} = this.props;
+   
+    if(this.state.category===undefined || this.state.category===""){
+      return alert("카테고리를 선택해주세요.")
+    }else{
       this.setState({
         ...this.state,
-        registDate: info.registDate? info.registDate:this.nowDate(),
-        editDate:info.registDate? this.nowDate() : "",
-        user:{...currentUser.id}
+        registDate: info.registDate,
+        user: this.props.currentUser.id,
       })
-      console.log("onSubmitstate----", {...this.state});
-    return {...this.state}
+
+      this.props.onModifyInfo(this.state)
+
     }
+  }
+
+  onSubmitQna=()=>{
+    const {info, currentUser} = this.props;
+    let today = new Date();
+    let date = `${today.getFullYear()}-${today.getMonth()}-${today.getDate()}`
+    console.log(date)
+
+    if(this.state.category===undefined || this.state.category===""){
+      return alert("카테고리를 선택해주세요.")
+    }else{
+      this.setState({
+        ...this.state,
+        // registDate: info.registDate? info.registDate: date,
+        editDate: date,
+        user: this.props.currentUser.id,
+      })
+      
+      
+      console.log("onSubmitstate----", {...this.state});
+      // return {...this.state}
+      // this.props.onAddInfo({...this.state})
+
+    }
+  }
+
+  onsubmit=()=>{
+    let today = new Date();
+    let date = `${today.getFullYear()}-${today.getMonth()}-${today.getDate()}`
+    console.log(date)
+
+    if(this.state.category===undefined || this.state.category===""){
+      return alert("카테고리를 선택해주세요.")
+    }else{
+      this.setState({
+        ...this.state,
+        // registDate: info.registDate? info.registDate: date,
+        editDate: date,
+        user: this.props.currentUser.id,
+      })
+      
+      console.log("onSubmitstate----", {...this.state});
+      this.props.onAddInfo({...this.state})
+
+    }
+  }
+
   // this.setState({});
   render() {
     const {
       info,
       infoCategory,
       currentUser,
-      //onSetInfoProp,
-      onAddInfo,
-      onRemoveInfo,
-      onModifyInfo,
+      selectUrl
     } = this.props;
 
-
-    // console.log(infoCategory);
-
-    const { registDate,editDate,title} =this.state;
    return (
-      <div>
-        <h2>
-            <span role="img" aria-label="aria">
-          📢공지사항 작성 페이지 
+      <div className="infoEdit_container">
+        {selectUrl==="/contact/qna-write" ? (<h2>
+          <span role="img" aria-label="aria">
+          1:1 문의 작성
           </span>
           </h2>
+        ) :
+          (
+          <h2>
+          <span role="img" aria-label="aria">
+            📢공지사항 작성 페이지 
+          </span>
+          </h2>
+        
+          )
+        }
+  
         <Form>
-            
-            <Form.Input
+          <div className="infoEdit-info">
+          <Form.Input
             width={3}
             readOnly
               fluid
-              label="운영팀"
               name="name"
               value={currentUser.name}
             />
@@ -95,15 +153,15 @@ export default class InfoEdit extends Component {
             options={infoCategory}
             onChange={this.selectCategory} />
          
-            {registDate
+            {/* {registDate
            ? <Form.Input
               width={3}
               fluid readOnly
               label="작성일"
               name="registDate"
-              value={registDate}
+              value={info.registDate}
             />
-            :""}
+            : ""}
 
             {editDate?
             <Form.Input
@@ -114,47 +172,58 @@ export default class InfoEdit extends Component {
               value={editDate}
             />
             :""}
-          
+           */}
+            
+             </div>
+
           <Form.Input
             width={6}
             fluid
             label="제목"
             placeholder="제목을 입력하세요"
             name="title"
-            value= {title}
-             onChange={(e) => this.handleChange(e)}
-           // onChange={(e) => onSetInfoProp("title", e.target.value)}
+            value = {this.state.title ===""|| this.state.title ===undefined ? info.title: this.state.title}
+            onChange={ this.handleChange}
           />
 
         </Form>
 
+      <div className="info_editor">
          <Editor
           height="50rem"
           initialEditType="wysiwyg"
           previewStyle="vertical"
           ref={this.editorRef}
           placeholder={ "공지사항을 입력해주세요."}
-          
-         onChange = {() => {
+          onChange = {() => {
           this.setState({
            content: this.editorRef.current.getInstance().getHtml()
             })
           }}
           />
-        <Button primary onClick={()=>onAddInfo(this.onsubmit())}>
-          작성완료
-        </Button>
-        {info ? (
+
+      </div>
+
+       
+        {info.id !== undefined ? (
           <>
-            <Button primary onClick={onRemoveInfo}>
-              삭제
-            </Button>
-            <Button primary onClick={onModifyInfo}>
+            <Button primary onClick={this.onModifyInfo}>
               수정
             </Button>
           </>
         ) : (
-          ""
+
+          selectUrl ==="/contact/qna-write" ? 
+          (<Button primary onClick={this.onSubmitQna}>
+            작성완료
+          </Button>
+         )
+
+          :
+         (<Button primary onClick={()=>this.onsubmit()}>
+           작성완료
+          </Button>
+         )
         )}
       </div>
     );

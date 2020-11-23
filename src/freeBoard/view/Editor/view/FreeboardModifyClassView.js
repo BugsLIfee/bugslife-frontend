@@ -4,7 +4,7 @@ import 'codemirror/lib/codemirror.css';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import { Editor } from '@toast-ui/react-editor';
 import "./scss/posting.scss"
-
+import swal from 'sweetalert';
 
  class FreeboardModifyClassViews extends Component{
      constructor(props){
@@ -27,10 +27,10 @@ import "./scss/posting.scss"
 
 
         if(post.title=== ""){
-            alert("제목을 입력해주세요.")
+            swal("😥 ","제목을 입력해주세요.","warning");
         }
         if(post.pwd === "" || post.pwd === undefined || post.pwd === null){
-             return alert("유효하지 않은 비밀번호입니다.")
+            swal("😥 ","유효하지 않은 비밀번호입니다.","warning");
         }
 
         console.log(this.state.isValid);
@@ -40,7 +40,7 @@ import "./scss/posting.scss"
             console.log("it is okay to post")
             // this.props.onCreatePost(post)
         }else{
-            alert("비밀번호가 일치하지 않습니다.")
+            swal("🚫","비밀번호가 일치하지 않습니다.","warning");
         }
 
         this.props.onUpdate(this.state)
@@ -93,16 +93,6 @@ import "./scss/posting.scss"
                 }
             )
         })
-
-        // if(this.state.title === undefined){
-        //     console.log("title is undifined")
-        //     console.log(this.state.title)
-        //     console.log(this.props.post.title)
-        //     // this.setState({...this.state, title:this.props.post.title})
-        // }
-
-        // console.log(this.state)
-        // const v = this.state.title ? this.state.title : this.props.post.title;
 
         return(
             <form className="posting">

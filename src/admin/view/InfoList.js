@@ -18,7 +18,8 @@ class InfoList extends Component {
   render() {
     const { ListData } = this.props;
     // console.log("listdata", ListData);
-
+    let user = this.props.user
+  
    const handleLink = (id) => {
     this.props.history.push("/admin/info-detail?id=" + id);
    };
@@ -61,10 +62,14 @@ class InfoList extends Component {
               </h3>
             </div>
         
-            <div className="write_btn_box">
-            <a href="/admin/info-write"> <Icon name="pencil"/>공지사항 작성 </a>
-            </div>
-    
+        {user.role === "ADMIN"?
+        (       <div className="write_btn_box">
+        <a href="/admin/info-write"> <Icon name="pencil"/>공지사항 작성 </a>
+        </div>
+        ) :
+        (<div></div>)
+        }
+     
           </span>
         </div>
         <div className="infoList-container">

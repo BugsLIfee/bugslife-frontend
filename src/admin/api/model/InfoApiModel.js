@@ -1,21 +1,12 @@
 class InfoApiModel{
-    id="";
-    writer="";
-    title="";
-    content="";
-    adminCategory="";
-    registDate="";
-    editDate="";
-
-    constructor(id, adminCategory, writer, title, content,registDate,editDate){
-        this.id= id;
-        this.adminCategory = adminCategory;
-        this.writer = writer;
-        this.title = title;
-        this.content = content;
-        this.registDate = registDate;
-        this.editDate = editDate;
-
+    constructor(infoPost){
+        this.id= infoPost.id;
+        this.adminCategory = infoPost.category;
+        this.writerId = infoPost.user;
+        this.title = infoPost.title;
+        this.content = infoPost.content;
+        this.registDate = infoPost.registDate;
+        this.editDate = infoPost.editDate;
     }
 
 }

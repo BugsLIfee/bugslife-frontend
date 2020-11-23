@@ -18,7 +18,7 @@ class ContactSideMenu extends Component {
               공지사항
           </div>
         </a>
-        <a href="/contct/qna-write">
+        <a href="/contact/qna-write">
           <div className="list">
               1:1문의 하기 
           </div>

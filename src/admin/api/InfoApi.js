@@ -2,9 +2,13 @@ import { request }from "../../oauth/api/APIUtils";
 // import {ADMIN_API_URL} 
 export default class InfoApi {
   
-  NOTICE_API_URL = "/api/admin/notice";
+  NOTICE_API_URL = "/api/admin/notice/";
 
   infoCreate(infoApiModel) {
+    console.log("API ADMIN CEATE")
+    console.log(infoApiModel)
+    console.log(this.NOTICE_API_URL)
+
          return request({
           url: this.NOTICE_API_URL,
           method: 'POST',
@@ -13,8 +17,9 @@ export default class InfoApi {
   }
 
   infoDetail(id) {
+    console.log("API Info Detail 불러오기")
        return request({
-          url: this.NOTICE_API_URL + "/"+id,
+          url: this.NOTICE_API_URL +id,
           method: 'GET',
       });
   }
@@ -38,7 +43,7 @@ export default class InfoApi {
   //todoDelete(todoApiModel):url delete return void
   infoDelete(id) {
        return request({
-          url: this.NOTICE_API_URL,
+          url: this.NOTICE_API_URL+id,
           method: 'DELETE',
       });
   }

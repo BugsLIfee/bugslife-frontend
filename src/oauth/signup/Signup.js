@@ -9,6 +9,8 @@ import githubLogo from '../img/github-logo.png';
 //import Alert from 'react-s-alert';
 import { Icon } from 'semantic-ui-react';
 import { inject, observer } from "mobx-react";
+
+
 import swal from 'sweetalert';
 @inject("Store")
 @observer

@@ -55,20 +55,11 @@ class Freeboarddetailcontainer extends Component {
 
         let curr_location = freeboard_list_index.indexOf(curr_index)
 
-       
 
         let next_post_ind = curr_location === 0 ? "last post" : curr_location - 1;
         let last_post_ind = curr_location === freeboard_list_index.length-1 ? "first post" : curr_location + 1;
 
     
-        // console.log("curr_location : "+curr_location);
-        // console.log("next : "+next_post_ind);
-        // console.log("last : " + last_post_ind)
-        
-
-        // console.log("index : " + freeboard_list.indexOf(freeboard_detail))
-        // console.log(freeboard_detail)
-        // console.log(freeboard_list)
         
         return (
             <div className="freeboard_detail_wrap">

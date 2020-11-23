@@ -61,8 +61,9 @@ import 'react-toastify/dist/ReactToastify.css';
 
         let userInfo = this.props.Store.oauth.currentUser;
         let uid = userInfo.id;
-        let done = userInfo.isAttend;
+        let done = userInfo.attend;
 
+        console.log(userInfo)
 
         console.log("isDone = ? " ,done)
         let filterList;

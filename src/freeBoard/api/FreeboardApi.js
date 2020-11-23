@@ -1,5 +1,5 @@
 import axios from "axios";
-import {FREEBOARD_API_URL} from "../../oauth/constants/index"
+// import {FREEBOARD_API_URL} from "../../oauth/constants/index"
 
 export default class FreeboardApi{
 

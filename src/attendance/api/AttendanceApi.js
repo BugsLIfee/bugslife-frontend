@@ -20,6 +20,12 @@ export default class AttendanceApi{
         })
     }
 
+    // attendDone(uid){
+    //     return request({
+    //         url: this.ATTEND_API_URL,
+    //         method:"PUT",
+    //     })
+    // }
 
     createAttend(attendanceModel){
         console.log("API")

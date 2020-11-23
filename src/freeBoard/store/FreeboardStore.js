@@ -18,9 +18,8 @@ class FreeboardStore{
     // onLike(){
     //   this.freeboard_detail.likes +=1
     // }
-
     @observable
-    freePost_likes = this.freeboard_detail.likes;
+    commentList = [];
 
     @observable
     freeboard_cate = ["자유", "취업", "연애", "학업", "유머", "스포츠", "회사"];
@@ -45,15 +44,39 @@ class FreeboardStore{
 
 
     @action
-    async freeboardList(){
-      let result = await this.freeApi.freeboardList()
+   async freeboardList(){
+      let result =await this.freeApi.freeboardList()
 
-      if(result !==null){
-        this.freeboard_list =result.map(val=>  { return{...val} }).sort((a,b)=> {return b.id - a.id});
-        // console.log(this.freeboard_list);
-      } else{
-        console.log("freeboard nulllllllll");
+      for(let i =0; i<result.length; i++){
+        let comments = await this.freeApi.freeboardComments(result[i].id)
+        result[i] = {...result[i], comment: comments.length}
       }
+
+      this.freeboard_list = result;
+      // console.log(result)
+
+      // let test = result.map(val=>{
+      // let comments = async() => await this.freeApi.freeboardComments(val.id);
+
+      // console.log(comments().length)
+      //  return{...val, comment: comments()}
+      // }).sort((a, b)=>{return b.id-a.id});
+        
+      
+      // this.freeboard_list =await test;
+      // this.freeboard_list.map(val=> console.log(val))
+        
+      // if(result !==null){
+        // this.freeboard_list =result
+        // .map(val=> {
+        //    return {...val} })
+        //    .sort((a,b)=> {return b.id - a.id});
+
+        // console.log(this.freeboard_list))
+      // } else{
+      //   console.log("freeboard nulllllllll");
+      // }
+    
     }
 
     @action
@@ -86,10 +109,7 @@ class FreeboardStore{
       if(post.pwd === "" || post.pwd === undefined || post.pwd ===null){
         return alert("비밀번호를 입력해주세요.")
       }
-      if(post.cate ===""){
-        alert("카테고리는 필수 선택사항입니다.")
-        return;
-      }
+
 
       post = new FreeboardPostAddModel(post);
       let result = await this.freeApi.freeboardCreatePost(post);
