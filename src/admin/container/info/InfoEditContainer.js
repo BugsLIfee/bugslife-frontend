@@ -109,7 +109,7 @@ class InfoEditContainer extends Component {
    const adminInfo = {...oauth.getCurrentUserInfo};
    let url = this.props.match.url;
    let cateByUrl = url ==="/contact/qna-write" ? "QNA" : 'INFO';
-   const infoCategory = adminCategory.filter((obj)=>(obj.value=== cateByUrl))
+   const infoCategory = adminCategory.filter((obj)=>(obj.opt=== cateByUrl))
    
 
    console.log("INFO CATEGORY OPTION : ", infoCategory)

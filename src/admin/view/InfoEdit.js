@@ -49,7 +49,7 @@ export default class InfoEdit extends Component {
   }
 
   onModifyInfo=()=>{
-    const {info, currentUser} = this.props;
+    const {info} = this.props;
    
     if(this.state.category===undefined || this.state.category===""){
       return alert("카테고리를 선택해주세요.")
@@ -90,7 +90,6 @@ export default class InfoEdit extends Component {
   }
 
   onsubmit=()=>{
-    const {info, currentUser} = this.props;
     let today = new Date();
     let date = `${today.getFullYear()}-${today.getMonth()}-${today.getDate()}`
     console.log(date)
@@ -117,15 +116,9 @@ export default class InfoEdit extends Component {
       info,
       infoCategory,
       currentUser,
-      //onSetInfoProp,
-      onAddInfo,
-      onRemoveInfo,
-      onModifyInfo,
       selectUrl
     } = this.props;
 
-
-    const { registDate, editDate,title} =this.state;
    return (
       <div className="infoEdit_container">
         {selectUrl==="/contact/qna-write" ? (<h2>
@@ -160,7 +153,7 @@ export default class InfoEdit extends Component {
             options={infoCategory}
             onChange={this.selectCategory} />
          
-            {registDate
+            {/* {registDate
            ? <Form.Input
               width={3}
               fluid readOnly
@@ -179,7 +172,7 @@ export default class InfoEdit extends Component {
               value={editDate}
             />
             :""}
-          
+           */}
             
              </div>
 
@@ -228,7 +221,7 @@ export default class InfoEdit extends Component {
 
           :
          (<Button primary onClick={()=>this.onsubmit()}>
-          작성완료
+           작성완료
           </Button>
          )
         )}

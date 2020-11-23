@@ -25,13 +25,13 @@ export default class MypageHome extends Component {
     // console.log("user? " , user)
 
     //출석률 계산하기
-    let timeNow= new Date().getTime();
-    let enrollTime = new Date(user.enrollDate).getTime()
+    // let timeNow= new Date().getTime();
+    // let enrollTime = new Date(user.enrollDate).getTime()
     let allList = this.props.allList;
     const attendList = allList.filter(val=> {return(val.uid=== user.id)})
 
-    let timeDiff = (timeNow-enrollTime)/1000/60/60/24;
-    let attendanceRate= parseInt(attendList.length/timeDiff * 100)
+    // let timeDiff = (timeNow-enrollTime)/1000/60/60/24;
+    // let attendanceRate= parseInt(attendList.length/timeDiff * 100)
 
       if(isLogin===false) {
       swal("접근 거부 !","로그인 후 사용가능합니다 !", "warning");
@@ -75,14 +75,14 @@ export default class MypageHome extends Component {
 
           <div className="MyPage_action_detail">
             <div className="action_detail_column">
-              <h3>출석률</h3>
+              <h3>출석일</h3>
               <h2 className="action_detail_rate">
                 <b className="att_rate">
-                  {attendanceRate}
+                  {attendList.length}
                   {/* {console.log(typeof attendanceRate, attendanceRate)} */}
                   {/* <CountUp end={64} duration={5} /> */}
                 </b>{" "}
-                %
+                일
               </h2>
             </div>
             <div className="action_detail_column">

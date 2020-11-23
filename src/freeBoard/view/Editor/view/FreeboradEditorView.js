@@ -101,7 +101,7 @@ export default class FreeboardEditorView extends Component {
 
         console.log(this.state)
         return(
-            <form className="posting">
+            <div className="posting">
                 <div className="posting_header">
                     <h2 className ="posting_title">자유게시판 글쓰기</h2>
                     <div className="posting_header_title_container">
@@ -136,14 +136,14 @@ export default class FreeboardEditorView extends Component {
                     </div>
 
                     <div className="upload">
-                    <button className="upload_btn" type="submit" onClick={()=>this.onSubmitForm()}> 
+                    <button className="upload_btn" onClick={()=>this.onSubmitForm()}> 
                         <h5>작성 완료</h5>
                     </button>
                 </div>
 
                     </div>
 
-            </form>
+            </div>
         )
     }
 }
