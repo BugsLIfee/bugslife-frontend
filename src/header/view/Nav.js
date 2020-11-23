@@ -31,16 +31,15 @@ class Nav extends Component {
     })
     .then((willLogout) => {
         if (willLogout) {
-          
           return swal("로그아웃되셨습니다!!", {
             icon: "success",
           });
-
         } else {
           swal("일시적인 장애로 로그아웃 실패! ");
         }
-        window.location.href="/";
-    });
+        this.props.history.push({
+          pathname: `/`
+    });})
   
   
 }

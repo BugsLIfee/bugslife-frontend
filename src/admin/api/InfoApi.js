@@ -7,6 +7,7 @@ export default class InfoApi {
   infoCreate(infoApiModel) {
     console.log("API ADMIN CEATE")
     console.log(infoApiModel)
+    console.log(this.NOTICE_API_URL)
 
          return request({
           url: this.NOTICE_API_URL,

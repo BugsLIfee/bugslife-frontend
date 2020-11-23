@@ -37,11 +37,11 @@ class InfoEditContainer extends Component {
     this.props.Store.info.onAddInfo(infoObj);
     swal("작성완료!","공지사항이 등록되었습니다!","success");
 
-    this.props.history.push({
-      pathname: `/admin/info-list`
-    });
+    // this.props.history.push({
+    //   pathname: `/admin/info-list`
+    // });
   
-  window.location.reload();
+  // window.location.reload();
   };
   
 

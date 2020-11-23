@@ -7,7 +7,7 @@ import {inject, observer} from "mobx-react"
 import MypageUser from "../view/MyPage_user";
 import PointPage from "../../point/PointPage";
 // import { Redirect } from "react-router-dom";
-// import swal from "sweetalert";
+// import Swal from 'sweetalert2'
 import { getCurrentUser } from "../../oauth/api/APIUtils"
 
 
@@ -43,7 +43,6 @@ class Mypagecontainer extends Component {
   componentDidMount(){
 
     this.props.Store.attendance.getAllList()
-    // this.props.Store.list.allList();
 
      getCurrentUser().then((res)=>{
       const accountId = res.id;
@@ -55,39 +54,37 @@ class Mypagecontainer extends Component {
 
 
   render() {
-    // this.test()
     const state = this.state.curr_component;
     const user = this.props.Store.oauth.currentUser;
     let {allList} = this.props.Store.attendance;
     let {commentList} = this.props.Store.list;
 
-
-
-    // this.props.Store.list.getlistById(user.id)
-
     let questionListByuser =this.props.Store.list.getQlistById
-    // let questionListByuser = questionList.filter(val=> val.writerId === user.id);
 
-
-    // console.log("list========>")
-    // console.log(this.state.qlistById)
-    
     const goToPoint = () => {
       this.setState({curr_component: "point"});
     };
 
 
-    const isLogin = this.props.Store.oauth.isLogin;
+    const isLogin = this.props.Store.oauth.user;
+
+    
+    // if(user.id===undefined){
+    //   Swal.fire({
+    //     icon:"error",
+    //     title: ' 잘못된 접근 ',
+    //     text: "로그인 후 이용해주세요!",
+    //     confirmButtonText: `로그인하러가기`,
+    //   }).then((result) => {
+    //     /* Read more about isConfirmed, isDenied below */
+    //     if (result.isConfirmed) {
+    //       this.props.history.push({
+    //         pathname: `/login`
+    //       });
+    //     } 
+    // })}
 
 
-  //       if(!this.props.Store.oauth.isLogin) {
-  //     swal("접근 거부 !","로그인 후 사용가능합니다 !", "warning");
-  //     return <Redirect
-  //         to={{
-  //         pathname: "/login",
-  //         state: { from: this.props.location }
-  //     }}/>;            
-  // }
 
     return (
       

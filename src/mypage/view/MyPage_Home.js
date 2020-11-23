@@ -3,18 +3,12 @@ import { List, Feed, Icon, Segment } from "semantic-ui-react";
 import PaymentModal from "../../payment/PaymentModal";
 import "./scss/myPage.scss";
 import CountUp from "react-countup";
-import { Redirect } from "react-router-dom";
-import swal from "sweetalert";
+import Mypostpostview from "./MyPostPostView";
 export default class MypageHome extends Component {
 
   
 
   render() {
-    const image = "../main/pink_sqaure.png";
-    const date = "3 days ago";
-    const summary = "Laura Faucet created a post";
-    const extraText =
-      "Have you seen what's going on in Israel? Can you believe it.";
 
     const user = this.props.user;
     const {onClickPoint} = this.props;
@@ -33,14 +27,23 @@ export default class MypageHome extends Component {
     // let timeDiff = (timeNow-enrollTime)/1000/60/60/24;
     // let attendanceRate= parseInt(attendList.length/timeDiff * 100)
 
-      if(isLogin===false) {
-      swal("접근 거부 !","로그인 후 사용가능합니다 !", "warning");
-      return <Redirect
-          to={{
-          pathname: "/login",
-          state: { from: this.props.location }
-      }}/>;            
-  }
+    let recentAct =()=> {
+      const image = "../main/pink_sqaure.png";
+      const date = "3 days ago";
+      const summary = "Laura Faucet created a post";
+      const extraText =
+        "Have you seen what's going on in Israel? Can you believe it.";
+  
+      return (
+      <Feed.Event>
+        <Feed.Label image={image} />
+        <Feed.Content>
+          <Feed.Date content={date} />
+          <Feed.Summary content={summary} />
+          <Feed.Extra text content={extraText} />
+        </Feed.Content>
+      </Feed.Event>)
+    }
 
 
     return (
@@ -116,7 +119,7 @@ export default class MypageHome extends Component {
               <h3>누적 포인트</h3>
               <h2 className="action_detail_rate">
                 <b className="point_rate">
-                  <CountUp end={10} duration={5} />
+                  {user.point}
                 </b>{" "}
                 P
               </h2>
@@ -129,74 +132,31 @@ export default class MypageHome extends Component {
 
         <div className="MyPage_detail">
           <div className="MyPage_detail_column">
-            <a href="/">
-              <i id="MyPage_detail_icon" className="fas fa-plus"></i>
-            </a>
+    
             <h1 className="column_title">최근 활동</h1>
             <Feed>
-              <Feed.Event
-                image={image}
-                date={date}
-                summary={summary}
-                extraText={extraText}
-              />
-
-              <Feed.Event>
-                <Feed.Label image={image} />
-                <Feed.Content
-                  date={date}
-                  summary={summary}
-                  extraText={extraText}
-                />
-              </Feed.Event>
-
-              <Feed.Event>
-                <Feed.Label image={image} />
-                <Feed.Content>
-                  <Feed.Date content={date} />
-                  <Feed.Summary content={summary} />
-                  <Feed.Extra text content={extraText} />
-                </Feed.Content>
-              </Feed.Event>
+            {recentAct()}
             </Feed>
           </div>
 
           <div className="MyPage_detail_column">
-            <a href="/">
-              <i id="MyPage_detail_icon" className="fas fa-plus"></i>
-            </a>
+
             <h1 className="column_title">게시글 관리</h1>
-            <Segment inverted>
-              <List divided inverted relaxed>
-                <List.Item>
-                  <List.Content>
-                    <List.Header>Post Title</List.Header>
-                    질문 내용 블라블라
-                  </List.Content>
-                  <div className="MyPage_detail_post_icon">
-                    <a href="/">
-                      <Icon name="edit"></Icon>
-                    </a>
-                    <a href="/">
-                      <Icon name="delete"></Icon>
-                    </a>
-                  </div>
-                </List.Item>
-              </List>
-            </Segment>
+            { questionListByuser.length===0?
+             (<div className="noPost"> <h5>작성 글이 없습니다.</h5></div>)
+             : (questionListByuser.map(val=> {return <Mypostpostview post={val} />
+                })) }
           </div>
 
           <div className="MyPage_detail_column">
-            <a href="/">
-              <i id="MyPage_detail_icon" className="fas fa-plus"></i>
-            </a>
+   
             <h1 className="column_title">포인트 관리</h1>
 
             <div className="MyPage_detail_columm_point">
               <div className="MyPage_detail_columm_point_card curr_point">
                 <h3>
                   <i id="MyPage_detail_coin" className="fas fa-coins"></i>
-                  <b>Point</b> : 10p
+                  <b>Point</b> : {user.point}P
                 </h3>
               </div>
               <PaymentModal bt_text={

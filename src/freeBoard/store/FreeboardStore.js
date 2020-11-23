@@ -47,7 +47,6 @@ class FreeboardStore{
    async freeboardList(){
       let result =await this.freeApi.freeboardList()
 
-
       for(let i =0; i<result.length; i++){
         let comments = await this.freeApi.freeboardComments(result[i].id)
         result[i] = {...result[i], comment: comments.length}
