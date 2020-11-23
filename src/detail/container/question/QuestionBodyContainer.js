@@ -13,7 +13,7 @@ class QuestionBodyContainer extends Component {
         return (
             <div>
                 {questionBodyView}
-           </div>
+            </div>
         );
     }
 }

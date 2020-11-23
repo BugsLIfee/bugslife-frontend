@@ -7,13 +7,11 @@ export default class ListHeaderview extends Component {
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
   orderByNew = () => {
-    console.log("event")
   }
 
   render() {
     const { activeItem } = this.state
     const { onSetOrderBy } = this.props
-    console.log("hihi")
     return (
       <div className="listHeader">
         

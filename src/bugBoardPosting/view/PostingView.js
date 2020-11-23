@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { Label, Input, Button, Radio } from 'semantic-ui-react'
+import { Label, Input, Button, Radio, Popup, Segment} from 'semantic-ui-react'
 import 'codemirror/lib/codemirror.css';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import { Editor } from '@toast-ui/react-editor';
 import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 import "./scss/posting.scss"
 
 
@@ -17,9 +18,8 @@ export default class PostingView extends Component {
             title: "",
             content: "", 
             publicPost : true,
-            writer: "",
-            isPremium: false,
-            dueDate: "",
+            premium: false,
+            dueDate: new Date(),
             point:0,
             tags : []
         }
@@ -28,6 +28,16 @@ export default class PostingView extends Component {
     render() {
         const { tags } = this.state;
         const { onAddPost } = this.props;
+        
+        function getFormatDate(date){
+            var year = date.getFullYear();              //yyyy
+            var month = (1 + date.getMonth());          //M
+            month = month >= 10 ? month : '0' + month;  //month 두자리로 저장
+            var day = date.getDate();                   //d
+            day = day >= 10 ? day : '0' + day;          //day 두자리로 저장
+            return  year + '-' + month + '-' + day;
+        }
+        // yyyy-MM-dd 포맷으로 반환
         
         const onInsertTag = (tag) => {
             this.setState({
@@ -76,7 +86,7 @@ export default class PostingView extends Component {
                     
                     <div className="posting_premium">
                         <div className="premium_sel_container">
-                        <h4 className="premium_sel_txt">✨ 프리미엄</h4><Radio toggle onChange={() => {this.setState({isPremium: !this.state.isPremium})}}/>
+                        <h4 className="premium_sel_txt">✨ 프리미엄</h4><Radio toggle onChange={() => {this.setState({...this, premium: !this.state.premium})}}/>
                         </div>
                         <div className="premium_point_container">
                         <h4 className="premium_point_txt"> 버그 현상금</h4> 
@@ -87,7 +97,19 @@ export default class PostingView extends Component {
                                 onChange={(e) => {this.setState({point: e.target.value})}} />
                         </div>
                         <div className="premium_sel_container">
-                            <h4 className="premium_sel_txt"> ⏱ 마감일</h4><Radio toggle onChange={() => {this.setState({isPremium: !this.state.isPremium})}}/>
+                            <h4 className="premium_sel_txt"> ⏱ 마감일 </h4>
+                            <Popup
+                                content = {
+                                    <Calendar 
+                                        onChange={selectDueDate}
+                                        value={this.state.dueDate}
+                                    />}
+                                on='click'
+                                pinned
+                                size='tiny'
+                                position='bottom left'
+                                trigger = {<Segment compact size="tiny">{getFormatDate(this.state.dueDate)}</Segment>}
+                            />
                         </div>
                     </div>
 
