@@ -10,6 +10,7 @@ class AnswerInsertCommentContainer extends Component {
 
         const { answer } = this.props;
         const { oauth } = this.props.Store;
+        const login = oauth.getCurrentUserInfo.id !== undefined;
 
         const onAddComment = (comment_body) => {
             let comment = { 
@@ -26,6 +27,7 @@ class AnswerInsertCommentContainer extends Component {
             <div>
                 <InsertCommentView 
                     onAddComment = { onAddComment }
+                    login = { login }
                     />
             </div>
         );

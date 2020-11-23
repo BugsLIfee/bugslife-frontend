@@ -105,5 +105,35 @@ class DetailStore {
     commentObj = new CommentApiModel(commentObj);
     await this.postApi.commentCreate(commentObj);
   }
+
+  @action 
+  async onDeleteQuestion(id) {
+    await this.postApi.questionDelete(id);
+  }
+
+  @action 
+  async onDeleteAnswer(id) {
+    this.answers = this.answers.filter((answer) => {
+      return answer.id !== id;
+    })
+    await this.postApi.answerDelete(id);
+  }
+
+  @action 
+  async onDeleteComment(id) {
+    let find = false;
+
+    this.question_comments = this.question_comments.filter((comment) => {
+      find = true;
+      return comment.id !== id;
+    })
+
+    if (find === false) {
+      this.answers.map(answer => { answer.comments = answer.comments.filter((comment) => {
+          return comment.id !== id;
+    })})}
+
+    await this.postApi.commentDelete(id);
+  }
 }
 export default DetailStore

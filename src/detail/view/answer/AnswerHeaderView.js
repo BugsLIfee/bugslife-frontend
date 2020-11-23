@@ -5,8 +5,7 @@ import "../scss/post.scss"
 export default class AnswerHeaderView extends Component {
 
     render() {
-        const { answer } = this.props;
-        console.log("ANSWERView");
+        const { answer, currentUserId, onDeleteAnswer } = this.props;
         return(
             <div className="post_meta">
                 <div className="writer_info"> 
@@ -18,8 +17,11 @@ export default class AnswerHeaderView extends Component {
                     </div>
                 </div>
                 <div className="_info">
-                        <div className="upload_date"> {answer.registDate.substring(0,10)} &nbsp; | &nbsp; </div>
-                        <div className="report"> <ReportModalContainer bt_text = {<div><i className="fas fa-ban"></i> 신고</div>} /> </div>
+                        <div className="upload_date"> {answer.registDate.substring(0,10)} &nbsp;</div>
+                        { currentUserId !== answer.writerId ?
+                            <div className="report"> <ReportModalContainer bt_text = {<div><i className="fas fa-ban"></i> | $nbsp; 신고 |&nbsp; </div>} /> </div> : <></>}
+                        {currentUserId === answer.writerId ? <div className="update"> &nbsp; | &nbsp; 수정 </div> : <></>} 
+                        {currentUserId === answer.writerId ? <div className="delete" onClick ={()=> {onDeleteAnswer(answer.id)}}> &nbsp; | &nbsp; 삭제</div> : <></>} 
                 </div>
             </div>
         )

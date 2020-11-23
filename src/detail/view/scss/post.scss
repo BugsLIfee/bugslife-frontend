@@ -1,5 +1,5 @@
 .post {
-    width: 980px;
+    width: fit-content;
     margin: 20px auto;
     border: 1px solid #e2e2e2;
     border-radius: 10px;
@@ -18,14 +18,13 @@
 }
 
 .detail_post_subtitle {
-    width: 940px;
+    width: 63rem;
     display: flex;
     justify-content: space-between;
 
     .detail_points {
         display: flex;
-        justify-content: left;
-        align-items: flex-end;
+        align-items: flex-end;  
         .detail_points_img {
             margin: 10px;
             height: 50px;
@@ -45,10 +44,10 @@
 }
 
 .post_header {
-    width: 100%;
+    width: 67rem;
     height: fit-content;
     background-color: white !important;
-    padding: 15px;
+    padding: 2.5rem !important;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -78,11 +77,20 @@
         color: #9b9b9b;
         padding-left: 80px;
         display: flex;
+        a:visited {
+            color: #9b9b9b;
+        }
         
         .report {
-            a:hover {text-decoration: none; color: #9b9b9b; }
-            a:visited {text-decoration: none; color: #9b9b9b;}
-            a:link {text-decoration: none; color: #9b9b9b; }
+            cursor: pointer;
+        }
+
+        .update {
+            cursor: pointer;
+        }
+
+        .delete {
+            cursor: pointer;
         }
     }
     
@@ -124,7 +132,9 @@
     font-size: 1.5rem;
     line-height: 2.5rem;
     padding: 10px 15px 30px 15px;
-
+    min-height: 10rem;
+    display: flex;
+    align-items: center;
 }
 
 .hash_tags {
@@ -138,13 +148,13 @@
     width: 100%;
     display: flex;
     align-items: center;
-    // justify-content: flex-start;
     overflow: hidden;
     .writer_icon {
         height: 90%;
         width: auto;
         float: left;
         margin: 0;
+        border-radius: 100%;
     }
     .writer_info_text {
         margin:14px;

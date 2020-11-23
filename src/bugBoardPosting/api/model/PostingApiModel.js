@@ -5,12 +5,14 @@ class PostingApiModel{
     publicPost = "";
     dueDate = "";
     writerId = "";
+    premium = false;
     point = 0;
     tags = [];
 
     constructor(postObj){
         this.title = postObj.title;
         this.content = postObj.content;
+        this.premium = postObj.premium;
         this.publicPost = postObj.publicPost;
         this.writerId = postObj.writer;
         this.dueDate = postObj.dueDate;

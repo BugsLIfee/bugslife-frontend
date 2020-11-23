@@ -9,6 +9,10 @@ class AnswerCommentListContainer extends Component {
     render() {
 
         const { answer } = this.props;
+        const currentUserId = this.props.Store.oauth.getCurrentUserInfo.id
+        const onDeleteComment = (id) => {
+            this.props.Store.detail.onDeleteComment(id)
+        }
 
         this.props.Store.detail.setAnswerId(answer.id);
 
@@ -16,7 +20,7 @@ class AnswerCommentListContainer extends Component {
         
         return (
             <div>
-                <CommentListView comments={comments} />
+                <CommentListView comments={comments} currentUserId = {currentUserId} onDeleteComment={onDeleteComment}/>
             </div>
         );
     }

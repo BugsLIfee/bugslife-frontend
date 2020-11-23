@@ -14,13 +14,16 @@ class AnswerContainer extends Component {
     render() {
 
         const { answer } = this.props;
-
+        const onDeleteAnswer = (id) => {
+            this.props.Store.detail.onDeleteAnswer(id);
+        }
+        const currentUserId = this.props.Store.oauth.getCurrentUserInfo.id;
         return (
             <div className="answer post">
                 <Card>
                     <div className="post_header">
-                        <AnswerHeaderView answer = {answer} />
-                        <AnswerLikesContainer answer = { answer } /> 
+                        <AnswerHeaderView answer = {answer} currentUserId = {currentUserId} onDeleteAnswer= {onDeleteAnswer}/>
+                        <AnswerLikesContainer answer = { answer } currentUserId = {currentUserId}/> 
                     </div>
                     <hr />
                     <Card.Body>
@@ -30,8 +33,8 @@ class AnswerContainer extends Component {
                     </Card.Body>
                     <hr />
 
-                    <AnswerCommentListContainer answer = {answer} />
                     <Card.Footer className="text-muted text-center post_footer">
+                        <AnswerCommentListContainer answer = {answer} />
                         <AnswerInsertCommentContainer answer = {answer} />
                     </Card.Footer>
                 </Card>
