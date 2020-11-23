@@ -13,7 +13,6 @@ module.exports = function (app) {
   );
 
   // user-service;
-
   app.use(
     "/user/me",
     createProxyMiddleware({
@@ -31,6 +30,21 @@ module.exports = function (app) {
     })
   );
 
+  app.use(
+    "/api/payment",
+    createProxyMiddleware({
+      target: "http://localhost:8088",
+      changeOrigin: true,
+    })
+  );
+
+  app.use(
+    "/api/point",
+    createProxyMiddleware({
+      target: "http://localhost:8088",
+      changeOrigin: true,
+    })
+  );
   // education-service
   app.use(
     "/api/edu",
