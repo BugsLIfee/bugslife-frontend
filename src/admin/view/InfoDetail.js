@@ -4,7 +4,7 @@ import "./scss/infoDetail.scss"
 
 class InfoDetail extends Component {
     render() {
-        const {info, onDelete} = this.props;
+        const {info, onDelete, user} = this.props;
 
 
         return (
@@ -16,11 +16,16 @@ class InfoDetail extends Component {
                             <a href="/admin/info-list"><h4>목록</h4></a>
                         </div>
 
-                        <div className="infoDetail_nav_right">   
-                            <a href={`/admin/info-write/?id=${info.id}`}><h4>수정</h4></a>
-                            <a href="#" onClick={()=>onDelete(info.id)}><h4>삭제</h4></a>
-                        </div>
-
+                       
+                        {user==="ADMIN"? (
+                             <div className="infoDetail_nav_right"> 
+                                <a href={`/admin/info-write/?id=${info.id}`}><h4>수정</h4></a>
+                                <a href="#" onClick={()=>onDelete(info.id)}><h4>삭제</h4></a>
+                            </div> ) 
+                        :
+                        (<div></div>)    
+                        }
+                          
                     </div>
                     <hr />
                     
