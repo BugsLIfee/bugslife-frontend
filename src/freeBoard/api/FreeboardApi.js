@@ -83,11 +83,10 @@ export default class FreeboardApi{
         
     }
 
-    freeboardPostDelete(postId, pwd){
+    freeboardPostDelete(postId){
     
-        let result = axios.delete("/api/freeboard/" + postId ,{
-            params : {pwd: pwd}
-        }).then(
+        let result = axios.delete("/api/freeboard/" + postId)
+        .then(
             (response)=>(response && response.data) || null
         )
         return result;

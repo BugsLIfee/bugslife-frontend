@@ -205,10 +205,10 @@ class FreeboardStore{
     }
 
     @action
-    async onDeletePost(pwd, postId){ 
-      console.log(pwd, postId)
+    async onDeletePost(postId){ 
+      console.log(postId)
 
-        let result = await this.freeApi.freeboardPostDelete(postId, pwd)
+        let result = await this.freeApi.freeboardPostDelete(postId)
         if(result ==null){
           return "포스트 삭제 에러"
         }else{

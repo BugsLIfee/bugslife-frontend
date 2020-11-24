@@ -57,30 +57,46 @@ class Freeboarddetailcontainer extends Component {
     }
 
     onDeletePost=async (pwd, confirmed_pwd, postId)=>{
+        console.log("삭제 컨테이너 진입")
+
         let correct_pwd;
         if(pwd ===confirmed_pwd){
             correct_pwd = pwd
-            Swal.fire({
-                icon: 'success',
-                title: '삭제가 완료되었습니다.',
-                showConfirmButton: false,
-                timer: 1500
-              })
-          }else{
-            Swal.fire({
+
+        console.log("컨테이너 진입")
+
+         console.log("비밀번호 MAtch")
+         await this.props.Store.freeboard.onCheckPwd(postId, correct_pwd)
+         let result = await this.props.Store.freeboard.pwd_check
+               
+             if(result){
+                await this.props.Store.freeboard.onDeletePost(postId)
+          
+                await  Swal.fire({
+                    icon: 'success',
+                    title: '삭제가 완료되었습니다.',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+
+                await this.props.history.push({
+                    pathname: `/freeboard`
+                   });
+            
+                    window.location.reload();
+
+            }else{
+               Swal.fire({
                 icon: 'error',
                 title: '비밀번호가 올바르지 않습니다.',
                 showConfirmButton: false,
-                timer: 1500
-              })
-          }
-        await this.props.Store.freeboard.onDeletePost(correct_pwd, postId)
-          
-       await this.props.history.push({
-        pathname: `/freeboard`
-       });
+                imer: 1500
+           })
+         }
 
-        window.location.reload();
+          }
+
+
     
     }
 
