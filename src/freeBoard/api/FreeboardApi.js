@@ -30,6 +30,7 @@ export default class FreeboardApi{
     }
 
     freeboardModifyPost(postId, post){
+        console.log("API : ", post)
         let newPost = axios.put("/api/freeboard/edit/"+postId, post).then(
             (response)=>(response && response.data) || null
         )
@@ -82,11 +83,10 @@ export default class FreeboardApi{
         
     }
 
-    freeboardPostDelete(postId, pwd){
+    freeboardPostDelete(postId){
     
-        let result = axios.delete("/api/freeboard/" + postId ,{
-            params : {pwd: pwd}
-        }).then(
+        let result = axios.delete("/api/freeboard/" + postId)
+        .then(
             (response)=>(response && response.data) || null
         )
         return result;
@@ -117,7 +117,16 @@ export default class FreeboardApi{
         )
         return result;
     }
-    // freeboardCommentList(){
-    //     let commentList = axios
-    // }
+
+    onCheckPwd(postId, pwd){
+        console.log("API TEST")
+        let result = axios.get("/api/freeboard/edit/" +postId, {
+            params : {pwd : pwd}
+        }).then(
+            (response)=>(response && response.data) || null
+        )
+
+        return result;
+    }
+    
 }

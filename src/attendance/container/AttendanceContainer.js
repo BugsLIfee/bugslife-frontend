@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 @observer
  class Attendancecontainer extends PureComponent {
 
-    onClickBtn=(user_id)=>{
+    onClickBtn=async (user_id)=>{
         let {error} = this.props.Store.attendance;
         console.log("error : " + error)
         let today = new Date();   
@@ -22,10 +22,30 @@ import 'react-toastify/dist/ReactToastify.css';
 
         // console.log(newDate, user_id)
         // console.log(this.state)
-        this.props.Store.attendance.addAttn(user_id,newDate)
+        await this.props.Store.attendance.addAttn(user_id,newDate)
+         
+        let pointObj ={
+                userID: user_id,
+                amount: 10,
+                detail : "출석체크"
+            }
+        await this.props.Store.point.onAddPoint(pointObj)
 
+        // const onAddPost = (postObj) => {
+        //     postObj.writer = oauth.getCurrentUserInfo.id;
+        //     postObj.dueDate = getFormatDate(postObj.dueDate)
+        //     bugBoardPosting.onAddPost(postObj);
+            
+        //     const pointObj = {
+        //         userId: oauth.getCurrentUserInfo.id,
+        //         amout: -postObj.point,
+        //         detail: "질문등록"
+        //     }
+        //     point.onAddPoint(pointObj)
+        // }
+        
         if(error.length!==0){
-            toast.error(error, {
+            await toast.error(error, {
                 position: "top-center",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -35,7 +55,7 @@ import 'react-toastify/dist/ReactToastify.css';
                 progress: undefined,
                 });
         }else{
-            toast.info('출석완료 🎊', {
+           await toast.info('출석완료 🎊  +10포인트 적립' , {
                 position: "top-center",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -47,7 +67,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
         };
 
-        window.location.reload();
+        // window.location.reload();
 
     }
 

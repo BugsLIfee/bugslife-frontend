@@ -11,3 +11,4 @@ class PointApiModel{
     }
 }
 export default PointApiModel;
+
