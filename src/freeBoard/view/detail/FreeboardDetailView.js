@@ -6,6 +6,7 @@ import Freeboarddetailcommentcontainer from '../../container/FreeboardDetailComm
 // import PostContent from './FreeboardPostContent';
 import FreeboardPostContent from './FreeboardPostContent';
 import "./scss/FreeboardDetailpost.scss"
+import Swal from 'sweetalert2'
 
 export default class Freeboarddetailview extends Component {
     state=({ likeCnt:0 })
@@ -15,14 +16,67 @@ export default class Freeboarddetailview extends Component {
         this.forceUpdate();
     }
 
-    onDeletePost=()=>{
-        let pwd =
+
+    onModifyPost =async ()=>{
+        const pwd  = await Swal.fire({
+            title: '💁 비밀번호를 입력해주세요',
+            input: 'password',
+            inputLabel: 'Password',
+            inputPlaceholder: '비밀번호',
+            inputAttributes: {
+              maxlength: 10,
+              autocapitalize: 'off',
+              autocorrect: 'off'
+            }
+          })
+
+          
+         let confirmed_pwd = await Swal.fire({
+            title: '🙆 비밀번호 한 번 더',
+            input: 'password',
+            inputLabel: 'Password',
+            inputPlaceholder: '비밀번호 확인',
+            inputAttributes: {
+              maxlength: 10,
+              autocapitalize: 'off',
+              autocorrect: 'off'
+            }
+          })
+          
+          let postId = this.props.detail.id;
+          this.props.onModifyPost(pwd.value, confirmed_pwd.value, postId)
+    }
 
 
-        prompt("게시글 비밀번호")
-        let confirmed_pwd = prompt("비밀번호 확인")
+    onDeletePost= async ()=>{
+          const pwd  = await Swal.fire({
+            title: '💁 비밀번호를 입력해주세요',
+            input: 'password',
+            inputLabel: 'Password',
+            inputPlaceholder: '비밀번호',
+            inputAttributes: {
+              maxlength: 10,
+              autocapitalize: 'off',
+              autocorrect: 'off'
+            }
+          })
+
+          
+         let confirmed_pwd = await Swal.fire({
+            title: '🙆 비밀번호 한 번 더',
+            input: 'password',
+            inputLabel: 'Password',
+            inputPlaceholder: '비밀번호 확인',
+            inputAttributes: {
+              maxlength: 10,
+              autocapitalize: 'off',
+              autocorrect: 'off'
+            }
+          })
+          
+        console.log(pwd.value, confirmed_pwd.value)
         let postId = this.props.detail.id;
-        this.props.onDeletePost(pwd, confirmed_pwd, postId);
+        this.props.onDeletePost(pwd.value, confirmed_pwd.value, postId);
     }
 
 
@@ -42,11 +96,6 @@ export default class Freeboarddetailview extends Component {
         const comments =this.props.comments;
         const done = this.props.like ? "like_done" : "like_yet";
         
-        
-        // let last_post_ind = this.props.last_post_ind
-        // let next_post_ind = this.props.next_post_ind
-
-        // console.log(last_post_ind, next_post_ind)
 
         return (
             <div>
@@ -58,9 +107,10 @@ export default class Freeboarddetailview extends Component {
                             <a href="/"><h4>다음글</h4></a> */}
                         </div>
 
+                            {/* {`/freeboard/edit/${post.id}`} */}
                         <div className="freeboard_nav_right">
-                            <a href={`/freeboard/edit/${post.id}`}><h4>수정</h4></a>
-                            <a href="/freeboard" onClick={this.onDeletePost}><h4>삭제</h4></a>
+                            <a href="#" onClick={this.onModifyPost}><h4>수정</h4></a>
+                            <a href="#" onClick={this.onDeletePost}><h4>삭제</h4></a>
                         </div>
 
                     </div>

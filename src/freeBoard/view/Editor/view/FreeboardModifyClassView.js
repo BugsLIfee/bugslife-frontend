@@ -22,7 +22,7 @@ import swal from 'sweetalert';
 
     editorRef = React.createRef();
 
-    onSubmitForm=()=>{
+    onSubmitForm= ()=>{
         let post = this.state;
 
 
@@ -80,9 +80,6 @@ import swal from 'sweetalert';
         console.log(this.state)
 
         const category = this.props.category;
-        // let originalPost = this.props.post;
-        
-        //const onUpdate = this.props.onUpdate
 
         const categoryOptions = category.map((category, ind) => {
             // category.onClick
