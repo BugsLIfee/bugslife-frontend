@@ -83,7 +83,6 @@ export default class Freeboarddetailview extends Component {
 
 
     render() { 
-
         const post =this.props.detail;
         const comments =this.props.comments;
         const done = this.props.like ? "like_done" : "like_yet";
@@ -95,11 +94,7 @@ export default class Freeboarddetailview extends Component {
                     <div className="freeboard_detail_nav">
                         <div className="freeboard_nav_left" >
                             <a href="/freeboard"><h4>목록</h4></a>
-                            {/* <a href="/"><h4>이전글</h4></a>
-                            <a href="/"><h4>다음글</h4></a> */}
                         </div>
-
-                            {/* {`/freeboard/edit/${post.id}`} */}
                         <div className="freeboard_nav_right">
                             <a href="#" onClick={this.onModifyPost}><h4>수정</h4></a>
                             <a href="#" onClick={this.onDeletePost}><h4>삭제</h4></a>

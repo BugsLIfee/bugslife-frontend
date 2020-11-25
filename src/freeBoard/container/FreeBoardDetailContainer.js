@@ -75,11 +75,11 @@ class Freeboarddetailcontainer extends Component {
                     timer: 1500
                 })
 
+          
                 await this.props.history.push({
                     pathname: `/freeboard`
                    });
-            
-                    window.location.reload();
+                await window.location.reload();
 
             }else{
                Swal.fire({

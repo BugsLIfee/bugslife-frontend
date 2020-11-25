@@ -31,19 +31,7 @@ import 'react-toastify/dist/ReactToastify.css';
             }
         await this.props.Store.point.onAddPoint(pointObj)
 
-        // const onAddPost = (postObj) => {
-        //     postObj.writer = oauth.getCurrentUserInfo.id;
-        //     postObj.dueDate = getFormatDate(postObj.dueDate)
-        //     bugBoardPosting.onAddPost(postObj);
-            
-        //     const pointObj = {
-        //         userId: oauth.getCurrentUserInfo.id,
-        //         amout: -postObj.point,
-        //         detail: "질문등록"
-        //     }
-        //     point.onAddPoint(pointObj)
-        // }
-        
+
         if(error.length!==0){
             await toast.error(error, {
                 position: "top-center",
@@ -67,7 +55,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
         };
 
-        // window.location.reload();
+        window.location.reload();
 
     }
 

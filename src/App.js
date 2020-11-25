@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, withRouter } from "react-router-dom";
 import "./header/view/scss/header.scss";
 import "./footer/footer.scss";
 import OAuth2RedirectHandler from './oauth/oauth2/OAuth2RedirectHandler';
 import LoadingIndicator from './oauth/common/LoadingIndicator';
 import PrivateRoute from './oauth/common/PrivateRoute';
 import "./chatbot/view/chatbotIcon.scss";
-
+// import { Link,  } from "react-router-dom";
 import { 
   HeaderContainer, 
   Footer, 
@@ -110,4 +110,4 @@ class App extends Component {
   }
 }
 
-export default App
+export default withRouter(App);

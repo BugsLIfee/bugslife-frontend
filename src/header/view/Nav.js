@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
+
 import "./scss/nav.scss";
 import {observer,inject} from "mobx-react";
 import swal from 'sweetalert';
@@ -20,26 +23,37 @@ class Nav extends Component {
     this.props.Store.oauth.loadCurrentlyLoggedInUser();
   }
 
-  onLogout=()=>{
-  this.props.Store.oauth.onLogout();
-  
-    swal({
+  onLogout = async() =>{
+
+   let result =  await swal({
         title: "로그아웃하시겠습니까?",
         icon: "warning",
         buttons: true,
         dangerMode: true,
     })
-    .then((willLogout) => {
-        if (willLogout) {
-          return swal("로그아웃되셨습니다!!", {
-            icon: "success",
-          });
-        } else {
-          swal("일시적인 장애로 로그아웃 실패! ");
-        }
-        this.props.history.push({
-          pathname: `/`
-    });})
+    if(result){
+      document.location.href = "/"
+      await this.props.Store.oauth.onLogout();
+      await swal("로그아웃되셨습니다!!", {
+              icon: "success",
+           });
+    }else{
+      swal("일시적인 장애로 로그아웃 실패! ");
+    }
+
+    console.log(result)
+    // .then((willLogout) => {
+
+    //   console.log(willLogout)
+    //     if (willLogout) {
+    //       document.location.href = "/"
+    //       return swal("로그아웃되셨습니다!!", {
+    //         icon: "success",
+    //       });
+    //     } else {
+    //       swal("일시적인 장애로 로그아웃 실패! ");
+    //     }
+    //     })
   
   
 }
