@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 import ReportModalContainer from '../../../report/container/ReportContainer'
 import Freeboarddetailcommentcontainer from '../../container/FreeboardDetailCommentContainer';
-// import Freeboardlistcontainer from '../../container/FreeBoardListContainer';
-// import Freeboardlistview from '../List/FreeBoardListView';
-// import PostContent from './FreeboardPostContent';
 import FreeboardPostContent from './FreeboardPostContent';
 import "./scss/FreeboardDetailpost.scss"
 import Swal from 'sweetalert2'
@@ -85,6 +82,11 @@ export default class Freeboarddetailview extends Component {
     render() { 
         const post =this.props.detail;
         const comments =this.props.comments;
+        let commentLen = this.props.commentLen
+        
+        console.log(post)
+        // let commentLength = comments.length;
+        // if(comments!==[]){commentLength += comments[]}
         const done = this.props.like ? "like_done" : "like_yet";
         
 
@@ -110,7 +112,7 @@ export default class Freeboarddetailview extends Component {
                         <h4> {post.cate}</h4>        
                         <h5> 작성일 : {post.registerDate}</h5>
                         <h5> 조회수 : {post.viewCnt}</h5>
-                        <h5> 댓글 수 : [{comments.length}]</h5>
+                        <h5> 댓글 수 : [{commentLen}]</h5>
             
                         </div> 
                         </div>  

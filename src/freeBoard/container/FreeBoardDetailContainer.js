@@ -109,12 +109,19 @@ class Freeboarddetailcontainer extends Component {
         const {comments} = this.props.Store.freeboard;
         const {post_likes} = this.props.Store.freeboard;
 
+        let commentLen = comments.length;
+        if(comments.length!==0){
+           comments.filter(val=> {return val.subComments.length> 0 })
+              .map((val, ind)=> commentLen += val.subComments.length)
+        }
+        console.log(commentLen)
+
         return (
             <div className="freeboard_detail_wrap">
                     <div className="free_borad_title"><h1>자유게시판</h1></div>
   
                 <div className="freeboard_detail_postcontainer">
-                    <Freeboarddetailview  post_likes={post_likes} onModifyPost={this.onModifyPost} onDeletePost={this.onDeletePost} detail = {freeboard_detail} comments={comments} like={this.state.like} likeCnt={this.state.likeCnt} onLikePost={this.onLikePost} />
+                    <Freeboarddetailview  post_likes={post_likes} onModifyPost={this.onModifyPost} onDeletePost={this.onDeletePost} detail = {freeboard_detail} comments={comments} commentLen={commentLen} like={this.state.like} likeCnt={this.state.likeCnt} onLikePost={this.onLikePost} />
                 </div>
 
             </div>
