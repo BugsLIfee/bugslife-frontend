@@ -26,13 +26,9 @@ class AttendanceStore{
 
     @action
     async getAttendList(uid){
-
         let result = await this.attend_api.attendList(uid)
-        // .map(val=> {return {...val}});
 
         this.attendanceList = result
-
-        console.log("스토어 리스트 ? ==== ", this.attendanceList)
     }
 
     @action
@@ -43,10 +39,8 @@ class AttendanceStore{
         }else{
             this.isAttend = !this.isAttend;
             let model = new AttendanceModel(uid, newDate);
-            console.log(model)
             await this.attend_api.createAttend(model);
-            // this.attendance = [...this.attendance, newDate]
-            // //console.log(this.attendance)
+
         }
     };
 

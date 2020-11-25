@@ -12,16 +12,72 @@ import { getCurrentUser } from "../../oauth/api/APIUtils"
  class Attendancecontainer extends PureComponent {
 
     componentDidMount=async()=>{
+        let user;
 
+        console.log("====componentDidMount")
         await getCurrentUser().then((res)=>{
-            const accountId = res.id;
+            user = res;
+            const accountId = user.id;
             this.props.Store.attendance.getAttendList(accountId);
            })
+
+        if(user.attendCnt===3){
+            let pointObj ={
+                userId: user.id,
+                amount: 100,
+                detail : "출석체크"
+            }
+            await this.props.Store.point.onAddPoint(pointObj);
+            await toast.info('3일 출석달성 🤹  +100포인트 적립' , {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                });
+
+        }else if(user.attendCnt===7){
+            let pointObj ={
+                userId: user.id,
+                amount: 500,
+                detail : "출석체크"
+            }
+            await this.props.Store.point.onAddPoint(pointObj);
+            await toast.info('1주일 출석달성 🥂 +500포인트 적립' , {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                });
+
+        }else if(user.attendCnt===14){
+            let pointObj ={
+                userId: user.id,
+                amount: 1000,
+                detail : "출석체크"
+            }
+            await this.props.Store.point.onAddPoint(pointObj);
+            await toast.info('2주 출석달성 🏆  +1000포인트 적립' , {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                });
+
+        }
       
 
     }
 
-    onClickBtn=async (user_id)=>{
+    onClickBtn =async (user_id)=>{
         let {error} = this.props.Store.attendance;
         console.log("error : " + error)
         let today = new Date();   
@@ -42,6 +98,8 @@ import { getCurrentUser } from "../../oauth/api/APIUtils"
                 detail : "출석체크"
             }
         await this.props.Store.point.onAddPoint(pointObj)
+
+            
 
 
         if(error.length!==0){
@@ -79,16 +137,6 @@ import { getCurrentUser } from "../../oauth/api/APIUtils"
         let userInfo = this.props.Store.oauth.currentUser;
         let uid = userInfo.id;
         let done = userInfo.attend;
-
-        console.log(allList)
-
-        console.log("isDone = ? " ,done)
-        // let filterList;
-
-        // if(uid!==undefined){
-        //     filterList = allList.filter(val=> {return(val.uid=== uid)})
-        // }
-
 
         return (
             <div className="attn_wrap">
