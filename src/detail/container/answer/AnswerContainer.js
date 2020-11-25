@@ -6,8 +6,10 @@ import AnswerHeaderView from "../../view/answer/AnswerHeaderView";
 import AnswerBodyView from "../../view/answer/AnswerBodyView";
 import AnswerLikesContainer from "./AnswerLikesContainer";
 import { Card } from "react-bootstrap";
+import PrivateChatContainer from "../../../chat/container/PrivateChatContainer";
 import AnswerModifyView from "../../view/answer/AnswerModifyView";
 import AnswerSelectView from "../../view/answer/AnswerSelectView";
+
 
 @inject("Store")
 @observer
@@ -35,12 +37,21 @@ class AnswerContainer extends Component {
             this.props.Store.detail.onDeleteAnswer(id);
         }
 
+
+        const onOpenChat=(partnerId, myId)=>{
+           console.log("채팅대상자:",partnerId,"/요청자:",myId); 
+        //   window.open(`/admin/info-list`);
+          //   window.open(`/freeboard`);
+           window.open(`/private-chat?partnerId=${partnerId}&myId=${myId}`);
+        }
+
         const onModifyAnswer = (answerObj) => {
             this.setState({modifyState: !this.state.modifyState});
             this.props.Store.detail.onModifyAnswer(answerObj);
         }
 
         const currentUser = this.props.Store.oauth.getCurrentUserInfo;
+
 
         return (
             <>
@@ -52,7 +63,8 @@ class AnswerContainer extends Component {
                         <AnswerHeaderView answer = {answer} 
                             currentUser = {currentUser} 
                             onDeleteAnswer= {onDeleteAnswer}
-                            onModifyAnswer = {onModifyAnswer}/>
+                            onModifyAnswer = {onModifyAnswer}
+                            onOpenChat={onOpenChat}/>
                         <AnswerLikesContainer answer = { answer } currentUser = {currentUser}/> 
                     </div>
                     <hr />

@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 
 class ChatRoomListContainer extends Component {
+    
     render() {
+
+
+
         return (
             <div>
                 <h1>GIF 채팅방</h1>

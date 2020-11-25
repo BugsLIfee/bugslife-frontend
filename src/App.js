@@ -29,6 +29,7 @@ import {
   EduDetailContainer,
   AcademyDetailContainer,
   OtherUserContainer,
+  PrivateChatContainer
   BugBoardModifyPage,
  } from "./Routes";
 
@@ -36,6 +37,8 @@ import Signup from "./oauth/signup/Signup";
 import { inject, Observer } from "mobx-react";
 import ChatbotContainer from "./chatbot/container/ChatbotContainer";
 import FreeboardModifyContainer from "./freeBoard/view/Editor/container/FreeboardModifyContainer";
+import AllChatIndexContainer from "./allChat/container/AllChatIndexContainer";
+
 
 
 @inject("Store")
@@ -96,6 +99,8 @@ class App extends Component {
           <Route path="/edu/info/:eid" component={EduDetailContainer}/>
           <Route path="/otherUser/:uid" component={OtherUserContainer}/>
           <Route path="/chat-bot" component={ChatbotContainer}/>
+          <Route path="/private-chat" component={PrivateChatContainer} />
+          <Route path="/all-chat" component={AllChatIndexContainer} />
 
         </Switch>
       </Router>
