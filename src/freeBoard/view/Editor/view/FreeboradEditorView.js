@@ -71,14 +71,13 @@ export default class FreeboardEditorView extends Component {
     }
 
 
-
     render() {
         const category = this.props.category;
         // const onCreatePost = this.props.onCreatePost
         const categoryOptions = category.map((category, ind) => {
             
             // category.onClick
-             return ({
+            return ({
                 key: ind,
                 text: category,
                 value: category,
@@ -96,8 +95,6 @@ export default class FreeboardEditorView extends Component {
                     <input className="posting_header_title" placeholder="제목을 입력해주세요" onChange={(e)=> {this.setState({...this.state, title: e.target.value })}}/>
                     </div>
 
-                   
-
                 </div>
                 <br />
                 <br />
@@ -112,8 +109,6 @@ export default class FreeboardEditorView extends Component {
                         })
                     }}
                 />
-          
-
 
                     <div className="posting_bottom">
                     <div className="posting_header_userInfo">

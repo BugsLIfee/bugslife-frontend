@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ReportModalContainer from "../../../report/container/ReportContainer"
 import "../scss/post.scss"
+import { Link } from "react-router-dom"
 
 export default class QuestionHeaderView extends Component {
 
@@ -32,7 +33,13 @@ export default class QuestionHeaderView extends Component {
                             <div className="views"> 조회수 {question.view}  &nbsp; | &nbsp; </div>
                             { currentUser.id !== question.writerId ?
                                 <div className="report"> <ReportModalContainer bt_text = {<div><i className="fas fa-ban"></i> 신고 |&nbsp; </div>} /> </div> : <></>}
-                            {currentUser.id === question.writerId ? <div className="update">  수정 &nbsp;| &nbsp;</div> : <></>} 
+                            {currentUser.id === question.writerId ? 
+                                <Link to={`/detail/modify`} className="title">
+                                    <div className="update">  수정 &nbsp;| &nbsp;</div>
+                                </Link>
+                                :
+                                <></>
+                            } 
                             {currentUser.id === question.writerId ? <a href="/list/"><div className="delete" onClick = {() => {onDeleteQuestion(question.id)}}> 삭제&nbsp;</div> </a>: <></>} 
                         </div>
                     </div>

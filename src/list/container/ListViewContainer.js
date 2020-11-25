@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-//import testListData from "../testListData"
 import ListViewFooter from "../view/ListViewFooter"
 import ListViewLabel from "../view/ListViewLabel"
 import ListViewMain from "../view/ListViewMain"
@@ -20,9 +19,6 @@ class ListViewContainer extends Component {
   }
 
   render() {
-    // const  list  = this.props.Store.list.getList;
-
-    // const list = testListData.map((listView) => {
     const { lists } = this.props
     let listItemOne = lists.slice((this.state.page - 1) * 5, this.state.page * 5)
     let totalPage = Math.floor(lists.length / 5) //60건이라면 totalPage
@@ -32,9 +28,9 @@ class ListViewContainer extends Component {
     }
 
     
-    const list = listItemOne.map((listView) => {
+    const list = listItemOne.map((listView, index) => {
       return (
-        <div className="list_main itemBox">
+        <div className="list_main itemBox" key={index}>
           <Grid>
             <Grid.Column width={2}>
               <ListViewLabel listView={listView} />

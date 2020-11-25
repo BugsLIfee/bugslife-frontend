@@ -6,10 +6,18 @@ import AnswerHeaderView from "../../view/answer/AnswerHeaderView";
 import AnswerBodyView from "../../view/answer/AnswerBodyView";
 import AnswerLikesContainer from "./AnswerLikesContainer";
 import { Card } from "react-bootstrap";
+import AnswerModifyView from "../../view/answer/AnswerModifyView";
 
 @inject("Store")
 @observer
 class AnswerContainer extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            modifyState: false
+        }
+    }
 
     render() {
 
@@ -17,13 +25,25 @@ class AnswerContainer extends Component {
         const onDeleteAnswer = (id) => {
             this.props.Store.detail.onDeleteAnswer(id);
         }
-        const currentUserId = this.props.Store.oauth.getCurrentUserInfo.id;
+
+        const onModifyAnswer = (answerObj) => {
+            this.setState({modifyState: !this.state.modifyState});
+            this.props.Store.detail.onModifyAnswer(answerObj);
+        }
+
+        const currentUser = this.props.Store.oauth.getCurrentUserInfo;
         return (
+            <>
+            {
+            this.state.modifyState === false ? 
             <div className="answer post">
                 <Card>
                     <div className="post_header">
-                        <AnswerHeaderView answer = {answer} currentUserId = {currentUserId} onDeleteAnswer= {onDeleteAnswer}/>
-                        <AnswerLikesContainer answer = { answer } currentUserId = {currentUserId}/> 
+                        <AnswerHeaderView answer = {answer} 
+                            currentUser = {currentUser} 
+                            onDeleteAnswer= {onDeleteAnswer}
+                            onModifyAnswer = {onModifyAnswer}/>
+                        <AnswerLikesContainer answer = { answer } currentUser = {currentUser}/> 
                     </div>
                     <hr />
                     <Card.Body>
@@ -39,6 +59,11 @@ class AnswerContainer extends Component {
                     </Card.Footer>
                 </Card>
             </div>
+            :
+            <AnswerModifyView answer = {answer} 
+                onModifyAnswer = {onModifyAnswer} />
+            }
+            </>
         );
     }
 }
