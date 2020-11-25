@@ -5,7 +5,6 @@ export default class DetailApi {
   url = "/api/bugboard/";
 
   answerCreate(answerApiModel) {
-    console.log(answerApiModel);
     return request({
       url: this.url + "detail/add-answer",
       method: 'POST',
@@ -18,6 +17,15 @@ export default class DetailApi {
       url: this.url + "detail/add-comment",
       method: 'POST',
       body: JSON.stringify(commentApiModel)
+    })
+  }
+
+  answerModify(answerApiModel) {
+    console.log(answerApiModel)
+    return request({
+      url: this.url + "answer/",
+      method: 'PUT',
+      body: JSON.stringify(answerApiModel)
     })
   }
 
@@ -49,4 +57,10 @@ export default class DetailApi {
     })
   }
 
+  onSelectAnswer(id) {
+    return request({
+      url: this.url + "select-answer/"+id,
+      method: "GET"
+    })
+  }
 }

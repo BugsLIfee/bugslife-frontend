@@ -1,4 +1,4 @@
-class AnswerApiModel {
+class CommentApiModel {
     questionId = "";
     answerId = "";
     writerId = "";
@@ -12,4 +12,4 @@ class AnswerApiModel {
     }
 }
 
-export default AnswerApiModel;
+export default CommentApiModel;

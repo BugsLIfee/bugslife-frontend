@@ -28,7 +28,7 @@ export default class Memberlistview extends Component {
                 <p>{user.status}</p>
               </div>
               <div className="admin-member-detail-sec">
-                <p>보유 포인트</p>
+                <p>{user.point}</p>
               </div>
             </div>
         )

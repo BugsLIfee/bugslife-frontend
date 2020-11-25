@@ -31,7 +31,7 @@ export default class AddAnswerView extends Component {
         return(
             <div className="detail_answer_editor">
                 <p> # 답변작성 </p>
-                 <Editor
+                <Editor
                     previewStyle="vertical"
                     height="400px"
                     initialEditType="markdown"

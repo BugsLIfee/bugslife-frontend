@@ -35,13 +35,86 @@ function ChatbotContainer () {
       },
       {
         id: '4',
-        message: '이제 막 꿈나무에서 주니어가 되셨군요 ! !',
+        message: '이제 막 꿈나무에서 주니어가 되셨군요 ! 집중하고 있는 포지션은 무엇인가요?',
+        trigger: '7'
       },
       {
         id: '6',
-        message: '오호! {previousValue}를 쓰시는군요!',
-        end: true,
+        message: '오호! {previousValue}를 쓰시는군요! 관심있는 분야가 있나요?' ,
+        trigger: '13'
       },
+      {
+        id: '7',
+        options: [
+          { value: '프론트엔드', label: '프론트엔드', trigger: '8' },
+          { value: '백엔드', label: '백엔드', trigger: '8' },
+          { value: '데브옵스', label: '데브옵스', trigger: '8' },
+        ],
+      },
+      {
+        id: '8',
+        message: ' {previousValue}에서 더 배우고 싶은 기술이 있나요? 아래에 입력해주세요',
+        trigger : '9'
+      },
+      {
+        id: '9',
+        user: true,
+        validator: (value) => {
+          if (!isNaN(value)) {
+            return '그게뭔지 잘 모르겠어요';
+          }
+          return true;
+        },
+        trigger: '10',
+      },
+      {
+        id: '10',
+        message: "{previousValue}에 대한 교육들을 알아보시겠어요?",
+        trigger: '11'
+      },
+      {
+        id: '11',
+        options: [
+          { value: '좋아요', label: '좋아요', trigger: '12' },
+          { value: '나중에요', label: '나중에요', trigger: '12' },
+        ],
+      },
+      {
+        id: '12',
+        component: (
+          <div> <a href="/edu">교육과정 보러 가기</a> </div>
+        ),
+        end:true
+      },
+      {
+        id: '13',
+        options:[
+          {value: "네", label: '네', trigger:'7'},
+          {value: "아직 모르겠어요", label: '아직 모르겠어요.', trigger:'15'}
+        ]
+      },
+      {
+        id:'15',
+        message:'어느 분야에 끌리는지 테스트 해볼까요?',
+        trigger: '16'
+      },{
+        id : '16',    
+        options: [
+          { value: '좋아요', label: '좋아요', trigger: '17' },
+          { value: '나중에요', label: '나중에요', trigger: '20' },
+        ],
+      }, 
+      {
+        id: '17',
+        message :"여기까지",
+        end:true
+      },
+      {
+        id:'20',
+        message: "더 궁금한 점 있으세요?",
+        end: true
+      }
+
         ];
 
         const [open, setOpen] = React.useState(false);

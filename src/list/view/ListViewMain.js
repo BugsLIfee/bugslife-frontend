@@ -10,15 +10,14 @@ const img = {
 class ListViewMain extends Component {
   render() {
     const { listView } = this.props
-    const tags = listView.tags.map((tag) => {
+    const tags = listView.tags.map((tag, index) => {
       return (
-        <span classNameName="tagFont">
+        <span className="tagFont" key={index}>
           <Badge variant="primary" >{tag}</Badge>{" "}
         </span>
       )
     })
 
-    console.log(listView)
     const dueDate = Math.floor((new Date(listView.dueDate+"T00:00:00").getTime() - new Date().getTime())
             /(1000*60*60*24)) + 1;
     return (
@@ -38,7 +37,7 @@ class ListViewMain extends Component {
           </span>
           <div className="tab-box">
             <div className="tag-box">
-              <span classNameName="tagFont">
+              <span className="tagFont">
                 {tags}
               </span>                                 
             </div>

@@ -13,7 +13,6 @@ class QuestionInsertCommentContainer extends Component {
         const login = oauth.getCurrentUserInfo.id !== undefined
 
         const onAddComment = (comment_body) => {
-            console.log(comment_body)
             let comment = { 
                 questionId: questionId,
                 writerId: oauth.getCurrentUserInfo.id,

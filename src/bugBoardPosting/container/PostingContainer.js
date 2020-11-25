@@ -25,17 +25,17 @@ class PostingContainer extends Component {
             postObj.writer = oauth.getCurrentUserInfo.id;
             postObj.dueDate = getFormatDate(postObj.dueDate)
             bugBoardPosting.onAddPost(postObj);
-            
+
             const pointObj = {
                 userId: oauth.getCurrentUserInfo.id,
-                amout: -postObj.point,
+                amount: -postObj.point,
                 detail: "질문등록"
             }
             point.onAddPoint(pointObj)
         }
         return (
             <div>
-                <PostingView onAddPost={onAddPost} />
+                <PostingView onAddPost={onAddPost} user = {oauth.getCurrentUserInfo}/>
             </div>
         );
     }

@@ -4,6 +4,7 @@ import 'codemirror/lib/codemirror.css';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import { Editor } from '@toast-ui/react-editor';
 import Calendar from 'react-calendar';
+import swal from "sweetalert";
 import 'react-calendar/dist/Calendar.css';
 import "./scss/posting.scss"
 
@@ -27,7 +28,8 @@ export default class PostingView extends Component {
     
     render() {
         const { tags } = this.state;
-        const { onAddPost } = this.props;
+        const { onAddPost, user } = this.props;
+        const today = new Date();
         
         function getFormatDate(date){
             var year = date.getFullYear();              //yyyy
@@ -56,10 +58,26 @@ export default class PostingView extends Component {
         }
 
         const selectDueDate = (value) => {
-            this.setState({
-                ...this.state,
-                dueDate: value
-            })
+            if(value<=today) { 
+                swal("이미 지난 날짜입니다.");
+            } else {
+                this.setState({
+                    ...this.state,
+                    dueDate: value
+                })
+            }
+        }
+
+        const onClickSubmit = (post) => {
+            if(user.point-this.state.point<0) {
+                swal("포인트가 부족합니다!");
+            } else if( this.state.premium===true && this.state.point <2000)  {
+                swal("프리미엄 질문은 2000포인트부터 가능합니다.");
+            }
+            else {
+                onAddPost(post);
+            }
+
         }
         
         let input_tag;
@@ -144,7 +162,7 @@ export default class PostingView extends Component {
                 <div className="upload">
                     {/* <a href="/list"> */}
                         <Button basic color='black' className="bt" size='huge' 
-                            onClick={() => onAddPost(this.state)}> 
+                            onClick={() => onClickSubmit(this.state)}> 
                             완료
                         </Button>
                     {/* </a> */}

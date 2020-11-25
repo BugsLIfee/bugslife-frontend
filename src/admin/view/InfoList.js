@@ -76,7 +76,7 @@ class InfoList extends Component {
             <div className="infoList_header">
               <p>번호</p>
               {/* <p>작성자</p> */}
-              <p>문의종류</p>
+              <p>카테고리</p>
               <p>제목</p>
               <p>날짜</p>
               <p>조회수</p>

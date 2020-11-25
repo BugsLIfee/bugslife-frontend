@@ -16,7 +16,7 @@ ReactDOM.render(
         path={[
           "/",
           "/list",
-          "/detail",
+          "/detail/:id",
           "/admin/:menu",
           "/contact/:menu",
           "/user/:menu",
@@ -38,6 +38,11 @@ ReactDOM.render(
           "/edu/info/:eid",
           "/test",
           "/otherUser/:uid",
+          "/chat-bot",
+          "/private-chat",
+          "/all-chat/:menu",
+          "/all-chat/:menu/:id",
+          "/detail/modify",
         ]}
         component={App}
         exact={true}

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { List, Feed, Icon, Segment } from "semantic-ui-react";
+import { Feed } from "semantic-ui-react";
 import PaymentModal from "../../payment/PaymentModal";
 import "./scss/myPage.scss";
 import CountUp from "react-countup";
@@ -13,8 +13,6 @@ export default class MypageHome extends Component {
     const user = this.props.user;
     const {onClickPoint} = this.props;
     let questionListByuser= this.props.questionListByuser;
-
-    let isLogin = this.props.isLogin;
 
     // console.log("user? " , user)
 
