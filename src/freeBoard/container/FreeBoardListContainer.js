@@ -2,13 +2,14 @@ import React, { Component } from 'react'
 import { inject, observer } from "mobx-react"
 import Freeboardlistview from '../view/List/FreeBoardListView'
 import "../view/List/scss/FreeBoardListCon.scss"
-import { Input, Menu } from "semantic-ui-react"
+import { Menu } from "semantic-ui-react"
+import Freeboardsearch from './FreeboardSearch'
 
 
 @inject("Store")
 @observer
 class Freeboardlistcontainer extends Component {
-  state = {}
+  state = ({searchPost : ""})
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
   
@@ -16,14 +17,25 @@ class Freeboardlistcontainer extends Component {
     console.log("event")
   }
 
+  onReset=()=>{
+    console.log("reset")
+    return this.setState({ searchPost: "" })
+  }
+
+  onSearchPost=(postTitle)=>{
+    this.setState({searchPost : postTitle })
+
+  }
 
     render() {
         const freeboard_list =this.props.freeboard_list;
         const freeboard_select_posts = this.props.freeboard_select_posts;
+
+        // userList.filter(val=> {return val.email ===this.state.searchUser})[0]
+        const freeboard_search_list = freeboard_list.filter(val=> {return val.title === this.state.searchPost})
         const { onSetOrderBy } = this.props
         const { activeItem } = this.state
-      
-        const {freeboardCommentSelect} = this.props.Store.freeboard;
+       
         return (
             
             <div className="freeboard_list_wrap">
@@ -50,10 +62,12 @@ class Freeboardlistcontainer extends Component {
                   onSetOrderBy("l")
                 }}
               />
-              <Menu.Item position="right">
-                  <Input icon={{ name: "search", circular: true, link: true }} placeholder="Search" />
-              </Menu.Item>
+
+                <div className="freeboard_searchBar">
+              <Freeboardsearch list = {freeboard_list} onReset={this.onReset} onSearchPost={this.onSearchPost}/>
+              </div>
           </Menu>
+         
           </div>
                 <div className="freeboard_list">
                     
@@ -67,8 +81,17 @@ class Freeboardlistcontainer extends Component {
                 </div>
               
                 </div>
-                  <Freeboardlistview id="free_list" freeboardCommentSelect= {freeboardCommentSelect} freeboard_list={freeboard_select_posts.length ===0 ? freeboard_list : freeboard_select_posts} />
-              
+
+                {
+                  this.state.searchPost.length === 0 ? 
+                
+                (<Freeboardlistview id="free_list" freeboard_list={freeboard_select_posts.length ===0 ? freeboard_list : freeboard_select_posts} />)
+
+                   :          
+                
+                (<Freeboardlistview id="free_sel_list" freeboard_list={freeboard_search_list} />)
+                } 
+
                 </div>
             </div>
         )

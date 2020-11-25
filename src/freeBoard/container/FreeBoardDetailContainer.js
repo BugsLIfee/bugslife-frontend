@@ -23,12 +23,12 @@ class Freeboarddetailcontainer extends Component {
     }
 
     onModifyPost= async (pwd, confirmed_pwd, postId)=>{
-        console.log("컨테이너 진입")
+ 
         let correct_pwd;
         if(pwd ===confirmed_pwd){
             correct_pwd = pwd
             
-            console.log("비밀번호 MAtch")
+            console.log("비밀번호 Match")
             await this.props.Store.freeboard.onCheckPwd(postId, correct_pwd)
             let result = await this.props.Store.freeboard.pwd_check
           
@@ -57,13 +57,9 @@ class Freeboarddetailcontainer extends Component {
     }
 
     onDeletePost=async (pwd, confirmed_pwd, postId)=>{
-        console.log("삭제 컨테이너 진입")
-
         let correct_pwd;
         if(pwd ===confirmed_pwd){
             correct_pwd = pwd
-
-        console.log("컨테이너 진입")
 
          console.log("비밀번호 MAtch")
          await this.props.Store.freeboard.onCheckPwd(postId, correct_pwd)

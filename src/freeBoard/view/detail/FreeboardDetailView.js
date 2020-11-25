@@ -81,14 +81,6 @@ export default class Freeboarddetailview extends Component {
 
 
 
-    static getDerivedStateFromProps(nextProps, prevState) {
-        let likes_props = nextProps.detail.likes
-        if(likes_props!==prevState.likeCnt){
-            return { likeCnt : likes_props}
-        }
-        return null
-    }
-
 
     render() { 
 

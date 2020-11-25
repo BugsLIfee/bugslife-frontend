@@ -25,7 +25,7 @@ import 'react-toastify/dist/ReactToastify.css';
         await this.props.Store.attendance.addAttn(user_id,newDate)
          
         let pointObj ={
-                userID: user_id,
+                userId: user_id,
                 amount: 10,
                 detail : "출석체크"
             }

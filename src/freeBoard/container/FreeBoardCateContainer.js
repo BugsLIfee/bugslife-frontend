@@ -24,15 +24,13 @@ class FreeboardcateContainer extends Component {
         }
 
         this.setState({cate_list : changed_list})
-        // console.log(this.state.cate_list)
         this.props.Store.freeboard.setCategorySelect(changed_list)
     }
 
     
     render() {
         const cate = this.props.freeboard_cate;
-        // const {selected_cate} = this.props.Store.freeboard;
-        
+
 
         return (
             <div className="freeboard_cate_container">
