@@ -38,11 +38,13 @@ class AnswerContainer extends Component {
         }
 
 
-        const onOpenChat=(partnerId, myId)=>{
-           console.log("채팅대상자:",partnerId,"/요청자:",myId); 
-        //   window.open(`/admin/info-list`);
-          //   window.open(`/freeboard`);
-           window.open(`/private-chat?partnerId=${partnerId}&myId=${myId}`);
+        const onOpenChat=(questionId,questionUserId, answerUserId)=>{
+           console.log("질문id:",questionId,"/채팅요청한 질문자id:",questionUserId,"/답변자Id:",answerUserId); 
+           const url=`/premium-chat?questionId=${questionId}&questionUserId=${questionUserId}&answerUserId=${answerUserId}`;
+           const popup_option="toolbar=no,status=no,menubar=no,resizable=yes, location=no, top=100,left=100,width=500,height=700,scrollbars=no, fullscreen=no";
+
+           window.open(url,'프리미엄채팅방',popup_option);
+
         }
 
         const onModifyAnswer = (answerObj) => {
@@ -64,11 +66,11 @@ class AnswerContainer extends Component {
                             currentUser = {currentUser} 
                             onDeleteAnswer= {onDeleteAnswer}
                             onModifyAnswer = {onModifyAnswer}
-                            onOpenChat={onOpenChat}/>
+                           />
                         <AnswerLikesContainer answer = { answer } currentUser = {currentUser}/> 
                     </div>
                     <hr />
-                    <AnswerSelectView answer={answer} question={question} user={user} onSelectAnswer={onSelectAnswer}/>
+                    <AnswerSelectView answer={answer} question={question} user={user} onSelectAnswer={onSelectAnswer}  onOpenChat={onOpenChat}/>
                     <Card.Body>
                         <div className="post_body">
                             <AnswerBodyView answer = {answer} />

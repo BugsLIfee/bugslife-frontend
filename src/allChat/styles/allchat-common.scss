@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
-
+.allchat {
 * {
   font-family: Montserrat;
   box-sizing: border-box;
@@ -7,6 +7,7 @@
 }
 
 body {
+  
   font-size: 16px;
 }
 
@@ -25,9 +26,9 @@ body {
 .cardHeader {
   background: #f7c52a;
   padding: 0.75rem 1.5rem;
-  border-radius: 2px;
+  // border-radius: 2px;
   text-transform: uppercase;
-  transform: skewY(-4deg);
+  // transform: skewY(-4deg);
   font-size: 1.1rem;
   font-weight: bold;
   display: inline-block;
@@ -82,7 +83,7 @@ button {
 }
 
 .join {
-  background: #f7c52a;
+  background: #209748;
   padding: 0.25rem 1rem;
   border-radius: 2px;
 }
@@ -90,4 +91,5 @@ button {
 a {
   text-decoration: none;
   color: #333;
+}
 }

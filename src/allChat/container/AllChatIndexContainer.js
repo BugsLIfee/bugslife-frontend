@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import AllChatRoutes from '../../routes/AllChatRoutes';
-import "../styles/common.css";
-import "../styles/chatroom.css";
+import "../styles/allchat-common.scss";
+import "../styles/allchat-chatroom.scss";
 import "../styles/allchat-index.scss";
-import io from "socket.io-client";
-import makeToast from "../config/Toaster";
 
 class AllChatIndexContainer extends Component {
     render() {
