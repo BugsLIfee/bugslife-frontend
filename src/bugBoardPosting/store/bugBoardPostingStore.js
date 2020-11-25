@@ -1,6 +1,7 @@
 import { action } from "mobx";
 import PostingApi from "../api/PostingApi";
 import PostingApiModel from "../api/model/PostingApiModel"
+import ModifyApiModel from "../api/model/ModifyApiModel"
 
 class PostingStore {
 
@@ -16,6 +17,12 @@ class PostingStore {
         }else{
             console.log(result,": 입력 성공 ! ! ");
         }
+    }
+
+    @action
+    async onModifyQuestion(questionObj) {
+        questionObj = new ModifyApiModel(questionObj);
+        await this.postingApi.postModify(questionObj);
     }
 }
 

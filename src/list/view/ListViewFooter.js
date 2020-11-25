@@ -6,18 +6,18 @@ class ListViewFooter extends Component {
     const { listView } = this.props
 
     return (
-      <div class="item-right">
+      <div className="item-right">
         {/* <div class="item-right"> */}
       
-          <div class="box-like">
+          <div className="box-like">
             <img src="../../detail/empty_bookmark.png" alt="img"></img>
-            <span class="number">{listView.likes}</span>
+            <span className="number">{listView.likes}</span>
             </div>
 
-            <span class="point">
+            <span className="point">
        
             +{listView.point}
-            <span class="p">P</span></span>
+            <span className="p">P</span></span>
           
       </div>
     )

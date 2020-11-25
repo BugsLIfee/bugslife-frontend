@@ -1,15 +1,17 @@
-class CommentApiModel {
+class AnswerModifyApiModel {
+    id = "";
+    registDate = "";
     questionId = "";
-    answerId = "";
     writerId = "";
     content = "";
 
     constructor(obj) {
+        this.id = obj.id;
         this.questionId = obj.questionId;
-        this.answerId = obj.answerId;
         this.writerId = obj.writerId;
         this.content = obj.content;
+        this.registDate = obj.registDate;
     }
 }
 
-export default CommentApiModel;
+export default AnswerModifyApiModel;

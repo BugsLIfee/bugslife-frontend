@@ -3,6 +3,8 @@ import DetailApi from "../api/DetailApi.js";
 import AnswerApiModel from "../api/model/AnswerApiModel.js";
 import CommentApiModel from "../api/model/CommentApiModel.js"
 import getToday from "../module/GetToday.js";
+import generateId from "../module/IDGenerator.js";
+import AnswerModifyApiModel from "../api/model/AnswerModifyApiModel.js";
 
 class DetailStore {
 
@@ -18,15 +20,16 @@ class DetailStore {
 
   @action
   async selectPost(id) {
+    console.log(id)
     this.post = await this.postApi.postDetail(id);
     this.question = this.post.question ? { ...this.post.question } : {};
     this.answers = this.post.answers ? this.post.answers : [];
     this.question_likes = this.question.likes;
     this.question_comments = this.question.comments;
   } 
-  
+
   @computed get _question() {
-      return this.question ? {...this.question} : {};
+    return this.question ? {...this.question} : {};
   }
 
   @computed get _answers() {
@@ -71,14 +74,14 @@ class DetailStore {
   }
 
   @action addQuestionComment(comment) {
-    this.question_comments.push(Object.assign(comment, { registDate: getToday()}))
+    this.question_comments.push(Object.assign(comment, { registDate: getToday(), id: generateId()}))
     this.onAddComment(comment);
   }
 
   @action addAnswerComment(comment){
       this.answers.find(answer => {
           return answer.id === comment.answerId;
-      }).comments.push(Object.assign(comment, {registDate: getToday()}));
+      }).comments.push(Object.assign(comment, {registDate: getToday(), id: generateId()}));
 
       this.onAddComment(comment);
   }
@@ -93,7 +96,8 @@ class DetailStore {
       answerObj,
       {
         registDate: getToday(),
-        comments: []
+        comments: [],
+        id: generateId()
       }
       ))
     answerObj = new AnswerApiModel(answerObj);
@@ -109,6 +113,19 @@ class DetailStore {
   @action 
   async onDeleteQuestion(id) {
     await this.postApi.questionDelete(id);
+  }
+
+  @action
+  async onModifyAnswer(answerObj) {
+    this.answer = this.answers.map(answer => {
+      if(answer.id === answerObj.id) {
+        answer.updateDate = getToday();
+        answer.content = answerObj.content;
+      }
+        return answer;
+    })
+    answerObj = new AnswerModifyApiModel(answerObj);
+    await this.postApi.answerModify(answerObj)
   }
 
   @action 
