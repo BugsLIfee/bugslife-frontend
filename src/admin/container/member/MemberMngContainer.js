@@ -16,9 +16,7 @@ class MemberMngContainer extends Component {
   }
 
   onSearchMemeber=(userEmail)=>{
-    // console.log({...userList})
     this.setState({searchUser : userEmail })
-    // console.log(this.state)
   }
 
   onReset=()=>{
@@ -39,10 +37,6 @@ class MemberMngContainer extends Component {
   
   render() {
     let {userList} =this.props.Store.oauth;
-
-    // if(this.state.searchUser.length>0){
-    //   userList = this.state.searchUser;
-    // }
 
    let selectUser = userList.filter(val=> {return val.email ===this.state.searchUser})[0]
    let totalPage = Math.floor(userList.length / 10)

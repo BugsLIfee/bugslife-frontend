@@ -5,7 +5,7 @@ import { Button, Modal } from 'semantic-ui-react';
 //import styled from 'styled-components'
 function ChatbotContainer () {
         
-        const steps = [
+  const steps = [
       {
         id: '1',
         message: '개발기간이 1년 미만이신가요?',

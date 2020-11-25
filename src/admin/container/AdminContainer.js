@@ -2,35 +2,32 @@ import React, { Component } from "react";
 import { inject, observer } from "mobx-react";
 import AdminRoutes from "../../routes/AdminRoutes";
 import AdminSideMenu from "../view/AdminSideMenu";
-// import { Redirect } from "react-router-dom";
-// import swal from "sweetalert";
+import swal from "sweetalert";
+import { getCurrentUser } from "../../oauth/api/APIUtils"
+
 
 @inject("Store")
 @observer
 class AdminContainer extends Component {
-//   componentDidMount() {
-//   if(!this.props.Store.oauth.isAdmin) {
-//     swal("접근 거부 !","관리자만 접근 허용된 페이지입니다.", "warning");
-//     return <Redirect
-//         to={{
-//         pathname: "/login",
-//         state: { from: this.props.location }
-//     }}/>;   
-//   }
-// }
+  componentDidMount =async ()=> {
+   await getCurrentUser().then( async(res)=>{
+      const admin = res.role;
+   
+      if(admin!=="ADMIN" || res===null){
+        await swal("접근 거부 !","관리자만 접근 허용된 페이지입니다.", "warning");
+        document.location.href = "/"   
+      }
+     })
+
+    }
+
   render() {
     const match = this.props.match;
-  //     if(!this.props.Store.oauth.isAdmin) {
-  //   swal("접근 거부 !","관리자만 접근 허용된 페이지입니다.", "warning");
-  //   return <Redirect
-  //       to={{
-  //       pathname: "/login",
-  //       state: { from: this.props.location }
-  //   }}/>;   
-  // }
+
     return (
-     
+
       <div class="admincontainer">
+        
         <div className="admin-header">
           
             <h2 className="amdin-header-title">
@@ -49,9 +46,11 @@ class AdminContainer extends Component {
         </div>
 
       </div>
- 
+    
     );
+  
   }
+  
 }
 
 export default AdminContainer;

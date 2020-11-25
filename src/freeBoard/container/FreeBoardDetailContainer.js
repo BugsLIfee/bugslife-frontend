@@ -23,12 +23,12 @@ class Freeboarddetailcontainer extends Component {
     }
 
     onModifyPost= async (pwd, confirmed_pwd, postId)=>{
-        console.log("컨테이너 진입")
+ 
         let correct_pwd;
         if(pwd ===confirmed_pwd){
             correct_pwd = pwd
             
-            console.log("비밀번호 MAtch")
+            console.log("비밀번호 Match")
             await this.props.Store.freeboard.onCheckPwd(postId, correct_pwd)
             let result = await this.props.Store.freeboard.pwd_check
           
@@ -57,13 +57,9 @@ class Freeboarddetailcontainer extends Component {
     }
 
     onDeletePost=async (pwd, confirmed_pwd, postId)=>{
-        console.log("삭제 컨테이너 진입")
-
         let correct_pwd;
         if(pwd ===confirmed_pwd){
             correct_pwd = pwd
-
-        console.log("컨테이너 진입")
 
          console.log("비밀번호 MAtch")
          await this.props.Store.freeboard.onCheckPwd(postId, correct_pwd)
@@ -79,11 +75,11 @@ class Freeboarddetailcontainer extends Component {
                     timer: 1500
                 })
 
+          
                 await this.props.history.push({
                     pathname: `/freeboard`
                    });
-            
-                    window.location.reload();
+                await window.location.reload();
 
             }else{
                Swal.fire({
@@ -113,12 +109,19 @@ class Freeboarddetailcontainer extends Component {
         const {comments} = this.props.Store.freeboard;
         const {post_likes} = this.props.Store.freeboard;
 
+        let commentLen = comments.length;
+        if(comments.length!==0){
+           comments.filter(val=> {return val.subComments.length> 0 })
+              .map((val, ind)=> commentLen += val.subComments.length)
+        }
+        console.log(commentLen)
+
         return (
             <div className="freeboard_detail_wrap">
                     <div className="free_borad_title"><h1>자유게시판</h1></div>
   
                 <div className="freeboard_detail_postcontainer">
-                    <Freeboarddetailview  post_likes={post_likes} onModifyPost={this.onModifyPost} onDeletePost={this.onDeletePost} detail = {freeboard_detail} comments={comments} like={this.state.like} likeCnt={this.state.likeCnt} onLikePost={this.onLikePost} />
+                    <Freeboarddetailview  post_likes={post_likes} onModifyPost={this.onModifyPost} onDeletePost={this.onDeletePost} detail = {freeboard_detail} comments={comments} commentLen={commentLen} like={this.state.like} likeCnt={this.state.likeCnt} onLikePost={this.onLikePost} />
                 </div>
 
             </div>

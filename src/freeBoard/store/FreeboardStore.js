@@ -49,7 +49,13 @@ class FreeboardStore{
 
       for(let i =0; i<result.length; i++){
         let comments = await this.freeApi.freeboardComments(result[i].id)
-        result[i] = {...result[i], comment: comments.length}
+        let commentsLength = comments.length;
+
+        if(comments.length!==0){
+          comments = comments.filter(val=> {return val.subComments.length> 0 })
+            .map((val, ind)=> commentsLength += val.subComments.length)
+        }
+        result[i] = {...result[i], commentLen: commentsLength}
       }
 
       this.freeboard_list = result.sort((a, b)=>{return b.id-a.id});
@@ -81,7 +87,7 @@ class FreeboardStore{
 
     @action
     async freeboardPostSelect(postId){
-      // let post = await this.freeApi.freeboardPostSelect(postId);
+
       this.freeboardList();
        this.freeboard_detail = await this.freeApi.freeboardPostSelect(postId);
        this.increaseViewCnt(postId);

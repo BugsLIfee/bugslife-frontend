@@ -4,12 +4,80 @@ import "../view/scss/calendar.scss"
 import { inject, observer } from "mobx-react"
 import { ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { getCurrentUser } from "../../oauth/api/APIUtils"
+
 
 @inject("Store")
 @observer
  class Attendancecontainer extends PureComponent {
 
-    onClickBtn=async (user_id)=>{
+    componentDidMount=async()=>{
+        let user;
+
+        console.log("====componentDidMount")
+        await getCurrentUser().then((res)=>{
+            user = res;
+            const accountId = user.id;
+            this.props.Store.attendance.getAttendList(accountId);
+           })
+
+        if(user.attendCnt===3){
+            let pointObj ={
+                userId: user.id,
+                amount: 100,
+                detail : "출석체크"
+            }
+            await this.props.Store.point.onAddPoint(pointObj);
+            await toast.info('3일 출석달성 🤹  +100포인트 적립' , {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                });
+
+        }else if(user.attendCnt===7){
+            let pointObj ={
+                userId: user.id,
+                amount: 500,
+                detail : "출석체크"
+            }
+            await this.props.Store.point.onAddPoint(pointObj);
+            await toast.info('1주일 출석달성 🥂 +500포인트 적립' , {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                });
+
+        }else if(user.attendCnt===14){
+            let pointObj ={
+                userId: user.id,
+                amount: 1000,
+                detail : "출석체크"
+            }
+            await this.props.Store.point.onAddPoint(pointObj);
+            await toast.info('2주 출석달성 🏆  +1000포인트 적립' , {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                });
+
+        }
+      
+
+    }
+
+    onClickBtn =async (user_id)=>{
         let {error} = this.props.Store.attendance;
         console.log("error : " + error)
         let today = new Date();   
@@ -31,19 +99,9 @@ import 'react-toastify/dist/ReactToastify.css';
             }
         await this.props.Store.point.onAddPoint(pointObj)
 
-        // const onAddPost = (postObj) => {
-        //     postObj.writer = oauth.getCurrentUserInfo.id;
-        //     postObj.dueDate = getFormatDate(postObj.dueDate)
-        //     bugBoardPosting.onAddPost(postObj);
             
-        //     const pointObj = {
-        //         userId: oauth.getCurrentUserInfo.id,
-        //         amout: -postObj.point,
-        //         detail: "질문등록"
-        //     }
-        //     point.onAddPoint(pointObj)
-        // }
-        
+
+
         if(error.length!==0){
             await toast.error(error, {
                 position: "top-center",
@@ -67,32 +125,18 @@ import 'react-toastify/dist/ReactToastify.css';
 
         };
 
-        // window.location.reload();
+        window.location.reload();
 
     }
 
 
-    componentDidMount=()=>{
-        this.props.Store.attendance.getAllList()
-    }
    
     render() {
-        let {allList} = this.props.Store.attendance;
+        let allList = this.props.Store.attendance.attendanceList;
 
         let userInfo = this.props.Store.oauth.currentUser;
         let uid = userInfo.id;
         let done = userInfo.attend;
-
-        console.log(userInfo)
-
-        console.log("isDone = ? " ,done)
-        let filterList;
-
-        if(uid!==undefined){
-            filterList = allList.filter(val=> {return(val.uid=== uid)})
-            // console.log("필터 리스트" , filterList)
-        }
-
 
         return (
             <div className="attn_wrap">
@@ -162,7 +206,7 @@ import 'react-toastify/dist/ReactToastify.css';
                 <hr />
 
                 <div className="attn_cal">
-                    <Attendancecalender attendance={filterList}/></div>
+                    <Attendancecalender attendance={allList}/></div>
                 </div>
         )
     }
