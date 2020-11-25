@@ -29,7 +29,6 @@ import {
   EduDetailContainer,
   AcademyDetailContainer,
   OtherUserContainer,
-  PrivateChatContainer
   BugBoardModifyPage,
  } from "./Routes";
 
@@ -99,9 +98,7 @@ class App extends Component {
           <Route path="/edu/info/:eid" component={EduDetailContainer}/>
           <Route path="/otherUser/:uid" component={OtherUserContainer}/>
           <Route path="/chat-bot" component={ChatbotContainer}/>
-          <Route path="/private-chat" component={PrivateChatContainer} />
           <Route path="/all-chat" component={AllChatIndexContainer} />
-
         </Switch>
       </Router>
       < ChatbotContainer />
