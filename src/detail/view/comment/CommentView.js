@@ -6,7 +6,6 @@ export default class CommentView extends Component {
 
     render() {
         const { comment, currentUserId, onDeleteComment} = this.props;
-        console.log(currentUserId);
         return(
             <div>
                 <div className="comment">

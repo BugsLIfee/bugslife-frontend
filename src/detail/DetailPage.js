@@ -13,17 +13,16 @@ import { inject } from "mobx-react";
 @inject('Store')
 class DetailPage extends Component {
 
-    id;
+    id
 
     componentDidMount () {
-        this.props.Store.detail.selectPost(this.id);
+        let match = this.props.match;
+        this.props.Store.detail.selectPost(match.params.post_id);
         window.scrollTo(0,0);
     }
 
     render() {
-
-        this.id = this.props.match.params.post_id; 
-
+        this.id = this.props.match.params.post_id;
         return(
             <div>
                 <div className="question post">

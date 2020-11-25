@@ -58,15 +58,17 @@ onRemoveInfo = () => {
 
 
 render() {
-
+  const oauth = this.props.Store.oauth;
+  const user = oauth.getCurrentUserInfo
   const infoDetail = this.props.Store.info.info
-  console.log(infoDetail)
+  // console.log(infoDetail)
+  // console.log("infoDetail : ", user.role)
     return (
       <div className="infoDetail_wrap">
       <div className="infoDetail_title"><h1>공지사항</h1></div>
 
         <div className="infoDetail_postcontainer">
-           <InfoDetail onDelete={this.onRemoveInfo} info={infoDetail} />
+           <InfoDetail user={user.role} onDelete={this.onRemoveInfo} info={infoDetail} />
         </div>
 
      </div>

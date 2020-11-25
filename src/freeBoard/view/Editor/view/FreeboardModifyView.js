@@ -32,9 +32,7 @@ import "./scss/posting.scss"
     
     
     const editorRef = React.createRef();
-//  console.log(title);
-//     console.log(post.title)
-    // console.log("title? " , title,"content? ", content, "cate ?", cate, updateDate)
+
     const onSubmitForm=()=>{
         let post = this.state;
     

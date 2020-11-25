@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import { Label, Input, Button, Radio, Popup, Segment} from 'semantic-ui-react'
+import { Label, Form, Input, Button, Popup, Segment} from 'semantic-ui-react'
 import 'codemirror/lib/codemirror.css';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import { Editor } from '@toast-ui/react-editor';
 import Calendar from 'react-calendar';
+import { Link } from "react-router-dom"
 import swal from "sweetalert";
 import 'react-calendar/dist/Calendar.css';
 import "./scss/posting.scss"
-
 
 export default class PostingView extends Component {
     
@@ -16,19 +16,16 @@ export default class PostingView extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            title: "",
-            content: "", 
-            publicPost : true,
-            premium: false,
-            dueDate: new Date(),
-            point:0,
-            tags : []
+            title: this.props.question.title,
+            content: this.props.question.contetn, 
+            dueDate: new Date(this.props.question.dueDate.substring(0,4), this.props.question.dueDate.substring(5,7)-1, this.props.question.dueDate.substring(8,10)),
+            tags : this.props.question.tags ? this.props.question.tags : []
         }
     }
     
     render() {
         const { tags } = this.state;
-        const { onAddPost, user } = this.props;
+        const { onModifyQuestion, question } = this.props;
         const today = new Date();
         
         function getFormatDate(date){
@@ -39,7 +36,6 @@ export default class PostingView extends Component {
             day = day >= 10 ? day : '0' + day;          //day 두자리로 저장
             return  year + '-' + month + '-' + day;
         }
-        // yyyy-MM-dd 포맷으로 반환
         
         const onInsertTag = (tag) => {
             this.setState({
@@ -48,12 +44,14 @@ export default class PostingView extends Component {
             });
         }
         
-        const onDeleteTag = (delete_tag) => {
+        const onDeleteTag = (delete_tag) => { 
+            const tag_copy = tags.filter((tag) => {
+                return tag !== delete_tag
+            })
+            console.log(tag_copy)
             this.setState({
                 ...this.state,
-                tags : tags.filter((tag) => {
-                    return tag !== delete_tag;
-                })
+                tags : tag_copy
             })
         }
 
@@ -69,19 +67,10 @@ export default class PostingView extends Component {
         }
 
         const onClickSubmit = (post) => {
-            if(user.point-this.state.point<0) {
-                swal("포인트가 부족합니다!");
-            } else if( this.state.premium===true && this.state.point <2000)  {
-                swal("프리미엄 질문은 2000포인트부터 가능합니다.");
-            }
-            else {
-                onAddPost(post);
-            }
-
+            onModifyQuestion(post);
         }
         
         let input_tag;
-
         const tags_deco = tags.map(tag => {
             return (
                 <span>
@@ -97,23 +86,15 @@ export default class PostingView extends Component {
         return(
             <div className="posting">
                 <div className="posting_header">
-                    <Input placeholder='제목을 입력해주세요' size='huge' className="title" 
+                    <Input placeholder='제목을 입력해주세요' 
+                        defaultValue = {this.state.title}
+                        size='huge' 
+                        className="title" 
                         onChange = {(e) => {this.setState({
                             ...this.state,
                             title: e.target.value})}}/>
                     
                     <div className="posting_premium">
-                        <div className="premium_sel_container">
-                        <h4 className="premium_sel_txt">✨ 프리미엄</h4><Radio toggle onChange={() => {this.setState({...this, premium: !this.state.premium})}}/>
-                        </div>
-                        <div className="premium_point_container">
-                        <h4 className="premium_point_txt"> 버그 현상금</h4> 
-                            <input 
-                                className="premium_point" 
-                                type="number" 
-                                placeholder="현상금 입력"
-                                onChange={(e) => {this.setState({point: e.target.value})}} />
-                        </div>
                         <div className="premium_sel_container">
                             <h4 className="premium_sel_txt"> ⏱ 마감일 </h4>
                             <Popup
@@ -136,6 +117,7 @@ export default class PostingView extends Component {
                 <br />
                 <Editor
                     height="50rem"
+                    initialValue={question.content}
                     initialEditType="markdown"
                     previewStyle="vertical"
                     ref={this.editorRef}
@@ -160,7 +142,7 @@ export default class PostingView extends Component {
                     </Button>
                 </div>
                 <div className="upload">
-                    {/* <a href="/list"> */}
+                    {/* <a href={`/detail/${question.id}`}> */}
                         <Button basic color='black' className="bt" size='huge' 
                             onClick={() => onClickSubmit(this.state)}> 
                             완료

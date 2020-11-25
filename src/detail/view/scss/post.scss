@@ -80,6 +80,9 @@
         a:visited {
             color: #9b9b9b;
         }
+        a:hover {
+            text-decoration: none;
+        }
         
         .report {
             cursor: pointer;
@@ -140,6 +143,29 @@
 .hash_tags {
     font-size: 1.8rem;
     padding: 15px;
+}
+
+.answer_selected {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 1rem;
+    
+    img {
+        height: 5rem;
+    }
+
+    .selected_answer {
+        font-size: 1.5rem;
+        color: #616161;
+        font-weight: 550;
+    }
+
+    .click_select {
+        font-size: 1.5rem;
+        color: #45c5db;
+        font-weight: 550;
+        cursor: pointer;
+    }
 }
 
 .writer_info {

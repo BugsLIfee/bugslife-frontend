@@ -30,6 +30,7 @@ import {
   AcademyDetailContainer,
   OtherUserContainer,
   PrivateChatContainer
+  BugBoardModifyPage,
  } from "./Routes";
 
 import Signup from "./oauth/signup/Signup";
@@ -71,6 +72,7 @@ class App extends Component {
           <Route exact path="/" component={MainContainer}  />
           <Route path="/list" component={ListContainer} exact={true} />
           <Route path="/detail" component={DetailPage} exact={true} />
+          <Route path="/detail/modify" component={BugBoardModifyPage} exact={true} />
           <Route path="/detail/:post_id" component={DetailPage} exact={true} />
           <PrivateRoute path="/admin" authenticated={this.props.Store.oauth.getCurrentUser} component={AdminContainer} />
           <Route path="/contact" component={ContactContainer} />

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { inject, observer } from "mobx-react"
 import Freeboarddetailview from '../view/detail/FreeboardDetailView'
 import "../view/detail/scss/FreeboardDetailiCon.scss"
-
+import Swal from 'sweetalert2'
 
 @inject("Store")
 @observer
@@ -22,18 +22,84 @@ class Freeboarddetailcontainer extends Component {
         console.log(this.state)
     }
 
-    onDeletePost=(pwd, confirmed_pwd, postId)=>{
+    onModifyPost= async (pwd, confirmed_pwd, postId)=>{
+        console.log("컨테이너 진입")
         let correct_pwd;
         if(pwd ===confirmed_pwd){
             correct_pwd = pwd
-            alert("correct")
+            
+            console.log("비밀번호 MAtch")
+            await this.props.Store.freeboard.onCheckPwd(postId, correct_pwd)
+            let result = await this.props.Store.freeboard.pwd_check
+          
+            if(result){
+                await this.props.history.push({
+                    pathname: `/freeboard/edit/${postId}`
+                   });
+            
+            }else{
+                Swal.fire({
+                    icon: 'error',
+                    title: '비밀번호가 올바르지 않습니다.',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+            }
+
           }else{
-              alert("비밀번호가 틀렸습니다.")
+            Swal.fire({
+                icon: 'error',
+                title: '비밀번호가 올바르지 않습니다.',
+                showConfirmButton: false,
+                timer: 1500
+              })
+          }
+    }
+
+    onDeletePost=async (pwd, confirmed_pwd, postId)=>{
+        console.log("삭제 컨테이너 진입")
+
+        let correct_pwd;
+        if(pwd ===confirmed_pwd){
+            correct_pwd = pwd
+
+        console.log("컨테이너 진입")
+
+         console.log("비밀번호 MAtch")
+         await this.props.Store.freeboard.onCheckPwd(postId, correct_pwd)
+         let result = await this.props.Store.freeboard.pwd_check
+               
+             if(result){
+                await this.props.Store.freeboard.onDeletePost(postId)
+          
+                await  Swal.fire({
+                    icon: 'success',
+                    title: '삭제가 완료되었습니다.',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+
+                await this.props.history.push({
+                    pathname: `/freeboard`
+                   });
+            
+                    window.location.reload();
+
+            }else{
+               Swal.fire({
+                icon: 'error',
+                title: '비밀번호가 올바르지 않습니다.',
+                showConfirmButton: false,
+                imer: 1500
+           })
+         }
+
           }
 
-          console.log("Freeboard Detail Container : " + correct_pwd, postId)
-        this.props.Store.freeboard.onDeletePost(correct_pwd, postId)
+
+    
     }
+
 
     componentDidMount=()=>{
         let match = this.props.match;
@@ -46,27 +112,13 @@ class Freeboarddetailcontainer extends Component {
         const {freeboard_detail} = this.props.Store.freeboard;
         const {comments} = this.props.Store.freeboard;
         const {post_likes} = this.props.Store.freeboard;
-        const {freeboard_list} = this.props.Store.freeboard;
 
-
-        //다음글 // 이전글 구현을 위한 index모음
-        let freeboard_list_index = freeboard_list.map(val=> {return val.id});
-        let curr_index = freeboard_detail.id;
-
-        let curr_location = freeboard_list_index.indexOf(curr_index)
-
-
-        let next_post_ind = curr_location === 0 ? "last post" : curr_location - 1;
-        let last_post_ind = curr_location === freeboard_list_index.length-1 ? "first post" : curr_location + 1;
-
-    
-        
         return (
             <div className="freeboard_detail_wrap">
                     <div className="free_borad_title"><h1>자유게시판</h1></div>
   
                 <div className="freeboard_detail_postcontainer">
-                    <Freeboarddetailview next_post_ind={next_post_ind} last_post_ind={last_post_ind} post_likes={post_likes} onDeletePost={this.onDeletePost} detail = {freeboard_detail} comments={comments} like={this.state.like} likeCnt={this.state.likeCnt} onLikePost={this.onLikePost} />
+                    <Freeboarddetailview  post_likes={post_likes} onModifyPost={this.onModifyPost} onDeletePost={this.onDeletePost} detail = {freeboard_detail} comments={comments} like={this.state.like} likeCnt={this.state.likeCnt} onLikePost={this.onLikePost} />
                 </div>
 
             </div>

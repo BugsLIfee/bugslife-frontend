@@ -17,9 +17,7 @@ class AddAnswerContainer extends Component {
     }
 
     render() {
-
         const {oauth} = this.props.Store;
-
         const onInsertForm = () => {
             if(oauth.getCurrentUserInfo.id===undefined) {
                 swal("로그인 후 사용가능합니다 !");
@@ -32,7 +30,6 @@ class AddAnswerContainer extends Component {
             answerObj.writerId = oauth.getCurrentUserInfo.id;
             answerObj.writerName = oauth.getCurrentUserInfo.name;
             answerObj.writerLevel = oauth.getCurrentUserInfo.level;
-        
             this.props.Store.detail.onAddAnswer(answerObj);
         }
 

@@ -21,7 +21,7 @@ export default class InfoEdit extends Component {
       registDate:info&&info.registDate ? info.registDate : "",
       editDate:info&& info.editDate ? info.editDate : "",
       title: info && info.title ? info.title : "",
-      content:info&&info.title ? info.title : "",
+      content : info.content
     }
   }
   
@@ -189,12 +189,14 @@ export default class InfoEdit extends Component {
         </Form>
 
       <div className="info_editor">
+        {console.log(info.content, this.state.content==="")}
          <Editor
           height="50rem"
           initialEditType="wysiwyg"
           previewStyle="vertical"
           ref={this.editorRef}
-          placeholder={ "공지사항을 입력해주세요."}
+          initialValue={info.content}
+          // placeholder={ "공지사항을 입력해주세요."}
           onChange = {() => {
           this.setState({
            content: this.editorRef.current.getInstance().getHtml()

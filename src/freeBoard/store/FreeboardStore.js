@@ -14,10 +14,10 @@ class FreeboardStore{
     @observable
     freeboard_detail = {}
 
-    // @action
-    // onLike(){
-    //   this.freeboard_detail.likes +=1
-    // }
+ 
+    @observable 
+    pwd_check =false;
+
     @observable
     commentList = [];
 
@@ -44,7 +44,7 @@ class FreeboardStore{
 
 
     @action
-   async freeboardList(){
+    async freeboardList(){
       let result =await this.freeApi.freeboardList()
 
       for(let i =0; i<result.length; i++){
@@ -52,7 +52,7 @@ class FreeboardStore{
         result[i] = {...result[i], comment: comments.length}
       }
 
-      this.freeboard_list = result;
+      this.freeboard_list = result.sort((a, b)=>{return b.id-a.id});
       // console.log(result)
 
       // let test = result.map(val=>{
@@ -60,7 +60,7 @@ class FreeboardStore{
 
       // console.log(comments().length)
       //  return{...val, comment: comments()}
-      // }).sort((a, b)=>{return b.id-a.id});
+      // });
         
       
       // this.freeboard_list =await test;
@@ -101,6 +101,7 @@ class FreeboardStore{
     @action
     async freeboardModifyPost(post){
       let modifiedPost = new FreeboardPostModifyModel(post);
+      console.log(modifiedPost)
        await this.freeApi.freeboardModifyPost(post.id, modifiedPost)
     }
 
@@ -151,6 +152,13 @@ class FreeboardStore{
     }
 
     @action 
+    async onCheckPwd(postId, pwd){
+      let result = await this.freeApi.onCheckPwd(postId, pwd)
+      console.log("CONTAINER : ", result)
+      return this.pwd_check= result
+    }
+
+    @action 
     async onCreateSubComment(postId, comment){
       console.log(postId, comment)
 
@@ -197,10 +205,10 @@ class FreeboardStore{
     }
 
     @action
-    async onDeletePost(pwd, postId){ 
-      console.log(pwd, postId)
+    async onDeletePost(postId){ 
+      console.log(postId)
 
-        let result = await this.freeApi.freeboardPostDelete(postId, pwd)
+        let result = await this.freeApi.freeboardPostDelete(postId)
         if(result ==null){
           return "포스트 삭제 에러"
         }else{

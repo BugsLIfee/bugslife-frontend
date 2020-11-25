@@ -6,12 +6,12 @@ class ListViewLabel extends Component {
 
     const { listView } = this.props
     return (
-      <div class="list_item_label">
-        <div class="inner">
-          <span class="count">{listView.numOfAnswers}</span>
-          <span class="answer">답변</span>
+      <div className="list_item_label">
+        <div className="inner">
+          <span className="count">{listView.numOfAnswers}</span>
+          <span className="answer">답변</span>
         </div>
-        <div class="view">
+        <div className="view">
           <span>{listView.view} views</span>
           </div>
       </div>
