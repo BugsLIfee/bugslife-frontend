@@ -4,10 +4,22 @@ import "../view/scss/calendar.scss"
 import { inject, observer } from "mobx-react"
 import { ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { getCurrentUser } from "../../oauth/api/APIUtils"
+
 
 @inject("Store")
 @observer
  class Attendancecontainer extends PureComponent {
+
+    componentDidMount=async()=>{
+
+        await getCurrentUser().then((res)=>{
+            const accountId = res.id;
+            this.props.Store.attendance.getAttendList(accountId);
+           })
+      
+
+    }
 
     onClickBtn=async (user_id)=>{
         let {error} = this.props.Store.attendance;
@@ -60,26 +72,22 @@ import 'react-toastify/dist/ReactToastify.css';
     }
 
 
-    componentDidMount=()=>{
-        this.props.Store.attendance.getAllList()
-    }
    
     render() {
-        let {allList} = this.props.Store.attendance;
+        let allList = this.props.Store.attendance.attendanceList;
 
         let userInfo = this.props.Store.oauth.currentUser;
         let uid = userInfo.id;
         let done = userInfo.attend;
 
-        console.log(userInfo)
+        console.log(allList)
 
         console.log("isDone = ? " ,done)
-        let filterList;
+        // let filterList;
 
-        if(uid!==undefined){
-            filterList = allList.filter(val=> {return(val.uid=== uid)})
-            // console.log("필터 리스트" , filterList)
-        }
+        // if(uid!==undefined){
+        //     filterList = allList.filter(val=> {return(val.uid=== uid)})
+        // }
 
 
         return (
@@ -150,7 +158,7 @@ import 'react-toastify/dist/ReactToastify.css';
                 <hr />
 
                 <div className="attn_cal">
-                    <Attendancecalender attendance={filterList}/></div>
+                    <Attendancecalender attendance={allList}/></div>
                 </div>
         )
     }

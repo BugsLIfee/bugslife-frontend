@@ -27,10 +27,10 @@ class AttendanceStore{
     @action
     async getAttendList(uid){
 
-        let result = await this.attend_api.attendAllList();
-        let result2 = result.map(val=> {return {...val}});
+        let result = await this.attend_api.attendList(uid)
+        // .map(val=> {return {...val}});
 
-        this.attendanceList = result2
+        this.attendanceList = result
 
         console.log("스토어 리스트 ? ==== ", this.attendanceList)
     }
