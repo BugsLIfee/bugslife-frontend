@@ -40,27 +40,12 @@ class Nav extends Component {
     }else{
       swal("일시적인 장애로 로그아웃 실패! ");
     }
-
-    console.log(result)
-    // .then((willLogout) => {
-
-    //   console.log(willLogout)
-    //     if (willLogout) {
-    //       document.location.href = "/"
-    //       return swal("로그아웃되셨습니다!!", {
-    //         icon: "success",
-    //       });
-    //     } else {
-    //       swal("일시적인 장애로 로그아웃 실패! ");
-    //     }
-    //     })
-  
   
 }
 
   render() {
     const oauth = this.props.Store.oauth;
-    console.log("어드민? ?" , oauth.getIsAdmin)
+    // console.log("어드민? ?" , oauth.getIsAdmin)
    // console.log("header-nave-props",this.props);
     return (
       <nav>

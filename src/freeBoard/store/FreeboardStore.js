@@ -54,11 +54,7 @@ class FreeboardStore{
         if(comments.length!==0){
           comments = comments.filter(val=> {return val.subComments.length> 0 })
             .map((val, ind)=> commentsLength += val.subComments.length)
-          // commentsLength += comments[0].subComments.length
-        //  console.log(comments[0].subComments.length)
-        console.log(comments)
         }
-     
         result[i] = {...result[i], commentLen: commentsLength}
       }
 
@@ -91,7 +87,7 @@ class FreeboardStore{
 
     @action
     async freeboardPostSelect(postId){
-      // let post = await this.freeApi.freeboardPostSelect(postId);
+
       this.freeboardList();
        this.freeboard_detail = await this.freeApi.freeboardPostSelect(postId);
        this.increaseViewCnt(postId);
