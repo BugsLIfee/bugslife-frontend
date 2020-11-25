@@ -5,7 +5,7 @@ class PointApiModel{
     userId = "";
 
     constructor(pointObj){
-        this.amount = pointObj.amout;
+        this.amount = pointObj.amount;
         this.detail = pointObj.detail;
         this.userId = pointObj.userId;
     }
