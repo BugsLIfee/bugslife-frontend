@@ -1,11 +1,13 @@
 import React, { Component } from "react";
+import { Button } from "semantic-ui-react";
 import ReportModalContainer from "../../../report/container/ReportContainer"
 import "../scss/post.scss"
 
 export default class AnswerHeaderView extends Component {
 
     render() {
-        const { answer, currentUserId, onDeleteAnswer } = this.props;
+        const { answer, currentUserId, onDeleteAnswer , onOpenChat} = this.props;
+        console.log("answer props로 뭐 받아오니..?",answer);
         return(
             <div className="post_meta">
                 <div className="writer_info"> 
@@ -14,6 +16,9 @@ export default class AnswerHeaderView extends Component {
                     <div className="writer_info_text">
                         <div className="writer_id"> {answer.writerName} </div>
                         <div className="writer_level"> Level {answer.writerLevel} </div>
+                    </div>
+                    <div className="writer_chat">
+                        <Button onClick={() =>onOpenChat(answer.writerId, currentUserId)}>채팅요청하기</Button>
                     </div>
                 </div>
                 <div className="_info">

@@ -42,5 +42,5 @@ export {default as EduListContainer} from "./edu/container/eduList/EduListContai
 export {default as EduDetailContainer} from "./edu/container/eduDetail/EduDetailContainer";
 export {default as AcademyDetailContainer} from "./edu/container/academyDetail/AcademyDetailContainer";
 export {default as OtherUserContainer} from "./otherUser/container/OtherUserContainer";
-
+export {default as PrivateChatContainer} from "./chat/container/PrivateChatContainer";
 

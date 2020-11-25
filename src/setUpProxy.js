@@ -71,6 +71,20 @@ module.exports = function (app) {
       changeOrigin: true,
     })
   );
+  app.use(
+    "/api/private-chat",
+    createProxyMiddleware({
+      target: "http://localhost:8005",
+      changeOrigin: true,
+    })
+  );
+  app.use(
+    "/api/allchat",
+    createProxyMiddleware({
+      target: "http://localhost:8086",
+      changeOrigin: true,
+    })
+  );
 
   // // Chat;
   // app.use(

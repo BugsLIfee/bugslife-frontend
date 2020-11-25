@@ -162,6 +162,12 @@ class Nav extends Component {
               <h4>자유게시판</h4>
             </a>
           </div>
+          <div>
+            <a href="/all-chat">
+              {" "}
+              <h4>모두의 채팅</h4>
+            </a>
+          </div>
 
       {oauth.getIsAdmin?(
           <div>

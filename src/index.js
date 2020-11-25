@@ -38,6 +38,10 @@ ReactDOM.render(
           "/edu/info/:eid",
           "/test",
           "/otherUser/:uid",
+          "/chat-bot",
+          "/private-chat",
+          "/all-chat/:menu",
+          "/all-chat/:menu/:id",
         ]}
         component={App}
         exact={true}
