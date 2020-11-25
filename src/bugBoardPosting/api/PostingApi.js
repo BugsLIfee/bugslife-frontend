@@ -2,14 +2,21 @@ import { request } from "../../oauth/api/APIUtils";
 
 export default class PostingApi {
 
-  url = "/api/bugboard/posting/";
+  url = "/api/bugboard/";
 
   postCreate(postingApiModel) {  
-    console.log("외않돼는데", postingApiModel )
     return request({
-      url: this.url,
+      url: this.url + "posting/",
       method: 'POST',
       body: JSON.stringify(postingApiModel)
     });
+  }
+
+  postModify(postModifyApiModel) {
+    return request({
+      url: this.url + "question/",
+      method: 'PUT',
+      body: JSON.stringify(postModifyApiModel)
+    })
   }
 }
