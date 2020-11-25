@@ -7,6 +7,7 @@ import AnswerBodyView from "../../view/answer/AnswerBodyView";
 import AnswerLikesContainer from "./AnswerLikesContainer";
 import { Card } from "react-bootstrap";
 import AnswerModifyView from "../../view/answer/AnswerModifyView";
+import AnswerSelectView from "../../view/answer/AnswerSelectView";
 
 @inject("Store")
 @observer
@@ -21,7 +22,15 @@ class AnswerContainer extends Component {
 
     render() {
 
+        const question = this.props.Store.detail._question;
+        const user = this.props.Store.oauth.getCurrentUserInfo;
+
         const { answer } = this.props;
+
+        const onSelectAnswer = (id) => {
+            this.props.Store.detail.onSelectAnswer(id);
+        }
+
         const onDeleteAnswer = (id) => {
             this.props.Store.detail.onDeleteAnswer(id);
         }
@@ -32,6 +41,7 @@ class AnswerContainer extends Component {
         }
 
         const currentUser = this.props.Store.oauth.getCurrentUserInfo;
+
         return (
             <>
             {
@@ -46,13 +56,13 @@ class AnswerContainer extends Component {
                         <AnswerLikesContainer answer = { answer } currentUser = {currentUser}/> 
                     </div>
                     <hr />
+                    <AnswerSelectView answer={answer} question={question} user={user} onSelectAnswer={onSelectAnswer}/>
                     <Card.Body>
                         <div className="post_body">
                             <AnswerBodyView answer = {answer} />
                         </div>
                     </Card.Body>
                     <hr />
-
                     <Card.Footer className="text-muted text-center post_footer">
                         <AnswerCommentListContainer answer = {answer} />
                         <AnswerInsertCommentContainer answer = {answer} />

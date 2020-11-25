@@ -21,11 +21,11 @@ export default class AnswerHeaderView extends Component {
                     </div>
                 </div>
                 <div className="_info">
-                        <div className="upload_date"> {answer.registDate.substring(0,10)} &nbsp;</div>
+                        <div className="upload_date"> {answer.registDate.substring(0,10)} | &nbsp;</div>
                         { currentUser.id !== answer.writerId ?
-                            <div className="report"> <ReportModalContainer bt_text = {<div><i className="fas fa-ban"></i> | $nbsp; 신고 |&nbsp; </div>} /> </div> : <></>}
-                        {currentUser.id === answer.writerId ? <div className="update" onClick={onModifyAnswer}> &nbsp; | &nbsp; 수정 </div> : <></>} 
-                        {currentUser.id === answer.writerId ? <div className="delete" onClick ={()=> {onDeleteAnswer(answer.id)}}> &nbsp; | &nbsp; 삭제</div> : <></>} 
+                            <div className="report"> <ReportModalContainer bt_text = {<div><i className="fas fa-ban"></i> 신고 </div>} /> </div> : <></>}
+                        {currentUser.id === answer.writerId ? <div className="update" onClick={onModifyAnswer}> 수정 </div> : <></>} 
+                        {currentUser.id === answer.writerId ? <div className="delete" onClick ={()=> {onDeleteAnswer(answer.id)}}> &nbsp; | &nbsp;삭제</div> : <></>} 
                 </div>
             </div>
         )

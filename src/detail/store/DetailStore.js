@@ -20,10 +20,10 @@ class DetailStore {
 
   @action
   async selectPost(id) {
-    console.log(id)
     this.post = await this.postApi.postDetail(id);
     this.question = this.post.question ? { ...this.post.question } : {};
     this.answers = this.post.answers ? this.post.answers : [];
+    this.answers = this.answers.filter(answer => answer.selected).concat(this.answers.filter(answer=>!answer.selected))
     this.question_likes = this.question.likes;
     this.question_comments = this.question.comments;
   } 
@@ -152,5 +152,24 @@ class DetailStore {
 
     await this.postApi.commentDelete(id);
   }
+
+  @action
+  async onSelectAnswer(answer_id) {
+    this.answers = this.answers.filter(answer => {
+      if(answer.id === answer_id) {
+        console.log("잡았다!", answer)
+      }
+        return answer.id === answer_id
+      }
+    ).concat(this.answers.filter(answer => answer.id !== answer_id))
+
+    this.answers[0].selected = true;
+    this.question.done = true;
+
+    console.log(this.answers)
+
+    await this.postApi.onSelectAnswer(answer_id);
+  }
 }
+
 export default DetailStore

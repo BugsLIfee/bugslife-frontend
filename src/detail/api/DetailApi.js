@@ -57,4 +57,10 @@ export default class DetailApi {
     })
   }
 
+  onSelectAnswer(id) {
+    return request({
+      url: this.url + "select-answer/"+id,
+      method: "GET"
+    })
+  }
 }
