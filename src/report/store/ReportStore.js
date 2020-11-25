@@ -18,13 +18,17 @@ class ReportStore {
 
     @action
     async getAllList() {
+        console.log("날 부르긴 ㅎ나ㅣ?")
         this.reportList = await this.reportApi.reportList()
+        console.log(this.reportList)
+        // return this.reportList ? this.reportList.slice() : [];
     }
 
     @action
     async onAddReport(reportObj) {
         reportObj = new ReportApiModel(reportObj);
         await this.reportApi.reportCreate(reportObj);
+        return true
     }
 
     @action receipt_report(id, is_blind) {

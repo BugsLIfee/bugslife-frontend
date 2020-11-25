@@ -5,8 +5,18 @@ import "./scss/report_modal.scss"
 export default function ReportModalView(props) {
     const [open, setOpen] = React.useState(false);
     const [report_type, setReportType] = useState();
-    const { category, bt_text } = props;
+    const { category, bt_text, onAddReport } = props;
     const handleChange = (e, { value }) => setReportType(value);
+
+    const reportSubmit = () => {
+        onAddReport({
+            reportDetail : report_detail,
+            reportType : report_type
+        })
+        setOpen(false)
+    }
+
+    let report_detail
 
     return (
         <Modal
@@ -49,14 +59,14 @@ export default function ReportModalView(props) {
                 상세내용(선택)
                 <br />
                 <br />
-                <TextArea />
+                <TextArea onChange={(e) => {report_detail = e.target.value}}/>
             </div>
             </Modal.Content>
             <Modal.Actions>
             <Button color='red' onClick={() => setOpen(false)}>
                 <Icon name='remove' /> 취소
             </Button>
-            <Button color='green' onClick={() => setOpen(false)}>
+            <Button color='green' onClick={reportSubmit}>
                 <Icon name='checkmark' /> 신고
             </Button>
             </Modal.Actions>

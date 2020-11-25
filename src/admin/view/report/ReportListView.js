@@ -4,10 +4,11 @@ import { Checkbox, Radio, Pagination } from 'semantic-ui-react'
 import "../scss/report.scss";
 
 export default function ReportListView(props) {
-    const {report_list, onReceiptReport, onSelectCategory, category, onSelectReportStatus} = props;
+    let {report_list, onReceiptReport, onSelectCategory, category, onSelectReportStatus} = props;
     const [report_status, setReportStatus] = useState(2);
     const [page, setPage] = useState(1);
 
+    report_list = report_list ? report_list : []; 
     let report_list_paging = report_list.slice((page-1) *10, page*10)
     let totalPage = Math.floor(report_list.length / 10)
 
