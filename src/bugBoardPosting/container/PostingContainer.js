@@ -28,7 +28,7 @@ class PostingContainer extends Component {
 
             const pointObj = {
                 userId: oauth.getCurrentUserInfo.id,
-                amout: -postObj.point,
+                amount: -postObj.point,
                 detail: "질문등록"
             }
             point.onAddPoint(pointObj)
