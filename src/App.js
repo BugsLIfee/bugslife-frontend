@@ -70,7 +70,7 @@ class App extends Component {
           <Route path="/detail" component={DetailPage} exact={true} />
           <Route path="/detail/:post_id" component={DetailPage} exact={true} />
           <PrivateRoute path="/admin" authenticated={this.props.Store.oauth.getCurrentUser} component={AdminContainer} />
-          <Route path="/contact" component={ContactContainer} />
+          <PrivateRoute path="/contact" component={ContactContainer} />
           <PrivateRoute path="/mypage" component={Mypagecontainer} exact={true} />
           <Route path="/posting" component={PostingContainer} exact={true} />
           <Route path="/attendance" component={Attendancecontainer} exact={true} />

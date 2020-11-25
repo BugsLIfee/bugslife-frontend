@@ -22,6 +22,7 @@ class InfoEditContainer extends Component {
     let today = new Date();
     let date = `${today.getFullYear()}-${today.getMonth()}-${today.getDate()}`
 
+    infoObj["category"] = this.categoryHandle(infoObj.category)
 
     if(infoObj["user"] === undefined) {
       infoObj["user"] = adminInfo.id
@@ -41,9 +42,21 @@ class InfoEditContainer extends Component {
     //   pathname: `/admin/info-list`
     // });
   
-  // window.location.reload();
+    // window.location.reload();
   };
   
+
+  categoryHandle=(cate)=>{
+    if(cate === "공지" ){
+      return "INFO"
+    }else if(cate === "이벤트"){
+      return "EVENT"
+    }else if(cate === "결제"){
+      return "PAYMENT"
+    }else if(cate === "포인트문의"){
+      return "POINT"
+    }
+  }
 
 
   onModifyInfo = (infoObj) => {
@@ -54,6 +67,7 @@ class InfoEditContainer extends Component {
     let today = new Date();
     let date = `${today.getFullYear()}-${today.getMonth()}-${today.getDate()}`
 
+    infoObj["category"] = this.categoryHandle(infoObj.category)
 
     if(infoObj["user"] === undefined) {
       infoObj["id"] = info.id
