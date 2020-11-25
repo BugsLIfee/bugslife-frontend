@@ -12,8 +12,8 @@ class AdminContainer extends Component {
   componentDidMount =async ()=> {
    await getCurrentUser().then( async(res)=>{
       const admin = res.role;
-    
-      if(admin!=="ADMIN"){
+   
+      if(admin!=="ADMIN" || res===null){
         await swal("접근 거부 !","관리자만 접근 허용된 페이지입니다.", "warning");
         document.location.href = "/"   
       }
