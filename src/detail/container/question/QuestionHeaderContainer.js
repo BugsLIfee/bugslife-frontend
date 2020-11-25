@@ -8,6 +8,7 @@ class QuestionHeaderContainer extends Component {
 
     render() {
         const question = this.props.Store.detail._question;
+
         const onDeleteQuestion = (id) => {
             this.props.Store.detail.onDeleteQuestion(id);
         }

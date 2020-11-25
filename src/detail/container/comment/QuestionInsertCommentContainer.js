@@ -12,8 +12,6 @@ class QuestionInsertCommentContainer extends Component {
         const { oauth } = this.props.Store;
         const login = oauth.getCurrentUserInfo.id !== undefined
 
-        console.log(questionId)
-
         const onAddComment = (comment_body) => {
             let comment = { 
                 questionId: questionId,
