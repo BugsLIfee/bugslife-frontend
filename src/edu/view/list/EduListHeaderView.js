@@ -15,11 +15,11 @@ export default class EduListHeaderView extends Component {
             type : 1,
             inputValue : "",
         }
-        this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange = (e, data) => {
         this.setState({type: data.value})
+        console.log(this.state.type)
     }
     
     render() {

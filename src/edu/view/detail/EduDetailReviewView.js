@@ -5,7 +5,6 @@ import swal from 'sweetalert'
 import { Form, Button, TextArea } from 'semantic-ui-react'
 import "../scss/EduDetail.scss"
 import ReportContainer from "../../../report/container/ReportContainer"
-import { observable } from "mobx";
 
 export class EduDetailReviewView extends Component {
     otherUserApi = new OtherUserApi();
@@ -15,6 +14,7 @@ export class EduDetailReviewView extends Component {
         this.state = {
             modifyToggle: false,
             user: "",
+            imageUrl: "",
             title: this.props.review.title,
             recommend: this.props.review.recommend,
             unrecommend: this.props.review.unrecommend,
@@ -27,8 +27,11 @@ export class EduDetailReviewView extends Component {
 
     async getUser(wid) {
         let result = await this.otherUserApi.getOtherUser(wid)
+        console.log(result)
         console.log(result.name)
-        return this.setState({user: result.name}) 
+        console.log(result.imageUrl)
+        return this.setState({user: result.name,
+            imageUrl: result.imageUrl}) 
     }
 
     componentDidMount() {
@@ -110,7 +113,8 @@ export class EduDetailReviewView extends Component {
                 : <div className="eduReviewLayout">
                     <div className="eduReviewTitle">
                         <div className="eduReviewTitleInfo">
-                            <img src="public\logo\userIcon.png" alt="userIcon"></img>
+                            { this.state.imageUrl ? <img className="userIcon" src={this.state.imageUrl} alt="userIcon"></img>
+                                : <img className="userIcon" src="/logo/userIcon.png" alt="userIcon"></img>}
                             <div className="eduReviewTitleValue eduReviewClick">{this.state.user}</div>
                             {/* <div className="eduReviewTitleValue">{review.title}</div> */}
                             { review.updateDate==null ? <div className="eduReviewTitleValue">{review.registDate}</div> 
