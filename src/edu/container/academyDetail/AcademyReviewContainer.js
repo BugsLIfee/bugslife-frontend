@@ -6,7 +6,7 @@ import "../../view/scss/AcademyDetail.scss"
 export class AcademyReviewContainer extends Component {
     options = [];
     render() {
-        const {academyReviews, academyEduList} = this.props
+        const {academyReviews, academyEduList, oauth, removeReview} = this.props
         this.options = academyEduList.map((edu) => {
             return {
                 key: edu.id,
@@ -16,7 +16,7 @@ export class AcademyReviewContainer extends Component {
         })
         const review = academyReviews.map((review) => {
             return (
-                <AcademyDetailReviewView review={review}/>
+                <AcademyDetailReviewView review={review} oauth={oauth} removeReview={removeReview}/>
             )
         })
 

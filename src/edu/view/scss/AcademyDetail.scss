@@ -163,11 +163,21 @@
       border-right: 1px solid #eaeaea;
     }
   }
+  .academyEduTitleValue {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 3px 0px;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #666666;
+    margin-left: 5px;
+  }
   .academyReviewBody {
     width: 100%;
-    margin-top: 10px;
     display: flex;
     flex-direction: row;
+    margin-top: 12px;
 
     .academyReviewBodyL {
       width: 20%;
@@ -177,16 +187,19 @@
         flex-direction: column;
 
         .allRate {
-          margin-bottom: 20px;
+          margin-bottom: 30px;
           font-weight: bold;
-          margin-left: 5px;
-          align-items: center;
+          font-size: 1.2rem;
+          align-items: flex-start;
           display: flex;
-          flex-direction: row;
+          flex-direction: column;
+          p {
+            margin: 0px 3px;
+          }
           .allRateValue {
             margin-left: 15px;
             font-size: 2rem;
-            color: #2281da;
+            color: #1da4e2;
           }
         }
 
@@ -202,13 +215,13 @@
 
           .reviewRatingBar {
             margin-top: -5px;
+            color: #1da4e2;
           }
         }
       }
     }
     .academyReviewBodyR {
       width: 70%;
-      margin-top: 10px;
       .reviewTitle {
         font-size: 1.6rem;
         font-weight: bold;

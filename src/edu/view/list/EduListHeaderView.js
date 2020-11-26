@@ -11,7 +11,7 @@ const options = [
 export default class EduListHeaderView extends Component {
     
     render() {
-        const {eduLists, syncEdu, loadingBtn, disableBtn } = this.props
+        const {eduLists, syncEdu, loadingBtn, disableBtn, oauth } = this.props
         
         return (
             <div>
@@ -19,8 +19,11 @@ export default class EduListHeaderView extends Component {
                 <div className="eduListHeader">
                     <h5>
                         전체<div className="fontColor">&nbsp;{eduLists}</div>건&nbsp;&nbsp;
-                            &nbsp;<Button content="동기화" loading={loadingBtn} disabled={disableBtn} primary onClick={()=>{syncEdu()}}/>
-                            {/* <Loader active={this.state.active} inline={this.state.inline}/> */}
+                            &nbsp;
+                            { oauth.getCurrentUserInfo.role==="ADMIN" ? 
+                            <Button content="동기화" loading={loadingBtn} disabled={disableBtn} primary onClick={()=>{syncEdu()}}/>
+                            : null
+                        }
                     </h5>
                     <div className="searchLayout">
                         <Dropdown placeholder='Select' scrolling options={options} className="eduSearchFilter"/>  

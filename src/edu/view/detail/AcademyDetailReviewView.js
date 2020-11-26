@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
 import Rating from '@material-ui/lab/Rating';
+import swal from 'sweetalert'
 import "../scss/AcademyDetail.scss"
 import ReportContainer from "../../../report/container/ReportContainer"
 
 export class AcademyDetailReviewView extends Component {
     render() {
-        const {review} = this.props
+        const {review,oauth,removeReview} = this.props
+        console.log("리뷰 아이디지롱",review.id)
+        console.log("제목",review.eduTitle)
         return (
             <div>
 
@@ -19,12 +22,26 @@ export class AcademyDetailReviewView extends Component {
                             <div className="academyReviewTitleValue academyReviewClick">
                                 <ReportContainer bt_text = {<div>신고</div>} />
                             </div>
+                            { (review.writerId===oauth.getCurrentUserInfo.id) ? 
+                            <div className="academyReviewTitleValue academyReviewClick" 
+                                onClick={
+                                    () => {swal("리뷰를 삭제하시겠습니까?",{
+                                            buttons: {
+                                                삭제: true,
+                                                cancel: "취소"
+                                            }
+                                        }
+                                    ).then((value) => {
+                                        if(value){swal("삭제되었습니다").then(()=>removeReview(review.id))}
+                                    })}
+                                }>리뷰삭제</div> : null}
                         </div>
                         <div className="reviewHate">
                             <div className="academyReviewClick">광고 의심</div>
                             <div className="reviewHateValue">&nbsp;&nbsp;{review.adReport}</div>
                         </div>
                     </div>
+                    <div className="academyEduTitleValue">{review.eduTitle}</div>
                     <div className="academyReviewBody">
                         <div className="academyReviewBodyL">
                             <div className="reviewRating">
@@ -51,12 +68,12 @@ export class AcademyDetailReviewView extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="eduReviewBodyR">
+                        <div className="academyReviewBodyR">
                             <div className="reviewTitle">{review.title}</div>
                             <span className="reviewRecommand">장점</span>
-                            <div className="eduReviewContent">{review.recommend}</div>
+                            <div className="academyReviewContent">{review.recommend}</div>
                             <span className="reviewUnrecommand">단점</span>
-                            <div className="eduReviewContent">{review.unrecommend}</div>
+                            <div className="academyReviewContent">{review.unrecommend}</div>
                         </div>
                     </div>
                 </div>
