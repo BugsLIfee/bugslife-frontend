@@ -7,51 +7,69 @@ export default class OtherUserView extends Component {
 
     render() {
         const image = "../main/pink_sqaure.png";
-        const {user, questions, answers, top5 } = this.props;
+        const {user, questions, answers, top5} = this.props;
 
         const selected = answers.filter(answer => answer.is_selected===true).length;
 
-        const top5_list = top5.map(post => {
-            return (
-                <Feed.Event
-                    image={image}
-                    date={post.date}
-                    summary={post.title}
-                />
-            )
-        })
+        const top5_list = top5
+        // .map(post => {
+        //     return (
+        //         <Feed.Event
+        //             image={image}
+        //             date={post.date}
+        //             summary={post.title}
+        //         />
+        //     )
+        // })
+        // console.log(questions, answers)
 
-        const question_list = questions.map(question => {
-            return (
-               
-                    <List.Item>
-                        <List.Content>
-                        <List.Header>{question.date}</List.Header>
-                        {question.title}
-                        </List.Content>
-                        <div className="MyPage_detail_post_icon">
-                        <a href="/">
-                            <Icon name="edit"></Icon>
-                        </a>
-                        </div>
-                    </List.Item>
-        )})
 
-        const answer_list = answers.map(answer => {
-            return (
-                    <List.Item>
-                        <List.Content>
-                        <List.Header>{answer.date}</List.Header>
-                        {answer.title}
-                        </List.Content>
-                        <div className="MyPage_detail_post_icon">
-                        <a href="/">
-                            <Icon name="edit"></Icon>
-                        </a>
-                        </div>
-                    </List.Item>
-        )})
+        console.log(top5_list)
 
+        const question_list = questions.length>0? 
+            ( 
+                <Segment inverted>
+                <List divided inverted relaxed>
+                  {questions.map(question=>{return(
+                      <List.Item>
+                      <List.Content>
+                      <List.Header>{question.date}</List.Header>
+                      {question.title}
+                      </List.Content>
+                      <div className="MyPage_detail_post_icon">
+                      <a href="/">
+                          <Icon name="edit"></Icon>
+                      </a>
+                      </div>
+                  </List.Item>)
+                  })}
+                </List>
+            </Segment>            
+        ) 
+
+         : (<div className="no_post"><h4 >작성 글이 없습니다.</h4> </div>);
+
+
+         const answer_list = answers.length> 0? 
+         ( 
+            <Segment inverted>
+             <List divided inverted relaxed>
+              {answers.map(answer=>{return(
+                  <List.Item>
+                  <List.Content>
+                  <List.Header>{answer.date}</List.Header>
+                  {answer.title}
+                  </List.Content>
+                  <div className="MyPage_detail_post_icon">
+                  <a href="/">
+                      <Icon name="edit"></Icon>
+                  </a>
+                  </div>
+              </List.Item>)
+              })}
+            </List>
+        </Segment>            
+    ) : (<div className="no_post"><h4>작성 글이 없습니다.</h4> </div>)
 
     return (
         <>
@@ -62,7 +80,7 @@ export default class OtherUserView extends Component {
                 <br></br>
 
                 <h2>{user.name}</h2>
-                <span classNa터e="MyPage_level">
+                <span className="MyPage_level">
                     <i id="MyPage_level_icon" class="fas fa-check-circle"></i>
                     <h3>
                     <strong>Level </strong>: {user.level}
@@ -77,12 +95,12 @@ export default class OtherUserView extends Component {
 
             <div className="MyPage_action_detail">
             <div className="action_detail_column">
-                <h3>출석률</h3>
+                <h3>출석일</h3>
                 <h2 className="action_detail_rate">
                 <b className="att_rate">
                     <CountUp end={100} duration={5} />
                 </b>{" "}
-                %
+                일
                 </h2>
             </div>
             <div className="action_detail_column">
@@ -133,29 +151,21 @@ export default class OtherUserView extends Component {
                 {}
                 <div className="recently_body">
                     <Feed>
-                        {top5_list}
+                        {/* {top5_list} */}
                     </Feed>
                 </div>
             </div>
             <div className="otherUser_detail_column">
                 <h1 className="column_title">{user.name}님의 질문</h1>
                 <div className="column_body">
-                    <Segment inverted>
-                        <List divided inverted relaxed>
-                            {question_list}
-                        </List>
-                    </Segment>
+                        {question_list}
                 </div>
             </div>
 
             <div className="otherUser_detail_column">
                 <h1 className="column_title">{user.name}의 답변</h1>
                 <div className="column_body">
-                <Segment inverted>
-                    <List divided inverted relaxed>
                         {answer_list}
-                    </List>
-                </Segment>
                 </div>
             </div>
         </div>

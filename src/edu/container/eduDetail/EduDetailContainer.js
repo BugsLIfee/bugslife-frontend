@@ -24,16 +24,16 @@ class EduDetailContainer extends Component {
         this.props.Store.edu.checkReview(wid,eid)
     }
 
-    onSetUser = (wid) => {
-        console.log(wid)
-        this.props.Store.edu.getUser(wid)
-    }
+    // onSetUser = (wid) => {
+    //     console.log(wid)
+    //     this.props.Store.edu.getUser(wid)
+    // }
 
     render() {
 
         const eduReviews = this.props.Store.edu.getEduReviews
         const eduInfo = this.props.Store.edu.getEduInfo
-        const {check, user} = this.props.Store.edu
+        const {check} = this.props.Store.edu
         const {oauth} = this.props.Store;
 
         const onAddReview = (reviewObj) => {
@@ -90,7 +90,7 @@ class EduDetailContainer extends Component {
                 <EduAddReviewContainer onAddReview={onAddReview} eduInfo={eduInfo}
                     oauth={oauth} checkReview={this.onCheckReview} check={check}/>
                 <EduReviewContainer eduReviews={eduReviews} removeReview={this.onRemoveReview} 
-                    oauth={oauth} updateReview={onUpdateReview} user={user} getUser={this.onSetUser}/>
+                    oauth={oauth} updateReview={onUpdateReview}/>
             </div>
         )
     }

@@ -6,18 +6,20 @@ import { inject, observer } from 'mobx-react'
 @observer
 class OtherUserContainer extends Component {
 
-    componentDidMount=()=>{
+    componentDidMount=async()=>{
+
+        console.log("========component Did mount=======")
         let match = this.props.match;
-        this.props.Store.otherUser.getOtherUser(`${match.params.uid}`)
-        
+        await this.props.Store.otherUser.getOtherUser(`${match.params.uid}`)
     }
     
     render() {
-        const user = this.props.Store.otherUser._user
+        const user = this.props.Store.otherUser.user
         const questions = this.props.Store.otherUser._questions
         const answers = this.props.Store.otherUser._answers;
         const top5 = this.props.Store.otherUser._recently_top5;
 
+        console.log(top5)
         return (
             <OtherUserView 
                 user = {user}

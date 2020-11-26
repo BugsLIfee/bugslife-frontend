@@ -8,11 +8,11 @@ export class EduAddReviewView extends Component {
         
 
         const {onInsertForm,oauth,checkReview,check,eduInfo} = this.props;
-        console.log(oauth.getCurrentUserInfo.id)
-        console.log(eduInfo.id)
+        // console.log(oauth.getCurrentUserInfo.id)
+        // console.log(eduInfo.id)
         // console.log(checkReview(oauth.getCurrentUserInfo.id))
         checkReview(oauth.getCurrentUserInfo.id,eduInfo.id)
-        console.log(check)
+        // console.log(check)
         return (
 
                 <div className="blue_btn">

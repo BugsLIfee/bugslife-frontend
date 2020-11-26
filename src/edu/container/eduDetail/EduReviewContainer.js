@@ -8,8 +8,7 @@ export class EduReviewContainer extends Component {
 
         const review = eduReviews.map((review) => {
             return (
-                <EduDetailReviewView review={review} removeReview={removeReview} oauth={oauth} updateReview={updateReview}
-                    user={user} getUser={getUser}/>
+                <EduDetailReviewView review={review} removeReview={removeReview} oauth={oauth} updateReview={updateReview}/>
             )
         })
 
