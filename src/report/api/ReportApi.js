@@ -12,7 +12,6 @@ export default class ReportApi {
   }
 
   reportCreate(reportApiModel) {
-    console.log("리포트객체", reportApiModel)
     return request({
       url: this.url + "add/",
       method: 'POST',

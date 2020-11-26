@@ -19,11 +19,13 @@ class DetailStore {
   answer_id;
 
   @action
-  async selectPost(id) {
+  async selectPost(id, user) {
+    console.log(user.id)
     this.post = await this.postApi.postDetail(id);
     this.question = this.post.question ? { ...this.post.question } : {};
     this.answers = this.post.answers ? this.post.answers : [];
     this.answers = this.answers.filter(answer => answer.selected).concat(this.answers.filter(answer=>!answer.selected))
+    
     this.question_likes = this.question.likes;
     this.question_comments = this.question.comments;
   } 

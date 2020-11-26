@@ -10,13 +10,19 @@ import "../view/scss/ListTag.scss"
 class ListTagContainer extends Component {
 
   componentDidMount(){
-      const { tag } = this.props.Store
-        tag.tagList()
+      // const tags = this.props.Store.list.tags
   }
 
+
+  onTagSearch = (tag)=>{
+    const { list} = this.props.Store
+    list.searchTag(tag);
+  }
+  
+
   render() {
-    const { tag, oauth } = this.props.Store
-    let taglist = tag.getTagAll
+    const { oauth, list} = this.props.Store
+    const taglist = list._top10Tags 
     const login = oauth.getCurrentUserInfo.id !== undefined
 
     return (
@@ -38,7 +44,7 @@ class ListTagContainer extends Component {
           <span className="tagTitle">TAG</span>
         
       <div className="listTagContainer tagBox">
-        <ListTagView tagAll={taglist} />
+        <ListTagView tagAll={taglist} searchTag={this.onTagSearch}/>
       </div>
         </div>
       </div>

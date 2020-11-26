@@ -4,56 +4,49 @@ import { observer, inject } from 'mobx-react'
 
 function ReportBoardContainer(props) {
     
-    // const api_done = props.Store.report.getAllList();
     
     const category = props.Store.report._category;
-    // const original_list = props.Store.report._report_list;
     let report_list = [];
     const [report_status, setReportStatus] = useState(2)
     const [visibles, setVisibles] = useState([false, false, false, false, false, false, false, false])
     const [filter_list, setFilterList] = useState();
     
-    // console.log("완료후", report_list)
 
     useEffect(() => {
-        console.log("요기어때?",report_list)
-
         props.Store.report.getAllList();  
+    }, [])
 
-        report_list = props.Store.report.reportList
-        console.log(props.Store.report._report_list)
-
+    useEffect(() => {
+        report_list = props.Store.report._report_list
         setFilterList(report_list)
-
         if(visibles.find(element => element===true) !== undefined) {
             console.log(report_list)
             setFilterList(report_list.filter(report => {
                 if(report_status === 2)
                 {
-                    return visibles[category.indexOf(report.type)];
+                    return visibles[category.indexOf(report.reportType)];
                 } else if(report_status === 0)
                 {
-                    return visibles[category.indexOf(report.type)] && report.is_done===true;
+                    return visibles[category.indexOf(report.reportType)] && report.done===true;
                 } else 
                 {
-                    return visibles[category.indexOf(report.type)] && report.is_done===false;
+                    return visibles[category.indexOf(report.reportType)] && report.done===false;
                 }
             }
         ) 
         )}
         else {
-            console.log(report_list)
             setFilterList(report_list.filter(report => {
                 if(report_status === 2) {
                     return true;
                 } else if(report_status === 0) {
-                    return report.is_done===true;
+                    return report.done===true;
                 } else {
-                    return report.is_done===false;
+                    return report.done===false;
                 }
             }))
         }
-    }, [visibles, report_status])
+    },[visibles, report_status])
 
     const onSelectCategory = (type) => {
         setVisibles(

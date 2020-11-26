@@ -23,18 +23,17 @@ class ListContainer extends Component {
 
   render() {
     const list = this.props.Store.list.getList
+    const search = (keyword) => {
+      this.props.Store.list.search(keyword);
+    }
 
     return (
       <Grid className="listLayout"> 
         <Grid.Column width={9} className="listItemBox" >
         <Grid.Row className="ListGridHeader">
-          <ListHeaderContainer onSetOrderBy={this.onSetListOrderBy} />
+          <ListHeaderContainer onSetOrderBy={this.onSetListOrderBy} search ={search}/>
         </Grid.Row>
         <Grid.Row >
-        {/* <Grid.Column width={2} className="listTagBox">
-            <ListTagContainer />
-          </Grid.Column> */}
-            
             <ListViewContainer lists={list} />
         
           </Grid.Row>
