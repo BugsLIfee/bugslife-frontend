@@ -243,6 +243,53 @@
   }
 }
 
+.addAcademyReviewHeader {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: auto;
+}
+
+.addAcademyReviewTitle {
+  display: flex !important;
+  align-items: flex-start !important;
+  width: 100% !important;
+  .field {
+    width: 100% !important;
+    .ui {
+      width: 100% !important;
+      margin: 0px !important;
+    }
+  }
+}
+
+.addAcademyReviewBodyR {
+  width: 70%;
+  .academyReviewTitle {
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
+  .addAcademyReviewRecommand {
+    font-size: 1rem;
+    margin-top: 20px !important;
+    .recommandTextArea {
+      margin-bottom: 20px;
+      margin-top: 8px;
+    }
+    .reviewRecommand {
+      color: blue;
+    }
+    .reviewUnrecommand {
+      color: red;
+    }
+  }
+  .addReviewButton {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
 .academySelector {
   width: 70% !important;
   display: flex !important;

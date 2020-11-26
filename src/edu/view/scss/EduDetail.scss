@@ -166,6 +166,11 @@
 
     .eduReviewTitleInfo {
       display: flex;
+      align-items: center;
+      .userIcon {
+        border-radius: 100%;
+        height: 28px;
+      }
     }
 
     .eduReviewClick {
@@ -186,7 +191,7 @@
     }
 
     .eduReviewTitleValue {
-      font-size: 1rem;
+      font-size: 1.1rem;
       font-weight: bold;
       color: #555555;
       padding: 0px 7px;

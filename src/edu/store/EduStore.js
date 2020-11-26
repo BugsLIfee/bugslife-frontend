@@ -30,6 +30,8 @@ class EduStore {
 
     @observable academyReviews = [];
 
+    @observable filterReviews = [];
+
     @observable loadingBtn = "";
 
     @observable disableBtn = "";
@@ -40,7 +42,7 @@ class EduStore {
 
     @observable check = false;
 
-    @observable user = {}
+    // @observable user = {}
 
     @observable bool = true
 
@@ -71,7 +73,7 @@ class EduStore {
     }
 
     @computed get getAcademyReviews() {
-        return this.academyReviews ? this.academyReviews.slice() : []
+        return this.filterReviews ? this.filterReviews.slice() : []
     }
 
     // @computed get getCheckReview() {
@@ -94,25 +96,25 @@ class EduStore {
         switch(type){
             case 1 :
                 filterLists = this.eduList.filter((list) => {
-                    return list.title.toLowerCase().includes(inputValue);
+                    return list.title.toLowerCase().includes(inputValue.toLowerCase());
                 });
                 this.eduFilterList = filterLists
                 break;
             case 2 :
                 filterLists = this.eduList.filter((list) => {
-                    return list.academyTitle.toLowerCase().includes(inputValue);
+                    return list.academyTitle.toLowerCase().includes(inputValue.toLowerCase());
                 });
                 this.eduFilterList = filterLists
                 break;
             case 3 :
                 filterLists = this.eduList.filter((list) => {
-                    return list.simpleAddr.toLowerCase().includes(inputValue);
+                    return list.simpleAddr.toLowerCase().includes(inputValue.toLowerCase());
                 });
                 this.eduFilterList = filterLists
                 break;
             default :
                 filterLists = this.eduList.filter((list) => {
-                    return list.title.toLowerCase().includes(inputValue);
+                    return list.title.toLowerCase().includes(inputValue.toLowerCase());
                 });
                 this.eduFilterList = filterLists
                 break;
@@ -135,9 +137,22 @@ class EduStore {
         this.academyReviews = [];
         this.academyEduList.forEach((r)=>{if(r.reviews.slice().length){this.tempReviews.push(r.reviews)}})
         this.tempReviews.forEach((r)=>{r.forEach((rr)=>{this.academyReviews.push(rr)})})
+        console.log(this.academyReviews)
+        this.filterReviews = this.academyReviews
         //this.academyReviews.push(this.academyEduList.map().reviews)
         //this.academyReviews = {...this.academyEduList.map(review=>review.reviews)}
         // this.academyReviews = this.academyEduList ? this.academyEduList.slice() : [];
+    }
+
+    @action
+    filterReview(eid) {
+        let reviews = []
+        { eid==="all" ? reviews = this.academyReviews 
+        : reviews = this.academyReviews.filter((review) => {
+            return review.eduId.includes(eid);
+        });}
+        console.log(this.filterReviews)
+        this.filterReviews = reviews
     }
 
     @action
@@ -183,12 +198,12 @@ class EduStore {
         return this.check = result
     }
 
-    @action
-    async getUser(wid) {
-        let result = await this.otherUserApi.getOtherUser(wid)
-        console.log(result.name)
-        return result.name
-    }
+    // @action
+    // async getUser(wid) {
+    //     let result = await this.otherUserApi.getOtherUser(wid)
+    //     console.log(result.name)
+    //     return result.name
+    // }
 }
 
 export default EduStore
