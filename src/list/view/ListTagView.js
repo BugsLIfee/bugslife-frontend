@@ -4,12 +4,12 @@ import "./scss/ListTag.scss"
 
 export default class Listtagview extends Component {
   render() {
-    const { tagAll } = this.props
+    const { tagAll, searchTag } = this.props
 
     const tags = tagAll.map((tag) => {
       return (
         <span className="tagLists" >
-          <Badge variant="primary" onClick={()=>{console.log(tag.tagId)}}>{tag.tagName}</Badge>
+          <Badge variant="primary" onClick={()=>{searchTag(tag)}}>{tag}</Badge>
         </span>
       )
     })

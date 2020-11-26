@@ -1,27 +1,24 @@
 import React, {Component} from 'react';
+import swal from "sweetalert";
 import "../scss/likes_bt.scss";
 
 export default class AnswerLikesView extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            likes : this.props.answer.likes,
-            clicked_like : this.props.answer.clicked_like,
-        }
-    }
-
     render() {
-        const { answer, onAnswerLike } = this.props;
-        const { likes } = this.state;
-        const { clicked_like } = this.state;
+        const { answer, onAnswerLike, login } = this.props;
+        const { likes } = answer;
+        const { clicked_like } = answer;
         
         return (
             <div className="detail_likes_button">
                 <div onClick={() => { 
-                    if(!clicked_like) {
-                        this.setState({likes : likes+1});
-                        this.setState({clicked_like : !clicked_like});
+                    if(login){
+                        if(!clicked_like) {
+                            this.setState({likes : likes+1});
+                            this.setState({clicked_like : !clicked_like});
+                        }
+                    } else {
+                        swal("로그인이 필요합니다!");
                     }
                 }}>
                     <div className="up" onClick={() => {onAnswerLike(answer.id, "up")}} > <i className="fas fa-sort-up"></i> </div>
@@ -30,9 +27,13 @@ export default class AnswerLikesView extends Component {
                     {likes}
                 </div>
                 <div onClick={() => { 
-                    if(clicked_like) {
-                        this.setState({likes : likes-1});
-                        this.setState({clicked_like : !clicked_like});
+                    if(login) {
+                        if(clicked_like) {
+                            this.setState({likes : likes-1});
+                            this.setState({clicked_like : !clicked_like});
+                        }
+                    } else {
+                        swal("로그인이 필요합니다!")
                     }
                 }}>
                     <div className="down" onClick={() => {onAnswerLike(answer.id, "down")}}> <i className="fas fa-sort-down"></i> </div>

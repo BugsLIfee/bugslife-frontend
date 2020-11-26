@@ -96,6 +96,15 @@ module.exports = function (app) {
     })
   );
 
+    // admin-service
+  app.use(
+    "/api/report",
+    createProxyMiddleware({
+      target: "http://localhost:8084",
+      changeOrigin: true,
+    })
+  );
+
   // // Chat;
   // app.use(
   //   "/api/chat",

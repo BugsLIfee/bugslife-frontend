@@ -12,7 +12,6 @@ import OauthStore from "../oauth/OauthStore";
 import PointStore from "../point/store/PointStore";
 import ReportStore from "../report/store/ReportStore";
 import AttendanceStore from "../attendance/store/AttendanceStore";
-import ReportCategoryStore from "../report/store/ReportStore";
 import EduStore from "../edu/store/EduStore";
 import OtherUserStore from "../otherUser/store/OtherUserStore"
 import BugBoardPosting from "../bugBoardPosting/store/bugBoardPostingStore"
@@ -33,7 +32,6 @@ export default class Store {
     this.oauth = new OauthStore(this);
     this.freeboard = new FreeboardStore(this);
     this.point = new PointStore(this);
-    this.reportCagetgory = new ReportCategoryStore(this);
     this.report = new ReportStore(this);
     this.edu = new EduStore(this);
     this.attendance = new AttendanceStore(this);

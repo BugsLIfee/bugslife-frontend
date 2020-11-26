@@ -4,6 +4,36 @@ export default class DetailApi {
   
   url = "/api/bugboard/";
 
+  addAnswerLike(answerId, userId) {
+    return request({
+      url: this.url + "detail/" + answerId + "/add-answer-like/"+userId,
+      method: 'GET'
+    })
+  }
+
+  addQuestionLike(questionId, userId) {
+    return request({
+      url: this.url + "detail/" + questionId + "/add-question-like/"+userId,
+      method: 'GET'
+    })
+  }
+
+  deleteAnswerLike(answerId, userId) {
+    return request({
+      url: this.url + "detail/" + answerId + "/delete-answer-like/"+userId,
+      method: 'GET'
+    })
+  }
+
+  deleteQuestionLike(questionId, userId) {
+    return request({
+      url: this.url + "detail/" + questionId + "/delete-question-like/" +userId,
+      method: 'GET'
+    })
+  }
+
+  
+
   answerCreate(answerApiModel) {
     return request({
       url: this.url + "detail/add-answer",
@@ -21,7 +51,6 @@ export default class DetailApi {
   }
 
   answerModify(answerApiModel) {
-    console.log(answerApiModel)
     return request({
       url: this.url + "answer/",
       method: 'PUT',

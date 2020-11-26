@@ -25,6 +25,7 @@ class ReportStore {
     async onAddReport(reportObj) {
         reportObj = new ReportApiModel(reportObj);
         await this.reportApi.reportCreate(reportObj);
+        return true
     }
 
     @action receipt_report(id, is_blind) {

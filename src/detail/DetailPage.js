@@ -17,7 +17,9 @@ class DetailPage extends Component {
 
     componentDidMount () {
         let match = this.props.match;
-        this.props.Store.detail.selectPost(match.params.post_id);
+        const user = this.props.Store.oauth.getCurrentUserInfo
+
+        this.props.Store.detail.selectPost(match.params.post_id, user);
         window.scrollTo(0,0);
     }
 

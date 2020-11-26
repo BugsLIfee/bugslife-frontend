@@ -39,12 +39,11 @@ class AnswerContainer extends Component {
 
 
         const onOpenChat=(questionId,questionUserId, answerUserId)=>{
-           console.log("질문id:",questionId,"/채팅요청한 질문자id:",questionUserId,"/답변자Id:",answerUserId); 
-           const url=`/premium-chat?questionId=${questionId}&questionUserId=${questionUserId}&answerUserId=${answerUserId}`;
-           const popup_option="toolbar=no,status=no,menubar=no,resizable=yes, location=no, top=100,left=100,width=500,height=700,scrollbars=no, fullscreen=no";
+            console.log("질문id:",questionId,"/채팅요청한 질문자id:",questionUserId,"/답변자Id:",answerUserId); 
+            const url=`/premium-chat?questionId=${questionId}&questionUserId=${questionUserId}&answerUserId=${answerUserId}`;
+            const popup_option="toolbar=no,status=no,menubar=no,resizable=yes, location=no, top=100,left=100,width=500,height=700,scrollbars=no, fullscreen=no";
 
-           window.open(url,'프리미엄채팅방',popup_option);
-
+            window.open(url,'프리미엄채팅방',popup_option);
         }
 
         const onModifyAnswer = (answerObj) => {
@@ -53,7 +52,6 @@ class AnswerContainer extends Component {
         }
 
         const currentUser = this.props.Store.oauth.getCurrentUserInfo;
-
 
         return (
             <>
@@ -66,7 +64,7 @@ class AnswerContainer extends Component {
                             currentUser = {currentUser} 
                             onDeleteAnswer= {onDeleteAnswer}
                             onModifyAnswer = {onModifyAnswer}
-                           />
+                        />
                         <AnswerLikesContainer answer = { answer } currentUser = {currentUser}/> 
                     </div>
                     <hr />

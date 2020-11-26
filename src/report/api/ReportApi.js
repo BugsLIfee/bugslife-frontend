@@ -2,7 +2,7 @@ import { request } from "../../oauth/api/APIUtils";
 
 export default class ReportApi {
   
-  url = "/api/point/";
+  url = "/api/report/";
 
   reportList() {
     return request({

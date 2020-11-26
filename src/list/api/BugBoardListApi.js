@@ -20,6 +20,7 @@ export default class BugBoardListApi {
     }
 
     bugboradCommentList(uid){
+
         console.log("API Comment받아오기")
         return request({
             url: this.BUGBOARD_API_URL+"user-comment/"+uid,
@@ -27,4 +28,10 @@ export default class BugBoardListApi {
         })
     }
 
+    bugBoardTagList() {
+        return request({
+            url: this.BUGBOARD_API_URL + "tags/",
+            method: "GET"
+        })
+    }
 }

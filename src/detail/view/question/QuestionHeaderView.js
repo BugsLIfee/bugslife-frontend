@@ -32,7 +32,13 @@ export default class QuestionHeaderView extends Component {
                             <div className="upload_date"> {question.registDate.substring(0,10)} &nbsp; | &nbsp; </div>
                             <div className="views"> 조회수 {question.view}  &nbsp; | &nbsp; </div>
                             { currentUser.id !== question.writerId ?
-                                <div className="report"> <ReportModalContainer bt_text = {<div><i className="fas fa-ban"></i> 신고</div>} /> </div> : <></>}
+                                <div className="report"> 
+                                    <ReportModalContainer 
+                                        bt_text = {<div><i className="fas fa-ban"></i> 신고</div>} 
+                                        boardType = "bug_board_question"
+                                        boardId = {question.id}
+                                        /> 
+                                </div> : <></>}
                             {currentUser.id === question.writerId ? 
                                 <Link to={`/detail/modify`} className="title">
                                     <div className="update">  수정 &nbsp;| &nbsp;</div>

@@ -8,13 +8,14 @@ class QuestionLikesContainer extends Component {
 
     render() {
 
+        const userId = this.props.Store.oauth.getCurrentUserInfo.id
         const onQuestionLike = () => {
-            this.props.Store.detail.setQuestionLike();
+            this.props.Store.detail.setQuestionLike(userId);
         }
         
-        const login = this.props;
+        const question = this.props.Store.detail._question
         const {question_likes, question_clicked_like} = this.props.Store.detail;
-
+        const login = question.writerId === userId;
         return (
             <div>
                 <QuestionLikesView 

@@ -5,6 +5,8 @@ import swal from 'sweetalert'
 export class EduAddReviewView extends Component {
     render() {
 
+        
+
         const {onInsertForm,oauth,checkReview,check,eduInfo} = this.props;
         // console.log(oauth.getCurrentUserInfo.id)
         // console.log(eduInfo.id)

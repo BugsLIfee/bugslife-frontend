@@ -19,12 +19,26 @@ class DetailStore {
   answer_id;
 
   @action
-  async selectPost(id) {
+  async selectPost(id, user) {
     this.post = await this.postApi.postDetail(id);
     this.question = this.post.question ? { ...this.post.question } : {};
     this.answers = this.post.answers ? this.post.answers : [];
     this.answers = this.answers.filter(answer => answer.selected).concat(this.answers.filter(answer=>!answer.selected))
+    
+    // 좋아요 크크
+    this.question_clicked_like = this.question.likeList.slice().filter(likeUser => {
+      return likeUser.userId === user.id
+    }).length === 0 ? false : true
     this.question_likes = this.question.likes;
+    
+    
+    this.answers = this.answers.map(answer => {
+      const answerClicked = answer.likeList.filter(likeUser => {
+        return likeUser.userId === user.id
+      }).length === 0 ? false : true
+      return Object.assign(answer, {clicked_like: answerClicked})
+    })
+
     this.question_comments = this.question.comments;
   } 
 
@@ -46,23 +60,29 @@ class DetailStore {
       }).comments.slice();
   }
 
-  @action setAnswerLike(answer_id, dir) {
-    if (this.answers[answer_id].clicked_like && dir === "down") {
-      this.answers[answer_id].clicked_like = false
-      this.answers[answer_id].likes -= 1
-    } else if (!this.answers[answer_id].clicked_like && dir === "up") {
-      this.answers[answer_id].clicked_like = true
-      this.answers[answer_id].likes += 1
+  @action 
+  async setAnswerLike(answer_id, dir, userId) {
+    if (this.answers.find(answer => answer.id === answer_id).clicked_like && dir === "down") {
+      this.answers.find(answer => answer.id === answer_id).clicked_like = false
+      this.answers.find(answer => answer.id === answer_id).likes -= 1
+      await this.postApi.deleteAnswerLike(answer_id, userId)
+    } else if (this.answers.find(answer => answer.id === answer_id).clicked_like === false && dir === "up") {
+      this.answers.find(answer => answer.id === answer_id).clicked_like = true
+      this.answers.find(answer => answer.id === answer_id).likes += 1
+      await this.postApi.addAnswerLike(answer_id, userId)
     }
   }
 
-  @action setQuestionLike() {
+  @action 
+  async setQuestionLike(userId) {
     if (this.question_clicked_like) {
       this.question_clicked_like = false
       this.question_likes -= 1
+      await this.postApi.deleteQuestionLike(this.question.id, userId);
     } else {
       this.question_clicked_like = true
       this.question_likes += 1  
+      await this.postApi.addQuestionLike(this.question.id, userId);
     }
   }
 
@@ -97,7 +117,9 @@ class DetailStore {
       {
         registDate: getToday(),
         comments: [],
-        id: generateId()
+        id: generateId(),
+        clicked_like: false,
+        likes: 0
       }
       ))
     answerObj = new AnswerApiModel(answerObj);
@@ -156,17 +178,12 @@ class DetailStore {
   @action
   async onSelectAnswer(answer_id) {
     this.answers = this.answers.filter(answer => {
-      if(answer.id === answer_id) {
-        console.log("잡았다!", answer)
-      }
         return answer.id === answer_id
       }
     ).concat(this.answers.filter(answer => answer.id !== answer_id))
 
     this.answers[0].selected = true;
     this.question.done = true;
-
-    console.log(this.answers)
 
     await this.postApi.onSelectAnswer(answer_id);
   }
