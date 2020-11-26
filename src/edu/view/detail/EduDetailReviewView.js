@@ -5,7 +5,7 @@ import swal from 'sweetalert'
 import { Form, Button, TextArea } from 'semantic-ui-react'
 import "../scss/EduDetail.scss"
 import ReportContainer from "../../../report/container/ReportContainer"
-import { observable } from "mobx";
+
 
 export class EduDetailReviewView extends Component {
     otherUserApi = new OtherUserApi();
@@ -26,11 +26,10 @@ export class EduDetailReviewView extends Component {
     }
 
     async getUser(wid) {
-        // this.user = await this.otherUserApi.getOtherUser(wid)
+
         let result = await this.otherUserApi.getOtherUser(wid)
-        // console.log(this.user)
         console.log(result)
-        console.log(result.name)
+        // console.log(result.name)
         return this.setState({user: result.name}) 
     }
 
@@ -38,14 +37,6 @@ export class EduDetailReviewView extends Component {
         this.getUser(this.props.review.writerId)
     }
 
-    // async componentDidMount() {
-    //     let result = await this.otherUserApi.getOtherUser(this.props.review.writerId)
-    //     return this.user = result
-    // }   
-
-    // componentDidMount() {
-    //     this.props.getUser(this.props.review.writerId)
-    // }
     render() {
         const onToggle = () => {
             this.setState({modifyToggle: !modifyToggle});
