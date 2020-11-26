@@ -7,23 +7,17 @@ import { inject, observer } from "mobx-react";
 class InfoListContainer extends Component {
 
   componentDidMount=()=>{
-     this.props.Store.info.selectAllinfo(this.props.Store.oauth.getCurrentUserInfo);
-    let test= this.props.Store.oauth.getCurrentUserInfo
-    console.log("TEST : ", test)
-    
+    this.props.Store.info.selectAllinfo(this.props.Store.oauth.getCurrentUserInfo);
   }
 
   render() {
     
     const infoStore = this.props.Store.info;
-   
-    // console.log("---Infolistcontainer---", infoStore.getInfos);
-    
-   
-    // const { ListData, TypeData } = this.props.Store.admin;
+    const user = this.props.Store.oauth.getCurrentUserInfo;
+
     return (
       <div>
-        <InfoList ListData={infoStore.getInfos}  history={this.props.history} />
+        <InfoList ListData={infoStore.getInfos}  user={user} history={this.props.history} />
       </div>
     );
   }

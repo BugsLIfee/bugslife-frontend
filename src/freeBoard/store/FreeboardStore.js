@@ -14,13 +14,12 @@ class FreeboardStore{
     @observable
     freeboard_detail = {}
 
-    // @action
-    // onLike(){
-    //   this.freeboard_detail.likes +=1
-    // }
+ 
+    @observable 
+    pwd_check =false;
 
     @observable
-    freePost_likes = this.freeboard_detail.likes;
+    commentList = [];
 
     @observable
     freeboard_cate = ["자유", "취업", "연애", "학업", "유머", "스포츠", "회사"];
@@ -46,19 +45,49 @@ class FreeboardStore{
 
     @action
     async freeboardList(){
-      let result = await this.freeApi.freeboardList()
+      let result =await this.freeApi.freeboardList()
 
-      if(result !==null){
-        this.freeboard_list =result.map(val=>  { return{...val} }).sort((a,b)=> {return b.id - a.id});
-        // console.log(this.freeboard_list);
-      } else{
-        console.log("freeboard nulllllllll");
+      for(let i =0; i<result.length; i++){
+        let comments = await this.freeApi.freeboardComments(result[i].id)
+        let commentsLength = comments.length;
+
+        if(comments.length!==0){
+          comments = comments.filter(val=> {return val.subComments.length> 0 })
+            .map((val, ind)=> commentsLength += val.subComments.length)
+        }
+        result[i] = {...result[i], commentLen: commentsLength}
       }
+
+      this.freeboard_list = result.sort((a, b)=>{return b.id-a.id});
+      // console.log(result)
+
+      // let test = result.map(val=>{
+      // let comments = async() => await this.freeApi.freeboardComments(val.id);
+
+      // console.log(comments().length)
+      //  return{...val, comment: comments()}
+      // });
+        
+      
+      // this.freeboard_list =await test;
+      // this.freeboard_list.map(val=> console.log(val))
+        
+      // if(result !==null){
+        // this.freeboard_list =result
+        // .map(val=> {
+        //    return {...val} })
+        //    .sort((a,b)=> {return b.id - a.id});
+
+        // console.log(this.freeboard_list))
+      // } else{
+      //   console.log("freeboard nulllllllll");
+      // }
+    
     }
 
     @action
     async freeboardPostSelect(postId){
-      // let post = await this.freeApi.freeboardPostSelect(postId);
+
       this.freeboardList();
        this.freeboard_detail = await this.freeApi.freeboardPostSelect(postId);
        this.increaseViewCnt(postId);
@@ -78,6 +107,7 @@ class FreeboardStore{
     @action
     async freeboardModifyPost(post){
       let modifiedPost = new FreeboardPostModifyModel(post);
+      console.log(modifiedPost)
        await this.freeApi.freeboardModifyPost(post.id, modifiedPost)
     }
 
@@ -86,10 +116,7 @@ class FreeboardStore{
       if(post.pwd === "" || post.pwd === undefined || post.pwd ===null){
         return alert("비밀번호를 입력해주세요.")
       }
-      if(post.cate ===""){
-        alert("카테고리는 필수 선택사항입니다.")
-        return;
-      }
+
 
       post = new FreeboardPostAddModel(post);
       let result = await this.freeApi.freeboardCreatePost(post);
@@ -128,6 +155,13 @@ class FreeboardStore{
         alert("댓글이 삭제되었습니다.")
         return "댓글 삭제 성공"
       }
+    }
+
+    @action 
+    async onCheckPwd(postId, pwd){
+      let result = await this.freeApi.onCheckPwd(postId, pwd)
+      console.log("CONTAINER : ", result)
+      return this.pwd_check= result
     }
 
     @action 
@@ -177,10 +211,10 @@ class FreeboardStore{
     }
 
     @action
-    async onDeletePost(pwd, postId){ 
-      console.log(pwd, postId)
+    async onDeletePost(postId){ 
+      console.log(postId)
 
-        let result = await this.freeApi.freeboardPostDelete(postId, pwd)
+        let result = await this.freeApi.freeboardPostDelete(postId)
         if(result ==null){
           return "포스트 삭제 에러"
         }else{

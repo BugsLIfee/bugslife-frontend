@@ -1,6 +1,5 @@
 import _ from 'lodash'
 import { Search  } from 'semantic-ui-react'
-import "./scss/MemberSearch.scss"
 import React, { Component } from "react";
 import "./scss/MemberSearch.scss"
 

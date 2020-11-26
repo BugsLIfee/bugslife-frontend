@@ -21,11 +21,11 @@ class AdminSideMenu extends Component {
               공지사항관리
           </div>
         </a>
-        <a href="/admin/inquiry">
+        {/* <a href="/admin/inquiry">
           <div className="list inquiry">
               1:1문의 관리
           </div>
-        </a>
+        </a> */}
     </div>
     );
   }

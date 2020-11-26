@@ -71,7 +71,7 @@ export default class QuestionEdit extends Component {
             <Form.Select
             width={3}
             readOnly
-               fluid
+              fluid
             label="문의종류"
               name="categoryId"
               value={categoryId}

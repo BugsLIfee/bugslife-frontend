@@ -5,7 +5,6 @@ import "./scss/ListTag.scss"
 export default class Listtagview extends Component {
   render() {
     const { tagAll } = this.props
-    console.log("view tagALl------------", tagAll.slice())
 
     const tags = tagAll.map((tag) => {
       return (
@@ -17,11 +16,6 @@ export default class Listtagview extends Component {
 
     return (
     <div className="listTag tagItem" >{tags}</div>
-      // <div class="list-item table-qna">
-      //   <div class="lnb">
-
-      //   </div>
-      // </div>
     )
   }
 }

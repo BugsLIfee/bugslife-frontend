@@ -3,6 +3,8 @@ import DetailApi from "../api/DetailApi.js";
 import AnswerApiModel from "../api/model/AnswerApiModel.js";
 import CommentApiModel from "../api/model/CommentApiModel.js"
 import getToday from "../module/GetToday.js";
+import generateId from "../module/IDGenerator.js";
+import AnswerModifyApiModel from "../api/model/AnswerModifyApiModel.js";
 
 class DetailStore {
 
@@ -21,12 +23,13 @@ class DetailStore {
     this.post = await this.postApi.postDetail(id);
     this.question = this.post.question ? { ...this.post.question } : {};
     this.answers = this.post.answers ? this.post.answers : [];
+    this.answers = this.answers.filter(answer => answer.selected).concat(this.answers.filter(answer=>!answer.selected))
     this.question_likes = this.question.likes;
     this.question_comments = this.question.comments;
   } 
-  
+
   @computed get _question() {
-      return this.question ? {...this.question} : {};
+    return this.question ? {...this.question} : {};
   }
 
   @computed get _answers() {
@@ -71,14 +74,14 @@ class DetailStore {
   }
 
   @action addQuestionComment(comment) {
-    this.question_comments.push(Object.assign(comment, { registDate: getToday()}))
+    this.question_comments.push(Object.assign(comment, { registDate: getToday(), id: generateId()}))
     this.onAddComment(comment);
   }
 
   @action addAnswerComment(comment){
       this.answers.find(answer => {
           return answer.id === comment.answerId;
-      }).comments.push(Object.assign(comment, {registDate: getToday()}));
+      }).comments.push(Object.assign(comment, {registDate: getToday(), id: generateId()}));
 
       this.onAddComment(comment);
   }
@@ -93,7 +96,8 @@ class DetailStore {
       answerObj,
       {
         registDate: getToday(),
-        comments: []
+        comments: [],
+        id: generateId()
       }
       ))
     answerObj = new AnswerApiModel(answerObj);
@@ -105,5 +109,67 @@ class DetailStore {
     commentObj = new CommentApiModel(commentObj);
     await this.postApi.commentCreate(commentObj);
   }
+
+  @action 
+  async onDeleteQuestion(id) {
+    await this.postApi.questionDelete(id);
+  }
+
+  @action
+  async onModifyAnswer(answerObj) {
+    this.answer = this.answers.map(answer => {
+      if(answer.id === answerObj.id) {
+        answer.updateDate = getToday();
+        answer.content = answerObj.content;
+      }
+        return answer;
+    })
+    answerObj = new AnswerModifyApiModel(answerObj);
+    await this.postApi.answerModify(answerObj)
+  }
+
+  @action 
+  async onDeleteAnswer(id) {
+    this.answers = this.answers.filter((answer) => {
+      return answer.id !== id;
+    })
+    await this.postApi.answerDelete(id);
+  }
+
+  @action 
+  async onDeleteComment(id) {
+    let find = false;
+
+    this.question_comments = this.question_comments.filter((comment) => {
+      find = true;
+      return comment.id !== id;
+    })
+
+    if (find === false) {
+      this.answers.map(answer => { answer.comments = answer.comments.filter((comment) => {
+          return comment.id !== id;
+    })})}
+
+    await this.postApi.commentDelete(id);
+  }
+
+  @action
+  async onSelectAnswer(answer_id) {
+    this.answers = this.answers.filter(answer => {
+      if(answer.id === answer_id) {
+        console.log("잡았다!", answer)
+      }
+        return answer.id === answer_id
+      }
+    ).concat(this.answers.filter(answer => answer.id !== answer_id))
+
+    this.answers[0].selected = true;
+    this.question.done = true;
+
+    console.log(this.answers)
+
+    await this.postApi.onSelectAnswer(answer_id);
+  }
 }
+
 export default DetailStore

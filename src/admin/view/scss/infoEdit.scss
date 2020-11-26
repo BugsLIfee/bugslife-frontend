@@ -1,16 +1,19 @@
 .info_editor {
-    //margin: 30px auto 100px;
-    width: 500px;
-    height: 300px;
-    padding-top: 50px;
-    padding-bottom: 50px;
+  margin: 2rem 0;
+}
 
-    p {
-        font-size: 2.5rem;
-        color: #616161;
-    }
+.infoEdit-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 70%;
+}
 
-    .ck-editor__editable {
-        height: 300px;
-    }
+.infoEdit_container {
+  margin: 3rem 2rem;
+  padding-bottom: 5rem;
+
+  .ui.selection.dropdown {
+    margin-left: 2rem;
+  }
 }

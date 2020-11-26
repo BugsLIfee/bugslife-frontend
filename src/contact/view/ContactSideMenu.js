@@ -18,16 +18,16 @@ class ContactSideMenu extends Component {
               공지사항
           </div>
         </a>
-        <a href="/contct/qna-write">
+        <a href="/contact/qna-write">
           <div className="list">
-              1:1문의 하기 
+              1:1채팅 문의 
           </div>
         </a>
-        <a href="/contact/qna-my">
+        {/* <a href="/contact/qna-my">
           <div className="list">
               나의 1:1문의
           </div>
-        </a>
+        </a> */}
     </div>
     );
   }

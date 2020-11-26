@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 import FreeboardEditorView from "../view/FreeboradEditorView"
+import swal from 'sweetalert';
 
-// @withRouter
+
+
 @inject('Store')
 @observer
 class FreeboardEditorContainer extends Component {
@@ -16,7 +18,7 @@ class FreeboardEditorContainer extends Component {
 
             this.setState({done:true, postId:post.id})
             console.log(this.state.postId)
-            alert("게시글 작성이 완료되었습니다.")
+            swal("글쓰기 성공 ","자유게시판 글쓰기가 완료되었습니다.","success");
 
             this.props.history.push({
                 pathname: `/freeboard`

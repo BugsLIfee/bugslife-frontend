@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import BoardMngContainer from "./BoardMngContainer";
 import QuestionAllListContainer from "../../contact/container/QuestionAllListContainer";
 import InfoListContainer from "./InfoListContainer";
 import InfoDetailContainer from "./InfoDetailContainer";
@@ -22,7 +21,6 @@ class AdminResultContainer extends Component {
     return (
       <div>
         {menu === "member" || "" ? <MemberMngContainer /> : ""}
-        {menu === "board" ? <BoardMngContainer /> : ""}
         {menu === "qna-all" ? <QuestionAllListContainer /> : ""}
         {menu === "info-list" ? <InfoListContainer /> : ""}
         {menu === "info-write" ? <InfoEditContainer/> : ""}

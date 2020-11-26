@@ -10,24 +10,34 @@ const img = {
 class ListViewMain extends Component {
   render() {
     const { listView } = this.props
-    console.log("리스트븁니당나귀",listView.tags);
-    const tags = listView.tags.map((tag) => {
+    const tags = listView.tags.map((tag, index) => {
       return (
-        <span classNameName="tagFont">
+        <span className="tagFont" key={index}>
           <Badge variant="primary" >{tag}</Badge>{" "}
         </span>
       )
     })
+
+    const dueDate = Math.floor((new Date(listView.dueDate+"T00:00:00").getTime() - new Date().getTime())
+            /(1000*60*60*24)) + 1;
     return (
       <div className="item-center">
         <div className="inner">
-          <Link to={`/detail/${listView.id}`} className="title">
-            {listView.title} 
-          </Link>
-          <span className="date">{listView.registDate}</span>
+          <div className="title">
+            <Link to={`/detail/${listView.id}`} className="title">
+              {listView.title} 
+            </Link>
+            { listView.premium ? 
+              <h5 className="premium">✨ Premium </h5>
+              : <></>}
+          </div>
+          <span className="date">{listView.registDate.substring(0,10)}</span>
+          <span className="date">
+            {dueDate < 0 ? <span className="over_due"> 마감됨 </span> : <span className="under_due"> D-{dueDate}</span>}
+          </span>
           <div className="tab-box">
             <div className="tag-box">
-              <span classNameName="tagFont">
+              <span className="tagFont">
                 {tags}
               </span>                                 
             </div>

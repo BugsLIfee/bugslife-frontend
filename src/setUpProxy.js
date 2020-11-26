@@ -13,7 +13,6 @@ module.exports = function (app) {
   );
 
   // user-service;
-
   app.use(
     "/user/me",
     createProxyMiddleware({
@@ -41,6 +40,21 @@ module.exports = function (app) {
     })
   );
 
+  app.use(
+    "/api/payment",
+    createProxyMiddleware({
+      target: "http://localhost:8088",
+      changeOrigin: true,
+    })
+  );
+
+  app.use(
+    "/api/point",
+    createProxyMiddleware({
+      target: "http://localhost:8088",
+      changeOrigin: true,
+    })
+  );
   // education-service
   app.use(
     "/api/edu",
@@ -64,6 +78,20 @@ module.exports = function (app) {
     "/api/admin/notice",
     createProxyMiddleware({
       target: "http://localhost:8084",
+      changeOrigin: true,
+    })
+  );
+  app.use(
+    "/api/private-chat",
+    createProxyMiddleware({
+      target: "http://localhost:8005",
+      changeOrigin: true,
+    })
+  );
+  app.use(
+    "/api/allchat",
+    createProxyMiddleware({
+      target: "http://localhost:8086",
       changeOrigin: true,
     })
   );

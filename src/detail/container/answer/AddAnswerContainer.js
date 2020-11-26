@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import InsertAnswerView from "../../view/answer/AddAnswerView";
 import AddAnswerView from "../../view/answer/InsertAnswerView";
 import "../../view/scss/answerList.scss";
+import swal from "sweetalert";
 import { inject, observer } from "mobx-react";
 
 @inject('Store')
@@ -16,18 +17,19 @@ class AddAnswerContainer extends Component {
     }
 
     render() {
-
         const {oauth} = this.props.Store;
-
         const onInsertForm = () => {
-            this.setState({insertForm : !insertForm});
+            if(oauth.getCurrentUserInfo.id===undefined) {
+                swal("로그인 후 사용가능합니다 !");
+            } else {
+                this.setState({insertForm : !insertForm});
+            }
         }
 
         const onAddAnswer = (answerObj) => {
             answerObj.writerId = oauth.getCurrentUserInfo.id;
             answerObj.writerName = oauth.getCurrentUserInfo.name;
             answerObj.writerLevel = oauth.getCurrentUserInfo.level;
-        
             this.props.Store.detail.onAddAnswer(answerObj);
         }
 

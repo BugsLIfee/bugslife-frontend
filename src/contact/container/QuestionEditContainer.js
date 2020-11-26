@@ -4,9 +4,8 @@ import { observer, inject } from "mobx-react";
 
 @inject("Store")
 @observer
-class QuestionEditContainer extends Component {
-  
 
+class QuestionEditContainer extends Component {
   question = this.props.Store.question;
 
   onSetInfoProp = (name, value) => {
@@ -43,7 +42,6 @@ class QuestionEditContainer extends Component {
         
         <QuestionEdit
           question={this.question.getQuestion}
-          
           onSetQuestionProp={this.onSetQuestionProp}
           onAddQuestion={this.onAddQuestion}
           onRemoveQuestion={this.onRemoveQuestion}

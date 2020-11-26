@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, withRouter } from "react-router-dom";
 import "./header/view/scss/header.scss";
 import "./footer/footer.scss";
 import OAuth2RedirectHandler from './oauth/oauth2/OAuth2RedirectHandler';
 import LoadingIndicator from './oauth/common/LoadingIndicator';
 import PrivateRoute from './oauth/common/PrivateRoute';
 import "./chatbot/view/chatbotIcon.scss";
-
+// import { Link,  } from "react-router-dom";
 import { 
   HeaderContainer, 
   Footer, 
@@ -29,12 +29,15 @@ import {
   EduDetailContainer,
   AcademyDetailContainer,
   OtherUserContainer,
+  BugBoardModifyPage,
  } from "./Routes";
 
 import Signup from "./oauth/signup/Signup";
 import { inject, Observer } from "mobx-react";
 import ChatbotContainer from "./chatbot/container/ChatbotContainer";
 import FreeboardModifyContainer from "./freeBoard/view/Editor/container/FreeboardModifyContainer";
+import AllChatIndexContainer from "./allChat/container/AllChatIndexContainer";
+
 
 
 @inject("Store")
@@ -68,9 +71,10 @@ class App extends Component {
           <Route exact path="/" component={MainContainer}  />
           <Route path="/list" component={ListContainer} exact={true} />
           <Route path="/detail" component={DetailPage} exact={true} />
+          <Route path="/detail/modify" component={BugBoardModifyPage} exact={true} />
           <Route path="/detail/:post_id" component={DetailPage} exact={true} />
           <PrivateRoute path="/admin" authenticated={this.props.Store.oauth.getCurrentUser} component={AdminContainer} />
-          <Route path="/contact" component={ContactContainer} />
+          <PrivateRoute path="/contact" component={ContactContainer} />
           <PrivateRoute path="/mypage" component={Mypagecontainer} exact={true} />
           <Route path="/posting" component={PostingContainer} exact={true} />
           <Route path="/attendance" component={Attendancecontainer} exact={true} />
@@ -94,7 +98,7 @@ class App extends Component {
           <Route path="/edu/info/:eid" component={EduDetailContainer}/>
           <Route path="/otherUser/:uid" component={OtherUserContainer}/>
           <Route path="/chat-bot" component={ChatbotContainer}/>
-
+          <Route path="/all-chat" component={AllChatIndexContainer} />
         </Switch>
       </Router>
       < ChatbotContainer />
@@ -108,4 +112,4 @@ class App extends Component {
   }
 }
 
-export default App
+export default withRouter(App);
