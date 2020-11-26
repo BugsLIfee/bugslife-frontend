@@ -14,6 +14,8 @@ class EduStore {
 
     @observable eduList = [];
 
+    @observable eduFilterList = [];
+
     @observable eduDetail = {};
 
     @observable eduInfo = {};
@@ -82,7 +84,39 @@ class EduStore {
     async allList() {
         this.bool = true;
         this.eduList = await this.eduInfoApi.eduInfoList()
+        this.eduFilterList = this.eduList
         this.bool = false
+    }
+
+    @action
+    filterList(type, inputValue) {
+        let filterLists = [];
+        switch(type){
+            case 1 :
+                filterLists = this.eduList.filter((list) => {
+                    return list.title.toLowerCase().includes(inputValue);
+                });
+                this.eduFilterList = filterLists
+                break;
+            case 2 :
+                filterLists = this.eduList.filter((list) => {
+                    return list.academyTitle.toLowerCase().includes(inputValue);
+                });
+                this.eduFilterList = filterLists
+                break;
+            case 3 :
+                filterLists = this.eduList.filter((list) => {
+                    return list.simpleAddr.toLowerCase().includes(inputValue);
+                });
+                this.eduFilterList = filterLists
+                break;
+            default :
+                filterLists = this.eduList.filter((list) => {
+                    return list.title.toLowerCase().includes(inputValue);
+                });
+                this.eduFilterList = filterLists
+                break;
+        }
     }
 
     @action 

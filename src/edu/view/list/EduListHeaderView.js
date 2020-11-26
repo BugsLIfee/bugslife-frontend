@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Input, Dropdown, Button} from "semantic-ui-react"
+import { Input, Form, Dropdown, Button, Icon} from "semantic-ui-react"
 import "../scss/EduList.scss"
 
 const options = [
@@ -9,9 +9,21 @@ const options = [
   ]
 
 export default class EduListHeaderView extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            type : 1,
+            inputValue : "",
+        }
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange = (e, data) => {
+        this.setState({type: data.value})
+    }
     
     render() {
-        const {eduLists, syncEdu, loadingBtn, disableBtn, oauth } = this.props
+        const {eduLists, syncEdu, loadingBtn, disableBtn, oauth, onFilterList } = this.props
         
         return (
             <div>
@@ -26,8 +38,12 @@ export default class EduListHeaderView extends Component {
                         }
                     </h5>
                     <div className="searchLayout">
-                        <Dropdown placeholder='Select' scrolling options={options} className="eduSearchFilter"/>  
-                        <Input icon={{ name: "search", circular: true, link: true }} placeholder="Search" className="eduSearchBar"/>
+                        <Dropdown placeholder='Select' scrolling options={options} className="eduSearchFilter" onChange={this.handleChange} value={this.state.type}/>  
+                        <Form onSubmit={()=>onFilterList(this.state.type, this.state.inputValue)}>
+                            <Input icon={<Icon name='search' inverted circular link onClick={()=>{onFilterList(this.state.type, this.state.inputValue)}}/>}
+                                placeholder="Search" className="eduSearchBar"  onChange={(e)=>{this.setState({inputValue : e.target.value})}}/>
+                        </Form>
+                    
                     </div>
                 </div>
             </div>
