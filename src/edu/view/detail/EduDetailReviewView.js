@@ -6,6 +6,7 @@ import { Form, Button, TextArea } from 'semantic-ui-react'
 import "../scss/EduDetail.scss"
 import ReportContainer from "../../../report/container/ReportContainer"
 
+
 export class EduDetailReviewView extends Component {
     otherUserApi = new OtherUserApi();
 
@@ -26,12 +27,15 @@ export class EduDetailReviewView extends Component {
     }
 
     async getUser(wid) {
+
         let result = await this.otherUserApi.getOtherUser(wid)
         console.log(result)
-        console.log(result.name)
-        console.log(result.imageUrl)
+        // console.log(result.name)
+        return this.setState({user: result.name}) 
+
         return this.setState({user: result.name,
             imageUrl: result.imageUrl}) 
+
     }
 
     componentDidMount() {

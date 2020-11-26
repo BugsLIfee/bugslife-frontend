@@ -63,4 +63,5 @@ export default class DetailApi {
       method: "GET"
     })
   }
+
 }
