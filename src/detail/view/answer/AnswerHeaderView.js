@@ -5,7 +5,9 @@ import "../scss/post.scss"
 export default class AnswerHeaderView extends Component {
 
     render() {
+
         const { answer, currentUser, onDeleteAnswer, onModifyAnswer } = this.props;
+
         return(
             <div className="post_meta">
                 <div className="writer_info"> 
@@ -19,6 +21,7 @@ export default class AnswerHeaderView extends Component {
                         <div className="writer_id"> {answer.writerName} </div>
                         <div className="writer_level"> Level {answer.writerLevel} </div>
                     </div>
+ 
                 </div>
                 <div className="_info">
                         <div className="upload_date"> {answer.registDate.substring(0,10)} | &nbsp;</div>

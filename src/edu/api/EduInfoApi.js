@@ -40,4 +40,26 @@ export default class EduInfoApi {
         })
     }
 
+    deleteReview(rid) {
+        return request({
+            url : this.EDU_INFO_API_URL + "reviewDelete/" + rid,
+            method: 'DELETE'
+        })
+    }
+
+    updateReview(reviewObj,rid) {
+        return request({
+            url : this.EDU_INFO_API_URL + "reviewModify/" + rid,
+            method: 'PUT',
+            body: JSON.stringify(reviewObj)
+        })
+    }
+
+    checkReview(wid,eid) {
+        return request({
+            url : this.EDU_INFO_API_URL + "checkReview/" + wid +"/" + eid,
+            method: 'GET'
+        })
+    }
+
 }

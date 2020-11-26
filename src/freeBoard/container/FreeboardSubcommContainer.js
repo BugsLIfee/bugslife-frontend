@@ -20,7 +20,7 @@ class Freeboardsubcommcontainer extends Component {
         return (
             <div>
                    {
-                       subComm.map(comm=>{ 
+                      subComm.map(comm=>{ 
                            return(
                            <Freeboardsubcommview key={comm.id} onDeleteSubComment={this.onDeleteSubComment} subcomment = {comm} />
                        )})

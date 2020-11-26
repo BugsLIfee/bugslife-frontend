@@ -20,7 +20,6 @@ function ReportBoardContainer(props) {
         report_list = props.Store.report._report_list
         setFilterList(report_list)
         if(visibles.find(element => element===true) !== undefined) {
-            console.log(report_list)
             setFilterList(report_list.filter(report => {
                 if(report_status === 2)
                 {

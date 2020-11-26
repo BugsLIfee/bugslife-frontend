@@ -15,10 +15,9 @@ export class AcademyDetailInfoView extends Component {
                         <Image src="https://via.placeholder.com/190x90.png" alt="academyimg"/>
                         <div className="academyRate">
                             <p>학원 총평</p> 
-                            {/* <div><span className="eduRateVallue">{isNaN(eduInfo.eduRate) ? 0 : Math.ceil(eduInfo.eduRate*4)/2}</span>
-                                &nbsp;&nbsp; / &nbsp;
-                                <span className="eduRateMax">10</span>
-                            </div> */}
+                            <div><span className="academyRateVallue">{isNaN(academyInfo.academyRate) ? 0 : parseInt(academyInfo.academyRate*4)/2}</span>
+                            &nbsp;&nbsp; / &nbsp;
+                            <span className="academyRateMax">10</span></div>
                         </div>
                         {/* {eduInfo.eduRate} */}
                     </Grid.Column>

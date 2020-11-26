@@ -2,14 +2,12 @@ import React, { Component } from "react";
 import ReportModalContainer from "../../../report/container/ReportContainer"
 import "../scss/post.scss"
 import { Link } from "react-router-dom"
-import { queries } from "@testing-library/react";
 
 export default class QuestionHeaderView extends Component {
 
     render() {
         
         const { question, currentUser, onDeleteQuestion} = this.props;
-        console.log(question.id)
         return(
             <div className="post_meta">
                 <div className="question_title">

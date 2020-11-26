@@ -9,6 +9,7 @@ class EduInfoApiModel{
     eduId = ""
     academyId = ""
     writerId = ""
+    eduTitle = ""
 
     constructor(reviewObj){
         this.title = reviewObj.title
@@ -21,6 +22,7 @@ class EduInfoApiModel{
         this.eduId = reviewObj.eduId
         this.academyId = reviewObj.academyId
         this.writerId = reviewObj.writer
+        this.eduTitle = reviewObj.eduTitle
     }
 }
 

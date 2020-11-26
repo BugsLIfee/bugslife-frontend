@@ -8,10 +8,13 @@ import { Provider } from "mobx-react";
 import CommonStore from "./common/Store";
 import "semantic-ui-css/semantic.min.css";
 import "bootstrap/dist/css/bootstrap.css";
+import PremiumChatIndexContainer from "./premiumChat/container/PremiumChatIndexContainer";
 
 ReactDOM.render(
   <BrowserRouter>
     <Provider Store={new CommonStore()}>
+      <Route path="/premium-chat" component={PremiumChatIndexContainer} exact={true}/>
+
       <Route
         path={[
           "/",
@@ -38,6 +41,9 @@ ReactDOM.render(
           "/edu/info/:eid",
           "/test",
           "/otherUser/:uid",
+          "/chat-bot",
+          "/all-chat/:menu",
+          "/all-chat/:menu/:id",
           "/detail/modify",
         ]}
         component={App}

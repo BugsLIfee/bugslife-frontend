@@ -1,8 +1,6 @@
 import React from "react";
 import { Route } from "react-router-dom";
 
-
-import BoardMngContainer from "../admin/container/BoardMngContainer";
 import QuestionAllListContainer from "../contact/container/QuestionAllListContainer";
 import InfoListContainer from "../admin/container/info/InfoListContainer";
 import InfoDetailContainer from "../admin/container/info/InfoDetailContainer";
@@ -18,7 +16,6 @@ const AdminRoutes = ({ match }) => {
     <>
       <Route exact path={`${match.url}`} component={MemberMngContainer} />
       <Route exact path={`${match.url}/member`} component={MemberMngContainer} />
-      <Route exact path={`${match.url}/board`} component={BoardMngContainer} />
       <Route exact path={`${match.url}/qna-all`} component={QuestionAllListContainer} />
       <Route exact path={`${match.url}/info-list`} component={InfoListContainer} />
       <Route exact path={`${match.url}/info-write`} component={InfoEditContainer} />

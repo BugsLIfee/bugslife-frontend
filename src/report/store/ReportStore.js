@@ -19,7 +19,6 @@ class ReportStore {
     @action
     async getAllList() {
         this.reportList = await this.reportApi.reportList()
-        console.log(this.reportList)
     }
 
     @action

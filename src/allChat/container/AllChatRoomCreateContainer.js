@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class BoardMngContainer extends Component {
+class AllChatRoomCreateContainer extends Component {
     render() {
         return (
             <div>
@@ -10,4 +10,4 @@ class BoardMngContainer extends Component {
     }
 }
 
-export default BoardMngContainer;
+export default AllChatRoomCreateContainer;

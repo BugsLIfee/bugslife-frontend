@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Button } from "semantic-ui-react";
 import "../scss/post.scss"
 
 export default class AnswerSelectView extends Component {
@@ -15,7 +16,7 @@ export default class AnswerSelectView extends Component {
         }
 
         const today = getFormatDate(new Date());
-        const { answer, question, user, onSelectAnswer } = this.props;
+        const { answer, question, user, onSelectAnswer, onOpenChat } = this.props;
         return(
             <div className="answer_selected">
                 {question.dueDate < today || question.done === true ? 
@@ -27,7 +28,9 @@ export default class AnswerSelectView extends Component {
                             </div>
                             {question.writerId === user.id && question.premium ?
                                 <div>
-                                    여기에 버튼을 넣어주세요~
+                                    <div className="writer_chat">
+                                        <Button onClick={() =>onOpenChat(question.id , question.writerId ,answer.writerId)}>채팅요청하기</Button>
+                                    </div>
                                 </div>
                                 :<></>
                             }   
