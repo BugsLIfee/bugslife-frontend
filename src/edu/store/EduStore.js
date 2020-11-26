@@ -1,11 +1,16 @@
 import { action, computed, observable } from "mobx";
-import EduInfoAPi from "../api/EduInfoApi"
+import EduInfoApi from "../api/EduInfoApi"
+import OtherUserApi from "../../otherUser/api/OtherUserApi"
 import EduInfoApiModel from "../api/model/EduInfoApiModel"
+import ReviewModifyModel from "../api/model/ReviewModifyModel"
+import swal from 'sweetalert'
 
 
 class EduStore {
 
-    eduInfoAPi = new EduInfoAPi();
+    eduInfoApi = new EduInfoApi();
+
+    otherUserApi = new OtherUserApi();
 
     @observable eduList = [];
 
@@ -30,6 +35,12 @@ class EduStore {
     tempReviews = [];
 
     review = {};
+
+    @observable check = false;
+
+    @observable user = {}
+
+    @observable bool = true
 
     //@observable eduReview = EduDetailTestData.review;
 
@@ -61,30 +72,35 @@ class EduStore {
         return this.academyReviews ? this.academyReviews.slice() : []
     }
 
+    // @computed get getCheckReview() {
+    //     return this.check
+    // }
+
 
 
     @action
     async allList() {
-        this.eduList = await this.eduInfoAPi.eduInfoList()
-        // this.eduList = result
+        this.bool = true;
+        this.eduList = await this.eduInfoApi.eduInfoList()
+        this.bool = false
     }
 
     @action 
     async eduDetailInfo(eid) {
-        this.eduDetail = await this.eduInfoAPi.eduDetailList(eid)
+        this.eduDetail = await this.eduInfoApi.eduDetailList(eid)
         this.eduInfo = this.eduDetail ? {...this.eduDetail} : {}
         this.eduReviews = this.eduDetail.reviews ? this.eduDetail.reviews : [];
     }
 
     @action
     async academyDetailInfo(aid) {
-        this.academyDetail = await this.eduInfoAPi.academyDetail(aid)
+        this.academyDetail = await this.eduInfoApi.academyDetail(aid)
         this.academyInfo = await this.academyDetail.eduAcademys ? {...this.academyDetail.eduAcademys} : {};
         this.academyEduList = this.academyDetail.eduInfos ? this.academyDetail.eduInfos : [];
         this.tempReviews = [];
         this.academyReviews = [];
-        this.academyEduList.map((r)=>{if(r.reviews.slice().length){this.tempReviews.push(r.reviews)}})
-        this.tempReviews.map((r)=>{r.map((rr)=>{this.academyReviews.push(rr)})})
+        this.academyEduList.forEach((r)=>{if(r.reviews.slice().length){this.tempReviews.push(r.reviews)}})
+        this.tempReviews.forEach((r)=>{r.forEach((rr)=>{this.academyReviews.push(rr)})})
         //this.academyReviews.push(this.academyEduList.map().reviews)
         //this.academyReviews = {...this.academyEduList.map(review=>review.reviews)}
         // this.academyReviews = this.academyEduList ? this.academyEduList.slice() : [];
@@ -94,7 +110,7 @@ class EduStore {
     async syncEduInfo() {
         this.loadingBtn = "true"
         this.disableBtn = "true"
-        await this.eduInfoAPi.eduInfoListAdd()
+        await this.eduInfoApi.eduInfoListAdd()
         this.loadingBtn = ""
         this.disableBtn = ""
         alert("동기화가 완료되었습니다.")
@@ -105,15 +121,40 @@ class EduStore {
     @action
     async addReview(reviewObj) {
         reviewObj = new EduInfoApiModel(reviewObj)
-        let result = await this.eduInfoAPi.eduReviewCreate(reviewObj)
+        let result = await this.eduInfoApi.eduReviewCreate(reviewObj)
         if(result == null){
-            alert("리뷰 등록에 오류가 발생했습니다.")
+            swal("리뷰 등록에 오류가 발생했습니다.")
         }else{
-            alert("리뷰 등록을 완료했습니다.")
-            window.location.reload(false);
+            swal("리뷰 등록을 완료했습니다.").then(()=>window.location.reload(false))
         }
     }
 
+    @action
+    async rmReview(rid) {
+        await this.eduInfoApi.deleteReview(rid)
+        window.location.reload(false);
+    }
+
+    @action
+    async updateReview(reviewObj,rid) {
+        console.log(reviewObj)
+        reviewObj = new ReviewModifyModel(reviewObj)
+        await this.eduInfoApi.updateReview(reviewObj,rid)
+        swal("수정 완료").then(()=>window.location.reload(false))
+    }
+
+    @action
+    async checkReview(wid,eid) {
+        let result = await this.eduInfoApi.checkReview(wid,eid)
+        return this.check = result
+    }
+
+    @action
+    async getUser(wid) {
+        let result = await this.otherUserApi.getOtherUser(wid)
+        console.log(result.name)
+        return result.name
+    }
 }
 
 export default EduStore

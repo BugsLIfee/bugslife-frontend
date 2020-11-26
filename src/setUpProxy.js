@@ -22,6 +22,16 @@ module.exports = function (app) {
     })
   );
 
+  // other-user-service;
+
+  app.use(
+    "/user/other",
+    createProxyMiddleware({
+      target: "http://localhost:8088",
+      changeOrigin: true,
+    })
+  );
+
   // bugboard-service
   app.use(
     "/api/bugboard",
