@@ -26,10 +26,7 @@ export class EduDetailReviewView extends Component {
     }
 
     async getUser(wid) {
-        // this.user = await this.otherUserApi.getOtherUser(wid)
         let result = await this.otherUserApi.getOtherUser(wid)
-        // console.log(this.user)
-        console.log(result)
         console.log(result.name)
         return this.setState({user: result.name}) 
     }
@@ -38,22 +35,11 @@ export class EduDetailReviewView extends Component {
         this.getUser(this.props.review.writerId)
     }
 
-    // async componentDidMount() {
-    //     let result = await this.otherUserApi.getOtherUser(this.props.review.writerId)
-    //     return this.user = result
-    // }   
-
-    // componentDidMount() {
-    //     this.props.getUser(this.props.review.writerId)
-    // }
     render() {
         const onToggle = () => {
             this.setState({modifyToggle: !modifyToggle});
         }
 
-        console.log("디스유저 : ",this.state.user)
-        // console.log("디스유저네임",this.user.name)
-        
 
         const {modifyToggle} = this.state
         const {review, removeReview, oauth, updateReview} = this.props
