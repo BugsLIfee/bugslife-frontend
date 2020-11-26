@@ -18,16 +18,19 @@ class EduListContainer extends Component {
         }
     }
 
-    syncEdu = () => {
-        this.props.Store.edu.syncEduInfo()
-    }
-
     componentDidMount(){
         const { edu } = this.props.Store
         window.scrollTo(0,0)
         edu.allList()
     }
-    
+
+    syncEdu = () => {
+        this.props.Store.edu.syncEduInfo()
+    }
+
+    onFilterList = (type, inputValue) => {
+        this.props.Store.edu.filterList(type, inputValue)
+    }
 
     setNextPage = (e) => {
         this.setState({
@@ -36,7 +39,7 @@ class EduListContainer extends Component {
     }
     render() {
         
-        const eduLists = this.props.Store.edu.getEduList
+        const eduLists = this.props.Store.edu.eduFilterList
         const {loadingBtn, disableBtn, bool} = this.props.Store.edu
         const {oauth} = this.props.Store
         
@@ -74,7 +77,7 @@ class EduListContainer extends Component {
                     </Dimmer>
                     : <div className="eduList">
                     <EduListHeaderView eduLists={eduLists.length} syncEdu={this.syncEdu} 
-                        loadingBtn={loadingBtn} disableBtn={disableBtn} oauth={oauth}/>
+                        loadingBtn={loadingBtn} disableBtn={disableBtn} oauth={oauth} onFilterList={this.onFilterList}/>
                     {edu}
                     <Pagination
                         boundaryRange={0}
