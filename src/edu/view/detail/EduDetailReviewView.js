@@ -15,6 +15,7 @@ export class EduDetailReviewView extends Component {
         this.state = {
             modifyToggle: false,
             user: "",
+            imageUrl: "",
             title: this.props.review.title,
             recommend: this.props.review.recommend,
             unrecommend: this.props.review.unrecommend,
@@ -31,6 +32,10 @@ export class EduDetailReviewView extends Component {
         console.log(result)
         // console.log(result.name)
         return this.setState({user: result.name}) 
+
+        return this.setState({user: result.name,
+            imageUrl: result.imageUrl}) 
+
     }
 
     componentDidMount() {
@@ -42,9 +47,6 @@ export class EduDetailReviewView extends Component {
             this.setState({modifyToggle: !modifyToggle});
         }
 
-        console.log("디스유저 : ",this.state.user)
-        // console.log("디스유저네임",this.user.name)
-        
 
         const {modifyToggle} = this.state
         const {review, removeReview, oauth, updateReview} = this.props
@@ -115,7 +117,8 @@ export class EduDetailReviewView extends Component {
                 : <div className="eduReviewLayout">
                     <div className="eduReviewTitle">
                         <div className="eduReviewTitleInfo">
-                            <img src="public\logo\userIcon.png" alt="userIcon"></img>
+                            { this.state.imageUrl ? <img className="userIcon" src={this.state.imageUrl} alt="userIcon"></img>
+                                : <img className="userIcon" src="/logo/userIcon.png" alt="userIcon"></img>}
                             <div className="eduReviewTitleValue eduReviewClick">{this.state.user}</div>
                             {/* <div className="eduReviewTitleValue">{review.title}</div> */}
                             { review.updateDate==null ? <div className="eduReviewTitleValue">{review.registDate}</div> 
