@@ -71,7 +71,6 @@ export default function ReportListView(props) {
                         <p>사유</p>
                         <p>상세내용</p>
                         <p>날짜</p>
-                        <p>게시글링크</p>
                         <p>처리여부</p>
                     </div>
                     {reports}

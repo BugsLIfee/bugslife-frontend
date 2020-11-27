@@ -7,7 +7,11 @@ export default class QuestionHeaderView extends Component {
 
     render() {
         
-        const { question, currentUser, onDeleteQuestion} = this.props;
+        const { question, currentUser, onDeleteQuestion, userList} = this.props;
+        const writer = userList.find(user => {
+            return question.writerId === user.id
+        })
+
         return(
             <div className="post_meta">
                 <div className="question_title">
@@ -19,14 +23,19 @@ export default class QuestionHeaderView extends Component {
                     <div>
                         <div className="writer_info">
                             {
-                                currentUser.imageUrl ? 
-                                <img src={currentUser.imageUrl} className="writer_icon" alt="writer_icon" /> 
-                                : <img src="../logo/logo_st.png" className="writer_icon" alt="img" /> 
+                            writer ? <>
+                                {
+                                    writer.imageUrl ? 
+                                    <img src={writer.imageUrl} className="writer_icon" alt="writer_icon" /> 
+                                    : <img src="../logo/logo_st.png" className="writer_icon" alt="img" /> 
+                                }
+                                <div className="writer_info_text">
+                                    <a href ={`/otherUser/${writer.id}`}>
+                                        <div className="writer_id">{writer.name}</div>
+                                    </a>
+                                    <div className="writer_level">Level {writer.level} </div>
+                                </div></> : ""
                             }
-                            <div className="writer_info_text">
-                                <div className="writer_id">{question.writerName}</div>
-                                <div className="writer_level">Level {question.writerLevel} </div>
-                            </div>
                         </div>
                         <div className="_info">
                             <div className="upload_date"> {question.registDate.substring(0,10)} &nbsp; | &nbsp; </div>

@@ -116,11 +116,25 @@ span {
     margin-right: 40px;
     margin-top: 0px;
 
+    .btn-grade {
+      img {
+        border-radius: 100%;
+      }
+    }
+
     .value {
       margin-left: 30px;
       margin-top: -2px;
       span {
         display: block;
+      }
+      a:hover {
+        text-decoration: none;
+        color: black;
+      }
+      a:visited {
+        text-decoration: none;
+        color: black;
       }
     }
   }

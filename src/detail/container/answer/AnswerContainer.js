@@ -27,10 +27,18 @@ class AnswerContainer extends Component {
         const question = this.props.Store.detail._question;
         const user = this.props.Store.oauth.getCurrentUserInfo;
 
-        const { answer } = this.props;
+        const { answer, writer } = this.props;
 
         const onSelectAnswer = (id) => {
             this.props.Store.detail.onSelectAnswer(id);
+            if(question.point>0) {
+                const pointObj = {
+                    userId: answer.writerId,
+                    amount: question.point,
+                    detail: "답변채택"
+                }
+                this.props.Store.point.onAddPoint(pointObj)
+            }
         }
 
         const onDeleteAnswer = (id) => {
@@ -64,6 +72,7 @@ class AnswerContainer extends Component {
                             currentUser = {currentUser} 
                             onDeleteAnswer= {onDeleteAnswer}
                             onModifyAnswer = {onModifyAnswer}
+                            writer = {writer}
                         />
                         <AnswerLikesContainer answer = { answer } currentUser = {currentUser}/> 
                     </div>

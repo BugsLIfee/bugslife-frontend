@@ -189,6 +189,14 @@
         display: flex;
         justify-content: center;
         flex-direction: column;
+        a:hover {
+            text-decoration: none;
+            color: #616161;
+        }
+        a:visited {
+            text-decoration: none;
+            color: #616161;
+        }
         .writer_id {
             font-size: 1.4rem;
         }

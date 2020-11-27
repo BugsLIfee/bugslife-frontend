@@ -12,7 +12,9 @@ class AnswerLikesContainer extends Component {
             this.props.Store.detail.setAnswerLike(answer_id, dir, userId);
         }
         const { answer } = this.props;
-        const login = userId===answer.writerId
+        const myQuestion = userId===answer.writerId
+        const login = userId ? true : false
+        console.log("이게 안찍혀?",login)
 
         return (
             <div>

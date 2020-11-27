@@ -6,20 +6,22 @@ export default class AnswerHeaderView extends Component {
 
     render() {
 
-        const { answer, currentUser, onDeleteAnswer, onModifyAnswer } = this.props;
+        const { answer, currentUser, onDeleteAnswer, onModifyAnswer, writer } = this.props;
 
         return(
             <div className="post_meta">
                 <div className="writer_info"> 
                     <i className="fas fa-font answer_mark"></i>
                     {
-                        currentUser.imageUrl ? 
-                        <img src={currentUser.imageUrl} className="writer_icon" alt="writer_icon" /> 
+                        writer.imageUrl ? 
+                        <img src={writer.imageUrl} className="writer_icon" alt="writer_icon" /> 
                         : <img src="../logo/logo_st.png" className="writer_icon" alt="img" /> 
                     }
                     <div className="writer_info_text">
-                        <div className="writer_id"> {answer.writerName} </div>
-                        <div className="writer_level"> Level {answer.writerLevel} </div>
+                        <a href={`/otherUser/${writer.id}`}>
+                            <div className="writer_id"> {writer.name} </div>
+                        </a>
+                        <div className="writer_level"> Level {writer.level} </div>
                     </div>
  
                 </div>
