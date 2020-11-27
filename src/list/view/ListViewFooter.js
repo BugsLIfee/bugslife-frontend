@@ -7,10 +7,8 @@ class ListViewFooter extends Component {
 
     return (
       <div className="item-right">
-        {/* <div class="item-right"> */}
-      
           <div className="box-like">
-            <img src="../../detail/empty_bookmark.png" alt="img"></img>
+            <img src="../../detail/bookmark.png" alt="img"></img>
             <span className="number">{listView.likes}</span>
             </div>
 

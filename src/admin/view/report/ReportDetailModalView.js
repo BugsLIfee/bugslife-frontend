@@ -10,6 +10,8 @@ export default function ReportDetailModalView(props) {
         onReceiptReport(report.id, isBlind);
         setOpen(false);
     }
+    
+    console.log(report)
 
     return (
         <Modal
@@ -27,18 +29,17 @@ export default function ReportDetailModalView(props) {
             <Modal.Content scrolling>
             <p className="report_meta">
                 <p>
-                    # {report.id} {report.type}
+                    # {report.id} {report.reportType}
                 </p>
                 <p>
-                    <span> 신고자: {report.sender}</span>
-                    <span> 신고날짜: {report.date}</span>
+                    <span> 신고날짜: {report.registDate.substring(0,10)}</span>
                     <span> <a href='/'>게시글로 이동 </a></span>
                 </p>
             </p>
             <hr />
                 <h5>상세내용</h5>
                 <div className="detail">
-                    {report.detail}
+                    {report.reportDetail}
                 </div>
             <hr />
             <div className="blind">

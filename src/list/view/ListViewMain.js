@@ -8,8 +8,9 @@ const img = {
   height: "45px",
 }
 class ListViewMain extends Component {
+
   render() {
-    const { listView } = this.props
+    const { listView, user } = this.props
     const tags = listView.tags.map((tag, index) => {
       return (
         <span className="tagFont" key={index}>
@@ -17,7 +18,8 @@ class ListViewMain extends Component {
         </span>
       )
     })
-
+    
+    const userImage = user.imageUrl
     const dueDate = Math.floor((new Date(listView.dueDate+"T00:00:00").getTime() - new Date().getTime())
             /(1000*60*60*24)) + 1;
     return (
@@ -43,13 +45,16 @@ class ListViewMain extends Component {
             </div>
             <div className="box-grade">
               <span className="btn-grade img">
-                {/* <img style={img} src={listView.userIcon} alt=""></img> */}
-                <img style={img} src="../logo/userIcon.png" alt=""></img>
+                { userImage ? 
+                  <img style={img} src={userImage} alt="userImg"></img> :
+                  <img style={img} src="../logo/userIcon.png" alt="userImg"></img>
+                }
               </span>
               <span className="value">
-                <span className="name">{listView.writerName}</span>
-                {/* <span className="grade">{listView.writer_lv}</span> */}
-                <span className="grade">Level {listView.writerLevel } </span>
+                <a href={`/otherUser/${listView.writerId}`}>
+                  <span className="name">{user.name}</span>
+                </a>
+                <span className="grade">Level {user.level } </span>
               </span>
             </div>
           </div>

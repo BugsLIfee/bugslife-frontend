@@ -18,4 +18,11 @@ export default class ReportApi {
       body: JSON.stringify(reportApiModel)
     })
   }
+  
+  reportDone(id){
+        return request({
+            url : this.url +"done/" + id,
+            method:"GET"
+        })
+  }
 }

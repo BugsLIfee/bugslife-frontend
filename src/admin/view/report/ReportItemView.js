@@ -17,8 +17,7 @@ export default class ReportListView extends Component {
                     />
                 </p>
                 <p>{report.registDate.substring(0,10)}</p>
-                <p>{report.boardType}/{report.boardId}</p>
-                {report.is_done === true ? <p className="done">처리완료</p> : <p className="yet">미완료</p>}
+                {report.done === true ? <p className="done">처리완료</p> : <p className="yet">미완료</p>}
             </div>
         )
     }

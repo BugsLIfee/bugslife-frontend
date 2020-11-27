@@ -13,18 +13,17 @@ import { inject } from "mobx-react";
 @inject('Store')
 class DetailPage extends Component {
 
-    id
-
     componentDidMount () {
         let match = this.props.match;
         const user = this.props.Store.oauth.getCurrentUserInfo
-
+        this.props.Store.oauth.getUserList()
         this.props.Store.detail.selectPost(match.params.post_id, user);
         window.scrollTo(0,0);
     }
 
     render() {
         this.id = this.props.match.params.post_id;
+
         return(
             <div>
                 <div className="question post">
@@ -43,7 +42,7 @@ class DetailPage extends Component {
                         </Card.Footer>
                     </Card>
                 </div>
-                <AnswerListContainer questionId = { this.id } />
+                <AnswerListContainer questionId = { this.id }/>
                 <AddAnswerContainer questionId = { this.id }/>
             </div>
         )

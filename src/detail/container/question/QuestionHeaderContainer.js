@@ -8,13 +8,19 @@ class QuestionHeaderContainer extends Component {
 
     render() {
         const question = this.props.Store.detail._question;
-
         const onDeleteQuestion = (id) => {
             this.props.Store.detail.onDeleteQuestion(id);
         }
         const currentUser = this.props.Store.oauth.getCurrentUserInfo;
-        const questionHeaderView = Object.keys(question).length !== 0 
-            ? <QuestionHeaderView question={ question } currentUser = {currentUser} onDeleteQuestion = {onDeleteQuestion}/> : "" 
+        const userList = this.props.Store.oauth.userList;
+
+        const questionHeaderView = Object.keys(question).length !==0
+            ? <QuestionHeaderView 
+                question={ question } 
+                currentUser = {currentUser} 
+                userList = {userList}
+                onDeleteQuestion = {onDeleteQuestion}/> : "" 
+        
         return (
             <div>
                 {questionHeaderView}

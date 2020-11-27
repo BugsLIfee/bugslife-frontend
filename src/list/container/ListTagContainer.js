@@ -23,7 +23,7 @@ class ListTagContainer extends Component {
   render() {
     const { oauth, list} = this.props.Store
     const taglist = list._top10Tags 
-    const login = oauth.getCurrentUserInfo.id !== undefined
+    const login = oauth.getCurrentUserInfo.id ? true : false
 
     return (
       <div>
