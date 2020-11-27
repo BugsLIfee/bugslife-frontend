@@ -13,4 +13,13 @@ export default class OtherUserApi {
         return result
 
     }
+
+    getLikes(id){
+        let result = request({
+            url: ` /api/bugboard/user-like/${id}`,
+            method: 'GET',
+        })
+        
+        return result
+    }
 }

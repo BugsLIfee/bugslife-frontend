@@ -1,60 +1,80 @@
 .signup-container {
-    text-align: center;
-    margin: 50px;
+  text-align: center;
+  margin: 50px;
 }
 
-
 .signup-content {
-    background: #fff;
-    box-shadow: 0 1px 11px rgba(0, 0, 0, 0.27);
-    border-radius: 2px;
-    width: 500px;
-    display: inline-block;
-    margin-top: 30px;
-    vertical-align: middle;
-    position: relative;    
-    padding: 35px;
+  background: #fff;
+  box-shadow: 0 1px 11px rgba(0, 0, 0, 0.27);
+  border-radius: 2px;
+  width: 500px;
+  display: inline-block;
+  margin-top: 30px;
+  vertical-align: middle;
+  position: relative;
+  padding: 35px;
 }
 
 .social-btn {
-    margin-bottom: 15px;
-    font-weight: 400;
-    font-size: 16px;
+  margin-bottom: 15px;
+  font-weight: 400;
+  font-size: 16px;
 }
 
 .social-btn img {
-    height: 32px;
-    float: left;
-    margin-top: 10px;
-}
-
-.social-btn.google {
-    margin-top: 7px;
+  height: 32px;
+  float: left;
 }
 
 .social-btn.facebook img {
-    height: 24px;
-    margin-left: 3px;
+  height: 24px;
+  margin-left: 3px;
 }
 
 .social-btn.github img {
-    height: 24px;
-    margin-left: 3px;
+  height: 24px;
+  margin-left: 3px;
 }
 
 .login-link {
-    color: rgba(0, 0, 0, 0.65);
-    font-size: 14px;
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 14px;
 }
 
 .signup-title {
-    font-size: 1.5em;
-    font-weight: 500;
-    margin-top: 0;
-    margin-bottom: 30px;
-    color: rgba(0, 0, 0, 0.65);
+  font-size: 1.5em;
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 30px;
+  color: rgba(0, 0, 0, 0.65);
 }
 
-.or-separator{
-    margin: 20px;
+.or-separator {
+  margin: 20px;
+}
+
+.social-singup-btn {
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  /* margin-top: 0.5rem; */
+}
+
+.social-singup-btn img {
+  position: absolute;
+  left: 5%;
+}
+.social-singup-btn a {
+  position: relative;
+  font-size: 1.2rem;
+  width: 95%;
+  height: 3rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.social-singup-btn a:hover {
+  transition: 0.3s;
+  background-color: rgb(238, 238, 238);
 }

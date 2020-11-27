@@ -28,7 +28,7 @@ class Signup extends Component {
         return (
             <div className="signup-container">
                 <div className="signup-content">
-                    <h1 className="signup-title"><Icon name="signup"/>　BUGSLIFE　회원 가입하기 </h1>
+                    <h1 className="signup-title"><Icon name="signup"/>　BUGSLIFE 회원 가입하기 </h1>
                     <SocialSignup />
                     <div className="or-separator">
                         <span className="or-text">OR</span>
@@ -47,12 +47,16 @@ class SocialSignup extends Component {
     render() {
         return (
             <div className="social-signup">
+                <div className="social-singup-btn">
                 <a className="btn btn-block social-btn google" href={GOOGLE_AUTH_URL}>
-                    <img src={googleLogo} alt="Google" />Google 아이디로 가입하기</a>
-                {/* <a className="btn btn-block social-btn facebook" href={FACEBOOK_AUTH_URL}>
-                    <img src={fbLogo} alt="Facebook" /> Facebook 아이디로 가입하기</a> */}
+                    <img src={googleLogo} alt="Google" />Google로 가입하기</a>
+                </div>
+                <div className="social-singup-btn">
                 <a className="btn btn-block social-btn github" href={GITHUB_AUTH_URL}>
                     <img src={githubLogo} alt="Github" /> Github로 가입하기</a>
+                </div>
+              
+               
             </div>
         );
     }
