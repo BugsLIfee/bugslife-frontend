@@ -32,10 +32,10 @@ export default class Mypostpostview extends Component {
                     </List.Content >
 
                     <div className="MyPage_detail_post_icon">
-                      <a href="/">
+                      <a href={`/detail/${post.id}`}>
                         <Icon name="edit"></Icon>
                       </a>
-                      <a href="/">
+                      <a href={`/detail/${post.id}`}>
                         <Icon name="delete"></Icon>
                       </a>
                     </div>
