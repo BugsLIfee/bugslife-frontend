@@ -21,7 +21,7 @@ class InfoList extends Component {
     let user = this.props.user
   
    const handleLink = (id) => {
-    this.props.history.push("/admin/info-detail?id=" + id);
+    this.props.history.push("/contact/info-detail?id=" + id);
    };
 
 

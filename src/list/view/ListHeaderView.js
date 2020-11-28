@@ -1,17 +1,16 @@
 import React, { Component } from "react"
-import { Input, Menu } from "semantic-ui-react"
+import { Input, Menu, Icon } from "semantic-ui-react"
 import "./scss/ListMain.scss"
 
 export default class ListHeaderview extends Component {
   state = {}
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-  orderByNew = () => {
-  }
 
   render() {
     const { activeItem } = this.state
-    const { onSetOrderBy } = this.props
+    const { onSetOrderBy, search } = this.props
+    let keyword = "";
     return (
       <div className="listHeader">
         
@@ -46,7 +45,10 @@ export default class ListHeaderview extends Component {
               }}
               />
             <Menu.Item position="right">
-              <Input icon={{ name: "search", circular: true, link: true }} placeholder="Search" />
+              <Input 
+                icon={<Icon name="search" inverted circular link onClick={()=>search(keyword)}/>} 
+                placeholder="Search" 
+                onChange={(e)=>{keyword = e.target.value}}/>
             </Menu.Item>
           </Menu>
         </div>

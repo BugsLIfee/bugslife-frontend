@@ -21,6 +21,16 @@ module.exports = function (app) {
     })
   );
 
+  // other-user-service;
+
+  app.use(
+    "/user/other",
+    createProxyMiddleware({
+      target: "http://localhost:8088",
+      changeOrigin: true,
+    })
+  );
+
   // bugboard-service
   app.use(
     "/api/bugboard",
@@ -82,6 +92,15 @@ module.exports = function (app) {
     "/api/allchat",
     createProxyMiddleware({
       target: "http://localhost:8086",
+      changeOrigin: true,
+    })
+  );
+
+    // admin-service
+  app.use(
+    "/api/report",
+    createProxyMiddleware({
+      target: "http://localhost:8084",
       changeOrigin: true,
     })
   );

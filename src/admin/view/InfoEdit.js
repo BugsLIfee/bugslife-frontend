@@ -13,14 +13,13 @@ export default class InfoEdit extends Component {
     super(props)
     var info = this.props.info;
 
-    console.log("뭐넘겨주니..?",info);
     this.state={
       user: this.props.currentUser.id,
       username: info&&info.user? info.user.name :this.props.currentUser.name,
       category:info&&info.category ? info.category :"",
       registDate:info&&info.registDate ? info.registDate : "",
       editDate:info&& info.editDate ? info.editDate : "",
-      title: info && info.title ? info.title : "",
+      title: info.title,
       content : info.content
     }
   }
@@ -43,7 +42,6 @@ export default class InfoEdit extends Component {
   }
 
   selectCategory=(e, data)=>{
-    console.log("categoray!!!!! ", data.value)
     this.setState({...this.state, category : data.value})
 
   }
@@ -76,15 +74,12 @@ export default class InfoEdit extends Component {
     }else{
       this.setState({
         ...this.state,
-        // registDate: info.registDate? info.registDate: date,
+      
         editDate: date,
         user: this.props.currentUser.id,
       })
       
-      
-      console.log("onSubmitstate----", {...this.state});
-      // return {...this.state}
-      // this.props.onAddInfo({...this.state})
+      console.log("onSubmitstate----", {...this.state})
 
     }
   }
@@ -99,14 +94,12 @@ export default class InfoEdit extends Component {
     }else{
       this.setState({
         ...this.state,
-        // registDate: info.registDate? info.registDate: date,
         editDate: date,
         user: this.props.currentUser.id,
       })
       
       console.log("onSubmitstate----", {...this.state});
       this.props.onAddInfo({...this.state})
-
     }
   }
 
@@ -152,27 +145,6 @@ export default class InfoEdit extends Component {
             selection 
             options={infoCategory}
             onChange={this.selectCategory} />
-         
-            {/* {registDate
-           ? <Form.Input
-              width={3}
-              fluid readOnly
-              label="작성일"
-              name="registDate"
-              value={info.registDate}
-            />
-            : ""}
-
-            {editDate?
-            <Form.Input
-              width={3}
-              fluid readOnly
-              label="수정일"
-              name="editDate"
-              value={editDate}
-            />
-            :""}
-           */}
             
              </div>
 
@@ -182,7 +154,7 @@ export default class InfoEdit extends Component {
             label="제목"
             placeholder="제목을 입력하세요"
             name="title"
-            value = {this.state.title ===""|| this.state.title ===undefined ? info.title: this.state.title}
+            value ={this.state.title ? this.state.title : this.state.title === "" ? "" : info.title}
             onChange={ this.handleChange}
           />
 
@@ -195,8 +167,8 @@ export default class InfoEdit extends Component {
           initialEditType="wysiwyg"
           previewStyle="vertical"
           ref={this.editorRef}
-          initialValue={info.content}
-          // placeholder={ "공지사항을 입력해주세요."}
+          initialValue={this.state.title ? this.state.title : this.state.title === "" ? "" : info.title}
+          placeholder={ "공지사항을 입력해주세요."}
           onChange = {() => {
           this.setState({
            content: this.editorRef.current.getInstance().getHtml()

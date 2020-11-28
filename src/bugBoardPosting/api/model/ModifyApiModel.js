@@ -17,7 +17,6 @@ class PostingApiModel{
 
 
     constructor(postObj){
-        console.log(postObj)
         this.id = postObj.id;
         this.dueDate = postObj.dueDate;
         this.likes = postObj.likes;

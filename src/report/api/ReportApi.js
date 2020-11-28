@@ -2,7 +2,7 @@ import { request } from "../../oauth/api/APIUtils";
 
 export default class ReportApi {
   
-  url = "/api/point/";
+  url = "/api/report/";
 
   reportList() {
     return request({
@@ -17,5 +17,12 @@ export default class ReportApi {
       method: 'POST',
       body: JSON.stringify(reportApiModel)
     })
+  }
+  
+  reportDone(id){
+        return request({
+            url : this.url +"done/" + id,
+            method:"GET"
+        })
   }
 }

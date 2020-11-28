@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 import ReportModalContainer from '../../../report/container/ReportContainer'
 import Freeboarddetailcommentcontainer from '../../container/FreeboardDetailCommentContainer';
-// import Freeboardlistcontainer from '../../container/FreeBoardListContainer';
-// import Freeboardlistview from '../List/FreeBoardListView';
-// import PostContent from './FreeboardPostContent';
 import FreeboardPostContent from './FreeboardPostContent';
 import "./scss/FreeboardDetailpost.scss"
 import Swal from 'sweetalert2'
@@ -81,19 +78,15 @@ export default class Freeboarddetailview extends Component {
 
 
 
-    static getDerivedStateFromProps(nextProps, prevState) {
-        let likes_props = nextProps.detail.likes
-        if(likes_props!==prevState.likeCnt){
-            return { likeCnt : likes_props}
-        }
-        return null
-    }
-
 
     render() { 
-
         const post =this.props.detail;
         const comments =this.props.comments;
+        let commentLen = this.props.commentLen
+        
+        console.log(post)
+        // let commentLength = comments.length;
+        // if(comments!==[]){commentLength += comments[]}
         const done = this.props.like ? "like_done" : "like_yet";
         
 
@@ -103,11 +96,7 @@ export default class Freeboarddetailview extends Component {
                     <div className="freeboard_detail_nav">
                         <div className="freeboard_nav_left" >
                             <a href="/freeboard"><h4>목록</h4></a>
-                            {/* <a href="/"><h4>이전글</h4></a>
-                            <a href="/"><h4>다음글</h4></a> */}
                         </div>
-
-                            {/* {`/freeboard/edit/${post.id}`} */}
                         <div className="freeboard_nav_right">
                             <a href="#" onClick={this.onModifyPost}><h4>수정</h4></a>
                             <a href="#" onClick={this.onDeletePost}><h4>삭제</h4></a>
@@ -123,7 +112,7 @@ export default class Freeboarddetailview extends Component {
                         <h4> {post.cate}</h4>        
                         <h5> 작성일 : {post.registerDate}</h5>
                         <h5> 조회수 : {post.viewCnt}</h5>
-                        <h5> 댓글 수 : [{comments.length}]</h5>
+                        <h5> 댓글 수 : [{commentLen}]</h5>
             
                         </div> 
                         </div>  

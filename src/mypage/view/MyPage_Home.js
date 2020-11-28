@@ -9,39 +9,24 @@ export default class MypageHome extends Component {
   
 
   render() {
-
     const user = this.props.user;
     const {onClickPoint} = this.props;
-    let questionListByuser= this.props.questionListByuser;
+    let {attendDate, questionListByuser, likes, answers, top5}= this.props;
+    const selected = answers.filter(answer => answer.is_selected===true).length;
 
-    // console.log("user? " , user)
 
-    //출석률 계산하기
-    // let timeNow= new Date().getTime();
-    // let enrollTime = new Date(user.enrollDate).getTime()
-    let allList = this.props.allList;
-    const attendList = allList.filter(val=> {return(val.uid=== user.id)})
-
-    // let timeDiff = (timeNow-enrollTime)/1000/60/60/24;
-    // let attendanceRate= parseInt(attendList.length/timeDiff * 100)
-
-    let recentAct =()=> {
+    const top5_list = top5.map(post => {
       const image = "../main/pink_sqaure.png";
-      const date = "3 days ago";
-      const summary = "Laura Faucet created a post";
-      const extraText =
-        "Have you seen what's going on in Israel? Can you believe it.";
-  
       return (
-      <Feed.Event>
-        <Feed.Label image={image} />
-        <Feed.Content>
-          <Feed.Date content={date} />
-          <Feed.Summary content={summary} />
-          <Feed.Extra text content={extraText} />
-        </Feed.Content>
-      </Feed.Event>)
-    }
+          <Feed.Event
+              image={image}
+              style={{marginTop:'1.5rem'}}
+              date={post.registDate}
+              summary= {<div style={{ width: '100%', textOverflow:"ellipsis"}} dangerouslySetInnerHTML= {{__html:post.content} } />}
+          />
+  
+      )
+  })
 
 
     return (
@@ -49,8 +34,7 @@ export default class MypageHome extends Component {
         <div className="MyPage_content">
           <div className="MyPage_profile">
            {(user === undefined || user.imageUrl===null)? (<i id="MyPage_profile_icon" class="far fa-grin"></i>): ( <img className= "MyPage_profile_img" src={user.imageUrl} alt="default_profile" />)}
-            {/* <img className= "MyPage_profile_img" src={user.imageUrl} />
-            <i id="MyPage_profile_icon" class="far fa-grin"></i> */}
+    
             <br></br>
 
             <h2>{user.name}</h2>
@@ -79,9 +63,7 @@ export default class MypageHome extends Component {
               <h3>출석일</h3>
               <h2 className="action_detail_rate">
                 <b className="att_rate">
-                  {attendList.length}
-                  {/* {console.log(typeof attendanceRate, attendanceRate)} */}
-                  {/* <CountUp end={64} duration={5} /> */}
+                  <CountUp end={attendDate} duration={2} />
                 </b>{" "}
                 일
               </h2>
@@ -90,7 +72,7 @@ export default class MypageHome extends Component {
               <h3>질문 수</h3>
               <h2 className="action_detail_rate">
                 <b className="post_rate">
-                 {questionListByuser.length}
+                <CountUp end= {questionListByuser.length} duration={3} />
                 </b>{" "}
                 개
               </h2>
@@ -99,7 +81,7 @@ export default class MypageHome extends Component {
               <h3>해결 문제 수</h3>
               <h2 className="action_detail_rate">
                 <b className="solution_rate">
-                  <CountUp end={10} duration={5} />
+                  <CountUp end={selected} duration={5} />
                 </b>{" "}
                 개
               </h2>
@@ -108,7 +90,7 @@ export default class MypageHome extends Component {
               <h3>누적 좋아요 수</h3>
               <h2 className="action_detail_rate">
                 <b className="like_rate">
-                  <CountUp end={27} duration={5} />
+                  <CountUp end={likes} duration={5} />
                 </b>{" "}
                 개
               </h2>
@@ -118,7 +100,8 @@ export default class MypageHome extends Component {
               <h2 className="action_detail_rate">
                 <b className="point_rate">
                   {user.point}
-                </b>{" "}
+                 {/* <CountUp end={user.point} duration={2} /> */}
+                </b>
                 P
               </h2>
             </div>
@@ -133,7 +116,7 @@ export default class MypageHome extends Component {
     
             <h1 className="column_title">최근 활동</h1>
             <Feed>
-            {recentAct()}
+                {top5_list}
             </Feed>
           </div>
 
@@ -142,7 +125,7 @@ export default class MypageHome extends Component {
             <h1 className="column_title">게시글 관리</h1>
             { questionListByuser.length===0?
              (<div className="noPost"> <h5>작성 글이 없습니다.</h5></div>)
-             : (questionListByuser.map(val=> {return <Mypostpostview post={val} />
+             : (questionListByuser.slice(0,2).map(val=> {return <Mypostpostview post={val} />
                 })) }
           </div>
 

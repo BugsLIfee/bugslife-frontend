@@ -142,12 +142,12 @@ export default class PostingView extends Component {
                     </Button>
                 </div>
                 <div className="upload">
-                    {/* <a href={`/detail/${question.id}`}> */}
+                    <a href={`/detail/${question.id}`}>
                         <Button basic color='black' className="bt" size='huge' 
                             onClick={() => onClickSubmit(this.state)}> 
                             완료
                         </Button>
-                    {/* </a> */}
+                    </a>
                 </div>
             </div>
         )

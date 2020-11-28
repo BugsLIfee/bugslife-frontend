@@ -1,9 +1,8 @@
+import React, { Component } from 'react'
 import _ from 'lodash'
 import { Search  } from 'semantic-ui-react'
-import React, { Component } from "react";
-import "./scss/MemberSearch.scss"
 
-class MemberSearch extends Component  {
+export default class Freeboardsearch extends Component {
 
     state=({isLoading : false, value : "", results :[]})
    
@@ -12,20 +11,18 @@ class MemberSearch extends Component  {
     }
 
     source(){
-        let {userList} = this.props;
-        return userList.map(val=>{
+        let {list} = this.props;
+        return list.map(val=>{
             return {
-                title: val.email,
-                name : val.name,
+                title: val.title,
+                name : val.title,
                 id : val.id
             }
         })
     }
 
     goToDetailsPageDiv(e, result) {
-        // let {userList} = this.props;
-        // let original = userList.filter(val=> {return val.email === result.title})
-        this.props.onSearchMemeber(result.title);
+    this.props.onSearchPost(result.title);
     }
 
     resetComponent = () => {
@@ -65,12 +62,10 @@ class MemberSearch extends Component  {
                 loading={isLoading}
                 results={results}
                 value={value}
-                input={{placeholder: "회원 검색"}}
-                noResultsMessage={"Nothing found"}
+                input={{placeholder: "게시글 검색"}}
+                noResultsMessage={" 검색 결과가 없습니다. "}
                 {...this.props}
             />
         )
     }
 }
-
-export default MemberSearch;

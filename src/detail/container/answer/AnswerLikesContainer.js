@@ -7,12 +7,14 @@ import AnswerLikesView from "../../view/answer/AnswerLikesView"
 class AnswerLikesContainer extends Component {
 
     render() {
-
+        const userId = this.props.Store.oauth.getCurrentUserInfo.id;
         const onAnswerLike = (answer_id, dir) => {
-            this.props.Store.detail.setAnswerLike(answer_id, dir);
+            this.props.Store.detail.setAnswerLike(answer_id, dir, userId);
         }
-        
-        const { login, answer } = this.props;
+        const { answer } = this.props;
+        const myQuestion = userId===answer.writerId
+        const login = userId ? true : false
+        console.log("이게 안찍혀?",login)
 
         return (
             <div>

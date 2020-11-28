@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, withRouter } from "react-router-dom";
 import "./header/view/scss/header.scss";
 import "./footer/footer.scss";
 import OAuth2RedirectHandler from './oauth/oauth2/OAuth2RedirectHandler';
 import LoadingIndicator from './oauth/common/LoadingIndicator';
 import PrivateRoute from './oauth/common/PrivateRoute';
 import "./chatbot/view/chatbotIcon.scss";
-
+// import { Link,  } from "react-router-dom";
 import { 
   HeaderContainer, 
   Footer, 
@@ -76,7 +76,7 @@ class App extends Component {
           <Route path="/detail/modify" component={BugBoardModifyPage} exact={true} />
           <Route path="/detail/:post_id" component={DetailPage} exact={true} />
           <PrivateRoute path="/admin" authenticated={this.props.Store.oauth.getCurrentUser} component={AdminContainer} />
-          <Route path="/contact" component={ContactContainer} />
+          <PrivateRoute path="/contact" component={ContactContainer} />
           <PrivateRoute path="/mypage" component={Mypagecontainer} exact={true} />
           <Route path="/posting" component={PostingContainer} exact={true} />
           <Route path="/attendance" component={Attendancecontainer} exact={true} />
@@ -118,4 +118,4 @@ class App extends Component {
   }
 }
 
-export default App
+export default withRouter(App);

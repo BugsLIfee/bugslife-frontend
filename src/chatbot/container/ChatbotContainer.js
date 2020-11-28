@@ -5,7 +5,7 @@ import { Button, Modal } from 'semantic-ui-react';
 //import styled from 'styled-components'
 function ChatbotContainer () {
         
-        const steps = [
+  const steps = [
       {
         id: '1',
         message: '개발기간이 1년 미만이신가요?',
@@ -76,7 +76,7 @@ function ChatbotContainer () {
         id: '11',
         options: [
           { value: '좋아요', label: '좋아요', trigger: '12' },
-          { value: '나중에요', label: '나중에요', trigger: '12' },
+          { value: '나중에요', label: '나중에요', trigger: '20' },
         ],
       },
       {
@@ -106,12 +106,53 @@ function ChatbotContainer () {
       }, 
       {
         id: '17',
-        message :"여기까지",
-        end:true
+        message :"당신이 개발한 서비스 사용자가 했으면 좋겠는 말은?",
+        trigger:'25'
       },
       {
         id:'20',
         message: "더 궁금한 점 있으세요?",
+        trigger:"21"
+      },
+      {
+        id:'21',
+        options: [
+          { value: '네', label: '네', trigger: '23' },
+          { value: '아니요', label: '아니요', trigger: '22' },
+        ],
+      },
+      {
+        id: '22',
+        message: "그럼 벅스라이프에서 즐거운 시간 보내세요!",
+        end: true
+      },
+      {
+        id: '23',
+        message: '더 궁금하신 사항은 1:1문의로 남겨주세요.',
+        trigger: '24'
+      },
+      {   
+        id: '24',
+        component: (
+        <div> <a href="/contact/qna-write">1:1 채팅 문의</a> </div>
+        ),
+        end:true
+      },
+      {
+        id : '25',
+        options: [
+          { value: '와 진짜 감각적이다.', label: '와 진짜 감각적이다.', trigger: '26' },
+          { value: '이렇게 안정적인 서비스라니!', label: '이렇게 안정적인 서비스라니!', trigger: '27' },
+        ],
+      },
+      {
+        id: '26',
+        message: "사용자가 편하고 즐겁게 사용할 수 있는 화면을 만드는 '프론트엔드' 개발자가 적성에 맞아보여요! ",
+        end: true
+      },
+      {
+        id: '27',
+        message: "서비스의 성능과 안정성을 담당하는 든든한 '백엔드' 개발자가 적성에 맞아보여요! " ,
         end: true
       }
 

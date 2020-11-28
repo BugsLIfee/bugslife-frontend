@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Label, Input, Button, Radio, Popup, Segment} from 'semantic-ui-react'
+import { Label, Input, Button, Radio, Popup, Segment, Form} from 'semantic-ui-react'
 import 'codemirror/lib/codemirror.css';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import { Editor } from '@toast-ui/react-editor';
@@ -68,16 +68,15 @@ export default class PostingView extends Component {
             }
         }
 
-        const onClickSubmit = (post) => {
+        const onClickSubmit = (e) => {
             if(user.point-this.state.point<0) {
                 swal("포인트가 부족합니다!");
             } else if( this.state.premium===true && this.state.point <2000)  {
                 swal("프리미엄 질문은 2000포인트부터 가능합니다.");
             }
             else {
-                onAddPost(post);
+                onAddPost(this.state);
             }
-
         }
         
         let input_tag;
@@ -101,7 +100,6 @@ export default class PostingView extends Component {
                         onChange = {(e) => {this.setState({
                             ...this.state,
                             title: e.target.value})}}/>
-                    
                     <div className="posting_premium">
                         <div className="premium_sel_container">
                         <h4 className="premium_sel_txt">✨ 프리미엄</h4><Radio toggle onChange={() => {this.setState({...this, premium: !this.state.premium})}}/>
@@ -130,7 +128,6 @@ export default class PostingView extends Component {
                             />
                         </div>
                     </div>
-
                 </div>
                 <br />
                 <br />
@@ -152,16 +149,19 @@ export default class PostingView extends Component {
                     {tags_deco}
                 </div>
                 <div className="add_tag">
-                    <Input placeholder='# 태그 입력' size='large' className="input" 
-                        onChange={(e) => {input_tag = e.target.value}} />
-                    <Button basic color='gray' className="bt" size='large' 
-                        onClick={()=> {onInsertTag(input_tag)}}> 
-                        추가 
-                    </Button>
+                    <Form>
+                        <Input placeholder='# 태그 입력' size='large' className="input" 
+                            onChange={(e) => {input_tag = e.target.value}} />
+                        <Button basic color='gray' className="bt" size='large' type="reset"
+                            onClick={()=> {onInsertTag(input_tag)}}> 
+                            추가 
+                        </Button>
+                    </Form>
                 </div>
                 <div className="upload">
                     <a href="/list">
                         <Button basic color='black' className="bt" size='huge' 
+
                             onClick={() => onClickSubmit(this.state)}> 
                             완료
                         </Button>

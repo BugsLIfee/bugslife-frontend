@@ -19,6 +19,7 @@ export class EduInsertReviewView extends Component {
             eduId: "",
             academyId: "",
             writer: "",
+            eduTitle: "",
         }
     }
     
@@ -27,18 +28,17 @@ export class EduInsertReviewView extends Component {
         const { onInsertForm, onAddReview } = this.props;
         return (
             <div>
-
                 <div className="eduReviewLayout">  
                     <div className="eduReviewBody">
                         <div className="eduReviewBodyL">
                             <div className="reviewRating">
-                                <div className="reviewRatingItem">&nbsp;교육 수준<Rating  name="half-rating-read" className="reviewRatingBar" value={this.state.eduRate} precision={0.5} size="large"
+                                <div className="reviewRatingItem">&nbsp;교육 수준<Rating  name="half-rating-read" className="reviewRatingBar"  defaultValue={this.state.eduRate} precision={0.5} size="large"
                                     onChange={(e)=>{this.setState({eduRate: e.target.value})}}/></div>
-                                <div className="reviewRatingItem">&nbsp;강사진 및 매니저<Rating  name="half-rating-read2" className="reviewRatingBar" value={this.state.lecRate} precision={0.5} size="large"
+                                <div className="reviewRatingItem">&nbsp;강사진 및 매니저<Rating  name="half-rating-read2" className="reviewRatingBar" defaultValue={this.state.lecRate} precision={0.5} size="large"
                                     onChange={(e)=>{this.setState({lecRate: e.target.value})}}/></div>
-                                <div className="reviewRatingItem">&nbsp;학원 위치 및 시설<Rating  name="half-rating-read3" className="reviewRatingBar" value={this.state.facRate} precision={0.5} size="large"
+                                <div className="reviewRatingItem">&nbsp;학원 위치 및 시설<Rating  name="half-rating-read3" className="reviewRatingBar" defaultValue={this.state.facRate} precision={0.5} size="large"
                                     onChange={(e)=>{this.setState({facRate: e.target.value})}}/></div>
-                                <div className="reviewRatingItem">&nbsp;취업기회<Rating  name="half-rating-read4" className="reviewRatingBar" value={this.state.empRate} precision={0.5} size="large"
+                                <div className="reviewRatingItem">&nbsp;취업기회<Rating  name="half-rating-read4" className="reviewRatingBar" defaultValue={this.state.empRate} precision={0.5} size="large"
                                     onChange={(e)=>{this.setState({empRate: e.target.value})}}/></div>  
                             </div>
                         </div>
@@ -78,7 +78,7 @@ export class EduInsertReviewView extends Component {
                                 <Button basic color='gray' className="bt" size='huge' onClick={() => onAddReview(this.state)}> 
                                     등록
                                 </Button>
-                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

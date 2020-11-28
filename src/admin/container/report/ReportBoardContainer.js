@@ -4,46 +4,50 @@ import { observer, inject } from 'mobx-react'
 
 function ReportBoardContainer(props) {
     
-    props.Store.report.getAllList();
     const category = props.Store.report._category;
-    const report_list = props.Store.report._report_list;
+    let report_list = [];
     const [report_status, setReportStatus] = useState(2)
     const [visibles, setVisibles] = useState([false, false, false, false, false, false, false, false])
-    const [filter_list, setFilterList] = useState(report_list);
+    const [filter_list, setFilterList] = useState();
     
-    useEffect(() => {
-        setFilterList(report_list)
 
-        if(visibles.find(element => element===true) !== undefined) {
-            setFilterList(report_list.filter(report => {
-                if(report_status === 2)
-                {
-                    return visibles[category.indexOf(report.type)];
-                } else if(report_status === 0)
-                {
-                    return visibles[category.indexOf(report.type)] && report.is_done===true;
-                } else 
-                {
-                    return visibles[category.indexOf(report.type)] && report.is_done===false;
+    // useEffect(() => {
+    //     const setList = async() => {
+    //         await props.Store.report.getAllList();  
+    //         report_list = props.Store.report._report_list
+    //         console.log(report_list)
+    //     }
+    //     setList();
+    // }, [])
+
+    useEffect(() => {
+        const setList = async() => {
+            await props.Store.report.getAllList();  
+            report_list = props.Store.report._report_list
+            setFilterList(report_list)
+            if(visibles.find(element => element===true) !== undefined) {
+                setFilterList(report_list.filter(report => {
+                    if(report_status === 2) {
+                        return visibles[category.indexOf(report.reportType)];
+                    } else if(report_status === 0) {
+                        return visibles[category.indexOf(report.reportType)] && report.done===true;
+                    } else {
+                        return visibles[category.indexOf(report.reportType)] && report.done===false;
+                    }
                 }
+            ) 
+            )} else {
+                setFilterList(report_list.filter(report => {
+                    if(report_status === 2) { return true;
+                    } else if(report_status === 0) {
+                        return report.done===true;
+                    } else { return report.done===false;
+                    }
+                }))
             }
-        )
-        )}
-        else {
-            setFilterList(report_list.filter(report => {
-                if(report_status === 2)
-                {
-                    return true;
-                } else if(report_status === 0)
-                {
-                    return report.is_done===true;
-                } else
-                {
-                    return report.is_done===false;
-                }
-            }))
         }
-    }, [visibles, report_status, props])
+        setList();
+    },[visibles, report_status])
 
     const onSelectCategory = (type) => {
         setVisibles(
@@ -61,12 +65,17 @@ function ReportBoardContainer(props) {
         props.Store.report.receipt_report(id, is_blind);
     }
 
+    const reportDone = (id) => {
+        props.Store.report.reportDone(id);
+    }
+
     return (
         <ReportListView 
             report_list = {filter_list} 
             category={category} 
             onReceiptReport = {onReceiptReport}
             onSelectReportStatus={onSelectReportStatus}
+            reportDone = {reportDone}
             onSelectCategory={onSelectCategory}/>
         )
     }

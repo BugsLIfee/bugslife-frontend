@@ -1,4 +1,5 @@
-class EduInfoApiModel{
+class ReviewModifyModel {
+    id = ""
     title = ""
     recommend = ""
     unrecommend = ""
@@ -6,12 +7,9 @@ class EduInfoApiModel{
     empRate = 0
     facRate = 0
     lecRate = 0
-    eduId = ""
-    academyId = ""
-    writerId = ""
-    eduTitle = ""
 
     constructor(reviewObj){
+        this.id = reviewObj.id
         this.title = reviewObj.title
         this.recommend = reviewObj.recommend
         this.unrecommend = reviewObj.unrecommend
@@ -19,11 +17,7 @@ class EduInfoApiModel{
         this.empRate = reviewObj.empRate
         this.facRate = reviewObj.facRate
         this.lecRate = reviewObj.lecRate
-        this.eduId = reviewObj.eduId
-        this.academyId = reviewObj.academyId
-        this.writerId = reviewObj.writer
-        this.eduTitle = reviewObj.eduTitle
     }
 }
 
-export default EduInfoApiModel
+export default ReviewModifyModel

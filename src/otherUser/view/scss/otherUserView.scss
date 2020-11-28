@@ -3,20 +3,32 @@
   font-size: 2.25rem;
 }
 
-.otherUser {
+.no_post {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 5rem;
 
-    margin: 0 auto;
-    .profile {
-        display: flex;
-        margin: 2rem auto;
-        flex-direction: column;
-        justify-content: center;
-        width: 300px;
-        padding: 2rem;
-        border: 1px solid lightgray;
-        border-radius: 10px;
-        align-items: center;
-    }
+  h4 {
+    font-size: 1.5rem;
+    color: gray;
+  }
+}
+
+.otherUser {
+  margin: 0 auto;
+  .profile {
+    display: flex;
+    margin: 2rem auto;
+    flex-direction: column;
+    justify-content: center;
+    width: 300px;
+    padding: 2rem;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    align-items: center;
+  }
 
   margin: 0 auto;
 
@@ -31,7 +43,6 @@
     border-radius: 10px;
     align-items: center;
   }
-
 
   .icon {
     font-size: 5rem;
@@ -69,10 +80,9 @@
   padding-bottom: 3rem;
 }
 
-
 .MyPage_level {
-    display: inline-flex;
-    flex-direction: row;
+  display: inline-flex;
+  flex-direction: row;
 }
 
 .MyPage_coin {
@@ -152,7 +162,7 @@
       }
 
       .selected_rate {
-        color: blue;
+        color: rgb(66, 66, 153);
       }
     }
   }
@@ -179,52 +189,33 @@
   flex-direction: row;
   justify-content: space-evenly;
 
-    margin: 3rem 6% 5rem 6%;
-    width: 87%;
-    display: inline-flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    height: 35rem;
-    overflow: hidden;
+  margin: 3rem 6% 5rem 6%;
+  width: 87%;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  height: 35rem;
+  overflow: hidden;
 
-    .recently_body {
-        
-        .feed {
-            .event {
-                height: 5rem;
-            }
-        }
+  .recently_body {
+    .feed {
+      .event {
+        height: 5rem;
+      }
     }
-    
-    .otherUser_detail_column {
-        position: relative;
-        padding: 1rem;
-        width: 28%;
-        border: 1px solid lightgray;
-        border-radius: 10px;
+  }
 
-        #MyPage_detail_icon {
-            position: absolute;
-            right: 15px;
-            text-align: right;
-        }
+  .otherUser_detail_column {
+    position: relative;
+    padding: 1rem;
+    width: 28%;
+    border: 1px solid lightgray;
+    border-radius: 10px;
 
-        .column_title {
-            text-align: center;
-            padding: 0.5rem;
-            font-size: 1.5rem;
-            font-weight: bolder;
-        }
-
-        .column_body {
-            overflow: scroll;
-            height: 90%;
-            padding: 1rem;
-        }
-
-        .column_body::-webkit-scrollbar {
-            display: none; 
-        }
+    #MyPage_detail_icon {
+      position: absolute;
+      right: 15px;
+      text-align: right;
     }
 
     .column_title {
@@ -233,8 +224,25 @@
       font-size: 1.5rem;
       font-weight: bolder;
     }
+
+    .column_body {
+      overflow: scroll;
+      height: 90%;
+      padding: 1rem;
+    }
+
+    .column_body::-webkit-scrollbar {
+      display: none;
+    }
   }
 
+  .column_title {
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: bolder;
+  }
+}
 
 .MyPage_detail_post_icon {
   text-align: right;

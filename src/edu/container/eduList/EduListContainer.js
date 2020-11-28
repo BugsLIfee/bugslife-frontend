@@ -1,6 +1,6 @@
 import { inject, observer } from 'mobx-react'
 import React, { Component } from 'react'
-import { Grid, Pagination } from 'semantic-ui-react'
+import { Grid, Pagination, Dimmer, Loader, Segment } from 'semantic-ui-react'
 import EduListHeaderView from '../../view/list/EduListHeaderView'
 import "../../view/scss/EduList.scss"
 import EduListImageContainer from './EduListImageContainer'
@@ -14,18 +14,23 @@ class EduListContainer extends Component {
         super(props)
         this.state = {
           page: 1,
+          bool: false
         }
+    }
+
+    componentDidMount(){
+        const { edu } = this.props.Store
+        window.scrollTo(0,0)
+        edu.allList()
     }
 
     syncEdu = () => {
         this.props.Store.edu.syncEduInfo()
     }
 
-    componentDidMount(){
-        const { edu } = this.props.Store
-        edu.allList()
+    onFilterList = (type, inputValue) => {
+        this.props.Store.edu.filterList(type, inputValue)
     }
-    
 
     setNextPage = (e) => {
         this.setState({
@@ -34,15 +39,16 @@ class EduListContainer extends Component {
     }
     render() {
         
-        const eduLists = this.props.Store.edu.getEduList
-        const {loadingBtn, disableBtn} = this.props.Store.edu
+        const eduLists = this.props.Store.edu.eduFilterList
+        const {loadingBtn, disableBtn, bool} = this.props.Store.edu
+        const {oauth} = this.props.Store
         
         let eduItemOne = eduLists.slice((this.state.page -1) * 10, this.state.page *10)
         let totalPage = Math.floor(eduLists.length / 10)
         
         if (eduLists.length % 10) {
             totalPage += 1
-          }
+        }
         
         const edu = eduItemOne.map((eduList) => {
             return (
@@ -64,19 +70,26 @@ class EduListContainer extends Component {
             )
         })
         return (
-            <div className="eduList">
-                <EduListHeaderView eduLists={eduLists.length} syncEdu={this.syncEdu} loadingBtn={loadingBtn} disableBtn={disableBtn}/>
-                {edu}
-                <Pagination
-                    boundaryRange={0}
-                    defaultActivePage={1}
-                    ellipsisItem={null}
-                    firstItem={null}
-                    lastItem={null}
-                    siblingRange={2}
-                    onPageChange={this.setNextPage}
-                    totalPages={totalPage}
-                />
+            <div>
+                { bool ? 
+                    <Dimmer active>
+                        <Loader>불러오는 중...</Loader>
+                    </Dimmer>
+                    : <div className="eduList">
+                    <EduListHeaderView eduLists={eduLists.length} syncEdu={this.syncEdu} 
+                        loadingBtn={loadingBtn} disableBtn={disableBtn} oauth={oauth} onFilterList={this.onFilterList}/>
+                    {edu}
+                    <Pagination
+                        boundaryRange={0}
+                        defaultActivePage={1}
+                        ellipsisItem={null}
+                        firstItem={null}
+                        lastItem={null}
+                        siblingRange={2}
+                        onPageChange={this.setNextPage}
+                        totalPages={totalPage}
+                        />
+                </div>}
             </div>
         )
     }

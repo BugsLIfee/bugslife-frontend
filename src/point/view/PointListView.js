@@ -47,7 +47,7 @@ const headCells = [
     { id: 'regist_date', numeric: false, disablePadding: true, label: '날짜' },
     { id: 'gain_point', numeric: true, disablePadding: false, label: '변동량' },
     { id: 'cause', numeric: true, disablePadding: false, label: '변동요인' },
-    { id: 'detail', numeric: true, disablePadding: false, label: '상세보기' },
+    { id: 'detail', numeric: true, disablePadding: false, label: '비고' },
 ];
 
 function EnhancedTableHead(props) {
@@ -241,7 +241,7 @@ export default function EnhancedTable(props) {
                                 {point.amount}P
                             </TableCell>
                             <TableCell className="content_body" align="center">{point.detail}</TableCell>
-                            <TableCell className="content_body" align="center"> <a href={point.gain_point}> 상세보기</a></TableCell>
+                            <TableCell className="content_body" align="center"> - </TableCell>
                         </TableRow>
                         );
                     })}
