@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import "./css/main.css";
 const ScreenShareBtn= (props)=>{
@@ -40,8 +40,10 @@ function screnhandlerStart(callback) {
   }
 
     function setVideoStream(data) {
+      console.log("data있어?",data);
       const video = data.el;
-      video.srcObject = data.stream;
+      console.log("type:",video.typeOf)
+      video.srcObject = {...data.stream};
      }
 
     function onLocalStream(stream) {

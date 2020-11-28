@@ -66,7 +66,7 @@ export default class InfoEdit extends Component {
   }
 
   onSubmitQna=()=>{
-    const {info, currentUser} = this.props;
+    // const {info, currentUser} = this.props;
     let today = new Date();
     let date = `${today.getFullYear()}-${today.getMonth()}-${today.getDate()}`
     console.log(date)

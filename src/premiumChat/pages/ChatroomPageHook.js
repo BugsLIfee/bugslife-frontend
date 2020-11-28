@@ -1,57 +1,23 @@
-import React, { Component } from "react";
+import React from "react";
 import { withRouter } from "react-router-dom";
 import qs from "qs";
 
-class ChatroomPage extends Component{
+const ChatroomPage = (props) => {
 
-  constructor(){
-    this.state={
-      messages:[],
-    }
- 
-  }
-
-
-  componentWillUnmount(){
-  if (socket) {
-        socket.emit("leaveRoom", {
-          chatroomId,
-        });
-    }
-}
-
-componentDidMount(){
-    if (socket) {
-      socket.emit("joinRoom", {
-        chatroomId,
-      });
-    }
-}
-
-componentDidUpdate(){
-      if (socket) {
-      socket.on("newMessage", (message) => {
-        console.log("newMessage" , message);
-        const newMessages = [...messages, message];
-        this.setState({Messages:newMessages});
-      });
-    }
-}
-
-render(){
-  const socket = this.props.socket;
-  console.log("socket---있냐고",socket)
-  const searchObj = qs.parse(this.porps.location.search, {
+  console.log("props받아오나요?,",props);
+  
+  const {socket,location} = props;
+  const searchObj = qs.parse(location.search, {
     ignoreQueryPrefix: true,
   });
-
-  const {questionId, questionUserId, answerUserId,nowUserId} =searchObj;
+  const {nowUserId} =searchObj;
   console.log("chatroompage 입니다.",searchObj);
   console.log("user:",nowUserId);
   const chatroomId = searchObj.questionId;
+  const [messages, setMessages] = React.useState([]);
   const messageRef = React.useRef();
   const userId = nowUserId;
-
+  
   
   
   const sendMessage = () => {
@@ -69,6 +35,42 @@ render(){
     }
   };
 
+
+  
+  // React.useEffect(() => {
+
+    console.log("여기에 소켓있냐고", socket);
+
+    if (socket) {
+      socket.on("newMessage", (message) => {
+        console.log("newMessage" , message);
+        const newMessages = [...messages, message];
+        setMessages(newMessages);
+      });
+    }
+    //eslint-disable-next-line
+  // }, []);
+
+  React.useEffect(() => {
+    console.log("joinroom호출=======");
+    if (socket) {
+      socket.emit("joinRoom", {
+        chatroomId,
+      });
+    }
+    return () => {
+      //Component Unmount
+      if (socket) {
+        socket.emit("leaveRoom", {
+          chatroomId,
+        });
+      }
+    };
+    //eslint-disable-next-line
+  }, []);
+
+
+  
   return (
     <div className="chatroomPage">
       <div className="chatroomSection">
@@ -107,7 +109,6 @@ render(){
    
     </div>
   );
-              }
 };
 
-export default ChatroomPage
+export default withRouter(ChatroomPage);

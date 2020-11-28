@@ -72,9 +72,9 @@ module.exports = function (app) {
     })
   );
   app.use(
-    "/api/private-chat",
+    "/api/premium-chat",
     createProxyMiddleware({
-      target: "http://localhost:8005",
+      target: "http://localhost:8085",
       changeOrigin: true,
     })
   );
