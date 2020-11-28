@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import Rating from '@material-ui/lab/Rating';
 import OtherUserApi from "../../../otherUser/api/OtherUserApi"
 import swal from 'sweetalert'
-import { Form, Button, TextArea } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
+import { Form, Button, TextArea,Dimmer,Loader } from 'semantic-ui-react'
 import "../scss/EduDetail.scss"
 import ReportContainer from "../../../report/container/ReportContainer"
 
@@ -14,6 +15,7 @@ export class EduDetailReviewView extends Component {
         super(props)
         this.state = {
             modifyToggle: false,
+            bool: true,
             user: "",
             imageUrl: "",
             title: this.props.review.title,
@@ -27,19 +29,18 @@ export class EduDetailReviewView extends Component {
     }
 
     async getUser(wid) {
-
+        this.setState({bool:true})
         let result = await this.otherUserApi.getOtherUser(wid)
-        console.log(result)
-        // console.log(result.name)
-        return this.setState({user: result.name}) 
-
+        this.setState({bool:false})
+        console.log(result.name)
+        console.log(result.imageUrl)
         return this.setState({user: result.name,
             imageUrl: result.imageUrl}) 
-
     }
 
-    componentDidMount() {
-        this.getUser(this.props.review.writerId)
+    
+    async componentDidMount() {
+        await this.getUser(this.props.review.writerId)     
     }
 
     render() {
@@ -52,6 +53,11 @@ export class EduDetailReviewView extends Component {
         const {review, removeReview, oauth, updateReview} = this.props
         return (
             <div>
+            {  this.state.bool ? 
+                    <Dimmer active>
+                        <Loader>불러오는 중...</Loader>
+                    </Dimmer> 
+                : <div>
                 {modifyToggle ? <div className="eduReviewLayout">  
                     <div className="eduReviewBody">
                         <div className="eduReviewBodyL">
@@ -74,7 +80,7 @@ export class EduDetailReviewView extends Component {
                             <div className="addEduReviewTitle"><Form.Input fluid id="InputReviewTitle" placeholder='제목' size="tiny" defaultValue={review.title}
                                 onChange={(e)=>{
                                     this.setState({
-                                    ...this.state,
+                                        ...this.state,
                                     title: e.target.value
                                     }
                                 )}}/>
@@ -119,13 +125,10 @@ export class EduDetailReviewView extends Component {
                         <div className="eduReviewTitleInfo">
                             { this.state.imageUrl ? <img className="userIcon" src={this.state.imageUrl} alt="userIcon"></img>
                                 : <img className="userIcon" src="/logo/userIcon.png" alt="userIcon"></img>}
-                            <div className="eduReviewTitleValue eduReviewClick">{this.state.user}</div>
+                            <Link to={`/otherUser/${review.writerId}`} className="eduReviewTitleValue">{this.state.user}</Link>
                             {/* <div className="eduReviewTitleValue">{review.title}</div> */}
                             { review.updateDate==null ? <div className="eduReviewTitleValue">{review.registDate}</div> 
                                 : <div className="eduReviewTitleValue">{review.updateDate}&nbsp;수정됨</div>}
-                            <div className="eduReviewTitleValue eduReviewClick">
-                                <ReportContainer bt_text = {<div>신고</div>} />
-                            </div>
                             { (review.writerId===oauth.getCurrentUserInfo.id) ? 
                             <div className="eduReviewTitleValue eduReviewClick" 
                                 onClick={
@@ -141,16 +144,17 @@ export class EduDetailReviewView extends Component {
                                 }>리뷰삭제</div> : null}
                             { (review.writerId===oauth.getCurrentUserInfo.id) ? 
                                 <div className="eduReviewTitleValue eduReviewClick" 
-                                    onClick={
-                                        ()=>{
-                                            onToggle()
-                                        }
+                                onClick={
+                                    ()=>{
+                                        onToggle()
                                     }
+                                }
                                 >리뷰수정</div> : null}
                         </div>
                         <div className="reviewHate">
-                            <div className="eduReviewClick">광고 의심</div>
-                            <div className="reviewHateValue">&nbsp;&nbsp;{review.adReport}</div>
+                            <div className="eduReviewClick">
+                                <ReportContainer bt_text = {<div>신고하기</div>} />
+                            </div>
                         </div>
                     </div>
                     <div className="eduReviewBody">
@@ -187,6 +191,7 @@ export class EduDetailReviewView extends Component {
                             <div className="eduReviewContent">{review.unrecommend}</div>
                         </div>
                     </div>
+                </div>}
                 </div>}
             </div>
         )
