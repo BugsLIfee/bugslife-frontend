@@ -3,7 +3,6 @@ import io from "socket.io-client";
 import "../styles/premiumchat-common.scss";
 import "../styles/premiumchat-chatroom.scss";
 import "../styles/premiumchat-index.scss";
-import makeToast from "../config/Toaster";
 import ChatroomPage from '../pages/ChatroomPageHook';
 import ScreenShareBtn from '../screen-share/ScreenSharingBtn';
 import { inject, observer } from 'mobx-react';
@@ -11,42 +10,48 @@ import { inject, observer } from 'mobx-react';
 // import { withRouter } from 'react-router-dom';
 
 // @withRouter
-function PremiumChatIndexContainer() {
-  const [socket, setSocket] = React.useState(null);
+@inject("Store")
+@observer
+class PremiumChatIndexContainer extends Component{
 
-  const setupSocket = () => {
-    // const token = localStorage.getItem("bugslife");//ACCESS_TOKEN
-    if (!socket) {
-      const newSocket = io("http://localhost:8085", {
- path:"/socket.io"
-      });
-
-      newSocket.on("disconnect", () => {
-        setSocket(null);
-        setTimeout(setupSocket, 3000);
-        makeToast("error", "Socket Disconnected!");
-      });
-
-      newSocket.on("connect", () => {
-        makeToast("success", "Socket Connected!");
-      });
-
-      setSocket(newSocket);
+   constructor(props) {
+  
+        super(props);
+        this.state = {
+            socket: null,
+            
+        }
     }
-  };
 
-  React.useEffect(() => {
-    setupSocket();
-    //eslint-disable-next-line
-  }, []);
+    componentDidMount (){
+        this.setupSocket();
+      
+    }
+
+    setupSocket () {
+        const socket = this.state.socket;
+        //const token = localStorage.getItem("bugslife");//ACCESS_TOKEN
+        console.log("socket전?",socket);
+        if (socket===null) {
+            // if (token && !socket) {
+                const newSocket = io("http://localhost:8085", {path:"/socket.io"});
+                
+                this.setState({socket:newSocket});
+            }
+            console.log("socket?",socket);
+    };
 
 
+    render(){
+
+
+    const socket = this.state.socket;
    
         return (
             <div className="premium-chat">
                 <div className="premium-chat-header">
                     <h4>
-                    ✨PREMIUM CHATTING ROOM✨
+                    PREMIUM CHATTING ROOM
                     </h4>
                 </div>
                 <div className="premium-chat-body">
@@ -55,7 +60,7 @@ function PremiumChatIndexContainer() {
                 <ScreenShareBtn/>
             </div>
         );
-        
+    }
 }
 
 export default PremiumChatIndexContainer;

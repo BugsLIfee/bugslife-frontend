@@ -38,7 +38,9 @@ import ChatbotContainer from "./chatbot/container/ChatbotContainer";
 import FreeboardModifyContainer from "./freeBoard/view/Editor/container/FreeboardModifyContainer";
 import AllChatIndexContainer from "./allChat/container/AllChatIndexContainer";
 
-
+import Chat from "./premiumChat/components/Chat/Chat";
+import Join from "./premiumChat/components/Join/Join";
+import PremiumChatIndexContainer from "./premiumChat/container/PremiumChatIndexContainer2";
 
 @inject("Store")
 @Observer
@@ -99,6 +101,10 @@ class App extends Component {
           <Route path="/otherUser/:uid" component={OtherUserContainer}/>
           <Route path="/chat-bot" component={ChatbotContainer}/>
           <Route path="/all-chat" component={AllChatIndexContainer} />
+          {/* <Route path="/chat" component={Chat} exact={true}/> */}
+          <Route path="/premium-chat" component={PremiumChatIndexContainer} exact={true}/>
+          <Route path="/join" component={Join} exact={true}/>
+   
         </Switch>
       </Router>
       < ChatbotContainer />

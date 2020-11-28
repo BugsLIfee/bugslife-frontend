@@ -6,10 +6,9 @@ import AnswerHeaderView from "../../view/answer/AnswerHeaderView";
 import AnswerBodyView from "../../view/answer/AnswerBodyView";
 import AnswerLikesContainer from "./AnswerLikesContainer";
 import { Card } from "react-bootstrap";
-import PrivateChatContainer from "../../../chat/container/PrivateChatContainer";
 import AnswerModifyView from "../../view/answer/AnswerModifyView";
 import AnswerSelectView from "../../view/answer/AnswerSelectView";
-
+import {createPremiumChatroom} from "../../../premiumChat/api/PremiumChatAPI";
 
 @inject("Store")
 @observer
@@ -47,11 +46,13 @@ class AnswerContainer extends Component {
 
 
         const onOpenChat=(questionId,questionUserId, answerUserId)=>{
-            console.log("질문id:",questionId,"/채팅요청한 질문자id:",questionUserId,"/답변자Id:",answerUserId); 
-            const url=`/premium-chat?questionId=${questionId}&questionUserId=${questionUserId}&answerUserId=${answerUserId}`;
-            const popup_option="toolbar=no,status=no,menubar=no,resizable=yes, location=no, top=100,left=100,width=500,height=700,scrollbars=no, fullscreen=no";
 
-            window.open(url,'프리미엄채팅방',popup_option);
+           createPremiumChatroom(questionId,questionUserId,answerUserId);
+           console.log("질문id:",questionId,"/채팅요청한 질문자id:",questionUserId,"/답변자Id:",answerUserId); 
+           const url=`/chat?room=${questionId}&questionUserId=${questionUserId}&answerUserId=${answerUserId}&name=${user.name}`;
+           const popup_option="width=1000px,height=600px,fullscreen=no";
+        //    socket = io(ENDPOINT);
+           window.open(url,'프리미엄채팅방',popup_option);
         }
 
         const onModifyAnswer = (answerObj) => {
