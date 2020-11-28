@@ -35,6 +35,7 @@ class PostingContainer extends Component {
                 point.onAddPoint(pointObj)
             }
             this.props.history.push({pathname: '/list'})
+            window.location.reload();
         }
         return (
             <div>

@@ -56,9 +56,9 @@ class ListStore {
       : [];
     this.backup_list = this.list
     this.tags = await this.bugBoardListApi.bugBoardTagList();
-    this.tags.forEach(tag => {
-      this.top10Tags.push(tag.tagName)}
-    )
+    this.tags = this.tags ? this.tags.forEach(tag => {
+          this.top10Tags.push(tag.tagName)}
+        ) : []
     this.top10Tags = Array.from(new Set(this.top10Tags))
     this.top10Tags = this.top10Tags.slice(0,10);
   }
