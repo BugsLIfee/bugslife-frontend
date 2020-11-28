@@ -13,8 +13,9 @@ import "../view/scss/ListTag.scss"
 class ListContainer extends Component {
 
   componentDidMount(){
-    const { list } = this.props.Store
+    const { list, oauth } = this.props.Store
     list.allList();
+    oauth.getUserList();
   }
 
   onSetListOrderBy = (e) => {

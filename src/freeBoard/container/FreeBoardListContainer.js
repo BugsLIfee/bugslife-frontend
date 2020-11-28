@@ -32,7 +32,7 @@ class Freeboardlistcontainer extends Component {
         const freeboard_select_posts = this.props.freeboard_select_posts;
 
         // userList.filter(val=> {return val.email ===this.state.searchUser})[0]
-        const freeboard_search_list = freeboard_list.filter(val=> {return val.title === this.state.searchPost})
+        const freeboard_search_list = freeboard_list.filter(val=> {return val.title.includes(this.state.searchPost)})
         const { onSetOrderBy } = this.props
         const { activeItem } = this.state
        
