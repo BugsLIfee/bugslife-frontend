@@ -18,7 +18,6 @@ class Mypagecontainer extends Component {
     super(props);
     this.state = {
       curr_component: "home",
-      qlistById :[]
     };
   }
 
@@ -40,14 +39,13 @@ class Mypagecontainer extends Component {
 
 
 
-  componentDidMount(){
-
-    this.props.Store.attendance.getAllList()
-
-     getCurrentUser().then((res)=>{
+  componentDidMount = async()=>{
+     getCurrentUser().then(async(res)=>{
       const accountId = res.id;
-      this.props.Store.list.getlistById(accountId);
-      this.props.Store.list.getCommentList(accountId)
+     await this.props.Store.otherUser.getOtherUser(accountId);
+     await this.props.Store.list.getCommentList(accountId);
+     await this.props.Store.otherUser._recently_top5();
+
      })
 
     }
@@ -55,11 +53,14 @@ class Mypagecontainer extends Component {
 
   render() {
     const state = this.state.curr_component;
-    const user = this.props.Store.oauth.currentUser;
-    let {allList} = this.props.Store.attendance;
+    const {user} = this.props.Store.otherUser;
+    const {likes} = this.props.Store.otherUser
+    const {answers} =this.props.Store.otherUser;
+    const top5 = this.props.Store.otherUser.recentTop5;
+    let {attendDate} = this.props.Store.otherUser
     let {commentList} = this.props.Store.list;
-
-    let questionListByuser =this.props.Store.list.getQlistById
+ 
+    let questionListByuser =this.props.Store.otherUser.questions
 
     const goToPoint = () => {
       this.setState({curr_component: "point"});
@@ -115,13 +116,6 @@ class Mypagecontainer extends Component {
               <Icon name="book" />
               게시글
             </Menu.Item>
-            {/* <Menu.Item
-              as="a"
-              onClick={() => this.onClickEvent("user")}
-            >
-               <Icon name="male" />
-              회원정보
-            </Menu.Item> */}
             <Menu.Item
               as="a"
               onClick={() => this.onClickEvent("point")}
@@ -132,7 +126,7 @@ class Mypagecontainer extends Component {
           </Sidebar>
           <div className="MyPage_curr">
             {this.user}
-            {state === "home" && <MypageHome questionListByuser={questionListByuser} isLogin={isLogin} user ={user} allList={allList} onClickPoint={goToPoint}/>}
+            {state === "home" && <MypageHome top5={top5} answers={answers} questionListByuser={questionListByuser} likes={likes} isLogin={isLogin} user ={user} attendDate={attendDate} onClickPoint={goToPoint}/>}
             {state === "post" && <MypagePost commentList={commentList} questionListByuser={questionListByuser}  />}
             {state === "user" && <MypageUser user={user} onSubmitForm={this.onSubmitForm}/>}
             {state === "point" && <PointPage user={user} />}

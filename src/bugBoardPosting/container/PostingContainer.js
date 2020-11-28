@@ -26,12 +26,15 @@ class PostingContainer extends Component {
             postObj.dueDate = getFormatDate(postObj.dueDate)
             bugBoardPosting.onAddPost(postObj);
 
-            const pointObj = {
-                userId: oauth.getCurrentUserInfo.id,
-                amount: -postObj.point,
-                detail: "질문등록"
+            if(postObj.point >0) {
+                const pointObj = {
+                    userId: oauth.getCurrentUserInfo.id,
+                    amount: -postObj.point,
+                    detail: "질문등록"
+                }
+                point.onAddPoint(pointObj)
             }
-            point.onAddPoint(pointObj)
+            this.props.history.push({pathname: '/list'})
         }
         return (
             <div>

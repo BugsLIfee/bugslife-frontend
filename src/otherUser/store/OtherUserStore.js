@@ -1,18 +1,23 @@
 import { Component } from 'react'
 import { observable, computed, action } from 'mobx'
-import User from "./testData"
 import OtherUserApi from '../api/OtherUserApi'
 import BugBoardListApi from '../../list/api/BugBoardListApi';
+import AttendanceApi from '../../attendance/api/AttendanceApi';
 
 export default class Otheruserstore extends Component {
 
 
     otherApi = new OtherUserApi();
     bugboradApi = new BugBoardListApi();
+    attendApi = new AttendanceApi();
 
     @observable user = {};
     @observable questions=[] ;
     @observable answers=[];
+    @observable recentTop5=[]
+    @observable attendDate = 0;
+    @observable likes = 0;
+
 
     constructor()
     {
@@ -53,7 +58,8 @@ export default class Otheruserstore extends Component {
         return this.questions ? this.questions.slice() : [];
     }
 
-    @computed get _recently_top5() {
+    @action
+     _recently_top5() {
     
         const questions = this._questions
         const answers = this._answers
@@ -63,22 +69,15 @@ export default class Otheruserstore extends Component {
 
         if(questions.length>0){
         for(let i=0; i<5 ; i++) {
-            console.log(questions[q_idx].registDate)
 
-            console.log("i === ", i)
             if(questions.length<=q_idx && answers.length<=a_idx) {
                 break;
             } else if(questions.length<=q_idx && answers.length>a_idx) {
-                console.log(answers.slice(a_idx,a_idx+5-i)[0])
                 top5.push(answers.slice(a_idx,a_idx+5-i)[0])
                 break;
             } else if(questions.length>q_idx && answers.length<=a_idx) {
-                console.log("no answer")
-                console.log(top5)
-                // console.log(questions.slice(i,5-i))
-                console.log(questions.slice(q_idx,q_idx+5-i)[0])
                 top5.push(questions.slice(q_idx,q_idx+5-i)[0])
-                console.log(top5)
+            
                 break;
             } else {
                 if(questions[q_idx].registDate > answers[a_idx].registDate) {
@@ -90,20 +89,21 @@ export default class Otheruserstore extends Component {
                 }
             }
         }
-
-        console.log("final top5: " , top5)
-        return top5;
+        this.recentTop5 =top5;
         }
     }
 
     @action
     async getOtherUser(uid){
         let result =  await this.otherApi.getOtherUser(uid);
-        console.log("리졸트", result)
         this.user  = result;
         this.questions = await this.bugboradApi.bugBoardListById(uid);
-        this.answers = await this.bugboradApi.bugboradCommentList(uid)
-        console.log("질문리스트 : ", this.questions);
-        console.log("답변리스트 : ", this.answers);
+        this.answers = await this.bugboradApi.bugboradCommentList(uid);
+        let attend = await this.attendApi.attendList(uid);
+        this.attendDate = attend.length;
+        this.likes =  await this.otherApi.getLikes(uid);
+        console.log(this.likes)
     }
+
 }
+

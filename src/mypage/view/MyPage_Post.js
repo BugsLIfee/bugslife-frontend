@@ -11,9 +11,6 @@ export default class MypagePost extends Component {
    let {questionListByuser}= this.props
    let {commentList} = this.props;
 
-   console.log("comment ======> post")
-   console.log(commentList)
-
     return (
       <div className="MyPage_post_container">
 
