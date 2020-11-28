@@ -136,6 +136,11 @@
 
     .academyReviewTitleInfo {
       display: flex;
+      align-items: center;
+      .userIcon {
+        border-radius: 100%;
+        height: 28px;
+      }
     }
 
     .academyReviewClick {
@@ -149,6 +154,11 @@
       font-size: 1.1rem;
       color: #555555;
       font-weight: bold;
+
+      .academyReviewClick {
+        cursor: pointer;
+      }
+
       .reviewHateValue {
         font-weight: 500;
         color: orangered;

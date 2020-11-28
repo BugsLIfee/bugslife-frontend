@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Rating from '@material-ui/lab/Rating';
+import { Link } from 'react-router-dom'
 import OtherUserApi from "../../../otherUser/api/OtherUserApi"
 import { Form, Button, TextArea } from 'semantic-ui-react'
 import swal from 'sweetalert'
@@ -107,14 +108,12 @@ export class AcademyDetailReviewView extends Component {
                 : <div className="academyReviewLayout">
                     <div className="academyReviewTitle">
                         <div className="academyReviewTitleInfo">
-                            <img src={this.state.imgUrl} alt="userLogo"></img>
-                            <div className="academyReviewTitleValue academyReviewClick">{this.state.user}</div>
+                            {this.state.imageUrl ? <img className="userIcon" src={this.state.imageUrl} alt="userIcon"></img>
+                                : <img className="userIcon" src="/logo/userIcon.png" alt="userIcon"></img>}
+                            <Link to={`/otherUser/${review.writerId}`} className="academyReviewTitleValue">{this.state.user}</Link>
                             {/* <div className="eduReviewTitleValue">{review.title}</div> */}
                             { review.updateDate==null ? <div className="academyReviewTitleValue">{review.registDate}</div> 
                                 : <div className="academyReviewTitleValue">{review.updateDate}&nbsp;수정됨</div>}
-                            <div className="academyReviewTitleValue academyReviewClick">
-                                <ReportContainer bt_text = {<div>신고</div>} />
-                            </div>
                             { (review.writerId===oauth.getCurrentUserInfo.id) ? 
                             <div className="academyReviewTitleValue academyReviewClick" 
                                 onClick={
@@ -138,8 +137,9 @@ export class AcademyDetailReviewView extends Component {
                                 >리뷰수정</div> : null}
                         </div>
                         <div className="reviewHate">
-                            <div className="academyReviewClick">광고 의심</div>
-                            <div className="reviewHateValue">&nbsp;&nbsp;{review.adReport}</div>
+                        <div className="academyReviewClick">
+                                <ReportContainer bt_text = {<div>신고하기</div>} />
+                            </div>
                         </div>
                     </div>
                     <div className="academyEduTitleValue">{review.eduTitle}</div>
