@@ -1,6 +1,6 @@
 import { inject, observer } from 'mobx-react'
 import React, { Component } from 'react'
-import { Grid, Pagination, Dimmer, Loader, Segment } from 'semantic-ui-react'
+import { Grid, Pagination, Dimmer, Loader } from 'semantic-ui-react'
 import EduListHeaderView from '../../view/list/EduListHeaderView'
 import "../../view/scss/EduList.scss"
 import EduListImageContainer from './EduListImageContainer'

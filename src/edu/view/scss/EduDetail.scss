@@ -184,6 +184,10 @@
       font-size: 1.1rem;
       color: #555555;
       font-weight: bold;
+
+      .eduReviewClick {
+        cursor: pointer;
+      }
       .reviewHateValue {
         font-weight: 500;
         color: orangered;

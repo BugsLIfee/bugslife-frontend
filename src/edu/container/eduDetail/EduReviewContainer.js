@@ -4,7 +4,7 @@ import "../../view/scss/EduDetail.scss"
 
 export class EduReviewContainer extends Component {
     render() {
-        const {eduReviews, removeReview, oauth, updateReview, user, getUser} = this.props
+        const {eduReviews, removeReview, oauth, updateReview} = this.props
 
         const review = eduReviews.map((review) => {
             return (
