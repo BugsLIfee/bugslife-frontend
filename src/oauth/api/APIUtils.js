@@ -47,7 +47,7 @@ export function getCurrentUser() {
     }
 
     return request({
-        url: AUTH_API_URL + "/user/me",
+        url: "/user/me",
         method: 'GET'
     });
 }
@@ -55,7 +55,7 @@ export function getCurrentUser() {
 
 export function login(loginRequest) {
     return request({
-        url: AUTH_API_URL + "/auth/login",
+        url: "/auth/login",
         method: 'POST',
         body: JSON.stringify(loginRequest)
     });
@@ -63,7 +63,7 @@ export function login(loginRequest) {
 
 export function signup(signupRequest) {
     return request({
-        url: AUTH_API_URL + "/auth/signup",
+        url: "/auth/signup",
         method: 'POST',
         body: JSON.stringify(signupRequest)
     });

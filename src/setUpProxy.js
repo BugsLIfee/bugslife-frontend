@@ -3,11 +3,13 @@ const proxy = require("http-proxy-middleware");
 const { createProxyMiddleware } = require("http-proxy-middleware");
 module.exports = function (app) {
 
+  const AWS_URL = "http://f6310e3e-default-backendin-e9e6-1825476586.ap-northeast-1.elb.amazonaws.com"
   // user-service;
   app.use(
-    "/api/auth",
+    "/auth",
     createProxyMiddleware({
-      target: "http://localhost:8088",
+      target: AWS_URL,
+      // target: "http://localhost:8088",
       changeOrigin: true,
     })
   );
@@ -16,7 +18,8 @@ module.exports = function (app) {
   app.use(
     "/user/me",
     createProxyMiddleware({
-      target: "http://localhost:8088",
+      // target: "http://localhost:8088",
+      target: AWS_URL,
       changeOrigin: true,
     })
   );
@@ -26,7 +29,7 @@ module.exports = function (app) {
   app.use(
     "/user/other",
     createProxyMiddleware({
-      target: "http://localhost:8088",
+      target: AWS_URL,
       changeOrigin: true,
     })
   );
@@ -35,7 +38,8 @@ module.exports = function (app) {
   app.use(
     "/api/bugboard",
     createProxyMiddleware({
-      target: "http://localhost:8081",
+      target: AWS_URL,
+      // target: "http://localhost:8081",
       changeOrigin: true,
     })
   );
@@ -43,7 +47,8 @@ module.exports = function (app) {
   app.use(
     "/api/payment",
     createProxyMiddleware({
-      target: "http://localhost:8088",
+      // target: "http://localhost:8088",
+      target: AWS_URL,
       changeOrigin: true,
     })
   );
@@ -51,7 +56,8 @@ module.exports = function (app) {
   app.use(
     "/api/point",
     createProxyMiddleware({
-      target: "http://localhost:8088",
+      // target: "http://localhost:8088",
+      target:  AWS_URL,
       changeOrigin: true,
     })
   );
@@ -59,7 +65,8 @@ module.exports = function (app) {
   app.use(
     "/api/edu",
     createProxyMiddleware({
-      target: "http://localhost:8082",
+      // target: "http://localhost:8082",
+      target: AWS_URL,
       changeOrigin: true,
     })
   );
@@ -68,7 +75,8 @@ module.exports = function (app) {
   app.use(
    "/api/freeboard/",
     createProxyMiddleware({
-      target: "http://localhost:8083",
+      target: AWS_URL,
+      //target: "http://localhost:8083",
       changeOrigin: true,
     })
   );
@@ -77,7 +85,8 @@ module.exports = function (app) {
   app.use(
     "/api/admin/notice",
     createProxyMiddleware({
-      target: "http://localhost:8084",
+      target:  AWS_URL,
+      // target: "http://localhost:8084",
       changeOrigin: true,
     })
   );
