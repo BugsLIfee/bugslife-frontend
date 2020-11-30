@@ -69,14 +69,14 @@ export default class PostingView extends Component {
         }
 
         const onClickSubmit = (e) => {
-            if(user.point-this.state.point<0) {
-                swal("포인트가 부족합니다!");
-            } else if( this.state.premium===true && this.state.point <2000)  {
-                swal("프리미엄 질문은 2000포인트부터 가능합니다.");
-            }
-            else {
-                onAddPost(this.state);
-            }
+            // if(user.point-this.state.point<0) {
+            //     swal("포인트가 부족합니다");
+            // } else if( this.state.premium===true && this.state.point <2000)  {
+            //     swal("프리미엄 질문은 2000포인트부터 가능합니다.");
+            // }
+            // else {
+            onAddPost(this.state);
+            // }
         }
         
         let input_tag;

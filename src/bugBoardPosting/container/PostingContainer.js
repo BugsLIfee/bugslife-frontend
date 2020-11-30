@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 import {withRouter} from "react-router-dom";
+import swal from "sweetalert";
 import PostingView from "../view/PostingView"
 
 @withRouter
@@ -21,21 +22,39 @@ class PostingContainer extends Component {
 
         const { bugBoardPosting } = this.props.Store;
         const { oauth, point } = this.props.Store;
-        const onAddPost = (postObj) => {
-            postObj.writer = oauth.getCurrentUserInfo.id;
-            postObj.dueDate = getFormatDate(postObj.dueDate)
-            bugBoardPosting.onAddPost(postObj);
+        const user = oauth.getCurrentUserInfo
 
-            if(postObj.point >0) {
-                const pointObj = {
-                    userId: oauth.getCurrentUserInfo.id,
-                    amount: -postObj.point,
-                    detail: "질문등록"
+        const onAddPost = async (postObj) => {
+            if(user.point-postObj.point<0) {
+                let result = await swal({
+                    title: "포인트가 부족합니다. 충전하시겠습니까?", 
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true
+                })
+
+                if(result) {
+                    this.props.history.push({pathname: '/myPage'})
                 }
-                point.onAddPoint(pointObj)
+            } else if( postObj.premium===true && postObj.point <2000)  {
+                swal("프리미엄 질문은 2000포인트부터 가능합니다.");
             }
-            this.props.history.push({pathname: '/list'})
-            window.location.reload();
+            else {
+                postObj.writer = oauth.getCurrentUserInfo.id;
+                postObj.dueDate = getFormatDate(postObj.dueDate)
+                bugBoardPosting.onAddPost(postObj);
+    
+                if(postObj.point >0) {
+                    const pointObj = {
+                        userId: oauth.getCurrentUserInfo.id,
+                        amount: -postObj.point,
+                        detail: "질문등록"
+                    }
+                    point.onAddPoint(pointObj)
+                }
+                this.props.history.push({pathname: '/list'})
+                window.location.reload();
+            }
         }
         return (
             <div>
