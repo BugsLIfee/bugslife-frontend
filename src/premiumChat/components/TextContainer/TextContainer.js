@@ -8,13 +8,14 @@ import './TextContainer.scss';
 const TextContainer = ({ users }) => (
   <div className="textContainer">
     <div>
-      <ScreenShareBtn/>
+      {/* <ScreenShareBtn/> */}
     </div>
     {
       users
         ? (
           <div>
-            <h1>People currently chatting:</h1>
+            <h3>현재접속자:</h3>
+            <br/>
             <div className="activeContainer">
               <h2>
                 {users.map(({name}) => (

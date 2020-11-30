@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch, withRouter } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./header/view/scss/header.scss";
 import "./footer/footer.scss";
 import OAuth2RedirectHandler from './oauth/oauth2/OAuth2RedirectHandler';
 import LoadingIndicator from './oauth/common/LoadingIndicator';
 import PrivateRoute from './oauth/common/PrivateRoute';
 import "./chatbot/view/chatbotIcon.scss";
-// import { Link,  } from "react-router-dom";
+
 import { 
   HeaderContainer, 
   Footer, 
@@ -39,7 +39,6 @@ import FreeboardModifyContainer from "./freeBoard/view/Editor/container/Freeboar
 import AllChatIndexContainer from "./allChat/container/AllChatIndexContainer";
 
 import Chat from "./premiumChat/components/Chat/Chat";
-import Join from "./premiumChat/components/Join/Join";
 import PremiumChatIndexContainer from "./premiumChat/container/PremiumChatIndexContainer2";
 
 @inject("Store")
@@ -76,7 +75,7 @@ class App extends Component {
           <Route path="/detail/modify" component={BugBoardModifyPage} exact={true} />
           <Route path="/detail/:post_id" component={DetailPage} exact={true} />
           <PrivateRoute path="/admin" authenticated={this.props.Store.oauth.getCurrentUser} component={AdminContainer} />
-          <PrivateRoute path="/contact" component={ContactContainer} />
+          <Route path="/contact" component={ContactContainer} />
           <PrivateRoute path="/mypage" component={Mypagecontainer} exact={true} />
           <Route path="/posting" component={PostingContainer} exact={true} />
           <Route path="/attendance" component={Attendancecontainer} exact={true} />
@@ -103,7 +102,7 @@ class App extends Component {
           <Route path="/all-chat" component={AllChatIndexContainer} />
           {/* <Route path="/chat" component={Chat} exact={true}/> */}
           <Route path="/premium-chat" component={PremiumChatIndexContainer} exact={true}/>
-          <Route path="/join" component={Join} exact={true}/>
+          {/* <Route path="/join" component={Join} exact={true}/> */}
    
         </Switch>
       </Router>
@@ -118,4 +117,4 @@ class App extends Component {
   }
 }
 
-export default withRouter(App);
+export default App

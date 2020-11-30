@@ -159,13 +159,10 @@ export default class PostingView extends Component {
                     </Form>
                 </div>
                 <div className="upload">
-                    <a href="/list">
                         <Button basic color='black' className="bt" size='huge' 
-
                             onClick={() => onClickSubmit(this.state)}> 
                             완료
                         </Button>
-                    </a>
                 </div>
             </div>
         )
