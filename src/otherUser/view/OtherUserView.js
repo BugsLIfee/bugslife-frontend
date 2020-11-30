@@ -18,7 +18,7 @@ export default class OtherUserView extends Component {
                 <Feed.Event
                     image={image}
                     date={post.registDate}
-                    summary= {<div style={{ width: '100%', height: '3rem', overflow:"hidden"}} dangerouslySetInnerHTML= {{__html:post.content} } />}
+                    summary= {<div style={{ width: '100%', height: '3rem', overflow:"hidden", fontSize:"1rem"}} dangerouslySetInnerHTML= {{__html:post.content} } />}
                 />
             )
         })
