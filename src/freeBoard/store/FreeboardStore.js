@@ -59,30 +59,7 @@ class FreeboardStore{
       }
 
       this.freeboard_list = result.sort((a, b)=>{return b.id-a.id});
-      // console.log(result)
 
-      // let test = result.map(val=>{
-      // let comments = async() => await this.freeApi.freeboardComments(val.id);
-
-      // console.log(comments().length)
-      //  return{...val, comment: comments()}
-      // });
-        
-      
-      // this.freeboard_list =await test;
-      // this.freeboard_list.map(val=> console.log(val))
-        
-      // if(result !==null){
-        // this.freeboard_list =result
-        // .map(val=> {
-        //    return {...val} })
-        //    .sort((a,b)=> {return b.id - a.id});
-
-        // console.log(this.freeboard_list))
-      // } else{
-      //   console.log("freeboard nulllllllll");
-      // }
-    
     }
 
     @action
@@ -257,15 +234,16 @@ class FreeboardStore{
     setListOrderBy(e) {
       switch (e) {
         case "v":
-          let viewList = this.freeboard_list.sort((a, b) => b["views"] - a["views"])
+          let viewList = this.freeboard_list.slice().sort((a, b) => b["viewCnt"] - a["viewCnt"])
           this.freeboard_list = viewList
           break
         case "l":
-          let likeList = this.freeboard_list.sort((a, b) => b["addPoints"] - a["addPoints"])
+          let likeList = this.freeboard_list.slice().sort((a, b) => b["likes"] - a["likes"])
           this.freeboard_list = likeList
           break
         case "d":
-          // this.freeboard_list = FreeboardListData;
+          let dateList = this.freeboard_list.sort((a, b) =>  Date.parse(b["registerDate"]) -  Date.parse(a["registerDate"]))
+          this.freeboard_list = dateList
           break
         default :
           return "End";

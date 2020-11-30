@@ -22,7 +22,7 @@ export default class MypageHome extends Component {
               image={image}
               style={{marginTop:'1.5rem'}}
               date={post.registDate}
-              summary= {<div style={{ width: '100%', textOverflow:"ellipsis"}} dangerouslySetInnerHTML= {{__html:post.content} } />}
+              summary= {<div style={{ width: '100%', height: '3rem', overflow:"hidden"}} dangerouslySetInnerHTML= {{__html:post.content} } />}
           />
   
       )

@@ -13,9 +13,10 @@ export default class Freeboardlistview extends Component {
 
     render() {
         const freeboard_list = this.props.freeboard_list;
-        let totalPage = Math.floor(freeboard_list.length / 10)
+        let totalPage = Math.ceil(freeboard_list.length / 10) 
 
         let freeboardList_paging = freeboard_list.slice((this.state.page-1) *10, this.state.page*10)
+
         return (
         <div>
             {freeboardList_paging.map((post)=>{
