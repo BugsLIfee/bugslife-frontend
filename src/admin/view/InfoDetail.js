@@ -6,6 +6,7 @@ class InfoDetail extends Component {
     render() {
         const {info, onDelete, user} = this.props;
 
+        console.log("who is user : ", user)
 
         return (
           <div>
@@ -13,7 +14,10 @@ class InfoDetail extends Component {
                 <div className="infoDetail_container">  
                     <div className="infoDetail_nav">
                         <div className="infoDetail_nav_left" >
-                            <a href="/admin/info-list"><h4>목록</h4></a>
+                            {user === "ADMIN" ? 
+                            ( <a href="/admin/info-list"><h4>목록</h4></a>) :
+                            ( <a href="/contact/info"><h4>목록</h4></a>)
+                            }
                         </div>
 
                        

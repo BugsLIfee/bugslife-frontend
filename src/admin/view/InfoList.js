@@ -41,7 +41,7 @@ class InfoList extends Component {
            ? `${obj.registDate}`
            : `${obj.editDate}`}
           </div>
-        <div className="info_view">{obj.viewCnt}</div>
+        {/* <div className="info_view">{obj.viewCnt}</div> */}
       </div>
     ));
 
@@ -79,7 +79,7 @@ class InfoList extends Component {
               <p>카테고리</p>
               <p>제목</p>
               <p>날짜</p>
-              <p>조회수</p>
+              {/* <p>조회수</p> */}
             </div>
             <div className="infoList_content">
                {CreateTableRowList}
