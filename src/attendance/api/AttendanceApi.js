@@ -3,7 +3,9 @@ import { request }from "../../oauth/api/APIUtils";
 
 export default class AttendanceApi{
 
+
     ATTEND_API_URL = "http://f6310e3e-default-backendin-e9e6-1825476586.ap-northeast-1.elb.amazonaws.com/api/attendance/"
+
 
 
     attendList(uid){
