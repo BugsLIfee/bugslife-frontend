@@ -19,7 +19,7 @@ class ListViewMain extends Component {
       )
     })
     
-    // const userImage = user.imageUrl
+    const userImage = user ? user.imageUrl : ""
     const dueDate = Math.floor((new Date(listView.dueDate+"T00:00:00").getTime() - new Date().getTime())
             /(1000*60*60*24)) + 1;
     return (
@@ -44,18 +44,20 @@ class ListViewMain extends Component {
               </span>                                 
             </div>
             <div className="box-grade">
-              {/* <span className="btn-grade img">
+               <span className="btn-grade img">
                 { userImage ? 
                   <img style={img} src={userImage} alt="userImg"></img> :
                   <img style={img} src="../logo/userIcon.png" alt="userImg"></img>
                 }
-              </span> */}
+              </span>
+              { user ? 
               <span className="value">
                 <a href={`/otherUser/${listView.writerId}`}>
                   <span className="name">{user.name}</span>
                 </a>
                 <span className="grade">Level {user.level } </span>
-              </span>
+              </span> : <></>
+              }
             </div>
           </div>
         </div>
