@@ -234,16 +234,16 @@ class FreeboardStore{
     setListOrderBy(e) {
       switch (e) {
         case "v":
-          let viewList = this.freeboard_list.sort((a, b) => b["viewCnt"] - a["viewCnt"])
+          let viewList = this.freeboard_list.slice().sort((a, b) => b["viewCnt"] - a["viewCnt"])
           this.freeboard_list = viewList
           break
         case "l":
-          let likeList = this.freeboard_list.sort((a, b) => b["likes"] - a["likes"])
+          let likeList = this.freeboard_list.slice().sort((a, b) => b["likes"] - a["likes"])
           this.freeboard_list = likeList
           break
         case "d":
-          let newList = this.freeboard_list.sort((a,b)=>b["registerDate"] -a["registerDate"] )
-          this.freeboard_list = newList;
+          let dateList = this.freeboard_list.sort((a, b) =>  Date.parse(b["registerDate"]) -  Date.parse(a["registerDate"]))
+          this.freeboard_list = dateList
           break
         default :
           return "End";
