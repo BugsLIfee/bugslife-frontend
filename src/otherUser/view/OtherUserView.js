@@ -18,7 +18,7 @@ export default class OtherUserView extends Component {
                 <Feed.Event
                     image={image}
                     date={post.registDate}
-                    summary= {<div style={{ width: '100%', textOverflow:"ellipsis"}} dangerouslySetInnerHTML= {{__html:post.content} } />}
+                    summary= {<div style={{ width: '100%', height: '3rem', overflow:"hidden"}} dangerouslySetInnerHTML= {{__html:post.content} } />}
                 />
             )
         })
@@ -38,7 +38,7 @@ export default class OtherUserView extends Component {
                       <br />
                       <strong> 제목 : {question.title} </strong>
                       <br />
-                      <div style={{marginTop : "0.5rem", width: '100%', textOverflow:"ellipsis"}} dangerouslySetInnerHTML= {{__html:question.content} } />
+                      <div style={{marginTop : "0.5rem", width: '100%', height: '3rem', overflow:"hidden", textOverflow:"ellipsis"}} dangerouslySetInnerHTML= {{__html:question.content} } />
                       </List.Content>
                   </List.Item>)
                   })}
