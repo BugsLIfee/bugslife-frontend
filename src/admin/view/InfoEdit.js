@@ -67,7 +67,7 @@ export default class InfoEdit extends Component {
     // const {info, currentUser} = this.props;
     let today = new Date();
     let date = `${today.getFullYear()}-${today.getMonth()}-${today.getDate()}`
-    console.log(date)
+
 
     if(this.state.category===undefined || this.state.category===""){
       return alert("카테고리를 선택해주세요.")
@@ -161,7 +161,7 @@ export default class InfoEdit extends Component {
         </Form>
 
       <div className="info_editor">
-        {console.log(info.content, this.state.content==="")}
+   
          <Editor
           height="50rem"
           initialEditType="wysiwyg"
