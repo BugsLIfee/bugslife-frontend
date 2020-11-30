@@ -5,7 +5,7 @@ export class EduListImageView extends Component {
         // const {eduImg} = this.props
         return (
             <div>
-                <img src="https://via.placeholder.com/190x90.png" alt="eduimg"/>
+                <img src="/logo/academy.png" alt="eduimg"/>
             </div>
         )
     }

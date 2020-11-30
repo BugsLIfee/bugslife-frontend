@@ -12,7 +12,7 @@ export class AcademyDetailInfoView extends Component {
         return (
                <Grid className="academyInfoTable">
                     <Grid.Column width={3} className="academyInfoImg">
-                        <Image src="https://via.placeholder.com/190x90.png" alt="academyimg"/>
+                        <Image src="/logo/academy.png" alt="academyimg"/>
                         <div className="academyRate">
                             <p>학원 총평</p> 
                             <div><span className="academyRateVallue">{isNaN(academyInfo.academyRate) ? 0 : parseInt(academyInfo.academyRate*4)/2}</span>
