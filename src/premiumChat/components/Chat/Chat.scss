@@ -2,36 +2,48 @@
   padding:0px!important;
 .outerContainer {
   display: flex;
-  justify-content: center;
+ justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #1a1a1dcc;
+
 }
+
+
 
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  background: #FFFFFF;
-  border-radius: 8px;
-  height: 60%;
-  width: 35%;
+ // justify-content: space-between;
+  background: #ffffffff;
+  //border-radius: 8px;
+  border: 2px solid #D3D3D3;
+  height: 100%;
+  width:100%;
+  padding: 0px;
+
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
   .outerContainer {
-    height: 100%;
+    height: 700px;
   }
 
   .container {
     width: 100%;
-    height: 100%;
+    height: 700px;
+
   }
 }
 
 @media (min-width: 480px) and (max-width: 1200px) {
+    .outerContainer {
+      width: 100%;
+      height: 100%;
+    }
   .container {
-    width: 60%;
+    width: 100%;
+    height: 700px;
+
   }
 }
 }

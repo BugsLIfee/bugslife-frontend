@@ -1,12 +1,14 @@
 .bigbox{
 .infoBar {
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #2979FF;
-  border-radius: 4px 4px 0 0;
-  height: 60px;
+  background: #2f69cc;
+  //border-radius: 4px 4px 0 0;
+  height:50px;
   width: 100%;
+  padding: 20px;
 }
 
 .leftInnerContainer {
@@ -15,6 +17,7 @@
   align-items: center;
   margin-left: 5%;
   color: white;
+
 }
 
 .rightInnerContainer {

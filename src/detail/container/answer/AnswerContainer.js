@@ -50,7 +50,7 @@ class AnswerContainer extends Component {
            createPremiumChatroom(questionId,questionUserId,answerUserId);
            console.log("질문id:",questionId,"/채팅요청한 질문자id:",questionUserId,"/답변자Id:",answerUserId); 
            const url=`/chat?room=${questionId}&questionUserId=${questionUserId}&answerUserId=${answerUserId}&name=${user.name}`;
-           const popup_option="width=1000px,height=600px,fullscreen=no";
+           const popup_option="width=360px,height=517px,fullscreen=no";
         //    socket = io(ENDPOINT);
            window.open(url,'프리미엄채팅방',popup_option);
         }
