@@ -29,7 +29,7 @@ export default class Freeboardlistview extends Component {
             ellipsisItem={null}
             firstItem={null}
             lastItem={null}
-            siblingRange={1}
+            siblingRange={2}
             onPageChange={this.setNextPage}
             totalPages={totalPage}
         />

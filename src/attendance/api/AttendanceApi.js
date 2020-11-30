@@ -3,7 +3,7 @@ import { request }from "../../oauth/api/APIUtils";
 
 export default class AttendanceApi{
 
-    ATTEND_API_URL = "http://localhost:8088/api/attendance/"
+    ATTEND_API_URL = "/api/attendance/"
 
 
     attendList(uid){
