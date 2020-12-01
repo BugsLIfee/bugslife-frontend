@@ -134,7 +134,7 @@ export default class Freeboarddetailview extends Component {
                           
                             <div className="freeboard_detail_report freeboard_detail_like_sec "> 
                                 <div className="freeboard_detail_like_sec_icon" >
-                                    <ReportModalContainer bt_text= {<h5>신고 <img className = "freeboard_detail_report_img" src="../../logo/logo_red_blank.png" alt="logo_red" /></h5>} />
+                                    <ReportModalContainer  boardType = "freeboard_post" boardId = {post.id} bt_text= {<h5>신고 <img className = "freeboard_detail_report_img" src="../../logo/logo_red_blank.png" alt="logo_red" /></h5>} />
                                      {/* <h5 onClick>신고<img className = "freeboard_detail_report_img" src="../../logo/logo_red_blank.png" /></h5>  */}
                                     </div>
                                 <h6>{post.reportCnt}</h6>
