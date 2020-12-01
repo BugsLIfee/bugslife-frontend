@@ -25,7 +25,7 @@ export const ADMIN_API_URL = API_BASE_URL+ADMIN_API_PORT;
 
 
 export const ACCESS_TOKEN = 'bugslifee';
-export const OAUTH2_REDIRECT_URI = 'http://localhost:3000/oauth2/redirect'
+export const OAUTH2_REDIRECT_URI = 'http://bugslife.shop/oauth2/redirect'
 
 
 export const GOOGLE_AUTH_URL = AUTH_API_URL + '/oauth2/authorize/google?redirect_uri=' + OAUTH2_REDIRECT_URI;
