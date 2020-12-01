@@ -28,7 +28,7 @@ export default class PostingView extends Component {
     
     render() {
         const { tags } = this.state;
-        const { onAddPost, user } = this.props;
+        const { onAddPost } = this.props;
         const today = new Date();
         
         function getFormatDate(date){
