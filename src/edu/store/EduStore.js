@@ -147,11 +147,10 @@ class EduStore {
     @action
     filterReview(eid) {
         let reviews = []
-        { eid==="all" ? reviews = this.academyReviews 
+        eid==="all" ? reviews = this.academyReviews 
         : reviews = this.academyReviews.filter((review) => {
             return review.eduId.includes(eid);
-        });}
-        console.log(this.filterReviews)
+        });
         this.filterReviews = reviews
     }
 

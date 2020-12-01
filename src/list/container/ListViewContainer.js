@@ -31,7 +31,6 @@ class ListViewContainer extends Component {
     let listItemOne = lists.slice((this.state.page - 1) * 5, this.state.page * 5)
     let totalPage = Math.floor(lists.length / 5) //60건이라면 totalPage
     const userList = this.props.Store.oauth.userList;
-    console.log(userList)
 
     if (lists.length % 5) {
       totalPage += 1

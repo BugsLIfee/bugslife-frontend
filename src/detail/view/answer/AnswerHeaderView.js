@@ -10,6 +10,7 @@ export default class AnswerHeaderView extends Component {
 
         return(
             <div className="post_meta">
+                {writer? 
                 <div className="writer_info"> 
                     <i className="fas fa-font answer_mark"></i>
                     {
@@ -23,8 +24,10 @@ export default class AnswerHeaderView extends Component {
                         </a>
                         <div className="writer_level"> Level {writer.level} </div>
                     </div>
- 
                 </div>
+                    :
+                    <></>  
+                }
                 <div className="_info">
                         <div className="upload_date"> {answer.registDate.substring(0,10)} | &nbsp;</div>
                         { currentUser.id !== answer.writerId ?
