@@ -11,7 +11,7 @@ class FreeboardModifyContainer extends Component {
         this.props.Store.freeboard.freeboardPostSelect(`${match.params.post_id}`);
     }
 
-    onUpdate=(newPost)=>{  
+    onUpdate=async(newPost)=>{  
         const post = this.props.Store.freeboard.freeboard_detail
         newPost["id"] = post.id
 
@@ -35,15 +35,15 @@ class FreeboardModifyContainer extends Component {
         }
 
         console.log("⏳ update on Container : ", newPost)
-        this.props.Store.freeboard.freeboardModifyPost(newPost);
+        await this.props.Store.freeboard.freeboardModifyPost(newPost);
 
 
 
-        this.props.history.push({
+       await this.props.history.push({
             pathname: `/freeboard/detail/${newPost.id}`
         })
         
-        window.location.reload();
+        await window.location.reload();
 
     }
 
