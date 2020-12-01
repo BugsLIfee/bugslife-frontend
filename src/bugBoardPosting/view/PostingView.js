@@ -102,7 +102,7 @@ export default class PostingView extends Component {
                             title: e.target.value})}}/>
                     <div className="posting_premium">
                         <div className="premium_sel_container">
-                        <h4 className="premium_sel_txt">✨ 프리미엄</h4><Radio toggle onChange={() => {this.setState({...this, premium: !this.state.premium})}}/>
+                        <h4 className="premium_sel_txt"><span role="img" aria-label="Description of the overall image">✨</span> 프리미엄</h4><Radio toggle onChange={() => {this.setState({...this, premium: !this.state.premium})}}/>
                         </div>
                         <div className="premium_point_container">
                         <h4 className="premium_point_txt"> 버그 현상금</h4> 

@@ -208,7 +208,7 @@ class FreeboardStore{
           this.freeboard_select_posts= this.freeboard_list
           
       }else{
-        cate_list.map((cate)=> {
+        cate_list.forEach((cate)=> {
 
         let filtered= this.freeboard_list.filter((val)=> {
              return val = (val.cate === cate)  
