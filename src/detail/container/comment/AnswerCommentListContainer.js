@@ -6,6 +6,10 @@ import CommentListView from "../../view/comment/CommentListView";
 @observer
 class AnswerCommentListContainer extends Component {
 
+    componentDidMount() {
+        this.props.Store.oauth.getUserList();
+    }
+
     render() {
 
         const { answer } = this.props;
@@ -17,10 +21,14 @@ class AnswerCommentListContainer extends Component {
         this.props.Store.detail.setAnswerId(answer.id);
 
         const comments = this.props.Store.detail._answer_comments;
-        
+        const userList = this.props.Store.oauth.userList;
         return (
             <div>
-                <CommentListView comments={comments} currentUserId = {currentUserId} onDeleteComment={onDeleteComment}/>
+                <CommentListView 
+                    comments={comments} 
+                    currentUserId = {currentUserId} 
+                    onDeleteComment={onDeleteComment}
+                    userList = {userList} />
             </div>
         );
     }

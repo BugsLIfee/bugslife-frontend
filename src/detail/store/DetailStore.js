@@ -168,7 +168,7 @@ class DetailStore {
     })
 
     if (find === false) {
-      this.answers.map(answer => { answer.comments = answer.comments.filter((comment) => {
+      this.answers.map(answer => { return answer.comments.filter((comment) => {
           return comment.id !== id;
     })})}
 
