@@ -40,7 +40,7 @@ ReactDOM.render(
           "/posting_fr",
           "/point",
           "/attendance",
-          "/edu",
+          "/education",
           "/edu/academy/:aid",
           "/edu/info/:eid",
           "/test",

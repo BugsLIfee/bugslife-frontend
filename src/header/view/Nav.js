@@ -69,14 +69,14 @@ class Nav extends Component {
         )  
         :(
         <div>
-            <a href="/login">
+            <a href="/signup">
               {" "}
               <h4>로그인</h4>
             </a>
           </div>
          )}
           <div>
-            <a href="/edu">
+            <a href="/education">
               {" "}
               <h4>교육과정리뷰</h4>
             </a>
@@ -132,14 +132,14 @@ class Nav extends Component {
       )  
       :(
           <div>
-            <a href="/login">
+            <a href="/signup">
               {" "}
               <h4>로그인</h4>
             </a>
           </div>
       )}
           <div>
-            <a href="/edu">
+            <a href="/education">
               {" "}
               <h4>교육과정리뷰</h4>
             </a>
