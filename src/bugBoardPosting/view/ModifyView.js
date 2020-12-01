@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import { Label, Form, Input, Button, Popup, Segment} from 'semantic-ui-react'
+import { Label, Input, Button, Popup, Segment} from 'semantic-ui-react'
 import 'codemirror/lib/codemirror.css';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import { Editor } from '@toast-ui/react-editor';
 import Calendar from 'react-calendar';
-import { Link } from "react-router-dom"
 import swal from "sweetalert";
 import 'react-calendar/dist/Calendar.css';
 import "./scss/posting.scss"
@@ -48,7 +47,7 @@ export default class PostingView extends Component {
             const tag_copy = tags.filter((tag) => {
                 return tag !== delete_tag
             })
-            console.log(tag_copy)
+      
             this.setState({
                 ...this.state,
                 tags : tag_copy

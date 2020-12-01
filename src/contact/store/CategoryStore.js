@@ -19,6 +19,5 @@ export default class CategoryStore {
     this.categoryList = categoryObjList.map(categoryObj=>
       new CategoryApiModel(categoryObj));
     
-    console.log("CategoryStore::", this.categoryList);
   }
 }

@@ -9,7 +9,7 @@ import swal from 'sweetalert';
  class FreeboardModifyClassViews extends Component{
      constructor(props){
          super(props)
-         console.log(this.props.post)
+
          this.state={
             title: this.props.post.title,
             content: this.props.post.content,
@@ -33,17 +33,14 @@ import swal from 'sweetalert';
             swal("😥 ","유효하지 않은 비밀번호입니다.","warning");
         }
 
-        console.log(this.state.isValid);
-
         //비밃번호 유효성 검사
         if(this.state.isValid === true){   
-            console.log("it is okay to post")
-            // this.props.onCreatePost(post)
+            this.props.onUpdate(this.state)
         }else{
             swal("🚫","비밀번호가 일치하지 않습니다.","warning");
         }
 
-        this.props.onUpdate(this.state)
+      
 
     }
 
@@ -53,9 +50,9 @@ import swal from 'sweetalert';
     }
 
     onSetDate=()=>{
-        let today =  new Date();
+        let today = new Date();
         let Y =today.getFullYear()
-        let M = today.getMonth();
+        let M = today.getMonth()+1;
         let D = today.getDate();
         return this.setState({...this.state, updateDate:`${Y}-${M}-${D}` })
     }
@@ -63,7 +60,6 @@ import swal from 'sweetalert';
     onValidationCheck=(event)=>{
         let confirmed_pwd = event.target.value;
 
-        console.log(confirmed_pwd);
 
         if(confirmed_pwd === this.state.pwd){
             this.setState({...this.state, isValid : true})
@@ -77,10 +73,7 @@ import swal from 'sweetalert';
 
 
     render() {
-        console.log(this.state)
-
         const category = this.props.category;
-
         const categoryOptions = category.map((category, ind) => {
             // category.onClick
              return ({

@@ -9,8 +9,6 @@ import QuestionMyListContainer from './QuestionMyListContainer';
 class ContactResultContainer extends Component {
   render() {
     const menu = this.props.menu;
-
-    console.log("contact-result:", menu);
     return (
       <div>
         {menu === "qna-q-write" ? <QuestionEditContainer /> : ""}

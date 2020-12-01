@@ -16,7 +16,6 @@ class Singupcontainer extends Component {
     
     onSubmitForm =(userObj, validationCheck)=>{
         const {user} =this.props.Store;
-        console.log("container on submit form : "+userObj)
         user.createUser(userObj)
 
         if(validationCheck==true){
@@ -27,11 +26,9 @@ class Singupcontainer extends Component {
 
     onValidationCheck =()=>{
         this.setState({validation: true})
-        console.log(this.state.validation)
     }
 
     render() {
-        console.log("this.state.validation : " + this.state.validation)
 
         if(this.state.validation){
             return <MainContainer />

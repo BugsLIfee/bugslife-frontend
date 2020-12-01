@@ -32,8 +32,6 @@ export class EduDetailReviewView extends Component {
         this.setState({bool:true})
         let result = await this.otherUserApi.getOtherUser(wid)
         this.setState({bool:false})
-        console.log(result.name)
-        console.log(result.imageUrl)
         return this.setState({user: result.name,
             imageUrl: result.imageUrl}) 
     }

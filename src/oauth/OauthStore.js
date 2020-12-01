@@ -22,7 +22,6 @@ userList = []
 
 @computed
 get isLogin(){
-    console.log("인증됐니?",this.authenticated)
     return this.authenticated? this.authenticated: undefined;
 }
 @computed
@@ -45,7 +44,7 @@ async loadCurrentlyLoggedInUser() {
     
     await getCurrentUser()
     .then(response => {
-        console.log("로그인 유저 잘받아오나요?", response);
+        // console.log("로그인 유저 잘받아오나요?", response);
         this.currentUser= response;
         this.authenticated=true;
         this.loading=false;

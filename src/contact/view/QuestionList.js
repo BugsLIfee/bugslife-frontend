@@ -17,15 +17,11 @@ class QuestionList extends Component {
 
   render() {
     const { ListData, TypeData } = this.props;
-    console.log("listdata", ListData);
-    console.log("typedata", TypeData);
 
     const MakeTypeName = (data) => {
      
       let typeObj = TypeData.find((obj) => (obj.id === data.categoryId));
-      console.log("typeObj=> ",typeObj)
       let typeName = typeObj.name;
-      console.log("typeName==", typeName);
       return typeName;
     };
 

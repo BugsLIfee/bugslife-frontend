@@ -30,8 +30,6 @@ export default class AttendanceApi{
     // }
 
     createAttend(attendanceModel){
-        console.log("API")
-        console.log(attendanceModel)
         return request({
             url: this.ATTEND_API_URL,
             method: 'POST',

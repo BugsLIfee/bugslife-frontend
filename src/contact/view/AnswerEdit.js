@@ -30,7 +30,6 @@ export default class AnswerEdit extends Component {
     this.setState({
       [e.target.name]: e.target.value
     });
-    console.log("------statechage:",this.state);
   }
   
   onsubmit=()=>{
@@ -41,7 +40,6 @@ export default class AnswerEdit extends Component {
         editDate:answer.registDate? this.nowDate() : "",
         
       })
-      console.log("onSubmitstate----", {...this.state});
     return {...this.state}
     }
   // this.setState({});
@@ -78,7 +76,6 @@ export default class AnswerEdit extends Component {
               name="categoryId"
               value={categoryId}
             />
-            {console.log("rg-?",registDate, editDate)}
             {registDate
            ? <Form.Input
            width={3}

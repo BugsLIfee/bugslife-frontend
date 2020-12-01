@@ -11,7 +11,7 @@ class Testcontainer extends Component {
         const {user} = this.props.Store;
         user.selectAll();
         user.selectUser(1);
-        // console.log(user.getUser);
+ 
         return (
             <div>
                 {user.users}            

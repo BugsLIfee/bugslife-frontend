@@ -19,7 +19,6 @@ export default class QuestionApi {
     return axios
       .get(this.url)
       .then((response) => {
-        console.log("response.data => 오나요?? ",response.data)
         return (response && response.data) || null
       });
   }
@@ -32,7 +31,6 @@ export default class QuestionApi {
   }
   //todoDelete(todoApiModel):url delete return void
     questionDelete(id) {
-    console.log("question-api delete:", id);
     return axios
       .delete(this.url + `${id}`)
       .then((response) => (response && response.data) || null);

@@ -31,7 +31,6 @@ class SignUp extends Component {
     event.preventDefault();
 
     if(this.validate()){
-        //console.log("this.state  : " + this.state);
         let input = {};
         input["name"] = "";
         input["email"] = "";
@@ -44,7 +43,6 @@ class SignUp extends Component {
 
         this.props.onSubmitForm(this.state.input, this.state.validation)
 
-        console.log("this.state.input: "+this.state.input)
         alert('회원가입이 완료되었습니다.');
     }
   }

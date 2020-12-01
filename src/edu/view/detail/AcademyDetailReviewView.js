@@ -26,8 +26,6 @@ export class AcademyDetailReviewView extends Component {
     }
     async getUser(wid) {
         let result = await this.otherUserApi.getOtherUser(wid)
-        console.log(result)
-        console.log(result.name)
         return this.setState({user: result.name,
             imageUrl: result.imageUrl}) 
     }

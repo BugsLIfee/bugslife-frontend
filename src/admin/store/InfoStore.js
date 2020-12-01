@@ -33,25 +33,15 @@ export default class InfoStore {
 
   @action
   async onAddInfo(infoObj) {
-    console.log("before:",infoObj);
     infoObj = new InfoApiModel(infoObj);
-    console.log("after:",infoObj);
     let result = await this.infoApi.infoCreate(infoObj);
 
-
-    if (result === null) {
-      console.log(`${this.InfoApiModel.id}:info CREATE ERROR!`);
-    }else{
-      console.log(result,": 입력 성공 ! ! ");
-    }
   }
 
   @action
   async selectAllinfo() {
     let result = await this.infoApi.infoList();
     this.infos = result;
-    console.log("infoList in infoStore ::", this.infos);
-
   }
 
   @action
@@ -62,15 +52,11 @@ export default class InfoStore {
   @action
   async selectInfo(id) {
     this.info = await this.infoApi.infoDetail(id);
-    console.log("info in infoStore ::", this.info);
   }
 
   @action
   async modifyInfo(infoObj){
-    console.log("before:",infoObj);
     infoObj = new InfoApiModel(infoObj);
-    console.log("after:",infoObj);
-
     await this.infoApi.infoModify(infoObj);
   }
 }

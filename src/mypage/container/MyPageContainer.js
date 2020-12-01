@@ -28,7 +28,6 @@ class Mypagecontainer extends Component {
       
   onSubmitForm =(userObj, validationCheck)=>{
     const {user} =this.props.Store;
-    console.log("container on submit form : "+userObj)
     user.updateUser(userObj)
 
     if(validationCheck===true){

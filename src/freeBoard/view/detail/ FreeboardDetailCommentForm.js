@@ -39,11 +39,8 @@ export default class Freeboarddetailcommentform extends Component {
             return alert("닉네임을 입력해주세요.")
         }
 
-        console.log("====완성본=====")
-        console.log(comment)
-
         this.props.onCreateComment(comment)
-        console.log("====view 전달 완료=====")
+
 
         window.location.reload();
   

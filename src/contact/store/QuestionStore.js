@@ -13,7 +13,6 @@ export default class QuestionStore {
 
   @computed
   get getQuestions() {
-    console.log("questionList::",this.questions)
     return this.questions ;
   }
 
@@ -34,21 +33,16 @@ export default class QuestionStore {
   async onAddQuestion(qusetionApiModel) {
     let result = await this.questionApi.questionCreate(qusetionApiModel);
     if (result === null) {
-      console.log(`${this.question.id}:question CREATE ERROR!`);
     }
   }
 
   @action
   async selectAllQuestion() {
-    console.log("selectall 스토어 도착!")
     let result = await this.questionApi.questionList();
    
-    console.log("selectall 스토어리스트", result);
     if (result !== null) {
       this.questions= result;
-      console.log("apimodel로 감싸주기 전?",this.questions )
        this.questions=result.map(question=>new QuestionApiModel(question)).slice();
-       console.log("apimodel로 감싸줬거든?", this.questions)
     } else {
       console.log(`${this.question.id}:TODO CREATE ERROR!`);
     }
@@ -57,7 +51,6 @@ export default class QuestionStore {
   @action
   async selectQuestion(id) {
     this.question = await this.questionApi.questionDetail(id);
-    console.log("store에서 question 찍히나요?", this.question);
     if (this.question === null) {
       console.log(`${id}: Not Found ERROR!!`);
     }

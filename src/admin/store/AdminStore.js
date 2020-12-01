@@ -12,7 +12,6 @@ export default class AdminStore {
     @action
     setMenu(menu){
         this.menu = menu;
-        console.log("adminstore:",this.menu);
     }
 
 

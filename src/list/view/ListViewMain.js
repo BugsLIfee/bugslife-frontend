@@ -30,7 +30,7 @@ class ListViewMain extends Component {
               {listView.title} 
             </Link>
             { listView.premium ? 
-              <h5 className="premium">✨ Premium </h5>
+              <h5 className="premium"><span role="img" aria-label="Description of the overall image">✨</span> Premium </h5>
               : <></>}
           </div>
           <span className="date">{listView.registDate.substring(0,10)}</span>

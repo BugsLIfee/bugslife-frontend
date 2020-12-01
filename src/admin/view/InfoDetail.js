@@ -6,8 +6,6 @@ class InfoDetail extends Component {
     render() {
         const {info, onDelete, user} = this.props;
 
-        console.log("who is user : ", user)
-
         return (
           <div>
          

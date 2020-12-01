@@ -38,7 +38,6 @@ export default class InfoEdit extends Component {
       ...this.state,
       [e.target.name]: e.target.value
     });
-    console.log("------statechange:",this.state);
   }
 
   selectCategory=(e, data)=>{
@@ -79,7 +78,7 @@ export default class InfoEdit extends Component {
         user: this.props.currentUser.id,
       })
       
-      console.log("onSubmitstate----", {...this.state})
+
 
     }
   }
@@ -87,7 +86,7 @@ export default class InfoEdit extends Component {
   onsubmit=()=>{
     let today = new Date();
     let date = `${today.getFullYear()}-${today.getMonth()}-${today.getDate()}`
-    console.log(date)
+   
 
     if(this.state.category===undefined || this.state.category===""){
       return alert("카테고리를 선택해주세요.")
@@ -98,7 +97,6 @@ export default class InfoEdit extends Component {
         user: this.props.currentUser.id,
       })
       
-      console.log("onSubmitstate----", {...this.state});
       this.props.onAddInfo({...this.state})
     }
   }

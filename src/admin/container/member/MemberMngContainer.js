@@ -20,7 +20,6 @@ class MemberMngContainer extends Component {
   }
 
   onReset=()=>{
-    console.log("reset")
     return this.setState({ searchUser: "" })
   }
 
@@ -30,7 +29,7 @@ class MemberMngContainer extends Component {
 
 
     setNextPage = (e) => {
-      console.log(e.target.getAttribute("value"))
+
     this.setState({...this.state ,page:e.target.getAttribute("value")})
   }  
   

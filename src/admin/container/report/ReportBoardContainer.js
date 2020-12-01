@@ -11,14 +11,6 @@ function ReportBoardContainer(props) {
     const [filter_list, setFilterList] = useState();
     
 
-    // useEffect(() => {
-    //     const setList = async() => {
-    //         await props.Store.report.getAllList();  
-    //         report_list = props.Store.report._report_list
-    //         console.log(report_list)
-    //     }
-    //     setList();
-    // }, [])
 
     useEffect(() => {
         const setList = async() => {

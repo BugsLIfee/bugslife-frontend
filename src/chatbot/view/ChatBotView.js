@@ -23,7 +23,7 @@ class ChatBotView extends Component {
           },
         ];
         const openChatbot=()=>{
-            console.log("chatbot open");
+       
            return ( 
                <Modal>
                    <ChatBot steps={steps}/>
@@ -32,7 +32,7 @@ class ChatBotView extends Component {
         }
         return (
             <div onClick={()=>openChatbot()} id="chatbot_box" >
-                <img id="chatbot_icon" src="../../chat/chatBotButton.png" alt="chatboticon"/>
+                <img id="chatbot_icon" src="/chat/chatBotButton.png" alt="chatboticon"/>
             </div>
         );
     }

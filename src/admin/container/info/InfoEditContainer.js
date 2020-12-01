@@ -34,7 +34,7 @@ class InfoEditContainer extends Component {
     if(infoObj["editDate"] === undefined || infoObj["editDate"] ==="" ){
       infoObj["editDate"] = date
     } 
-    console.log("addInfo함수 호출", infoObj);
+  
     this.props.Store.info.onAddInfo(infoObj);
     swal("작성완료!","공지사항이 등록되었습니다!","success");
 
@@ -87,8 +87,6 @@ class InfoEditContainer extends Component {
       infoObj["content"] = info.content
     }
     
-    console.log(infoObj)
-    // let infoData = this.info.getInfo;
      this.props.Store.info.modifyInfo(infoObj);
 
      this.props.Store.info.onAddInfo(infoObj);
@@ -103,7 +101,6 @@ class InfoEditContainer extends Component {
 
   componentDidMount=()=>{
 
-    console.log(this.props.match.url)
     const searchObj = qs.parse(this.props.location.search, {
       ignoreQueryPrefix: true,
     });
@@ -121,11 +118,6 @@ class InfoEditContainer extends Component {
    let cateByUrl = url ==="/contact/qna-write" ? "QNA" : 'INFO';
    const infoCategory = adminCategory.filter((obj)=>(obj.opt=== cateByUrl))
    
-
-   console.log("INFO CATEGORY OPTION : ", infoCategory)
-
-
-   console.log("INfo container : ", this.props.Store.info.info);
   
     return (
       <div>

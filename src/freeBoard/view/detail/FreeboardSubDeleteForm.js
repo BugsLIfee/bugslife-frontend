@@ -35,7 +35,6 @@ export default class Freeboardsubdeleteform extends Component {
 
         this.props.onSubCommDelete(correct_pwd);
 
-        console.log("delete subcomment")
         window.location.reload();
         
      

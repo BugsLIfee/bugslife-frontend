@@ -13,20 +13,12 @@ class QuestionEditContainer extends Component {
   };
 
   onAddInfo = (QuestionObj) => {
-    //TodoStore의 addTodo(todo) 호출
-    
-   // let QuestionData = this.question.getQuestion;
-    
-    console.log("addInfo함수 호출", QuestionObj);
-   
     this.question.onAddQuestion(QuestionObj);
     alert("성공");
-    //document.location.href="/info-list";
   };
 
   onRemoveInfo = () => {
     let questionData = this.question.getQuestion;
-    console.log("remvoe----", questionData.id);
     this.question.removeInfo(questionData.id);
   };
 

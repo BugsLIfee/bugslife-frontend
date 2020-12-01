@@ -9,7 +9,6 @@ class ContactSideMenu extends Component {
 
   render() {
     const activeItem  = this.props.menu;
-    console.log("contact side menu:", activeItem);
     return (
      
     <div className="contactside">

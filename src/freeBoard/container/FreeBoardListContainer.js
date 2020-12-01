@@ -12,13 +12,8 @@ class Freeboardlistcontainer extends Component {
   state = ({searchPost : ""})
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-  
-  orderByNew = () => {
-    console.log("event")
-  }
 
   onReset=()=>{
-    console.log("reset")
     return this.setState({ searchPost: "" })
   }
 

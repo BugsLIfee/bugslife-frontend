@@ -11,20 +11,18 @@ class FreeboardEditorContainer extends Component {
     state=({done: false, postId:""})
 
     render() {
-        console.log(this.props.history)
         const { freeboard_cate } = this.props.Store.freeboard;
-        const onCreatePost =(post)=>{
-            this.props.Store.freeboard.onCreatePost(post)
+        const onCreatePost =async (post)=>{
+            await this.props.Store.freeboard.onCreatePost(post)
 
-            this.setState({done:true, postId:post.id})
-            console.log(this.state.postId)
-            swal("글쓰기 성공 ","자유게시판 글쓰기가 완료되었습니다.","success");
+            await this.setState({done:true, postId:post.id})
+            await swal("글쓰기 성공 ","자유게시판 글쓰기가 완료되었습니다.","success");
 
-            this.props.history.push({
+            await this.props.history.push({
                 pathname: `/freeboard`
             });
             
-            window.location.reload();
+            await window.location.reload();
         }
 
 

@@ -17,7 +17,6 @@ class InfoList extends Component {
 
   render() {
     const { ListData } = this.props;
-    // console.log("listdata", ListData);
     let user = this.props.user
   
    const handleLink = (id) => {

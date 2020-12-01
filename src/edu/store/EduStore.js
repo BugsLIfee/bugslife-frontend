@@ -137,7 +137,6 @@ class EduStore {
         this.academyReviews = [];
         this.academyEduList.forEach((r)=>{if(r.reviews.slice().length){this.tempReviews.push(r.reviews)}})
         this.tempReviews.forEach((r)=>{r.forEach((rr)=>{this.academyReviews.push(rr)})})
-        console.log(this.academyReviews)
         this.filterReviews = this.academyReviews
         //this.academyReviews.push(this.academyEduList.map().reviews)
         //this.academyReviews = {...this.academyEduList.map(review=>review.reviews)}
@@ -147,11 +146,10 @@ class EduStore {
     @action
     filterReview(eid) {
         let reviews = []
-        { eid==="all" ? reviews = this.academyReviews 
+        eid==="all" ? reviews = this.academyReviews 
         : reviews = this.academyReviews.filter((review) => {
             return review.eduId.includes(eid);
-        });}
-        console.log(this.filterReviews)
+        });
         this.filterReviews = reviews
     }
 
@@ -186,7 +184,7 @@ class EduStore {
 
     @action
     async updateReview(reviewObj,rid) {
-        console.log(reviewObj)
+
         reviewObj = new ReviewModifyModel(reviewObj)
         await this.eduInfoApi.updateReview(reviewObj,rid)
         swal("수정 완료").then(()=>window.location.reload(false))
@@ -198,12 +196,7 @@ class EduStore {
         return this.check = result
     }
 
-    // @action
-    // async getUser(wid) {
-    //     let result = await this.otherUserApi.getOtherUser(wid)
-    //     console.log(result.name)
-    //     return result.name
-    // }
+
 }
 
 export default EduStore
