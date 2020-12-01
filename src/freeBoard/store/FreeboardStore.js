@@ -167,7 +167,7 @@ class FreeboardStore{
       let postId = this.freeboard_detail.id;
 
       if(like ===false){
-        let result = this.freeApi.freeboardPostLike(postId);
+         this.freeApi.freeboardPostLike(postId);
 
       }else{
         this.freeApi.freeboardPostDislike(postId);

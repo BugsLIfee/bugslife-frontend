@@ -167,7 +167,7 @@ function ChatbotContainer () {
       open={open}
       trigger={(
             <div id="chatbot_box" >
-            <img id="chatbot_icon" src="../../chat/chatBotButton.png" alt="chatboticon"/>
+            <img id="chatbot_icon" src="/logo/logo_st.png" alt="chatboticon"/>
             </div>)}
     >
     <Modal.Actions>

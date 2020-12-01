@@ -8,7 +8,6 @@ class ContactSideMenu extends Component {
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 
   render() {
-    const activeItem  = this.props.menu;
     return (
      
     <div className="contactside">
