@@ -301,7 +301,21 @@
   h4,
   h5,
   h6,
-  p {
+  p,
+  code {
     font-size: 1rem;
+    // color: white;
   }
+
+  a.otherPost_link {
+    text-decoration: none;
+    color: white;
+    code {
+      color: white;
+    }
+  }
+}
+
+.ui.feed > .event {
+  overflow: hidden;
 }

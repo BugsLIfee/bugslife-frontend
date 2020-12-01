@@ -10,10 +10,18 @@ export default class MypageHome extends Component {
 
   render() {
     const user = this.props.user;
+    
     const {onClickPoint} = this.props;
     let {attendDate, questionListByuser, likes, answers, top5}= this.props;
     const selected = answers.filter(answer => answer.is_selected===true).length;
 
+   
+    function numberWithCommas(x) {
+      return `${x}`.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");}
+  
+    const userPoint = numberWithCommas(user.point)
+
+    // console.log(userPoint)
 
     const top5_list = top5.map(post => {
       const image = "../main/pink_sqaure.png";
@@ -48,7 +56,7 @@ export default class MypageHome extends Component {
             <span className="MyPage_coin">
               <i id="MyPage_coin_icon" className="fas fa-coins"></i>
               <h3>
-                  <strong>Point </strong>: {user.point}p
+                  <strong>Point </strong>: {userPoint}p
               </h3>
             </span>
           </div>
@@ -99,7 +107,7 @@ export default class MypageHome extends Component {
               <h3>누적 포인트</h3>
               <h2 className="action_detail_rate">
                 <b className="point_rate">
-                  {user.point}
+                  {userPoint}
                  {/* <CountUp end={user.point} duration={2} /> */}
                 </b>
                 P
@@ -137,7 +145,7 @@ export default class MypageHome extends Component {
               <div className="MyPage_detail_columm_point_card curr_point">
                 <h3>
                   <i id="MyPage_detail_coin" className="fas fa-coins"></i>
-                  <b>Point</b> : {user.point}P
+                  <b>Point</b> : {userPoint}P
                 </h3>
               </div>
               <PaymentModal bt_text={

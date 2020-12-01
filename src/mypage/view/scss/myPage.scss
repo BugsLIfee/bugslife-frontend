@@ -243,7 +243,13 @@
   h4,
   h5,
   h6,
-  p {
+  p,
+  code {
     font-size: 1rem;
+    // color: white;
   }
+}
+
+.ui.feed > .event {
+  overflow: eclipse;
 }
