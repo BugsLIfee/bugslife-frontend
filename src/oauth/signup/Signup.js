@@ -45,6 +45,7 @@ class Signup extends Component {
 
 class SocialSignup extends Component {
     render() {
+        console.log("google auth url-------",GOOGLE_AUTH_URL);
         return (
             <div className="social-signup">
                 <div className="social-singup-btn">

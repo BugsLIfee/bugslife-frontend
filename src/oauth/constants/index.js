@@ -1,8 +1,8 @@
 //server ip
 export const LOCAL_URL='http://localhost:'
 export const DEV_SERVER_URL = 'http://210.107.78.153:';
-export const AWS_URL = "http://f6310e3e-default-backendin-e9e6-1825476586.ap-northeast-1.elb.amazonaws.com";
-export const API_BASE_URL=LOCAL_URL;
+//export const AWS_URL = "http://f6310e3e-default-backendin-e9e6-1825476586.ap-northeast-1.elb.amazonaws.com";
+export const AWS_URL = "http://bugslife.shop";
 //port
 export const AUTH_API_PORT = '8088';
 export const BUGBOARD_API_PORT = '8081';
