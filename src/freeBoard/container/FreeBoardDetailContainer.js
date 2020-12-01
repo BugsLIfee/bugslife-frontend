@@ -19,7 +19,7 @@ class Freeboarddetailcontainer extends Component {
         }
 
         await this.props.Store.freeboard.onLikePost(!like)
-        console.log(this.state)
+   
     }
 
     onModifyPost= async (pwd, confirmed_pwd, postId)=>{
@@ -28,7 +28,6 @@ class Freeboarddetailcontainer extends Component {
         if(pwd ===confirmed_pwd){
             correct_pwd = pwd
             
-            console.log("비밀번호 Match")
             await this.props.Store.freeboard.onCheckPwd(postId, correct_pwd)
             let result = await this.props.Store.freeboard.pwd_check
           
@@ -61,7 +60,7 @@ class Freeboarddetailcontainer extends Component {
         if(pwd ===confirmed_pwd){
             correct_pwd = pwd
 
-         console.log("비밀번호 MAtch")
+  
          await this.props.Store.freeboard.onCheckPwd(postId, correct_pwd)
          let result = await this.props.Store.freeboard.pwd_check
                
@@ -114,8 +113,7 @@ class Freeboarddetailcontainer extends Component {
            comments.filter(val=> {return val.subComments.length> 0 })
               .map((val, ind)=> commentLen += val.subComments.length)
         }
-        console.log(commentLen)
-
+  
         return (
             <div className="freeboard_detail_wrap">
                     <div className="free_borad_title"><h1>자유게시판</h1></div>

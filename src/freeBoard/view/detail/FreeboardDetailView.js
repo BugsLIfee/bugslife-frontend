@@ -71,7 +71,6 @@ export default class Freeboarddetailview extends Component {
             }
           })
           
-        console.log(pwd.value, confirmed_pwd.value)
         let postId = this.props.detail.id;
         this.props.onDeletePost(pwd.value, confirmed_pwd.value, postId);
     }
@@ -83,10 +82,7 @@ export default class Freeboarddetailview extends Component {
         const post =this.props.detail;
         const comments =this.props.comments;
         let commentLen = this.props.commentLen
-        
-        console.log(post)
-        // let commentLength = comments.length;
-        // if(comments!==[]){commentLength += comments[]}
+
         const done = this.props.like ? "like_done" : "like_yet";
         
 

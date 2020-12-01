@@ -9,7 +9,7 @@ import Freeboardsubcommview from '../view/detail/FreeboardSubCommView';
 class Freeboardsubcommcontainer extends Component {
 
     onDeleteSubComment=(commentId, subcommId, pwd)=>{
-        console.log(commentId, pwd)
+    
         this.props.Store.freeboard.onDeleteSubComment( commentId, subcommId, pwd);
     }
 

@@ -16,7 +16,6 @@ class CategoryApi {
   }
   //todoList(todoApiModel):url get  return todo
    categoryListByType(type) {
-     console.log("-------카테고리 api 도착")
     return axios
       .get(this.url+`${type}`)
       .then((response) => (response && response.data) || null);
@@ -30,7 +29,6 @@ class CategoryApi {
   }
   //todoDelete(todoApiModel):url delete return void
     categoryDelete(id) {
-    console.log("category-api delete:", id);
     return axios
       .delete(this.url + `${id}`)
       .then((response) => (response && response.data) || null);

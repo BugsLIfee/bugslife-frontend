@@ -22,9 +22,7 @@ class QuestionAllListContainer extends Component {
        
         let questionAllList =this.props.Store.question.getQuestions;
         let qnaType=this.props.Store.category.getCategoryList;
-        console.log("questionAllList",questionAllList);//
-        // let qna = qna;
-        // let qnatype = qnatype;
+
         let QuestionListComponent =""
         if(questionAllList.length >0 && qnaType.length >0){
             QuestionListComponent = <QuestionList ListData={questionAllList} TypeData={qnaType} />

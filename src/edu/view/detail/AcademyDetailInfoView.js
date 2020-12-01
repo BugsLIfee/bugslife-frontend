@@ -8,7 +8,7 @@ export class AcademyDetailInfoView extends Component {
         if(!String(homepage).includes("http")){
             homepage = "http://"+homepage
         } 
-        console.log(homepage)
+
         return (
                <Grid className="academyInfoTable">
                     <Grid.Column width={3} className="academyInfoImg">

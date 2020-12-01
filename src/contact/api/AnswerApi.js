@@ -29,7 +29,6 @@ export default class AnswerApi {
   }
   //todoDelete(todoApiModel):url delete return void
   answerDelete(id) {
-    console.log("answer-api delete:", id);
     return axios
       .delete(this.url + `${id}`)
       .then((response) => (response && response.data) || null);

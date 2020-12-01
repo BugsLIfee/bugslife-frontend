@@ -20,7 +20,6 @@ class AcademyDetailContainer extends Component {
     }
 
     onFilterReview = (eid) => {
-        console.log(eid)
         this.props.Store.edu.filterReview(eid)
     }
 
@@ -37,7 +36,7 @@ class AcademyDetailContainer extends Component {
                 facRate : reviewObj.facRate,
                 empRate : reviewObj.empRate
             }
-            console.log(modifyObj)
+    
             if(reviewObj.title.trim() === ""){
                 swal("제목을 입력해주세요.")
                 return null;

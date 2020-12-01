@@ -30,7 +30,6 @@ export default class FreeboardApi{
     }
 
     freeboardModifyPost(postId, post){
-        console.log("API : ", post)
         let newPost = axios.put("/api/freeboard/edit/"+postId, post).then(
             (response)=>(response && response.data) || null
         )
@@ -45,7 +44,6 @@ export default class FreeboardApi{
     }
 
     freeboardCreateComment(postId, comment){
-        console.log(postId, comment)
         let new_comment = axios.post(`/api/freeboard/${postId}/comment`, comment).then(
             (response)=>(response && response.data) || null
         )
@@ -54,7 +52,7 @@ export default class FreeboardApi{
 
 
     freeboardCommentDelete(postId, commentId, pwd){
-        console.log(postId, commentId, pwd);
+
         let result = axios.delete("/api/freeboard/"+postId +`/comment/${commentId}`, {
             params : {pwd:pwd}
         }).then(
@@ -96,7 +94,6 @@ export default class FreeboardApi{
         let result = axios.put("/api/freeboard/"+postId).then(
             (response)=>(response && response.data) || null
         )
-        console.log("api ==== >"+result);
 
         this.freeboardPostSelect(postId)
         return result; 
@@ -106,8 +103,6 @@ export default class FreeboardApi{
         let result = axios.put("/api/freeboard/"+postId+"/dislike").then(
             (response)=>(response && response.data) || null
         )
-        console.log("api dislike ====> ")
-        console.log(result);
         return result;
     }
 
@@ -119,7 +114,6 @@ export default class FreeboardApi{
     }
 
     onCheckPwd(postId, pwd){
-        console.log("API TEST")
         let result = axios.get("/api/freeboard/edit/" +postId, {
             params : {pwd : pwd}
         }).then(

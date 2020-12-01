@@ -32,28 +32,19 @@ export default class AnswerStore {
   async onAddAnswer(AnswerApiModel) {
     let result = await this.answerApi.answerCreate(AnswerApiModel);
     if (result === null) {
-      console.log(`${this.answer}:answer CREATE ERROR!`);
     }
   }
 
   @action
   async selectAllAnswer() {
-    console.log("answer 스토어 selectall 메서드 도착!")
     let result = await this.answerApi.answerList();
-    console.log("selectall 스토어리스트", result);
     if (result !== null) {
       this.answers = result;
-    } else {
-      console.log(`${this.answers}:answerList not found`);
-    }
+    } 
   }
 
   @action
   async selectAnswer(id) {
     this.answer = await this.answerApi.answerDetail(id);
-    console.log("store에서 info 찍히나요?", this.answer);
-    if (this.answer === null) {
-      console.log(`answerSTroe selcetAnswer${id}: Not Found ERROR!!`);
-    }
   }
 }

@@ -50,12 +50,7 @@ class FreeboardModifyContainer extends Component {
     render() {
         const { freeboard_cate } = this.props.Store.freeboard;
         const { freeboard_detail } = this.props.Store.freeboard
-
         let freeboardPost = {...freeboard_detail}
-
-        console.log("freeboard_detail" , freeboard_detail)
-
-
 
         return (
             <div>

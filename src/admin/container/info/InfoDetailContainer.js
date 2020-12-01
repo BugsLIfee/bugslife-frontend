@@ -26,8 +26,6 @@ componentDidMount=()=>{
 
 onRemoveInfo = () => {
   let infoData =this.props.Store.info.info
-  console.log("remvoe----", infoData.id);
-
   Swal.fire({
     title: '게시글을 삭제하시겠습니까?',
     showDenyButton: true,
@@ -61,8 +59,7 @@ render() {
   const oauth = this.props.Store.oauth;
   const user = oauth.getCurrentUserInfo
   const infoDetail = this.props.Store.info.info
-  // console.log(infoDetail)
-  // console.log("infoDetail : ", user.role)
+
     return (
       <div className="infoDetail_wrap">
       <div className="infoDetail_title"><h1>공지사항</h1></div>

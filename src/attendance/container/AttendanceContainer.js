@@ -85,7 +85,7 @@ import { getCurrentUser } from "../../oauth/api/APIUtils"
         let month = today.getMonth() + 1;  // 월
         let date = today.getDate();  // 날짜
         
-        console.log("DATE", date)
+
         if(date <10 ){
            date = `0${date}`
         }else if(month<10){
@@ -93,7 +93,7 @@ import { getCurrentUser } from "../../oauth/api/APIUtils"
         }
 
         let newDate = `${year}-${month}-${date}`
-        console.log(newDate)
+  
         await this.props.Store.attendance.addAttn(user_id,newDate)
          
         let pointObj ={
@@ -136,12 +136,10 @@ import { getCurrentUser } from "../../oauth/api/APIUtils"
    
     render() {
         let allList = this.props.Store.attendance.attendanceList;
-
         let userInfo = this.props.Store.oauth.currentUser;
         let uid = userInfo.id;
         let done = userInfo.attend;
 
-        console.log(allList)
 
         return (
             <div className="attn_wrap">

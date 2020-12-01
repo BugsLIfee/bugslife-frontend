@@ -34,12 +34,9 @@ export default class Freeboardsubcommform extends Component {
             alert("닉네임을 입력해주세요.")
         }
 
-        console.log("====완성본=====")
-        console.log(this.state)
-
         this.props.onCreateSubComment(comment)
         window.location.reload();
-        console.log("====view 전달 완료=====")
+
     }
 
 

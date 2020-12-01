@@ -19,7 +19,6 @@ export default class EduListHeaderView extends Component {
 
     handleChange = (e, data) => {
         this.setState({type: data.value})
-        console.log(this.state.type)
     }
     
     render() {

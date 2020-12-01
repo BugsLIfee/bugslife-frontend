@@ -11,7 +11,6 @@ import qnaTypedata from "../../contact/data/qnaType";
 @observer
 class QnaMngContainer extends Component {
   render() {
-    console.log("---listcontainer---");
 
   //  const { ListData, TypeData } = this.props.Store.admin;
     return (

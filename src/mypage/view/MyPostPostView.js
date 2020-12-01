@@ -12,7 +12,6 @@ export default class Mypostpostview extends Component {
             return {__html:content}
         }
 
-        console.log(post)
 
         return (
             <div>

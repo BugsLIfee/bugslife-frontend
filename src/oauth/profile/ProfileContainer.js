@@ -6,7 +6,6 @@ import {observer,inject} from "mobx-react";
 @observer
 class ProfileContainer extends Component {
     render() {
-        console.log("도착");
         const oauth = this.props.Store.oauth;
         return (
             <div>

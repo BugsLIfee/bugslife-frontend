@@ -52,7 +52,7 @@ const ChatroomPage = (props) => {
   // }, []);
 
   React.useEffect(() => {
-    console.log("joinroom호출=======");
+
     if (socket) {
       socket.emit("joinRoom", {
         chatroomId,

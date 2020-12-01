@@ -11,7 +11,6 @@ export default function ReportDetailModalView(props) {
         setOpen(false);
     }
     
-    console.log(report)
 
     return (
         <Modal

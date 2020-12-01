@@ -42,8 +42,7 @@ class Nav extends Component {
 
   render() {
     const oauth = this.props.Store.oauth;
-    // console.log("어드민? ?" , oauth.getIsAdmin)
-   // console.log("header-nave-props",this.props);
+
     return (
       <nav>
          <div className="responsive_nav">

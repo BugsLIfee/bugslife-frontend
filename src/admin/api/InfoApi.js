@@ -5,10 +5,6 @@ export default class InfoApi {
   NOTICE_API_URL = "/api/admin/notice/";
 
   infoCreate(infoApiModel) {
-    console.log("API ADMIN CEATE")
-    console.log(infoApiModel)
-    console.log(this.NOTICE_API_URL)
-
          return request({
           url: this.NOTICE_API_URL,
           method: 'POST',
@@ -17,7 +13,7 @@ export default class InfoApi {
   }
 
   infoDetail(id) {
-    console.log("API Info Detail 불러오기")
+
        return request({
           url: this.NOTICE_API_URL +id,
           method: 'GET',
@@ -25,7 +21,6 @@ export default class InfoApi {
   }
   //todoList(todoApiModel):url get  return todo
   infoList() {
-    console.log(this.NOTICE_API_URL,"infolist api 메서드 오나요");
     return request({
       url: this.NOTICE_API_URL,
       method:'GET'

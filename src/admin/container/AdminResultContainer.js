@@ -16,8 +16,6 @@ class AdminResultContainer extends Component {
         ignoreQueryPrefix: true,
       });
    
-
-    console.log("resultcontainer--", menu);
     return (
       <div>
         {menu === "member" || "" ? <MemberMngContainer /> : ""}

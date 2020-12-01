@@ -17,13 +17,9 @@ class QnAList extends Component {
 
   render() {
     const { ListData, TypeData } = this.props;
-    console.log("listdata", ListData);
-    console.log("typedata", TypeData);
-
     const MakeTypeName = (data) => {
       let typeObj = TypeData.find((obj) => obj.categoryId === data.category);
       let typeName = typeObj.categoryname;
-      console.log("typeName==", typeName);
       return typeName;
     };
 

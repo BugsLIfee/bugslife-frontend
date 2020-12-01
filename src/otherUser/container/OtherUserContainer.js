@@ -7,8 +7,6 @@ import { inject, observer } from 'mobx-react'
 class OtherUserContainer extends Component {
 
     componentDidMount=async()=>{
-
-        console.log("========component Did mount=======")
         let match = this.props.match;
         await this.props.Store.otherUser.getOtherUser(`${match.params.uid}`)
         await this.props.Store.otherUser._recently_top5();

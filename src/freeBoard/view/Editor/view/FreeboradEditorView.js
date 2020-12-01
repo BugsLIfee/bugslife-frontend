@@ -45,15 +45,12 @@ export default class FreeboardEditorView extends Component {
 
             //비밃번호 유효성 검사
             if(this.state.isValid === true){   
-                console.log("it is okay to post")
+
                 this.props.onCreatePost(post)
             }else{
                 swal("🚫","비밀번호가 일치하지 않습니다.","warning");
             }
-
        }
-
-        console.log(this.state.isValid);
 
      
     }
@@ -69,14 +66,12 @@ export default class FreeboardEditorView extends Component {
         let M = today.getMonth()+1;
         let D = today.getDate();
 
-        console.log(Y,M,D)
+
         return this.setState({...this.state, registerDate : `${Y}-${M}-${D}`, updateDate:`${Y}-${M}-${D}` })
     }
 
     onValidationCheck=(event)=>{
         let confirmed_pwd = event.target.value;
-
-        console.log(confirmed_pwd);
 
         if(confirmed_pwd === this.state.pwd){
             this.setState({...this.state, isValid : true})
@@ -98,9 +93,6 @@ export default class FreeboardEditorView extends Component {
             )
         })
 
-        console.log("CATEGORY OPTION : ", categoryOptions)
-
-        console.log(this.state)
         return(
             <div className="posting">
                 <div className="posting_header">

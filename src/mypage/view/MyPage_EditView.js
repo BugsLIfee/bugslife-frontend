@@ -9,7 +9,6 @@ class MyPageEditView extends Component {
       errors: {},
       validation : false
     };
-    //  console.log(this.props.user.email)
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     // this.onSubmitForm = this.onSubmitForm.bind(this);
@@ -30,7 +29,7 @@ class MyPageEditView extends Component {
     event.preventDefault();
 
     if(this.validate()){
-        console.log("this.state  : " + this.state);
+
         let input = {};
         input["name"] = "";
         input["email"] = "";
@@ -43,7 +42,6 @@ class MyPageEditView extends Component {
 
         this.props.onSubmitForm(this.state.input, this.state.validation)
 
-        console.log("this.state.input: "+this.state.input)
         alert('정보 변경이 완료되었습니다.');
     }
 

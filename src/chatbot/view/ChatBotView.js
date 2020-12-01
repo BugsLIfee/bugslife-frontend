@@ -23,7 +23,7 @@ class ChatBotView extends Component {
           },
         ];
         const openChatbot=()=>{
-            console.log("chatbot open");
+       
            return ( 
                <Modal>
                    <ChatBot steps={steps}/>

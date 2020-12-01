@@ -84,7 +84,6 @@ class FreeboardStore{
     @action
     async freeboardModifyPost(post){
       let modifiedPost = new FreeboardPostModifyModel(post);
-      console.log(modifiedPost)
        await this.freeApi.freeboardModifyPost(post.id, modifiedPost)
     }
 
@@ -110,7 +109,6 @@ class FreeboardStore{
     async onCreateComment(postId, comment){
 
       let newComment = new FreeboardCommentAddModel(comment);
-      console.log(newComment)
       let result = await this.freeApi.freeboardCreateComment(postId, newComment);
 
       if(result==null){
@@ -122,8 +120,6 @@ class FreeboardStore{
 
     @action
     async onDeleteComment( postId ,commentId, pwd){
-      console.log("====store====")
-      console.log(postId, commentId, pwd);
 
       let result = await this.freeApi.freeboardCommentDelete(postId, commentId, pwd);
       if(result ===null){
@@ -137,17 +133,13 @@ class FreeboardStore{
     @action 
     async onCheckPwd(postId, pwd){
       let result = await this.freeApi.onCheckPwd(postId, pwd)
-      console.log("CONTAINER : ", result)
+
       return this.pwd_check= result
     }
 
     @action 
     async onCreateSubComment(postId, comment){
-      console.log(postId, comment)
-
       let commentId = comment.commentId;
-
-      console.log(postId, commentId, comment)
       let result = await this.freeApi.freeboardsubCommCreate(postId, commentId, comment);
 
       if(result == null){
@@ -159,7 +151,6 @@ class FreeboardStore{
 
     @action
     async onDeleteSubComment(commentId, subCommId, pwd){
-      console.log(commentId, subCommId, pwd)
       let postId = this.freeboard_detail.id;
 
       let result = await this.freeApi.freeboardsubCommDelete(postId, commentId, subCommId, pwd);
@@ -173,23 +164,20 @@ class FreeboardStore{
 
     @action
     onLikePost =(like)=>{
-      console.log("store" + like)
       let postId = this.freeboard_detail.id;
 
       if(like ===false){
         let result = this.freeApi.freeboardPostLike(postId);
 
-        console.log(result);
-        console.log(this.freeboard_detail)
       }else{
         this.freeApi.freeboardPostDislike(postId);
-        console.log("dislike post store;")
+ 
       }
     }
 
     @action
     async onDeletePost(postId){ 
-      console.log(postId)
+
 
         let result = await this.freeApi.freeboardPostDelete(postId)
         if(result ==null){
@@ -204,7 +192,7 @@ class FreeboardStore{
 
       let select_post = []
       if(cate_list.length===0){
-        console.log("No category")
+
           this.freeboard_select_posts= this.freeboard_list
           
       }else{

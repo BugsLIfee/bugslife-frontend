@@ -102,7 +102,6 @@ export default class Otheruserstore extends Component {
         let attend = await this.attendApi.attendList(uid);
         this.attendDate = attend.length;
         this.likes =  await this.otherApi.getLikes(uid);
-        console.log(this.likes)
     }
 
 }

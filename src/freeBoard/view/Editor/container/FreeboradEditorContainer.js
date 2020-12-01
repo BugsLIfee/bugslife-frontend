@@ -11,7 +11,6 @@ class FreeboardEditorContainer extends Component {
     state=({done: false, postId:""})
 
     render() {
-        console.log(this.props.history)
         const { freeboard_cate } = this.props.Store.freeboard;
         const onCreatePost =async (post)=>{
             await this.props.Store.freeboard.onCreatePost(post)

@@ -30,7 +30,7 @@ class ReportStore {
 
     @action
     async receipt_report(id, is_blind) {
-        console.log("비포", this.reportList)
+
         this.reportList = this.reportList.map(report => {
             if(report.id === id ){
                 report.done = true;
@@ -38,7 +38,7 @@ class ReportStore {
             }
             return report;
         })
-        console.log("애푸터",this.reportList)
+
         await this.reportApi.reportDone(id);
     }
 }

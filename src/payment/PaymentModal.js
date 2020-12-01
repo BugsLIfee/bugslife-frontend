@@ -77,7 +77,6 @@ function PaymentModal (props) {
     })
 
     /* 4. 결제 창 호출하기 */
-    // console.log(payment_data)
     IMP.request_pay(data, callback);
   }
 

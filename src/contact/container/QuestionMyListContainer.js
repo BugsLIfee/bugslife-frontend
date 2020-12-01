@@ -18,7 +18,6 @@ class QuestionMyListContainer extends Component {
        //myqeustionlist 
        let userId =59824;
        let questionMyList =this.props.Store.question.selectQuestion(userId);
-       console.log("questionmyListContainer 59824:", questionMyList);
         //let qna = qna;
         //let qnatype = qnatype;
         return (

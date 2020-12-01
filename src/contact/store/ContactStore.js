@@ -12,6 +12,6 @@ export default class ContactStore {
   @action
   setMenu(menu) {
     this.menu = menu;
-    console.log("contactstore:", this.menu);
+
   }
 }

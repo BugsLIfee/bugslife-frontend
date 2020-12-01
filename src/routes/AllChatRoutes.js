@@ -5,8 +5,6 @@ import ChatroomPage from "../allChat/pages/ChatroomPage";
 import io from "socket.io-client";
 import makeToast from "../allChat/config/Toaster";
 const AllChatRoutes = ({ match }) => {
-  console.log("allchat router 왔어요?");
-
 
    const [socket, setSocket] = React.useState(null);
 

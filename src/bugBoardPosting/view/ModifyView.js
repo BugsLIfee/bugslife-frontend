@@ -47,7 +47,7 @@ export default class PostingView extends Component {
             const tag_copy = tags.filter((tag) => {
                 return tag !== delete_tag
             })
-            console.log(tag_copy)
+      
             this.setState({
                 ...this.state,
                 tags : tag_copy

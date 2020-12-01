@@ -18,7 +18,7 @@ class AnswerEditContainer extends Component {
     
    // let answerData = this.answer.getanswer;
     
-    console.log("addAnswer함수 호출", answerObj);
+
    
     this.answer.onAddanswer(answerObj);
     alert("성공");
@@ -27,7 +27,6 @@ class AnswerEditContainer extends Component {
 
   onRemoveAnswer = () => {
     let answerData = this.answer.getAnswer;
-    console.log("remvoe----", answerData.id);
     this.answer.removeAnswer(answerData.id);
   };
 
