@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Search from "./SearchView";
+// import Search from "./SearchView";
 import "./scss/mainTop.scss";
 import BackgroundView from "../background/BackgroundView";
 

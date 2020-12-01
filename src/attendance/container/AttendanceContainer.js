@@ -5,6 +5,7 @@ import { inject, observer } from "mobx-react"
 import { ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { getCurrentUser } from "../../oauth/api/APIUtils"
+// import { computedDecorator } from 'mobx/lib/internal';
 
 
 @inject("Store")
@@ -14,7 +15,6 @@ import { getCurrentUser } from "../../oauth/api/APIUtils"
     componentDidMount=async()=>{
         let user;
 
-        console.log("====componentDidMount")
         await getCurrentUser().then((res)=>{
             user = res;
             const accountId = user.id;
@@ -79,17 +79,22 @@ import { getCurrentUser } from "../../oauth/api/APIUtils"
 
     onClickBtn =async (user_id)=>{
         let {error} = this.props.Store.attendance;
-        console.log("error : " + error)
         let today = new Date();   
 
         let year = today.getFullYear(); // 년도
         let month = today.getMonth() + 1;  // 월
         let date = today.getDate();  // 날짜
         
+        console.log("DATE", date)
+        if(date <10 ){
+           date = `0${date}`
+        }
+
+
         let newDate = `${year}-${month}-${date}`
 
-        // console.log(newDate, user_id)
-        // console.log(this.state)
+        console.log(newDate)
+
         await this.props.Store.attendance.addAttn(user_id,newDate)
          
         let pointObj ={
@@ -99,7 +104,6 @@ import { getCurrentUser } from "../../oauth/api/APIUtils"
             }
         await this.props.Store.point.onAddPoint(pointObj)
 
-            
 
 
         if(error.length!==0){
@@ -137,6 +141,8 @@ import { getCurrentUser } from "../../oauth/api/APIUtils"
         let userInfo = this.props.Store.oauth.currentUser;
         let uid = userInfo.id;
         let done = userInfo.attend;
+
+        console.log(allList)
 
         return (
             <div className="attn_wrap">

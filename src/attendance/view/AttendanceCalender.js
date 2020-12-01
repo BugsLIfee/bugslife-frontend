@@ -13,6 +13,7 @@ export default class Attendancecalender extends Component {
 
         if(attendance!==undefined){
           attn_event = attendance.map(val=> {return {title : "출석완료" , date : val.attendDate}})
+          console.log(attn_event)
         }
         return (
             <div className="attendance_calendar_container">

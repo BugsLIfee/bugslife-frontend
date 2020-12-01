@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { List, Feed, Icon, Segment } from "semantic-ui-react";
+import { List, Feed,  Segment } from "semantic-ui-react";
 import CountUp from "react-countup";
 import "./scss/otherUserView.scss"
 
@@ -16,6 +16,7 @@ export default class OtherUserView extends Component {
         const top5_list = top5.map(post => {
             return (
                 <Feed.Event
+                    className="feed_container"
                     image={image}
                     date={post.registDate}
                     summary= {<div style={{ width: '100%', height: '3rem', overflow:"hidden", fontSize:"1rem"}} dangerouslySetInnerHTML= {{__html:post.content} } />}

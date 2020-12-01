@@ -1,7 +1,4 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
-// import { useHistory } from "react-router-dom";
-
 import "./scss/nav.scss";
 import {observer,inject} from "mobx-react";
 import swal from 'sweetalert';
