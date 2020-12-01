@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { List, Feed,  Segment } from "semantic-ui-react";
 import CountUp from "react-countup";
 import "./scss/otherUserView.scss"
+import { Link } from "react-router-dom";
 
 export default class OtherUserView extends Component {
 
@@ -32,7 +33,7 @@ export default class OtherUserView extends Component {
                 <Segment inverted>
                 <List divided inverted relaxed>
                   {questions.map(question=>{return(
-
+                    <a className="otherPost_link" href={`/detail/${question.id}`}>
                       <List.Item>
                       <List.Content>
                       <List.Header>{question.registDate}</List.Header>
@@ -41,7 +42,8 @@ export default class OtherUserView extends Component {
                       <br />
                       <div style={{marginTop : "0.5rem", width: '100%', height: '3rem', overflow:"hidden", textOverflow:"ellipsis"}} dangerouslySetInnerHTML= {{__html:question.content} } />
                       </List.Content>
-                  </List.Item>)
+                  </List.Item>
+                  </a>)
                   })}
                 </List>
             </Segment>            
