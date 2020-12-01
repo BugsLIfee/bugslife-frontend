@@ -5,12 +5,15 @@ import "../scss/comment.scss"
 export default class CommentView extends Component {
 
     render() {
-        const { comment, currentUserId, onDeleteComment} = this.props;
+        const { comment, currentUserId, onDeleteComment, user} = this.props;
         return(
             <div>
                 <div className="comment">
                     <div className="comment_info">
-                        <a href="/">{comment.writerName}</a> 
+                        { user ? 
+                            <a href="/">{user.name}</a> 
+                            : <></>
+                        }
                         <span className="comment_date">{comment.registDate.substring(0,10)} | </span>
                         { currentUserId !== comment.writerId ?
                             <div className="report"> 

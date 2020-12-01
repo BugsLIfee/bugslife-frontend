@@ -13,6 +13,7 @@ class QuestionCommentListContainer extends Component {
         const onDeleteComment = (id) => {
             this.props.Store.detail.onDeleteComment(id)
         }
+        const userList = this.props.Store.oauth.userList;
 
         return (
             <div>
@@ -20,6 +21,7 @@ class QuestionCommentListContainer extends Component {
                     comments={comments}
                     currentUserId = {currentUserId}
                     onDeleteComment = {onDeleteComment}
+                    userList = {userList}
                 />
             </div>
         );

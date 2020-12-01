@@ -66,8 +66,10 @@ export default class FreeboardEditorView extends Component {
     onSetDate=()=>{
         let today =  new Date();
         let Y =today.getFullYear()
-        let M = today.getMonth();
+        let M = today.getMonth()+1;
         let D = today.getDate();
+
+        console.log(Y,M,D)
         return this.setState({...this.state, registerDate : `${Y}-${M}-${D}`, updateDate:`${Y}-${M}-${D}` })
     }
 

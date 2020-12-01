@@ -6,9 +6,9 @@ export default class Listtagview extends Component {
   render() {
     const { tagAll, searchTag } = this.props
 
-    const tags = tagAll.map((tag) => {
+    const tags = tagAll.map((tag, index) => {
       return (
-        <span className="tagLists" >
+        <span className="tagLists" key={index}>
           <Badge variant="primary" onClick={()=>{searchTag(tag)}}>{tag}</Badge>
         </span>
       )
