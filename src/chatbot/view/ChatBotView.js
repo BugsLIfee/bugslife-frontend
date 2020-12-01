@@ -32,7 +32,7 @@ class ChatBotView extends Component {
         }
         return (
             <div onClick={()=>openChatbot()} id="chatbot_box" >
-                <img id="chatbot_icon" src="../../chat/chatBotButton.png" alt="chatboticon"/>
+                <img id="chatbot_icon" src="/chat/chatBotButton.png" alt="chatboticon"/>
             </div>
         );
     }
