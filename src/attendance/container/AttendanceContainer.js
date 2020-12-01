@@ -88,13 +88,12 @@ import { getCurrentUser } from "../../oauth/api/APIUtils"
         console.log("DATE", date)
         if(date <10 ){
            date = `0${date}`
+        }else if(month<10){
+            month = `0${month}`
         }
 
-
         let newDate = `${year}-${month}-${date}`
-
         console.log(newDate)
-
         await this.props.Store.attendance.addAttn(user_id,newDate)
          
         let pointObj ={
