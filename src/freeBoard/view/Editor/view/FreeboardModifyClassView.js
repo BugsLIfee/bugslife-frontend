@@ -53,9 +53,9 @@ import swal from 'sweetalert';
     }
 
     onSetDate=()=>{
-        let today =  new Date();
+        let today = new Date();
         let Y =today.getFullYear()
-        let M = today.getMonth();
+        let M = today.getMonth()+1;
         let D = today.getDate();
         return this.setState({...this.state, updateDate:`${Y}-${M}-${D}` })
     }
