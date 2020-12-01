@@ -68,7 +68,7 @@ export default class FreeboardEditorView extends Component {
         let Y =today.getFullYear()
         let M = today.getMonth();
         let D = today.getDate();
-        return this.setState({...this.state, registerDate : `${Y}-${M}-${D}`, updateDate:`${Y}-${M}-${D}` })
+        return this.setState({...this.state, registerDate : `${Y}-${M+1}-${D}`, updateDate:`${Y}-${M+1}-${D}` })
     }
 
     onValidationCheck=(event)=>{
