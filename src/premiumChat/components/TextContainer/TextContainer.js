@@ -1,6 +1,4 @@
 import React from 'react';
-import ScreenShareBtn from '../../../allChat/screen-share/ScreenSharingBtn';
-
 import onlineIcon from '../../icons/onlineIcon.png';
 
 import './TextContainer.scss';
@@ -8,7 +6,7 @@ import './TextContainer.scss';
 const TextContainer = ({ users }) => (
   <div className="textContainer">
     <div>
-      {/* <ScreenShareBtn/> */}
+
     </div>
     {
       users

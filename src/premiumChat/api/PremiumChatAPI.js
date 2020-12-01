@@ -1,5 +1,4 @@
-import axios from "axios";
-import {CHAT_API_URL} from "../../oauth/constants/index";
+
 import {request} from "../../oauth/api/APIUtils";
 
 export function createPremiumChatroom (questionId,questionUserId, answerUserId) {

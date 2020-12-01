@@ -4,7 +4,6 @@ import "../styles/premiumchat-common.scss";
 import "../styles/premiumchat-chatroom.scss";
 import "../styles/premiumchat-index.scss";
 import ChatroomPage from '../pages/ChatroomPageHook';
-import ScreenShareBtn from '../screen-share/ScreenSharingBtn';
 import { inject, observer } from 'mobx-react';
 // import qs from "qs";
 // import { withRouter } from 'react-router-dom';
@@ -57,7 +56,7 @@ class PremiumChatIndexContainer extends Component{
                 <div className="premium-chat-body">
                     <ChatroomPage socket={socket} />
                 </div>
-                <ScreenShareBtn/>
+
             </div>
         );
     }

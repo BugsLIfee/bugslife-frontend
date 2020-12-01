@@ -36,10 +36,6 @@ import Signup from "./oauth/signup/Signup";
 import { inject, Observer } from "mobx-react";
 import ChatbotContainer from "./chatbot/container/ChatbotContainer";
 import FreeboardModifyContainer from "./freeBoard/view/Editor/container/FreeboardModifyContainer";
-import AllChatIndexContainer from "./allChat/container/AllChatIndexContainer";
-
-import Chat from "./premiumChat/components/Chat/Chat";
-import PremiumChatIndexContainer from "./premiumChat/container/PremiumChatIndexContainer2";
 
 @inject("Store")
 @Observer
@@ -81,11 +77,6 @@ class App extends Component {
           <Route path="/attendance" component={Attendancecontainer} exact={true} />
           <Route path="/profile"  component={ProfileContainer} exact={true} />
           <Route path="/signup" component={Signup} exact={true}/>
-          
-            {/* <Route path="/signup"
-              render={(props) => <Signup authenticated={this.state.authenticated}
-               {...props} />}/> */}
-
           <Route path="/oauth2/redirect" component={OAuth2RedirectHandler}/>  
           <Route path="/login" component={LoginContainer} exact={true}/> 
           {/* <Route component={NotFound}></Route> */}
@@ -98,12 +89,7 @@ class App extends Component {
           <Route path="/edu/academy/:aid" component={AcademyDetailContainer}/>
           <Route path="/edu/info/:eid" component={EduDetailContainer}/>
           <Route path="/otherUser/:uid" component={OtherUserContainer}/>
-          <Route path="/chat-bot" component={ChatbotContainer}/>
-          <Route path="/all-chat" component={AllChatIndexContainer} />
-          {/* <Route path="/chat" component={Chat} exact={true}/> */}
-          <Route path="/premium-chat" component={PremiumChatIndexContainer} exact={true}/>
-          {/* <Route path="/join" component={Join} exact={true}/> */}
-   
+          <Route path="/chat-bot" component={ChatbotContainer}/>   
         </Switch>
       </Router>
       < ChatbotContainer />

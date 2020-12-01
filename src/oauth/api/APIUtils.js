@@ -1,4 +1,4 @@
-import { AUTH_API_URL , ACCESS_TOKEN } from '../constants/index';
+import {  ACCESS_TOKEN } from '../constants/index';
 
 export function  request  (options)  {
     const headers = new Headers({
