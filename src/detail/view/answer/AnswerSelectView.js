@@ -29,7 +29,7 @@ export default class AnswerSelectView extends Component {
                             {question.writerId === user.id && question.premium ?
                                 <div>
                                     <div className="writer_chat">
-                                        <Button onClick={() =>onOpenChat(question.id , question.writerId ,answer.writerId)}>채팅요청하기</Button>
+                                        <Button onClick={() =>onOpenChat(question.id , question.writerId)}>채팅요청하기</Button>
                                     </div>
                                 </div>
                                 :<></>
@@ -37,7 +37,7 @@ export default class AnswerSelectView extends Component {
                             {answer.writerId === user.id && question.premium ?
                                 <div>
                                     <div className="writer_chat">
-                                        <Button onClick={() =>onOpenChat(question.id , question.writerId ,answer.writerId)}>채팅요청받기</Button>
+                                        <Button onClick={() =>onOpenChat(question.id , answer.writerId)}>채팅요청받기</Button>
                                     </div>
                                 </div>
                                 :<></>
