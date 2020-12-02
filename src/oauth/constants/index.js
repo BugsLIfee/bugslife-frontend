@@ -13,12 +13,12 @@ export const CHAT_API_PORT = '8085';
 //url
 // export const AUTH_API_URL = API_BASE_URL+AUTH_API_PORT;
 export const AUTH_API_URL = AWS_URL;
-export const BUGBOARD_API_URL = API_BASE_URL+BUGBOARD_API_PORT;
+export const BUGBOARD_API_URL = AUTH_API_URL+BUGBOARD_API_PORT;
 // export const BUGBOARD_API_URL = API_BASE_URL+BUGBOARD_API_PORT;
-export const EDUCATION_API_URL = API_BASE_URL+'8088';
+export const EDUCATION_API_URL = AUTH_API_URL+'8088';
 // export const EDUCATION_API_URL = API_BASE_URL+EDUCATION_API_PORT;
-export const FREEBOARD_API_URL = API_BASE_URL+FREEBOARD_API_PORT;
-export const ADMIN_API_URL = API_BASE_URL+ADMIN_API_PORT;
+export const FREEBOARD_API_URL = AUTH_API_URL+FREEBOARD_API_PORT;
+export const ADMIN_API_URL = AUTH_API_URL+ADMIN_API_PORT;
 // export const CHAT_API_URL = API_BASE_URL+CHAT_API_PORT;
  export const CHAT_API_URL = "/api/premium-chat";
 
@@ -26,7 +26,6 @@ export const ADMIN_API_URL = API_BASE_URL+ADMIN_API_PORT;
 
 export const ACCESS_TOKEN = 'bugslifee';
 export const OAUTH2_REDIRECT_URI = 'http://bugslife.shop/oauth2/redirect'
-
 
 export const GOOGLE_AUTH_URL = AUTH_API_URL + '/oauth2/authorize/google?redirect_uri=' + OAUTH2_REDIRECT_URI;
 export const FACEBOOK_AUTH_URL = AUTH_API_URL + '/oauth2/authorize/facebook?redirect_uri=' + OAUTH2_REDIRECT_URI;
