@@ -43,40 +43,30 @@ span {
 }
 
 .item-center {
-  //flex-grow: 5;
-  //   background: #999;  
   .inner {
     position: relative;
   }
 
-  .title {
-    display: flex;
+  div.title {
+    width: 100%;
     white-space: nowrap;
-    font-size: 2rem;
-    width: fit-content;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+  a.title {
+    display: flex;
+    font-size: 1.5rem;
     color: black;
     align-items: center;
-    
-    .premium{
-      align-items: center;
-      margin: 0 1rem;
-      height: fit-content;
-      background-color: black;
-      font-size: small;
-      border-radius: 0.3rem;
-      padding: 0.2rem;
-      padding-right: 0.5rem;
-      color: white;
-    }
+    width: 100%;
   }
+
   .date {
     display: block;
     font-size: 1.1rem;
     color: rgb(88, 88, 88);
     .over_due {
-      color: red;
+      color: rgb(206, 53, 53);
       font-weight: 500;
     }
     .under_due {
@@ -87,20 +77,10 @@ span {
   .tab-box {
     display: flex;
     justify-content: space-between;
-    //margin-top: 15px;
 
-    // ul {
-    //   display: flex;
-    //   li {
-    //     justify-content: space-between;
-    //   }
-    // }
     .tag-box {
       margin-top: 15px;
     }
-  }
-  .img {
-    width: 20px;
   }
 
   .tagFont {
@@ -108,25 +88,27 @@ span {
   }
 
   .box-grade {
-    //position: absolute;
-    //right: 20px;
-    //bottom: 0px;
     display: flex;
     align-items: center;
-    margin-right: 40px;
+    margin-right: 0.5rem;
     margin-top: 0px;
 
     .btn-grade {
       img {
         border-radius: 100%;
+        width: 35px !important;
+        height: 35px !important;
       }
     }
 
     .value {
-      margin-left: 30px;
+      margin-left: 5px;
       margin-top: -2px;
       span {
         display: block;
+      }
+      a {
+        color: black;
       }
       a:hover {
         text-decoration: none;
@@ -150,8 +132,6 @@ span {
   justify-content: flex-start;
 
   .point {
-    // border: 1px solid #e2e2e2;
-    // border-radius: 10px;
     height: 75px;
     font-size: 2rem;
     display: flex;
@@ -160,7 +140,6 @@ span {
     align-items: center;
     position: absolute;
     top: 3rem;
-    //-webkit-text-stroke: 1px #1d7fff;
 
     .p {
       color: #6aa8ff;
@@ -172,7 +151,6 @@ span {
     margin-top: 0px;
     position: absolute;
     top: -5px;
-    // margin-left: px;
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -184,5 +162,22 @@ span {
     img {
       width: 40px;
     }
+  }
+}
+
+.date_premium {
+  display: flex;
+  flex-direction: row;
+  padding-top: 0.3rem;
+  .premium {
+    align-items: center;
+    margin: 0 1rem;
+    height: fit-content;
+    background-color: black;
+    font-size: small;
+    border-radius: 0.3rem;
+    padding: 0.2rem;
+    padding-right: 0.5rem;
+    color: white;
   }
 }
