@@ -24,7 +24,7 @@ const Chat = ({ location }) => {
   useEffect(() => {
     const { name, room } = queryString.parse(location.search);
 
-      socket = io(ENDPOINT, {transports:['websocket']});
+      socket = io(ENDPOINT, {path:'/private-socket', transports:['websocket']});
 
       console.log("----socket---", socket.connected);
 
