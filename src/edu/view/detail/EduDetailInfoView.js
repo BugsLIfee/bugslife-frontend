@@ -10,7 +10,7 @@ export class EduDetailInfoView extends Component {
         return (
                <Grid className="eduInfoTable">
                     <Grid.Column width={3} className="eduInfoImg">
-                        <Image src="/logo/academy.png" alt="eduimg"/>
+                        {/* <Image src="/logo/academy.png" alt="eduimg"/> */}
                         <div className="eduRate">
                             <p>교육과정 총평</p> 
                             <div><span className="eduRateVallue">{isNaN(eduInfo.eduRate) ? 0 : parseInt(eduInfo.eduRate*4)/2}</span>
