@@ -27,13 +27,18 @@ class ListViewMain extends Component {
         <div className="inner">
           <div className="title">
             <Link to={`/detail/${listView.id}`} className="title">
-              {listView.title} 
+              <h4>{listView.title} </h4>
             </Link>
-            { listView.premium ? 
-              <h5 className="premium"><span role="img" aria-label="Description of the overall image">✨</span> Premium </h5>
-              : <></>}
+    
           </div>
-          <span className="date">{listView.registDate.substring(0,10)}</span>
+          <div className="date_premium">
+          <span className="date">{listView.registDate.substring(0,10)}
+          </span>
+          { listView.premium ? 
+              <h5 className="premium">
+                <span role="img" aria-label="Description of the overall image">✨</span> Premium </h5>
+              : <></>}
+            </div>
           <span className="date">
             {dueDate < 0 ? <span className="over_due"> 마감됨 </span> : <span className="under_due"> D-{dueDate}</span>}
           </span>

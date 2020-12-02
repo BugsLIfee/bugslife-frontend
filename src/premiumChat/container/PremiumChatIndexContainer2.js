@@ -14,7 +14,6 @@ import { inject, observer } from 'mobx-react';
 class PremiumChatIndexContainer extends Component{
 
    constructor(props) {
-  
         super(props);
         this.state = {
             socket: null,
