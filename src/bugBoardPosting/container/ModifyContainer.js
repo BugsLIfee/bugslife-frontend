@@ -27,6 +27,7 @@ class ModifyContainer extends Component {
             questionObj.content = postObj.content
             questionObj.dueDate = getFormatDate(postObj.dueDate)
             questionObj.tags = postObj.tags
+            questionObj.premium = postObj.premium
             bugBoardPosting.onModifyQuestion(questionObj)
         }
         return (

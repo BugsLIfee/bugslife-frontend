@@ -18,7 +18,8 @@ export default class PostingView extends Component {
             title: this.props.question.title,
             content: this.props.question.contetn, 
             dueDate: new Date(this.props.question.dueDate.substring(0,4), this.props.question.dueDate.substring(5,7)-1, this.props.question.dueDate.substring(8,10)),
-            tags : this.props.question.tags ? this.props.question.tags : []
+            tags : this.props.question.tags ? this.props.question.tags : [],
+            premium : this.props.question.premium
         }
     }
     

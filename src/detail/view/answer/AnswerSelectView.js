@@ -33,7 +33,15 @@ export default class AnswerSelectView extends Component {
                                     </div>
                                 </div>
                                 :<></>
-                            }   
+                            }
+                            {answer.writerId === user.id && question.premium ?
+                                <div>
+                                    <div className="writer_chat">
+                                        <Button onClick={() =>onOpenChat(question.id , question.writerId ,answer.writerId)}>채팅요청받기</Button>
+                                    </div>
+                                </div>
+                                :<></>
+                            }      
                         </div>
                         : <></>
                     )
