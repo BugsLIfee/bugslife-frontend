@@ -54,14 +54,14 @@ class EduListContainer extends Component {
             return (
                 <div className="eduListItem">
                     <Grid className="eduItemGrid">
-                        <Grid.Column width={3} className="eduItemImg">
-                            {/* <EduListImageContainer eduImg={eduList.imgUrl}/> */}
+                        {/* <Grid.Column width={3} className="eduItemImg">
+                            <EduListImageContainer eduImg={eduList.imgUrl}/>
                             <EduListImageContainer/>
-                        </Grid.Column>
-                        <Grid.Column width={10} className="eduItemMain">
+                        </Grid.Column> */}
+                        <Grid.Column width={12} className="eduItemMain">
                             <EduListMainContainer eduList={eduList} onSelect={this.onSelect}/>
                         </Grid.Column>
-                        <Grid.Column width={3} className="eduItemRating">
+                        <Grid.Column width={4} className="eduItemRating">
                             <EduListRatingContainer eduList={eduList} eduId={eduList.id}/>
                         </Grid.Column>
                     </Grid>
