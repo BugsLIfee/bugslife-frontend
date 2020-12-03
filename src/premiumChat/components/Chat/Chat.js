@@ -9,7 +9,7 @@ import Input from '../Input/Input';
 
 import './Chat.scss';
 
-const ENDPOINT = 'http://localhost:8089';
+const ENDPOINT = 'http://bugslife.shop';
 
 let socket;
 
@@ -26,7 +26,7 @@ const Chat = ({ location }) => {
 
       socket = io(ENDPOINT, {path:'/private-socket', transports:['websocket']});
 
-      console.log("----socket---", socket.connected);
+      console.log("----socket---", socket);
 
     setRoom(room);
     setName(name)

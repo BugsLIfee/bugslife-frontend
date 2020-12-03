@@ -49,7 +49,7 @@ class AnswerContainer extends Component {
 
            createPremiumChatroom(questionId);
 
-           const url=`bugslife.shop/private-chat?room=${questionId}&name=${user.name}`;
+           const url=`/private-chat?room=${questionId}&name=${user.name}`;
            const popup_option="width=360px,height=517px,fullscreen=no";
         //    socket = io(ENDPOINT);
            window.open(url,'프리미엄채팅방',popup_option);
