@@ -125,3 +125,11 @@
     margin-bottom: 30%;
   }
 }
+
+@media (max-width: 500px) {
+  .plan_premium_contents {
+    h3 {
+      font-size: 0.4rem;
+    }
+  }
+}
