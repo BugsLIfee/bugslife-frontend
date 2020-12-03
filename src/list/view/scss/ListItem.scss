@@ -47,10 +47,14 @@ span {
     position: relative;
   }
 
+  h4 {
+    font-size: 18px;
+  }
+
   div.title {
     width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
+    // white-space: nowrap;
+    // overflow: hidden;
     text-overflow: ellipsis;
   }
   a.title {
