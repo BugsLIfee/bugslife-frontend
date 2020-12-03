@@ -69,7 +69,7 @@ class Nav extends Component {
         )  
         :(
         <div>
-            <a href="/signup">
+            <a href="/loginTo">
               {" "}
               <h4>로그인</h4>
             </a>
@@ -132,7 +132,7 @@ class Nav extends Component {
       )  
       :(
           <div>
-            <a href="/signup">
+            <a href="/loginTo">
               {" "}
               <h4>로그인</h4>
             </a>
