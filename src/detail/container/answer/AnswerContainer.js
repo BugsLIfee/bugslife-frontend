@@ -45,11 +45,11 @@ class AnswerContainer extends Component {
         }
 
 
-        const onOpenChat=(questionId,questionUserId, answerUserId)=>{
+        const onOpenChat=(questionId, clickuUserId)=>{
 
-           createPremiumChatroom(questionId,questionUserId,answerUserId);
+           createPremiumChatroom(questionId);
 
-           const url=`/chat?room=${questionId}&questionUserId=${questionUserId}&answerUserId=${answerUserId}&name=${user.name}`;
+           const url=`/private-chat?room=${questionId}&name=${user.name}`;
            const popup_option="width=360px,height=517px,fullscreen=no";
         //    socket = io(ENDPOINT);
            window.open(url,'프리미엄채팅방',popup_option);
