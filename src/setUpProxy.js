@@ -75,8 +75,8 @@ module.exports = function (app) {
   app.use(
    "/api/freeboard/",
     createProxyMiddleware({
-      target: AWS_URL,
-      //target: "http://localhost:8083",
+      // target: AWS_URL,
+      target: "http://localhost:8083",
       changeOrigin: true,
     })
   );

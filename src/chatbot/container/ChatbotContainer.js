@@ -82,7 +82,7 @@ function ChatbotContainer () {
       {
         id: '12',
         component: (
-          <div> <a href="/edu">교육과정 보러 가기</a> </div>
+          <div> <a href="/education/">교육과정 보러 가기</a> </div>
         ),
         end:true
       },

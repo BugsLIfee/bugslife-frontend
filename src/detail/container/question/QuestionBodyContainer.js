@@ -11,7 +11,7 @@ class QuestionBodyContainer extends Component {
 
         const questionBodyView = Object.keys(question).length !== 0 ? <QuestionBodyView question={ question } /> : "";
         return (
-            <div>
+            <div className="bugboard_post_body" style={{width:'80%'}}>
                 {questionBodyView}
             </div>
         );
